@@ -40,9 +40,11 @@
                 <h3 class="label label-success"><span class="glyphicon glyphicon-envelope"></span> Verified with e-mail</h3>
                 <br/><br/>
                 
-                <form action="" method="post" class="form-vertical">
+                <form action="profileAction.php" method="post" class="form-vertical">
                     <div class="form-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" name="username" class="form-control" placeholder="Username" size="10" max="10">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        
+                        <h3>USERNAME</h3>
                         
                         <input type="password" name="password" class="form-control" placeholder="Password" size="10" max="10">
                        
