@@ -17,9 +17,10 @@
 </head>
     
     <body class="row" data-ng-app="myApp">
-        <div class="well text-center col-lg-12 col-md-12" data-ng-controller="myCtrl">
-        <h1>PROFILE</h1>
-            <div id="profileDetails">
+        <div class="well text-center" data-ng-controller="myCtrl">
+            <h1>PROFILE</h1>
+
+            <div id="profileDetails" data-ng-model="profileDetails" data-ng-show="!showEdit">
                 <img src="../images/DealloLogo.png" alt="profilePicture" class="img-circle" height="200px" width="200px"/>
                 <h2>Username</h2>
                 <h3 class="label label-success"><span class="glyphicon glyphicon-envelope"></span> Verified with e-mail</h3>
@@ -29,7 +30,19 @@
                 <a href="#">Comments <span class="badge">10</span></a><br>
                 <a href="#">Updates <span class="badge">2</span></a>
                 <br/><br/>
-                <p><button type="button" class="btn btn-primary" data-ng-click="editFunc()">Edit Profile<span class="glyphicon glyphicon-pencil"></span></button></p>
+                <p><button type="button" class="btn btn-primary" data-ng-click="showEdit=!showEdit">Edit Profile<span class="glyphicon glyphicon-pencil"></span></button></p>
+            </div>
+            
+            <div id="EditProfileDetails" data-ng-model="EditProfileDetails"  data-ng-show="showEdit">
+                <img src="../images/DealloLogo.png" alt="profilePicture" class="img-circle" height="200px" width="200px"/>
+                <h2>EDIT PROFILE</h2>
+                <h3 class="label label-success"><span class="glyphicon glyphicon-envelope"></span> Verified with e-mail</h3>
+                <input type="text" class="form-control" placeholder="Username" size="10" max="10">
+                <input type="password" class="form-control" placeholder="Password" size="10" max="10">
+                <p>Kuching, Sarawak</p>
+
+                <br/><br/>
+                <p><button type="button" class="btn btn-primary" data-ng-click="showEdit=!showEdit">DONE EDITING<span class="glyphicon glyphicon-pencil"></span></button></p>
 
             </div>
         </div>
