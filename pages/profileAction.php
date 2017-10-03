@@ -8,8 +8,9 @@ $dbname = "register";
 $password1 = isset($_POST['$password'])? $_POST['$password'] : '';
 $password2 = isset($_POST['$password2'])? $_POST['$password2'] : '';
 $email = isset($_POST['email'])? $_POST['email'] : '';
-//$cityCountry = $_POST['cityCountry'];
-//$bio = $_POST['bio'];
+$cityCountry = isset($_POST['cityCountry'])? $_POST['cityCountry'] : '';
+
+$bio = isset($_POST['bio'])? $_POST['bio'] : '';
 
 
 // Create connection

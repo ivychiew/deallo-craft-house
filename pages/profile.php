@@ -1,10 +1,36 @@
+<?php
+
+    if(isset($_POST['submitform']))
+    {
+        $dir="upload/";
+        $image=$_FILES['uploadfile']['name'];
+        $temp_name=$_FILES['uploadfile']['tmp_name'];
+
+        if($image!="")
+        {
+            if(file_exists($dir.$image))
+            {
+                $image= time().'_'.$image;
+            }
+
+            $fdir= $dir.$image;
+            move_uploaded_file($temp_name, $fdir);
+        }
+
+            $query="insert IGNORE into 'images' ('id','file') values ('','$image')";
+            mysqli_query($con,$query) or die(mysqli_error($con));
+
+            echo "File Uploaded Suucessfully!";
+    }
+?>
+
 <!DOCTYPE html> 
 <html>
 <head>
     <title>Deallo User Profile</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-    <!--<link href="style.css" rel="stylesheet" type="text/css">-->
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
     elements and media queries --> 
@@ -42,6 +68,7 @@
                 <br/><br/>
                 
                 <form action="profileAction.php" name="profileAction" id="profileAction" method="post" class="form-vertical" novalidate>
+                    
                     <div class="form-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         
@@ -50,6 +77,10 @@
                         <input type="text" name="password" class="form-control" placeholder="Password" size="10" max="10">
                        
                         <input type="passwordTwice" name="passwordTwice" class="form-control" placeholder="Password, again" size="10" max="10">
+                        
+                        <br/>
+                        <label class="control-label">Profile Picture </label>
+                        <input class="input-group" type="file" name="uploadfile" accept="image/*" />
                         
 <!--
                         <input type="email" name="email" class="form-control" placeholder="E-mail address" size="20" max="20">
@@ -60,8 +91,11 @@
 -->
 
                         <br/><br/>
-                        <p><button type="submit" class="btn btn-primary" form="profileAction" data-ng-click="showEdit=!showEdit">DONE EDITING<span class="glyphicon glyphicon-pencil"></span></button></p>
+                        <p>
+                            <button type="submit" class="btn btn-primary" form="profileAction" data-ng-click="showEdit=!showEdit" name="submitForm">DONE EDITING<span class="glyphicon glyphicon-pencil"></span></button>
+                        </p>
                     </div>
+ 
                 
                 </form>
             </div>
