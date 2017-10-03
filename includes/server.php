@@ -50,7 +50,7 @@
 //...
 
 
-// Login User 
+// Login User + Encryption
 
 	if (isset($_POST['login_user'])) {
 		$username = mysqli_real_escape_string($dbi, $_POST['username']);
