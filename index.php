@@ -2,7 +2,7 @@
   session_start(); 
 
   if (!isset($_SESSION['username'])) {
-    $_SESSION['msg'] = "You must log in first";
+    $_SESSION['msg'] = "You must login first";
     header('location: login.php');
   }
 
@@ -68,7 +68,7 @@
                   <a class="nav-link" href="index.php?logout='1'">Sign out</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="register.php">Edit Profile</a>
+                  <a class="nav-link" href="pages/profile.php">Profile</a>
                 </li>
 
              <?php endif ?>
