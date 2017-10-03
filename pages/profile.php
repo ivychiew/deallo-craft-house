@@ -45,17 +45,19 @@
                     <div class="form-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         
-                        <h3>USERNAME</h3>
+                        <h3><?php $username ?></h3>
                         
-                        <input type="password" name="password" class="form-control" placeholder="Password" size="10" max="10">
+                        <input type="text" name="password" class="form-control" placeholder="Password" size="10" max="10">
                        
                         <input type="passwordTwice" name="passwordTwice" class="form-control" placeholder="Password, again" size="10" max="10">
                         
+<!--
                         <input type="email" name="email" class="form-control" placeholder="E-mail address" size="20" max="20">
                         
                         <input type="cityCountry" name="cityCountry" class="form-control" placeholder="City,Country" size="10" max="10">
 
                         <textarea class="form-control" rows="5" id="bio" name="bio" placeholder="Describe yourself here..."></textarea>
+-->
 
                         <br/><br/>
                         <p><button type="submit" class="btn btn-primary" form="profileAction" data-ng-click="showEdit=!showEdit">DONE EDITING<span class="glyphicon glyphicon-pencil"></span></button></p>

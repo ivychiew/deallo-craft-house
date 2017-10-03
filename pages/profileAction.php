@@ -25,17 +25,18 @@ if (!$conn) {
 if($password1 <> $password2)
 {
     echo "Your passwords do not match!";
-//    echo $password1;
+
 //    echo $password2;
 }
 else{
 //    $sql = "UPDATE users SET password='$password1',email='$email',cityCountry='$cityCounty', bio='$bio' WHERE username='$username'";
 
-    $sql = "UPDATE users SET email='TESTER IS HERE' WHERE id=1";
+    $sql = "UPDATE users SET password='$password1' WHERE id=1";
 }
 
 if (mysqli_query($conn, $sql)){
     echo "Record updated successfully";
+    echo "Pssword: $password1";
 } else {
     echo "Error updating record: " . mysqli_error($conn);
 }
