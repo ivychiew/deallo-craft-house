@@ -31,7 +31,7 @@ if($password1 <> $password2)
 else{
 //    $sql = "UPDATE users SET password='$password1',email='$email',cityCountry='$cityCounty', bio='$bio' WHERE username='$username'";
 
-    $sql = "UPDATE users SET email='testerSUCCESS' WHERE id=2";
+    $sql = "UPDATE users SET email='TESTER IS HERE' WHERE id=1";
 }
 
 if (mysqli_query($conn, $sql)){

@@ -41,7 +41,7 @@
                 <h3 class="label label-success"><span class="glyphicon glyphicon-envelope"></span> Verified with e-mail</h3>
                 <br/><br/>
                 
-                <form action="profileAction.php" name="profileAction" id="profileAction" method="post" class="form-vertical">
+                <form action="profileAction.php" name="profileAction" id="profileAction" method="post" class="form-vertical" novalidate>
                     <div class="form-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         
