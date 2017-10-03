@@ -21,7 +21,7 @@
 		as soon as possible.</h5>
 	</div>
 	
-	<form method="post" class="form form-horizontal" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	<form method="post" class="form form-horizontal" action="mailto:100066109@students.swinburne.edu.my">
 		<div>
 			<label class="control-label">Email address</label>
 			<input type="text" id="email" name="email" class="form-control">
