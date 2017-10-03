@@ -15,30 +15,30 @@
     <script src="js/respond.min.js"></script> 
     <![endif]--> 
 </head>
-
-    <body data-ng-app="myApp">
-        <div class="container" data-ng-controller="passwordController">
-
-            <h1 id="dangTagline" align="center">Dang! Forgot your password?</h1>
-
-            <form method="post" form="forgotPassForm" class="form form-vertical" action="forgotPassword.php" data-ng-show="successPassword">
-                <input type="email" class="form-control" name="email" placeholder="Enter email here"/>
-                <br/>
-                <p>
-                    <button type="submit" class="btn btn-success" form="forgotPassForm" data-ng-click="successPassword=!successPassword">Reset my password</button>
-                </p>
-            </form>
-
-            <h4 data-ng-show="!successPassword" data-ng-model="USE">SUBMITTED SUCCESSFULLY! {{USE}}</h4>
-        </div>
-    </body>
     
+<body data-ng-app="">
+    <div class="container">
+
+        <h1 id="dangTagline" align="center">Dang! Forgot your password?</h1>
+
+        <form method="post" form="forgotPassForm" class="form form-vertical" action="forgotPasswordAction.php" data-ng-show="!successPassword">
+            <input type="email" class="form-control" name="email" placeholder="Enter email here"/>
+            <br/>
+            <p>
+                <button type="submit" class="btn btn-success" form="forgotPassForm" data-ng-click="successPassword=!successPassword">Reset my password</button>
+            </p>
+        </form>
+
+        <h4 data-ng-show="successPassword" data-ng-init="USE=3">SUBMITTED SUCCESSFULLY!</h4>
+    </div>
+</body>
+
     <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
     <script src="../js/jquery.min.js"></script> 
     <!-- All Bootstrap  plug-ins  file --> 
     <script src="../js/bootstrap.min.js"></script> 
     <!-- Basic AngularJS --> 
-    <script src="../js/angular.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <!-- AngularJS - Routing --> 
     <script src="../js/angular-route.min.js"></script>
     
