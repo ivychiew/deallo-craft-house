@@ -1,15 +1,15 @@
 <?php
 $servername = "localhost";
-$username = "username";
+$username = "root";
 $password = "";
 $dbname = "register";
 
-$username = $_POST['username'];
-$password1 = $_POST['$password'];
-$confirmPassword = $_POST['passwordTwice'];
-$email = $_POST['email'];
-$cityCountry = $_POST['cityCountry'];
-$bio = $_POST['bio'];
+//$username = $_POST['username'];
+$password1 = isset($_POST['$password'])? $_POST['$password'] : '';
+$password2 = isset($_POST['$password2'])? $_POST['$password2'] : '';
+$email = isset($_POST['email'])? $_POST['email'] : '';
+//$cityCountry = $_POST['cityCountry'];
+//$bio = $_POST['bio'];
 
 
 // Create connection
@@ -22,16 +22,19 @@ if (!$conn) {
 //MyGuests is TABLE NAME
 //$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
 
-if($password1 <> $confirmPassword )
+if($password1 <> $password2)
 {
     echo "Your passwords do not match!";
-}else
-{
-    $sqlpassword = UPDATE users SET password=$password1,email=$email,cityCountry=$cityCounty, bio=$bio WHERE username=$username;
+//    echo $password1;
+//    echo $password2;
+}
+else{
+//    $sql = "UPDATE users SET password='$password1',email='$email',cityCountry='$cityCounty', bio='$bio' WHERE username='$username'";
 
+    $sql = "UPDATE users SET email='testerSUCCESS' WHERE id=2";
 }
 
-if (mysqli_query($conn, $sql)) {
+if (mysqli_query($conn, $sql)){
     echo "Record updated successfully";
 } else {
     echo "Error updating record: " . mysqli_error($conn);

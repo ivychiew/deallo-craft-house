@@ -34,13 +34,14 @@
                 <p><button type="button" class="btn btn-primary" data-ng-click="showEdit=!showEdit">Edit Profile<span class="glyphicon glyphicon-pencil"></span></button></p>
             </div>
             
-            <div id="EditProfileDetails" data-ng-model="EditProfileDetails"  data-ng-show="showEdit">
+            <div id="EditProfileDetails" data-ng-model="EditProfileDetails" data-ng-show="showEdit">
+                
                 <img src="../images/DealloLogo.png" alt="profilePicture" class="img-circle" height="200px" width="200px"/>
                 <h2>EDIT PROFILE</h2>
                 <h3 class="label label-success"><span class="glyphicon glyphicon-envelope"></span> Verified with e-mail</h3>
                 <br/><br/>
                 
-                <form action="profileAction.php" method="post" class="form-vertical">
+                <form action="profileAction.php" name="profileAction" id="profileAction" method="post" class="form-vertical">
                     <div class="form-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         
@@ -57,7 +58,7 @@
                         <textarea class="form-control" rows="5" id="bio" name="bio" placeholder="Describe yourself here..."></textarea>
 
                         <br/><br/>
-                        <p><button type="submit" class="btn btn-primary" data-ng-click="showEdit=!showEdit">DONE EDITING<span class="glyphicon glyphicon-pencil"></span></button></p>
+                        <p><button type="submit" class="btn btn-primary" form="profileAction" data-ng-click="showEdit=!showEdit">DONE EDITING<span class="glyphicon glyphicon-pencil"></span></button></p>
                     </div>
                 
                 </form>
