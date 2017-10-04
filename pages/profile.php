@@ -74,9 +74,9 @@
                         
                         <h3><?php $username ?></h3>
                         
-                        <input type="text" name="password" class="form-control" placeholder="Password" size="10" max="10">
+                        <input type="text" name="password1" id="password1" class="form-control" placeholder="Password" size="10" max="10">
                        
-                        <input type="passwordTwice" name="passwordTwice" class="form-control" placeholder="Password, again" size="10" max="10">
+                        <input type="password2" name="password2" class="form-control" placeholder="Password, again" size="10" max="10">
                         
                         <br/>
                         <label class="control-label">Profile Picture </label>
