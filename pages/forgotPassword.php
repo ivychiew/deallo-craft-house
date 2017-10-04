@@ -29,7 +29,10 @@
             </p>
         </form>
 
-        <h4 data-ng-show="successPassword" data-ng-init="USE=3">SUBMITTED SUCCESSFULLY!</h4>
+        <div data-ng-show="successPassword">
+            <h4>SUBMITTED SUCCESSFULLY!</h4>
+            <p><a href="../login.php">Back to Login</a></p>
+        </div>
     </div>
 </body>
 
