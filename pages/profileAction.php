@@ -5,6 +5,7 @@ $password = "";
 $dbname = "register";
 $sql = null;
 
+//Assign local variables values from form
 $username1=$_POST['username1'];
 $password1=$_POST['password1'];
 $password2=$_POST['password2'];
@@ -16,26 +17,40 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-//MyGuests is TABLE NAME
-//$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
-
+//Checks if passwords are identical
 if($password1 <> $password2)
 {
     echo "Your passwords do not match!";
 }
 else{
-    
-    //$username1=$_SESSION['username1'];
     $sql = "UPDATE users SET password='$password1' WHERE username='$username1'";
-    echo "Password Updated Successfully!";
-}
+    
+    echo ("<SCRIPT LANGUAGE='JavaScript'>
+    window.alert('Password updated successfully')
+    window.location.href='profile.php';
+    </SCRIPT>");
+    }
 
 if (mysqli_query($conn, $sql)){
-    echo "Record updated successfully";
-} else {
+    
+    echo ("<SCRIPT LANGUAGE='JavaScript'>
+    window.alert('Password updated successfully')
+    window.location.href='profile.php';
+    </SCRIPT>");
+    
+} else{
     echo "Error updating record: " . mysqli_error($conn);
 }
 
 mysqli_close($conn);
 
 ?>
+
+<html>
+    
+    <body>
+        <h3><a href="profile.php">Back to profile page!</a></h3>
+        
+    </body>
+    
+</html>
