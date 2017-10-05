@@ -40,10 +40,10 @@ session_start();
 	<link href="../css/style.css" rel="stylesheet" type="text/css">
 	<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 	
-
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
     elements and media queries --> 
     <!-- WARNING: Respond.js doesn't work if you view the 
