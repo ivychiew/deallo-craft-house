@@ -23,10 +23,14 @@ if($password1 <> $password2)
 {
     echo "Your passwords do not match!";
 }
-else{
+elseif (isset($_SESSION['user'])) {
+    
     $username=$_SESSION['username'];
     $sql = "UPDATE users SET password=$password1 WHERE username=$username";
-}
+    } else {
+        echo "Session expired, please login again!";
+    }
+
 
 if (mysqli_query($conn, $sql)){
     echo "Record updated successfully";
