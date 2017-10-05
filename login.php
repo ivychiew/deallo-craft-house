@@ -29,6 +29,9 @@
 		<p>
 			Not yet a member? <a href="pages\register.php">Sign up</a>
 		</p>
+        <p>
+			<a href="pages\forgotPassword.php">Forgot password?</a>
+		</p>
 	</form>
 
 

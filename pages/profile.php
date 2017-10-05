@@ -68,7 +68,7 @@ session_start();
           <ul class="navbar-nav ml-auto">
          
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
+              <a class="nav-link" href="../index.php">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -135,6 +135,8 @@ session_start();
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         
                         <h3><?php $username ?></h3>
+                        
+                        <input type="text" name="username1" id="username1" class="form-control" placeholder="Username" size="10"/>
                         
                         <input type="text" name="password1" id="password1" class="form-control" placeholder="Password" size="10"/>
                        
