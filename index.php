@@ -77,10 +77,12 @@
                 <li class="nav-item">
                   <a class="nav-link" href="pages/profile.php">Profile</a>
                 </li>
-
+               <li class="nav-item">
+                  <a class="nav-link" href="pages/addproducts.php">Sell</a>
+                </li>
              <?php endif ?>
             <li class="nav-item">
-              <a class="nav-link" href="#">Products</a>
+              <a class="nav-link" href="pages/product.php">Products</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Shopping Cart</a>
