@@ -1,3 +1,15 @@
+body, html {
+    height: 100%;
+}
+
+.bg { 
+    background-image: url("../images/people.jpg");    
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 * {
 	margin: 0px;
 	padding: 0px;
@@ -11,7 +23,7 @@ body {
 	width: 30%;
 	margin: 50px auto 0px;
 	color: white;
-	background: #5F9EA0;
+	background: #003366;
 	text-align: center;
 	border: 1px solid #B0C4DE;
 	border-bottom: none;
@@ -47,7 +59,7 @@ form, .content {
 	padding: 10px;
 	font-size: 15px;
 	color: white;
-	background: #5F9EA0;
+	background: #003366;
 	border: none;
 	border-radius: 5px;
 }
