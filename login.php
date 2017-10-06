@@ -2,10 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Log in form</title>
-	<link rel="stylesheet" type="text/css" href="styles\login_styles.css">
+	<title>Deallo Craft House - Login</title>
+	<link rel="stylesheet" type="text/css" href="styles\login_styles.css"/>
+    <link rel="icon" type="image/png" href="images/DealloLogo-favicon.png"/>
 </head>
-<body>
+<body class="bg">
 
 	<div class="header">
 		<h2>Login</h2>
