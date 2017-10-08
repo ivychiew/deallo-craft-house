@@ -2,14 +2,14 @@
   session_start(); 
 
   if (!isset($_SESSION['username'])) {
-    $_SESSION['msg'] = "You must login first";
-    header('location: login.php');
+    $_SESSION['msg'] = "You must log in first";
+    header('location: pages/login.php');
   }
 
   if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['username']);
-    header("location: login.php");
+    header("location: pages/login.php");
   }
 
 ?>
@@ -19,11 +19,10 @@
 
   <head>
 
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
     <title>Shop Homepage</title>
 
@@ -33,16 +32,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
     <!-- Custom styles for this template -->
-  <link href="styles/style.css" rel="stylesheet">
-  
-      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
-    elements and media queries --> 
-    <!-- WARNING: Respond.js doesn't work if you view the 
-    page via file:// --> 
-    <!--[if lt IE 9]> 
-    <script src="js/html5shiv.js"></script> 
-    <script src="js/respond.min.js"></script> 
-    <![endif]--> 
+  <link href="../styles/style.css" rel="stylesheet">
 
   </head>
 
@@ -72,17 +62,15 @@
            <!--  <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p> -->
          
                 <li class="nav-item">
-                  <a class="nav-link" href="index.php?logout='1'">Sign out</a>
+                  <a class="nav-link" href="index.php?logout='1'" style="color: red;">Sign out</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/profile.php">Profile</a>
+                  <a class="nav-link" href="pages/profile.php">Edit Profile</a>
                 </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="pages/addproducts.php">Sell</a>
-                </li>
+
              <?php endif ?>
             <li class="nav-item">
-              <a class="nav-link" href="pages/product.php">Products</a>
+              <a class="nav-link" href="#">Products</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Shopping Cart</a>
@@ -126,10 +114,10 @@
           <!--Check user session--> 
 
           <?php  if (isset($_SESSION['username'])) : ?>
-            <h4>Welcome <strong><?php echo $_SESSION['username']; ?></strong></h4>
-            
+            <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+            <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
           <?php endif ?>
-            <br>
+
           <!--End-->
           
           <div class="list-group">
@@ -151,7 +139,7 @@
             </ol>
             <div class="carousel-inner" role="listbox">
               <div class="carousel-item active">
-                <img class="d-block img-fluid" src="images/braceletCover.png" alt="First slide">
+                 <img class="d-block img-fluid" src="images/braceletCover.png" alt="First slide">
               </div>
               <div class="carousel-item">
                 <img class="d-block img-fluid" src="images/braceletCover2.png" alt="Second slide">

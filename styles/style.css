@@ -10,9 +10,6 @@ body {
 
 footer { 
 	padding: 54px;
-	position: fixed;
-    bottom: 0;
-
  }
 @media (min-width: 992px) {
   body {

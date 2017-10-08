@@ -1,30 +1,40 @@
-<?php
-include('login.php'); // Includes Login Script
-
-if(isset($_SESSION['login_user'])){
-header("location: profile.php");
-}
-?>
+<?php include_once '..\includes\server.php' ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login Form in PHP with Session</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+	<title>Deallo Craft House - Login</title>
+	<link rel="stylesheet" type="text/css" href="..\styles\login_styles.css"/>
+    <link rel="icon" type="image/png" href="images/DealloLogo-favicon.png"/>
 </head>
-<body>
-<div id="main">
-<h1>PHP Login Session Example</h1>
-<div id="login">
-<h2>Login Form</h2>
-<form action="" method="post">
-    <label>UserName :</label>
-    <input id="name" name="username" placeholder="username" type="text">
-    <label>Password :</label>
-    <input id="password" name="password" placeholder="**********" type="password">
-    <input name="submit" type="submit" value=" Login ">
-    <span><?php echo $error; ?></span>
-</form>
-</div>
-</div>
+<body class="bg">
+
+	<div class="header">
+		<h2>Login</h2>
+	</div>
+	
+	<form method="post" action="login.php">
+
+		<?php include('..\includes\errors.php'); ?>
+
+		<div class="input-group">
+			<label>Username</label>
+			<input type="text" name="username" >
+		</div>
+		<div class="input-group">
+			<label>Password</label>
+			<input type="password" name="password">
+		</div>
+		<div class="input-group">
+			<button type="submit" class="btn" name="login_user">Login</button>
+		</div>
+		<p>
+			Not yet a member? <a href="register.php">Sign up</a>
+		</p>
+        <p>
+			<a href="forgotPassword.php">Forgot password?</a>
+		</p>
+	</form>
+
+
 </body>
 </html>

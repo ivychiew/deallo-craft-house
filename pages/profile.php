@@ -37,9 +37,9 @@ session_start();
 	
     <title>Deallo User Profile</title>
 	<!-- Custom styles for this template -->
-	<link href="../css/style.css" rel="stylesheet" type="text/css">
-	<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="..\styles\profile.css" rel="stylesheet" type="text/css">
+	<link href="..\styles\bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="..\styles\bootstrap\bootstrap.css" rel="stylesheet" type="text/css">
 	
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -73,18 +73,19 @@ session_start();
               </a>
             </li>
 
+            <!--If user is logged in, display this section of the navbar--> 
             <?php  if (isset($_SESSION['username'])) : ?>
             <!-- <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p> -->
            <!--  <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p> -->
-         
                 <li class="nav-item">
                   <a class="nav-link" href="index.php?logout='1'">Sign out</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="pages/profile.php">Profile</a>
                 </li>
-
              <?php endif ?>
+             
+
             <li class="nav-item">
               <a class="nav-link" href="#">Products</a>
             </li>
