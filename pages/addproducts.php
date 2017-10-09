@@ -1,183 +1,204 @@
- <?php
+<?php
 
-include_once("..\includes\server.php");
+	error_reporting( ~E_NOTICE ); // avoid notice
+	
+	require_once '../includes/product_config.php';
+	
+	if(isset($_POST['btnsave']))
+	{
+		$productname = $_POST['product_name'];// product name
+		$productprice = $_POST['product_price'];// product price
+		$productdesc = $_POST['product_description']; //product description
+		
+		$imgFile = $_FILES['user_image']['name'];
+		$tmp_dir = $_FILES['user_image']['tmp_name'];
+		$imgSize = $_FILES['user_image']['size'];
+		
+		
+		if(empty($productname)){
+			$errMSG = "Please Enter Your Product Name.";
+		}
+		else if(empty($productprice)){
+			$errMSG = "Please Enter the Price of the Product.";
+		}
+		else if(empty($imgFile)){
+			$errMSG = "Please Select Image File.";
+		}
+		else if(empty($productdesc)){
+			$errMSG = "Please enter a Product Description";
+		}
+		// else if(empty())
+		else
+		{
+			$upload_dir = '../images/product_images/'; // upload directory
+	
+			$imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
+		
+			// valid image extensions
+			$valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+		
+			// rename uploading image
+			$productpic = rand(1000,1000000).".".$imgExt;
+				
+			// allow valid image file formats
+			if(in_array($imgExt, $valid_extensions)){			
+				// Check file size '5MB'
+				if($imgSize < 5000000)				{
+					move_uploaded_file($tmp_dir,$upload_dir.$productpic);
+				}
+				else{
+					$errMSG = "Sorry, your file is too large.";
+				}
+			}
+			else{
+				$errMSG = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";		
+			}
+		}
+		
+		
+		// if no error occured, continue ....
+		if(!isset($errMSG))
+		{
+			$stmt = $DB_con->prepare('INSERT INTO product_tbl(productName, productPrice,productPic,productDescription) VALUES(:pname, :pprice, :ppic, :pdesc)');
+			$stmt->bindParam(':pname',$productname);
+			$stmt->bindParam(':pprice',$productprice);
+			$stmt->bindParam(':ppic',$productpic);
+			$stmt->bindParam(':pdesc',$productdesc);
+			
+			if($stmt->execute())
+			{
+				$successMSG = "new record succesfully inserted ...";
+				header("refresh:5;products.php"); // redirects image view page after 5 seconds.
+			}
+			else
+			{
+				$errMSG = "error while inserting....";
+			}
+		}
+	}
 ?>
-
-<html lang="en">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Add a new product</title>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Shop Homepage</title>
-
-    <!-- Bootstrap core CSS -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
-    <!-- Custom styles for this template -->
-  <link href="../styles/style.css" rel="stylesheet">
+</head>
+<body>
 
-  </head>
-
-  <body>
-
-    <!-- Navigation -->
-
-  <!--   <php include('includes\errors.php')> -->
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-       
-
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-         
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-         
-                <li class="nav-item">
-                  <a class="nav-link" href="index.php?logout='1'">Sign out</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/profile.php">Profile</a>
-                </li>
-
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sell</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Shopping Cart</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Page Content -->
+<!-- <div class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-        <br>
-        
-      <h2 align="center">Add a product to sell</h2>
-  
-      <hr>
+ 
+        <div class="navbar-header">
+            <a class="navbar-brand" href="http://www.codingcage.com" title='Programming Blog'>Coding Cage</a>
+            <a class="navbar-brand" href="http://www.codingcage.com/search/label/CRUD">CRUD</a>
+            <a class="navbar-brand" href="http://www.codingcage.com/search/label/PDO">PDO</a>
+            <a class="navbar-brand" href="http://www.codingcage.com/search/label/jQuery">jQuery</a>
+        </div>
+ 
+    </div>
+</div> -->
 
-      <form action="product.php" method="post">
-      
-      <table width="100%">
-      <tbody>
+<div class="container">
 
-      <tr>
-        <td width="30%" align="right">Product Name :</td>
-        <td width="70%">
-        <label>
-          <input name="product_name" type="text" id="product_name" size="64">
-        </label>
+
+	<div class="page-header">
+	<br>
+    	<h1 class="h2">Add a New Product. <a class="btn btn-default" href="products.php"> <span class="glyphicon glyphicon-eye-open"></span> &nbsp; View All </a></h1>
+    	<hr color="black">
+    </div>
+    
+
+	<?php
+	if(isset($errMSG)){
+			?>
+            <div class="alert alert-danger">
+            	<span class="glyphicon glyphicon-info-sign"></span> <strong><?php echo $errMSG; ?></strong>
+            </div>
+            <?php
+	}
+	else if(isset($successMSG)){
+		?>
+        <div class="alert alert-success">
+              <strong><span class="glyphicon glyphicon-info-sign"></span> <?php echo $successMSG; ?></strong>
+        </div>
+        <?php
+	}
+	?>   
+
+<form method="post" enctype="multipart/form-data" class="form-horizontal">
+	    
+	<table class="table table-bordered table-responsive">
+	
+    <tr>
+    	<td><label class="control-label">Product Name:</label></td>
+        <td><input class="form-control" type="text" name="product_name" placeholder="Enter product name" value="<?php echo $productname; ?>" /></td>
+    </tr>
+    
+    <tr>
+    	<td><label class="control-label">Price (RM):</label></td>
+        <td><input class="form-control" type="text" name="product_price" placeholder="$" value="<?php echo $product_price; ?>" /></td>
+    </tr>
+    
+    <tr>
+    	<td><label class="control-label">Product Image</label></td>
+      <td><input class="input-group" type="file" name="user_image" accept="image/*" /></td>
+    </tr>
+
+
+    <tr>
+    	<td><label class="control-label">Product Description:</label></td>
+        <td><input class="form-control" type="text" name="product_description" placeholder="Enter Product Description" value="<?php echo $productdesc; ?>" /></td>
+    </tr>
+    
+    
+    
+    <tr> 
+    	<td><label class="control-label">Select Category</label></td>
+    	<td>
+    	<select name="category" value="<?php echo $product_description; ?>"/>
+    	<option>Furniture</option>
+    	<option>Jewelry</option>
+    	<option>Clothes</option>
+    	<option>Souvenirs</option>
+    	<option>Gifts</option>
+    	</select>
+    	
+    	</td>
+
+    </tr>
+
+    <tr>
+        <td colspan="2"><button type="submit" name="btnsave" class="btn btn-default">
+        <span class="glyphicon glyphicon-save"></span> &nbsp; Uploaded!
+        </button>
         </td>
-      </tr>
+    </tr>
 
-      <tr>
-        <td align="right">Product Price (RM): </td>
-        <td>
-        <label>
-            <input name="price" type="text" id="price" size="12">
-        </label>
-        </td>
-      </tr>
-
-      <tr>
-        <td align="right">Quantity :</td>
-        <td>
-          <label>
-            <input name="quantity" type="text" id="quantity" size="12">
-          </label>
-        </td>
-      </tr>
-
-      <tr>
-        <td align="right">Category :</td>
-        <td>
-          <label>
-            <select name="category" id="category">
-              <option value="Shoes">Clothes</option>
-              <option value="Boots">Accessories</option>
-            </select>
-          </label>
-        </td>
-      </tr>
-
-      <tr>
-        <td align="right">Product Details :</td>
-        <td><label>
-          <textarea name="details" id="details" cols="64" rows="5"></textarea>
-          </label>
-        </td>
-      </tr>
-      <tr>
-        <td align="right">Product Image :</td>
-        <td>
-          <label>
-            <input type="file" name="fileField" id="fileField">
-          </label>
-        </td>
-      </tr>      
-      <tr>
-        <td>&nbsp;</td>
-        <td>
-          <label>
-            <input type="submit" name="'product_submit'" id="button" value="Add This Item Now">
-          </label>
-        </td>
-      </tr>
-
-    </tbody>
-
+    
     </table>
+    
+</form>
 
-    </form>
-  </div>
+
+
+
+    
+
 </div>
-   
-</div>
 
-    <!-- Footer -->
-   <!--  <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright © Deallo's Craft House</p>
-      </div>
-      <!-- /.container -->
-    </footer>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    </body>
+	
 
-    </html>
 
+<!-- Latest compiled and minified JavaScript -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>
