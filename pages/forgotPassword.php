@@ -22,7 +22,16 @@
         <h1 id="dangTagline" align="center">Dang! Forgot your password?</h1>
 
         <form method="post" form="forgotPassForm" class="form form-vertical" action="forgotPasswordAction.php" data-ng-show="!successPassword">
+            
+            <br/>
+            <input type="question1" class="form-control" name="question1" placeholder="What is your surname backwords?"/>
+            
+            <br/>
+            <input type="question2" class="form-control" name="question2" placeholder="What is your favourite color?"/>
+            
+            <br/>
             <input type="email" class="form-control" name="email" placeholder="Enter email here"/>
+            
             <br/>
             <p>
                 <button type="submit" class="btn btn-success" form="forgotPassForm" data-ng-click="successPassword=!successPassword">Reset my password</button>
