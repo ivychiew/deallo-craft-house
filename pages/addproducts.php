@@ -9,6 +9,7 @@
 		$productname = $_POST['product_name'];// product name
 		$productprice = $_POST['product_price'];// product price
 		$productdesc = $_POST['product_description']; //product description
+		$productcategory = $_POST['product_category']; //product description
 		
 		$imgFile = $_FILES['user_image']['name'];
 		$tmp_dir = $_FILES['user_image']['tmp_name'];
@@ -26,6 +27,9 @@
 		}
 		else if(empty($productdesc)){
 			$errMSG = "Please enter a Product Description";
+		}
+		else if(empty($productcategory)){
+			$errMSG = "Please choose a product category";
 		}
 		// else if(empty())
 		else
@@ -59,16 +63,18 @@
 		// if no error occured, continue ....
 		if(!isset($errMSG))
 		{
-			$stmt = $DB_con->prepare('INSERT INTO product_tbl(productName, productPrice,productPic,productDescription) VALUES(:pname, :pprice, :ppic, :pdesc)');
+			$stmt = $DB_con->prepare('INSERT INTO product_tbl(productName, productPrice,productPic,productDescription,productCategory) VALUES(:pname, :pprice, :ppic, :pdesc, :pcat)');
 			$stmt->bindParam(':pname',$productname);
 			$stmt->bindParam(':pprice',$productprice);
 			$stmt->bindParam(':ppic',$productpic);
 			$stmt->bindParam(':pdesc',$productdesc);
+			$stmt->bindParam(':pcat',$productcategory);
+
 			
 			if($stmt->execute())
 			{
 				$successMSG = "new record succesfully inserted ...";
-				header("refresh:5;products.php"); // redirects image view page after 5 seconds.
+				header("refresh:3;products.php"); // redirects image view page after 5 seconds.
 			}
 			else
 			{
@@ -77,6 +83,7 @@
 		}
 	}
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -90,26 +97,13 @@
 </head>
 <body>
 
-<!-- <div class="navbar navbar-default navbar-static-top" role="navigation">
-    <div class="container">
- 
-        <div class="navbar-header">
-            <a class="navbar-brand" href="http://www.codingcage.com" title='Programming Blog'>Coding Cage</a>
-            <a class="navbar-brand" href="http://www.codingcage.com/search/label/CRUD">CRUD</a>
-            <a class="navbar-brand" href="http://www.codingcage.com/search/label/PDO">PDO</a>
-            <a class="navbar-brand" href="http://www.codingcage.com/search/label/jQuery">jQuery</a>
-        </div>
- 
-    </div>
-</div> -->
-
 <div class="container">
 
 
 	<div class="page-header">
 	<br>
     	<h1 class="h2">Add a New Product. <a class="btn btn-default" href="products.php"> <span class="glyphicon glyphicon-eye-open"></span> &nbsp; View All </a></h1>
-    	<hr color="black">
+    	
     </div>
     
 
@@ -160,7 +154,9 @@
     <tr> 
     	<td><label class="control-label">Select Category</label></td>
     	<td>
-    	<select name="category" value="<?php echo $product_description; ?>"/>
+    	<select name="product_category" value="<?php echo $productcategory ?>"/>
+    	<option>...</option>
+    	<option>Food</option>
     	<option>Furniture</option>
     	<option>Jewelry</option>
     	<option>Clothes</option>
