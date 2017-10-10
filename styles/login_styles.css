@@ -1,3 +1,16 @@
+/*Fonts for Login page*/
+@font-face {
+    font-family: sunValleyFont;
+    src: url("fonts/sun_valley.ttf");
+}
+
+.header > h2{
+    font-family: sunValleyFont;
+    font-size: 50px;
+}
+
+/*Fonts for Login page*/
+
 body, html {
     height: 100%;
 }
