@@ -22,7 +22,7 @@
 
         <h1 id="dangTagline" align="center">Dang! Forgot your password?</h1>
 
-        <form method="post" form="forgotPassForm" class="form form-vertical" action="forgotPasswordAction.php" data-ng-show="!successPassword">
+        <form method="post" name="forgotPassForm" class="form form-vertical" action="forgotPasswordAction.php" data-ng-show="!successPassword">
             
             <br/>
             <input type="text" class="form-control" name="surname" placeholder="What is your surname backwords?"/>
@@ -35,7 +35,7 @@
             
             <br/>
             <p>
-                <button type="submit" name="submit" class="btn btn-success" form="forgotPassForm">Reset my password</button>
+                <button type="submit" name="submit" class="btn btn-success">Reset my password</button>
             </p>
         </form>
 
