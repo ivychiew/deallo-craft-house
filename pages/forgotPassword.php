@@ -25,24 +25,27 @@
         <form method="post" form="forgotPassForm" class="form form-vertical" action="forgotPasswordAction.php" data-ng-show="!successPassword">
             
             <br/>
-            <input type="question1" class="form-control" name="question1" placeholder="What is your surname backwords?"/>
+            <input type="text" class="form-control" name="surname" placeholder="What is your surname backwords?"/>
             
             <br/>
-            <input type="question2" class="form-control" name="question2" placeholder="What is your favourite color?"/>
+            <input type="text" class="form-control" name="color" placeholder="What is your favourite color?"/>
             
             <br/>
             <input type="email" class="form-control" name="email" placeholder="Enter email here"/>
             
             <br/>
             <p>
-                <button type="submit" class="btn btn-success" form="forgotPassForm" data-ng-click="successPassword=!successPassword">Reset my password</button>
+                <button type="submit" name="submit" class="btn btn-success" form="forgotPassForm">Reset my password</button>
             </p>
         </form>
 
+<!--
+        data-ng-click="successPassword=!successPassword"
         <div data-ng-show="successPassword">
             <h4>SUBMITTED SUCCESSFULLY!</h4>
             <p><a href="login.php">Back to Login</a></p>
         </div>
+-->
     </div>
 </body>
 

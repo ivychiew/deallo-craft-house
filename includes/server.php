@@ -16,6 +16,8 @@
 		//receive all input values from the form.
 		$username = mysqli_real_escape_string($dbi, $_POST['username']);
 		$email = mysqli_real_escape_string($dbi, $_POST['email']);
+        $surname = mysqli_real_escape_string($dbi, $_POST['surname']);
+        $color = mysqli_real_escape_string($dbi, $_POST['color']);
 
 		//input password
 		$password_1 = mysqli_real_escape_string($dbi, $_POST['password_1']);
@@ -27,6 +29,9 @@
 	if (empty($username)) { array_push($errors, "Username is required"); }
 	if (empty($email)) { array_push($errors, "Email is required");}
 	if (empty($password_1)) {array_push($errors, "Password is required"); }
+    if (empty($surname)) {array_push($errors, "Security Question 1 is required"); }
+    if (empty($color)) {array_push($errors, "Security Question 2 is required"); }
+        
 	if ($password_1 != $password_2) {
 		array_push($errors, "The two passwords do not match!");
 	}
@@ -37,8 +42,8 @@
 		//encrypt the password before saving in the database
 		$password = md5($password_1); 
 
-		$query = "INSERT INTO users (username, email, password)
-				  VALUES('$username', '$email', '$password')";
+		$query = "INSERT INTO users (username, email, password, surname, color)
+				  VALUES('$username', '$email', '$password','$surname','$color')";
 		mysqli_query($dbi, $query);
 
 		$_SESSION['username'] = $username;

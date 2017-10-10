@@ -121,7 +121,7 @@ session_start();
                 <a href="#">Comments <span class="badge">10</span></a><br>
                 <a href="#">Updates <span class="badge">2</span></a>
                 <br/><br/>
-                <p><button type="button" class="btn btn-primary" data-ng-click="showEdit=!showEdit">Edit Profile<span class="glyphicon glyphicon-pencil"></span></button></p>
+                <p><button type="button" class="btn btn-primary" data-ng-click="showEdit=!showEdit">Edit Profile <span class="glyphicon glyphicon-pencil"></span></button></p>
             </div>
             
             <div id="EditProfileDetails" data-ng-model="EditProfileDetails" data-ng-show="showEdit">
