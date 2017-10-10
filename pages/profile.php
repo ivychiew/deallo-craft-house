@@ -26,7 +26,7 @@ session_start();
 ?>
 
 <!DOCTYPE html> 
-<html>
+<html lang="en">
 <head>
 
     <meta charset="utf-8"/>
@@ -40,6 +40,7 @@ session_start();
 	<link href="..\styles\profile.css" rel="stylesheet" type="text/css">
 	<link href="..\styles\bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="..\styles\bootstrap\bootstrap.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/> 
 	
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

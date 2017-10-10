@@ -16,7 +16,9 @@ if (!$conn) {
 }
 else{
     
-    $sql = "SELECT username,surname,color FROM users WHERE $email == email";
+    
+    $sql = "SELECT username,surname,color FROM users WHERE email = '$email''";
+    
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         if(surname == $question1){

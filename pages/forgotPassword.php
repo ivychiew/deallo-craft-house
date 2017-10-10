@@ -1,10 +1,11 @@
 <!DOCTYPE html> 
-<html>
+<html lang="en">
 <head>
     <title>Deallo Forgotten Password</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <link href="../styles/style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/> 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
     elements and media queries --> 
@@ -40,7 +41,7 @@
 
         <div data-ng-show="successPassword">
             <h4>SUBMITTED SUCCESSFULLY!</h4>
-            <p><a href="../login.php">Back to Login</a></p>
+            <p><a href="login.php">Back to Login</a></p>
         </div>
     </div>
 </body>
