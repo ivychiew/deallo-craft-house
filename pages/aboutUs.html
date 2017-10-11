@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="../styles/bootstrap/bootstrap.css.min">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-    <link href="../styles/style.css" rel="stylesheet" type="text/css">
+    
     <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/> 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
@@ -19,7 +19,7 @@
     <![endif]--> 
 </head>
     
-<body data-ng-app="">
+<body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#"></a>
@@ -36,10 +36,6 @@
               </a>
             </li>
 
-            <?php  if (isset($_SESSION['username'])) : ?>
-            <!-- <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p> -->
-           <!--  <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p> -->
-         
              <li class="nav-item">
                <a class="nav-link" href="../index.php?logout='1'" style="color: red;">Sign out</a>
              </li>
@@ -47,7 +43,6 @@
                <a class="nav-link" href="pages/profile.php">Edit Profile</a>
              </li>
 
-             <?php endif ?>
             <li class="nav-item">
               <a class="nav-link" href="products.php">Products</a>
             </li>
@@ -64,32 +59,83 @@
         </div>
       </div>
     </nav>
+        
+    <style>h2{text-align:center;} img{margin: auto; display: block;}
+        .coverImg{
+            display: block;width: 100%;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+        .meetTagline{
+            text-align: center;
+            font-family: sunValleyFont;
+        }
+        .meetTagline > h1{font-size: 70px;}
+        .meetTagline > p{font-size: 20px;}
+        @font-face {
+            font-family: sunValleyFont;
+            src: url("../styles/fonts/sun_valley.ttf");
+        }
+        #companyName{
+            text-align: center;
+        }
+    </style>
+    <br/><br/>
+    
+    <div class="container-fluid">
+        <div class="row">
+            
+            <h1 id="companyName" class="col-md-12 col-sm-12 col-lg-12"> --- DEALLO CRAFT HOUSE --- </h1>
+        </div>
+        
+        <br/>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-12 meetTagline">
+                <h1>Meet Our Team</h1>
+                <p>BRINGING THE BEST DEALS TO YOU LO</p>
+            </div>
+        </div>
+        <div class="row">
+            <img src="../images/team.jpg" class="coverImg"/>
+        </div>
+        
+        <br/><br/>
+        
+    </div>
     
     <div class="container">
+        <div class="row">
 
-        <h1 id="dangTagline" align="center">Dang! Forgot your password?</h1>
+                <section class="col-md-4 col-sm-4 col-lg-4">
+                    <img src="../images/adminProfile.png" class="img-rounded"/>
+                    <h2>Viv</h2>
+                    <p>LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM</p>
+                </section>
 
-        <form method="post" name="forgotPassForm" class="form form-vertical" action="forgotPasswordAction.php" data-ng-show="!successPassword">
-            
-            <br/>
-            <input type="text" class="form-control" name="surname" placeholder="What is your surname backwords?"/>
-            
-            <br/>
-            <input type="text" class="form-control" name="color" placeholder="What is your favourite color?"/>
-            
-            <br/>
-            <input type="email" class="form-control" name="email" placeholder="Enter email here"/>
-            
-            <br/>
-            <input type="text" name="honeyPot" class="honeyPot" class="form-control" value="" placeholder="If you see this leave this form field blank and invest in CSS support."/>
-            
-            
-            <br/>
-            <p>
-                <button type="submit" name="submit" class="btn btn-success">Reset my password</button>
-            </p>
-        </form>
-    </div>
+                <section class="col-md-4 col-sm-4 col-lg-4">
+                    <img src="../images/adminProfile.png" class="img-rounded"/>
+                    <h2>Sel</h2>
+                    <p>LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM</p>
+                </section>
+
+                <section class="col-md-4 col-sm-4 col-lg-4">
+                    <img src="../images/adminProfile.png" class="img-rounded"/>
+                    <h2>Tay</h2>
+                    <p>LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM</p>
+                </section>
+        
+            </div>
+        </div>
+    
+        <!-- Footer -->
+        <footer class="py-5 bg-dark">
+            <div class="container">
+                <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
+            </div>
+        <!-- /.container -->
+        </footer>
+    
 </body>
 
     <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
@@ -102,4 +148,3 @@
     <script src="../js/angular-route.min.js"></script>
     
 </html>
-

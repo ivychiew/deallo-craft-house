@@ -10,6 +10,12 @@ $surname = isset($_POST['surname'])? $_POST['surname'] : '';
 $color = isset($_POST['color'])? $_POST['color'] : '';
 $email = isset($_POST['email'])? $_POST['email'] : '';
     
+//Spambot detector
+if(!empty($_POST['honeyPot']))
+{
+    echo "Authentication Error: You're not human.";
+}
+        
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     // Check connection
@@ -19,23 +25,16 @@ $email = isset($_POST['email'])? $_POST['email'] : '';
     else{
         
         $sql = "SELECT * FROM users WHERE email = '$email' AND surname='$surname' AND color = '$color'";
+        
         $result = mysqli_query($conn, $sql);
+        
         if (mysqli_num_rows($result) > 0) {
-           echo "RECORD EXIST";
-            while($row = mysqli_fetch_assoc($result)) {
-                echo "username: " . $row["username"]. " - Password: " . $row["password"]. "<br>";
-    }
-            
-        }else{
-            echo "NO RECORD FOUND";
+
+            header("Location:editPassword.php");
         }
-
-    //    mail("100066109@students.swinburne.edu.my","Deallo user forgot password, here is the e-mail",$email);
-
+        else{
+            echo "NO RECORD FOUND";
+        }   
     }
-
-}else{
-    echo "Submit button is not set";
 }
-
 ?>

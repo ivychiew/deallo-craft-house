@@ -16,7 +16,7 @@
 
 
     <!-- custom stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../styles/products_css.css">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
@@ -51,17 +51,17 @@
     <table class="table table-bordered table-responsive">
     
     <tr>
-        <td><label class="control-label">Product Name.</label></td>
+        <td><label class="control-label">Product Name</label></td>
         <td><input class="form-control" type="text" name="product_name" value="<?php echo $productName; ?>" required /></td>
     </tr>
     
     <tr>
-        <td><label class="control-label">Price.</label></td>
+        <td><label class="control-label">Price</label></td>
         <td><input class="form-control" type="text" name="product_price" value="<?php echo $productPrice; ?>" required /></td>
     </tr>
     
     <tr>
-        <td><label class="control-label">Product Img.</label></td>
+        <td><label class="control-label">Product Image</label></td>
         <td>
             <p><img src="../images/product_images/<?php echo $productPic; ?>" height="150" width="150" /></p>
             <input class="input-group" type="file" name="product_image" accept="image/*" />
@@ -69,9 +69,15 @@
     </tr>
 
     <tr>
+        <td><label class="control-label">Description</label></td>
+        <td><input class="form-control" type="text" name="product_description" value="<?php echo $productDescription; ?>" required /></td>
+    </tr>
+    
+
+    <tr>
         <td><label class="control-label">Select Category</label></td>
         <td>
-        <select name="product_category" value="<?php echo $productcategory ?>"/>
+        <select name="product_category" value="<?php echo $productCategory ?>"/>
         <option>...</option>
         <option>Food</option>
         <option>Furniture</option>

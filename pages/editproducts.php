@@ -47,8 +47,6 @@
             </li>
 
             <?php  if (isset($_SESSION['username'])) : ?>
-            <!-- <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p> -->
-           <!--  <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p> -->
          
              <li class="nav-item">
                <a class="nav-link" href="../index.php?logout='1'" style="color: red;">Sign out</a>
@@ -77,98 +75,87 @@
 
 <div class="container">
 
-	<div class="page-header">
-		<br>
-    	<h1 class="h2"><a href="products.php">All Products</a>
-    		<a class="btn btn-default" href="addproducts.php"> 
-    			<span class="glyphicon glyphicon-plus"></span> &nbsp; Create a new product 
-    		</a>
-    		<a class="btn btn-default" href="editproducts.php"> 
-    			<span class="glyphicon glyphicon-plus"></span> &nbsp; Edit Products
-    		</a>
-    	</h1> 
+  <div class="page-header">
+    <br>
+      <h1 class="h2">All Products
+        <a class="btn btn-default" href="addproducts.php"> 
+          <span class="glyphicon glyphicon-plus"></span> &nbsp; Create a new product 
+        </a>
+        <a class="btn btn-default" href="editproducts.php"> 
+          <span class="glyphicon glyphicon-plus"></span> &nbsp; Edit Products
+        </a>
+      </h1> 
     </div>
     
-	<br />
+  <br />
 
 <div class="row" id="products">
 <?php
-	
-	//Fetch the data from the database
-	$stmt = $DB_con->prepare('SELECT productID, productName, productPrice, productPic, productDescription FROM product_tbl ORDER BY productID DESC');
-	$stmt->execute();
-	
-	//If the number of products is more than 0 
-	if($stmt->rowCount() > 0)
-	{
-		//Fetch the products from the database table to a row
-		while($row=$stmt->fetch(PDO::FETCH_ASSOC))
-		{	
-			//Extract data to a row
-			extract($row);
-			?>
-			<div class="col-xs-3">
+  
+      //Fetch the data from the database
+      $stmt = $DB_con->prepare('SELECT productID, productName, productPrice, productPic, productDescription FROM product_tbl ORDER BY productID DESC');
+      $stmt->execute();
+      
+      //If the number of products is more than 0 
+      if($stmt->rowCount() > 0)
+      {
+        //Fetch the products from the database table to a row
+        while($row=$stmt->fetch(PDO::FETCH_ASSOC))
+        { 
+          //Extract data to a row
+          extract($row);
+?>
+    <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100">
+                 <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="#"><?php echo $productName ?></a>
+                  </h4>
+                  <h5>
+                    <span class="product-price">
+                      <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
+                    </span>
+                  </h5>
+                <div class="col-sm-4card-text"><?php echo $productDescription; ?></p>
+                </div>
+                <div class="col-xs-3">
+                      <div class="editButton">
+                        <span> <!--Edit Product Button-->
+                          <a class="btn btn-info" href="editform.php?edit_id=<?php echo $row['productID']; ?>" title="click for edit" onclick="return confirm('Are you sure?')">
+                            <span class="glyphicon glyphicon-edit"></span> Edit
+                          </a> 
 
-				
-				<!--Product Image-->
-				<img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-rounded" width="200px" height="200px" />
-        <!--Product Name-->
-        <h3 class="page-header" align="center"><?php echo $productName ?></h3>
-				<!--Product Price-->
-				<h5 class="page-header" align="center"><?php echo "RM: $productPrice"; ?></h5>
-				<!-- <p id="Description" style="display:none;">
-					<?php
-					 // echo "$productDescription;" ?>
-				</p> -->
+                            <!--Delete Product Button-->
+                          <a class="btn btn-danger" href="?delete_id=<?php echo $row['productID']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')">
+                            <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                          </a>
+                        </span>
+                        </div>
+                </div>
+      
+              </div>
+            </div>
+      </div> 
 
-				<!--Buttons-->
-        <div class="editButton"
-				<span> <!--Edit Product Button-->
-					<a class="btn btn-info" href="editform.php?edit_id=<?php echo $row['productID']; ?>" title="click for edit" onclick="return confirm('Are you sure?')">
-						<span class="glyphicon glyphicon-edit"></span> Edit
-					</a> 
+      <?php
+    }
+  }
+  else
+  {
+    ?>
 
-						<!--Delete Product Button-->
-					<a class="btn btn-danger" href="?delete_id=<?php echo $row['productID']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')">
-						<span class="glyphicon glyphicon-remove-circle"></span> Delete
-					</a>
-				</span>
-        </div>
-
-				<!--Add to Cart Button-->
-					<!--  <a class="btn btn-info" href="#">
-						<span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-					</a> -->
-				
-					<!--Show Description Button-->
-					<!-- <script type='text/javascript' src='../js/buttonToggle.js'></script>
-					<a class="btn btn-danger" title="click for more info" onclick="buttonToggle()"> More Info</a>
- -->      
-          <hr>
-					<br>
-		
-				
-			</div> 
-
-
-			<?php
-		}
-	}
-	else
-	{
-		?>
-
-		<!--If Empty Data, Show no data found-->
+    <!--If Empty Data, Show no data found-->
         <div class="col-xs-12">
-        	<div class="alert alert-warning">
-            	<span class="glyphicon glyphicon-info-sign"></span> &nbsp; No Data Found ...
+          <div class="alert alert-warning">
+              <span class="glyphicon glyphicon-info-sign"></span> &nbsp; No Data Found ...
             </div>
         </div>
         <?php
-	}
-	
+  }
+  
 ?>
-</div>	
+</div>  
 </div>
 
 

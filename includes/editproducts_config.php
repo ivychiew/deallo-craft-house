@@ -6,7 +6,7 @@
     if(isset($_GET['edit_id']) && !empty($_GET['edit_id']))
     {
         $id = $_GET['edit_id'];
-        $stmt_edit = $DB_con->prepare('SELECT productName, productPrice, productPic FROM product_tbl WHERE productID =:pid');
+        $stmt_edit = $DB_con->prepare('SELECT productName, productPrice, productPic, productCategory, productDescription FROM product_tbl WHERE productID =:pid');
         $stmt_edit->execute(array(':pid'=>$id));
         $edit_row = $stmt_edit->fetch(PDO::FETCH_ASSOC);
         extract($edit_row);
@@ -17,12 +17,12 @@
     }
     
     
-    
     if(isset($_POST['btn_save_updates']))
     {
-        $productname = $_POST['product_name'];
-        $productprice = $_POST['product_price'];
-        // $productcategory = $_POST['product_category']; 
+        $productName = $_POST['product_name'];
+        $productPrice = $_POST['product_price'];
+        $productCategory = $_POST['product_category']; 
+        $productDescription = $_POST['product_description'];
             
         $imgFile = $_FILES['user_image']['name'];
         $tmp_dir = $_FILES['user_image']['tmp_name'];
@@ -64,12 +64,16 @@
             $stmt = $DB_con->prepare('UPDATE product_tbl 
                                          SET productName=:pname, 
                                              productPrice=:pprice, 
-                                             productPic=:ppic
+                                             productPic=:ppic,
+                                             productCategory=:pcat,
+                                             productDescription=:pdesc
                                              -- productCategory=pcat 
                                        WHERE productID=:pid');
-            $stmt->bindParam(':pname',$productname);
-            $stmt->bindParam(':pprice',$productprice);
-            $stmt->bindParam(':ppic',$productpic);
+            $stmt->bindParam(':pname',$productName);
+            $stmt->bindParam(':pprice',$productPrice);
+            $stmt->bindParam(':ppic',$productPic);
+            $stmt->bindParam(':pcat',$productCategory);
+            $stmt->bindParam(':pdesc',$productDescription);
             $stmt->bindParam(':pid',$id);
             // $stmt->bindParam(':pcat',$productcategory);
             

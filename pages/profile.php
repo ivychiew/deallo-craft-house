@@ -150,7 +150,7 @@ session_start();
                         
                         <br/><br/>
                         <p>
-                            <button type="submit" class="btn btn-primary" form="profileAction" data-ng-click="showEdit=!showEdit" name="submitForm">DONE EDITING<span class="glyphicon glyphicon-pencil"></span></button>
+                            <button type="submit" class="btn btn-primary" data-ng-click="showEdit=!showEdit" name="submitForm">DONE EDITING<span class="glyphicon glyphicon-pencil"></span></button>
                         </p>
                     </div>
 

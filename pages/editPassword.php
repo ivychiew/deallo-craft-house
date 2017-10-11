@@ -1,11 +1,11 @@
 <!DOCTYPE html> 
 <html lang="en">
 <head>
-    <title>Deallo Forgotten Password</title>
+    <title>Deallo Reset Password</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <link rel="stylesheet" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="../styles/bootstrap/bootstrap.css.min">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
     <link href="../styles/style.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/> 
 
@@ -67,28 +67,78 @@
     
     <div class="container">
 
-        <h1 id="dangTagline" align="center">Dang! Forgot your password?</h1>
+        <br/>
+        <h1 id="dangTagline" align="center">EDIT PASSWORD</h1>
 
-        <form method="post" name="forgotPassForm" class="form form-vertical" action="forgotPasswordAction.php" data-ng-show="!successPassword">
+        <form method="post" class="form form-vertical" action="editPassword.php">
             
-            <br/>
-            <input type="text" class="form-control" name="surname" placeholder="What is your surname backwords?"/>
+<!--            <?php include('..\includes\errors.php'); ?>-->
             
-            <br/>
-            <input type="text" class="form-control" name="color" placeholder="What is your favourite color?"/>
-            
-            <br/>
-            <input type="email" class="form-control" name="email" placeholder="Enter email here"/>
-            
-            <br/>
-            <input type="text" name="honeyPot" class="honeyPot" class="form-control" value="" placeholder="If you see this leave this form field blank and invest in CSS support."/>
-            
+              <input type="text" name="username1" id="username1" class="form-control" placeholder="Username" size="10"/>
+
+                <input type="text" name="password1" id="password1" class="form-control" placeholder="Password" size="10"/>
+
+                <input type="password2" name="password2" class="form-control" placeholder="Password, again" size="10" max="10"/>
             
             <br/>
             <p>
-                <button type="submit" name="submit" class="btn btn-success">Reset my password</button>
+                <button type="submit" class="btn btn-success" name="submit">RESET PASSWORD<span class="glyphicon glyphicon-pencil"></span></button>
             </p>
         </form>
+        
+        <?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "register";
+$sql = null;
+    
+// Create connection
+$dbi = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check connection
+if (!$dbi) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+if (isset($_POST['submit'])){
+    
+    //Assign local variables values from form
+    $username1 = mysqli_real_escape_string($dbi, $_POST['username1']);
+    $password1 = mysqli_real_escape_string($dbi, $_POST['password1']);
+    $password2 = mysqli_real_escape_string($dbi, $_POST['password2']);
+    
+    if (empty($username1)) { echo "<div class=\"alert alert-warning\">" . "Username is required" . "</div>";}
+    else{
+        $queryUsername = "SELECT * FROM users WHERE username = '$username1'";
+
+        $resultUsername = mysqli_query($dbi, $queryUsername);
+
+        if (mysqli_num_rows($resultUsername) > 0) {
+            $sql = "UPDATE users SET password='$password1' WHERE username='$username1'";
+
+            mysqli_query($dbi, $sql);
+
+            echo ("<SCRIPT LANGUAGE='JavaScript'>
+            window.alert('Password updated successfully, please login again!');
+            location.href = 'login.php';
+            </SCRIPT>");
+        }
+        else{
+            echo "USERNAME MATCHES NO RECORDS";
+        } 
+    }
+
+    if (empty($password1)) {  echo "<div class=\"alert alert-warning\">" . "Password is required". "</div>";}
+    if (empty($password2)) {  echo "<div class=\"alert alert-warning\">" . "Second password is also, required". "</p>";}
+    if ($password1 <> $password2) {  echo "<div class=\"alert alert-danger\">" . "Your passwords do not match!". "</div>"; }   
+}
+
+mysqli_close($dbi);
+
+?>
+        
     </div>
 </body>
 
