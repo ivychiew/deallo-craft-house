@@ -42,7 +42,9 @@ $email = isset($_POST['email'])? $_POST['email'] : '';
 <html lang="en">
 <head>
     <title>Deallo Forgotten Password</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="../styles/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../styles/bootstrap/bootstrap.css.min">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
     <link href="../styles/style.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/> 
@@ -58,6 +60,53 @@ $email = isset($_POST['email'])? $_POST['email'] : '';
 </head>
     
 <body data-ng-app="">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+       
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+         
+            <li class="nav-item active">
+              <a class="nav-link" href="../index.php">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+
+            <?php  if (isset($_SESSION['username'])) : ?>
+            <!-- <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p> -->
+           <!--  <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p> -->
+         
+             <li class="nav-item">
+               <a class="nav-link" href="../index.php?logout='1'" style="color: red;">Sign out</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="pages/profile.php">Edit Profile</a>
+             </li>
+
+             <?php endif ?>
+            <li class="nav-item">
+              <a class="nav-link" href="products.php">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Shopping Cart</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
     <div class="container">
 
         <h1 id="dangTagline" align="center">Dang! Forgot your password?</h1>
@@ -78,16 +127,6 @@ $email = isset($_POST['email'])? $_POST['email'] : '';
                 <button type="submit" name="submit" class="btn btn-success">Reset my password</button>
             </p>
         </form>
-        
-        <p>Password: <?php $row["password"]; ?></p>
-
-<!--
-        data-ng-click="successPassword=!successPassword"
-        <div data-ng-show="successPassword">
-            <h4>SUBMITTED SUCCESSFULLY!</h4>
-            <p><a href="login.php">Back to Login</a></p>
-        </div>
--->
     </div>
 </body>
 
