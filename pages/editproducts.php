@@ -134,23 +134,8 @@
 					</a>
 				</span>
         </div>
-
-				<!--Add to Cart Button-->
-					<!--  <a class="btn btn-info" href="#">
-						<span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-					</a> -->
-				
-					<!--Show Description Button-->
-					<!-- <script type='text/javascript' src='../js/buttonToggle.js'></script>
-					<a class="btn btn-danger" title="click for more info" onclick="buttonToggle()"> More Info</a>
- -->      
-          <hr>
-					<br>
-		
-				
+          <hr><br>
 			</div> 
-
-
 			<?php
 		}
 	}

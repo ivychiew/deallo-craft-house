@@ -117,7 +117,7 @@
                   <h5><span class="product-price">
                        <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
                     </span></h5>
-                  <div class="col-sm-4card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                  <div class="col-sm-4card-text"><?php echo $productDescription; ?></p>
                 </div>
                 <div class="col-xs-3">
                       <div class="cart">

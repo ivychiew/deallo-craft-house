@@ -1,4 +1,4 @@
-<?php include "../includes/addproduct_cofig.php" ?>
+<?php include "..\includes\addproducts_config.php" ?>
 
 <!DOCTYPE HTML>
 <html lang="en">
@@ -81,7 +81,7 @@
     <tr> 
     	<td><label class="control-label">Select Category</label></td>
     	<td>
-    	<select name="product_category" value="<?php echo $productcategory ?>"/>
+    	<select name="product_category" value="<?php echo $producategory ?>"/>
     	<option>...</option>
     	<option>Food</option>
     	<option>Furniture</option>
