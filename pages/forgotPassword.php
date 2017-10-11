@@ -10,6 +10,12 @@ $surname = isset($_POST['surname'])? $_POST['surname'] : '';
 $color = isset($_POST['color'])? $_POST['color'] : '';
 $email = isset($_POST['email'])? $_POST['email'] : '';
     
+//Spambot detector
+if(!empty($_POST['honeyPot']))
+{
+    echo "Authentication Error: You're not human.";
+}
+        
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     // Check connection
@@ -121,6 +127,10 @@ $email = isset($_POST['email'])? $_POST['email'] : '';
             
             <br/>
             <input type="email" class="form-control" name="email" placeholder="Enter email here"/>
+            
+            <br/>
+            <input type="text" name="honeyPot" class="honeyPot" class="form-control" value="" placeholder="If you see this leave this form field blank and invest in CSS support."/>
+            
             
             <br/>
             <p>
