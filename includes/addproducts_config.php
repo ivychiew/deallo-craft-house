@@ -28,7 +28,7 @@
         else if(empty($productdesc)){
             $errMSG = "Please enter a Product Description";
         }
-        else if(empty($productcategory)){
+        else if($productcategory=="..."){
             $errMSG = "Please select a category";
         }
         // else if(empty())
