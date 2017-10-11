@@ -1,58 +1,3 @@
-<?php
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "register";
-$sql = null;
-    
-// Create connection
-$dbi = mysqli_connect($servername, $username, $password, $dbname);
-
-// Check connection
-if (!$dbi) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-if (isset($_POST['submit'])){
-    
-    //Assign local variables values from form
-    $username1 = mysqli_real_escape_string($dbi, $_POST['username1']);
-    $password1 = mysqli_real_escape_string($dbi, $_POST['password1']);
-    $password2 = mysqli_real_escape_string($dbi, $_POST['password2']);
-    
-    if (empty($username1)) { echo "<p>" . "Username is required" . "</p>";}
-    else{
-        $queryUsername = "SELECT * FROM users WHERE username = '$username1'";
-
-        $resultUsername = mysqli_query($dbi, $queryUsername);
-
-        if (mysqli_num_rows($resultUsername) > 0) {
-            $sql = "UPDATE users SET password='$password1' WHERE username='$username1'";
-
-            mysqli_query($dbi, $sql);
-
-            echo ("<SCRIPT LANGUAGE='JavaScript'>
-            window.alert('Password updated successfully, please login again!');
-            location.href = 'login.php';
-            </SCRIPT>");
-        }
-        else{
-            echo "USERNAME MATCHES NO RECORDS";
-        } 
-    }
-    
-    
-    
-    if (empty($password1)) { echo "<p>" . "Password is required". "</p>";}
-    if (empty($password2)) { echo "<p>" . "Second password is also, required". "</p>";}
-    if ($password1 <> $password2) {echo "<p>" . "Your passwords do not match!". "</p>"; }   
-}
-
-mysqli_close($dbi);
-
-?>
-
 <!DOCTYPE html> 
 <html lang="en">
 <head>
@@ -122,6 +67,7 @@ mysqli_close($dbi);
     
     <div class="container">
 
+        <br/>
         <h1 id="dangTagline" align="center">EDIT PASSWORD</h1>
 
         <form method="post" class="form form-vertical" action="editPassword.php">
@@ -139,6 +85,60 @@ mysqli_close($dbi);
                 <button type="submit" class="btn btn-success" name="submit">RESET PASSWORD<span class="glyphicon glyphicon-pencil"></span></button>
             </p>
         </form>
+        
+        <?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "register";
+$sql = null;
+    
+// Create connection
+$dbi = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check connection
+if (!$dbi) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+if (isset($_POST['submit'])){
+    
+    //Assign local variables values from form
+    $username1 = mysqli_real_escape_string($dbi, $_POST['username1']);
+    $password1 = mysqli_real_escape_string($dbi, $_POST['password1']);
+    $password2 = mysqli_real_escape_string($dbi, $_POST['password2']);
+    
+    if (empty($username1)) { echo "<div class=\"alert alert-warning\">" . "Username is required" . "</div>";}
+    else{
+        $queryUsername = "SELECT * FROM users WHERE username = '$username1'";
+
+        $resultUsername = mysqli_query($dbi, $queryUsername);
+
+        if (mysqli_num_rows($resultUsername) > 0) {
+            $sql = "UPDATE users SET password='$password1' WHERE username='$username1'";
+
+            mysqli_query($dbi, $sql);
+
+            echo ("<SCRIPT LANGUAGE='JavaScript'>
+            window.alert('Password updated successfully, please login again!');
+            location.href = 'login.php';
+            </SCRIPT>");
+        }
+        else{
+            echo "USERNAME MATCHES NO RECORDS";
+        } 
+    }
+
+    if (empty($password1)) {  echo "<div class=\"alert alert-warning\">" . "Password is required". "</div>";}
+    if (empty($password2)) {  echo "<div class=\"alert alert-warning\">" . "Second password is also, required". "</p>";}
+    if ($password1 <> $password2) {  echo "<div class=\"alert alert-danger\">" . "Your passwords do not match!". "</div>"; }   
+}
+
+mysqli_close($dbi);
+
+?>
+        
     </div>
 </body>
 
