@@ -2,6 +2,12 @@
 .cart{ 
 	text-align: center;
  }
+.row > div:last-child button {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
  .product{ 
  	padding top: 10px;
   }

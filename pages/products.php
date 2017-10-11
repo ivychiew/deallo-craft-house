@@ -35,8 +35,6 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-       
-
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
          
@@ -106,29 +104,31 @@
     			extract($row);
 ?>
     <div class="col-lg-4 col-md-6 mb-4">
+  
               <div class="card h-100">
                  <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="#"><?php echo $productName ?></a>
                   </h4>
+
                   <h5>
                     <span class="product-price">
                       <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
                     </span>
                   </h5>
-                <div class="col-sm-4card-text"><?php echo $productDescription; ?></p>
-                </div>
+
+                <div class="col-sm-4card-text"><?php echo $productDescription; ?></div>
+                
                 <div class="col-xs-3">
                       <div class="cart">
-                           <h5 class="page-header" align="center"><a class="btn btn-info" href="#">
-                            <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                          </a></h5>
+                           <button class="btn btn-info" href="#">Add to cart</button>
+                           
                       </div>
                 </div>
-      
               </div>
-            </div>
+          </div>
 			</div> 
 
 			<?php
