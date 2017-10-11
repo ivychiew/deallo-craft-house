@@ -21,21 +21,23 @@ $email = isset($_POST['email'])? $_POST['email'] : '';
         $sql = "SELECT * FROM users WHERE email = '$email' AND surname='$surname' AND color = '$color'";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
-           echo "RECORD EXIST";
-            while($row = mysqli_fetch_assoc($result)) {
-                echo "username: " . $row["username"]. " - Password: " . $row["password"]. "<br>";
-    }
-            
-        }else{
-            echo "NO RECORD FOUND";
+//           echo "RECORD EXIST";
+//            while($row = mysqli_fetch_assoc($result)) {
+//                echo "username: " . $row["username"]. " - Password: " . $row["password"]. "<br>";
+                //header("Location:../index.php");
+                
+//            }
         }
+//            else{
+//            echo "NO RECORD FOUND";
+//        }
 
     //    mail("100066109@students.swinburne.edu.my","Deallo user forgot password, here is the e-mail",$email);
 
     }
-
-}else{
-    echo "Submit button is not set";
+//
+//}else{
+//    echo "Submit button is not set";
 }
 
 ?>
