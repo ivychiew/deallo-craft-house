@@ -47,8 +47,6 @@
             </li>
 
             <?php  if (isset($_SESSION['username'])) : ?>
-            <!-- <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p> -->
-           <!--  <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p> -->
          
              <li class="nav-item">
                <a class="nav-link" href="../index.php?logout='1'" style="color: red;">Sign out</a>
@@ -114,10 +112,12 @@
                   <h4 class="card-title">
                     <a href="#"><?php echo $productName ?></a>
                   </h4>
-                  <h5><span class="product-price">
-                       <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
-                    </span></h5>
-                  <div class="col-sm-4card-text"><?php echo $productDescription; ?></p>
+                  <h5>
+                    <span class="product-price">
+                      <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
+                    </span>
+                  </h5>
+                <div class="col-sm-4card-text"><?php echo $productDescription; ?></p>
                 </div>
                 <div class="col-xs-3">
                       <div class="cart">
@@ -126,36 +126,9 @@
                           </a></h5>
                       </div>
                 </div>
-               <!--  <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div> -->
+      
               </div>
             </div>
-
-    
-			<!-- <div class="col-xs-3">
-       <div class="ibox">
-            <div class="ibox-content product-box">
-                <div class="product-imitation">
-                   <!--Product Image-->
-                   
-                <!-- </div>
-                <div class="col-xs-3 product-desc">
-                    
-                    
-                   <!--Product Name-->
-                  <!--  <h3 class="page-header" align="center"></h3>
-
-                    
-                    <br>
-                    
-                </div>
-            </div>
-        </div>
-	
-					<br><hr><br>
-		
-				</div> --> 
 			</div> 
 
 			<?php
