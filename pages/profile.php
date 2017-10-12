@@ -1,30 +1,3 @@
-<?php
-session_start();
-
-    if(isset($_POST['submitform']))
-    {
-        $dir="upload/";
-        $image=$_FILES['uploadfile']['name'];
-        $temp_name=$_FILES['uploadfile']['tmp_name'];
-
-        if($image!="")
-        {
-            if(file_exists($dir.$image))
-            {
-                $image= time().'_'.$image;
-            }
-
-            $fdir= $dir.$image;
-            move_uploaded_file($temp_name, $fdir);
-        }
-
-            $query="insert IGNORE into 'images' ('id','file') values ('','$image')";
-            mysqli_query($con,$query) or die(mysqli_error($con));
-
-            echo "File Uploaded Suucessfully!";
-    }
-?>
-
 <!DOCTYPE html> 
 <html lang="en">
 <head>
@@ -131,22 +104,32 @@ session_start();
                 <h3 class="label label-success"><span class="glyphicon glyphicon-envelope"></span> Verified with e-mail</h3>
                 <br/><br/>
                 
-                <form action="profileAction.php" name="profileAction" id="profileAction" method="post" class="form-vertical" novalidate>
+                <form action="profileAction.php" id="profileAction" method="post" class="form-vertical" enctype="multipart/form-data" novalidate>
                     
                     <div class="form-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        
-                        <h3><?php $username ?></h3>
-                        
+   
+                        <br/>
                         <input type="text" name="username1" id="username1" class="form-control" placeholder="Username" size="10"/>
                         
+                        <br/>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span><br/>
                         <input type="text" name="password1" id="password1" class="form-control" placeholder="Password" size="10"/>
                        
+                        <br/>
                         <input type="password2" name="password2" class="form-control" placeholder="Password, again" size="10" max="10"/>
                         
                         <br/>
+                        <input type="text" name="country" class="form-control" placeholder="Country" size="10" name="country" max="10"/>
+                        
+                        <br/>
+                        <div class="form-group">
+                            <textarea class="form-control" name="bio" rows="5" id="bio" placeholder="About Me"></textarea>
+                        </div>
+                        
+                        <br/>
                         <label class="control-label">Profile Picture </label>
-                        <input class="input-group" type="file" name="uploadfile" accept="image/*" />
+                        <input class="input-group" type="file" name="user_image" accept="image/*" />
                         
                         <br/><br/>
                         <p>
@@ -155,6 +138,7 @@ session_start();
                     </div>
 
                 </form>
+                <br/>
             </div>
         
 		

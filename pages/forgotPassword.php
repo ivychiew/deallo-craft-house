@@ -69,7 +69,7 @@
 
         <h1 id="dangTagline" align="center">Dang! Forgot your password?</h1>
 
-        <form method="post" name="forgotPassForm" class="form form-vertical" action="forgotPasswordAction.php" data-ng-show="!successPassword">
+        <form method="post" name="forgotPassForm" class="form form-vertical" action="forgotPassword.php" data-ng-show="!successPassword">
             
             <br/>
             <input type="text" class="form-control" name="surname" placeholder="What is your surname backwords?"/>
@@ -89,6 +89,48 @@
                 <button type="submit" name="submit" class="btn btn-success">Reset my password</button>
             </p>
         </form>
+        
+        <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "register";
+
+            if (isset($_POST['submit'])){
+
+                $surname = isset($_POST['surname'])? $_POST['surname'] : '';
+                $color = isset($_POST['color'])? $_POST['color'] : '';
+                $email = isset($_POST['email'])? $_POST['email'] : '';
+
+                //Spambot detector
+                if(!empty($_POST['honeyPot']))
+                {
+                    echo "Authentication Error: You're not human. We see you.";
+                }
+
+                // Create connection
+                $conn = mysqli_connect($servername, $username, $password, $dbname);
+                // Check connection
+                if (!$conn) {
+                    die("Connection failed: " . mysqli_connect_error());
+                }
+                else{
+
+                    $sql = "SELECT * FROM users WHERE email = '$email' AND surname='$surname' AND color = '$color'";
+
+                    $result = mysqli_query($conn, $sql);
+
+                    if (mysqli_num_rows($result) > 0) {
+
+                        header("Location:editPassword.php");
+                    }
+                    else{
+                        echo "NO RECORD FOUND";
+                    }   
+                }
+            }
+        ?>
+        
     </div>
 </body>
 

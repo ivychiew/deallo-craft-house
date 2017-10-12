@@ -62,19 +62,19 @@
 		$username = mysqli_real_escape_string($dbi, $_POST['username']);
 		$password = mysqli_real_escape_string($dbi, $_POST['password']);
 
-		//password encryption
-		$algorithm = "2a";
-		$length = "12";
-
-		//Start the salt by specifying the algorithm and length
-		$salt = "$" . $algorithm . "$" . $length . "$";
-
-		//Add on random salt and make base64 adjusted for bcrypt's version
-		$salt .= substr( str_replace( "+", ".", base64_encode( mcrypt_create_iv( 128, MCRYPT_DEV_URANDOM ) ) ), 0, 22 );
-
-		//Encrypt with your generated salt
-		$encrypt = crypt( $password, $salt );
-
+//		//password encryption
+//		$algorithm = "2a";
+//		$length = "12";
+//
+//		//Start the salt by specifying the algorithm and length
+//		$salt = "$" . $algorithm . "$" . $length . "$";
+//
+//		//Add on random salt and make base64 adjusted for bcrypt's version
+//		$salt .= substr( str_replace( "+", ".", base64_encode( mcrypt_create_iv( 128, MCRYPT_DEV_URANDOM ) ) ), 0, 22 );
+//
+//		//Encrypt with your generated salt
+//		$encrypt = crypt( $password, $salt );
+//
 
 
 		//if field is empty
@@ -89,7 +89,8 @@
 		if (count($errors) == 0) {
 
 			//fetch data from db
-			$password = md5($password);
+			//$password = md5($password);
+            
 			$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 			$results = mysqli_query($dbi, $query);
 
