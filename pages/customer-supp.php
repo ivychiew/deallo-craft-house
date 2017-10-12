@@ -46,7 +46,7 @@
 		
     <ol type="1">
 			<li>How to purchase products</li>
-				<p>You need to have an account to purchase the products. Please sign up here  (there is a link to sign up page)</p>
+				<p>You need to have an account to purchase the products. Please <a href="./register.php">sign up</a> here .</p>
 				
 			<li>How to avoid from buying the wrong products which you did not expect</li>
 				<p>Always double check your shopping basket before checking out to payment.</p>

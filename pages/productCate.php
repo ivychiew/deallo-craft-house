@@ -42,7 +42,13 @@
         <br/>
 		
     <ol type="1">
-		<h2>HAPPY SHOPPING</h2>
+		<li><a href="./cloth_acce.php">Clothing & Accessories</a></li>
+		<li><a href="./jewelry.php">Jewelry</a></li>
+		<li><a href="./craft.php">Craft Supply</a></li>
+		<li><a href="./bedding.php">Bedding / Room Decoration</a></li>
+		<li><a href="./soft_toy.php">Soft Toys</a></li>
+		<li><a href="./vintage.php">Vintage Arts</a></li>
+		<li><a href="./wedding.php">Wedding</a></li>
 			
     </ol>
 </body>
