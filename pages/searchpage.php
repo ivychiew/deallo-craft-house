@@ -25,7 +25,7 @@
 		<div class="row">
 			<div class="col-xs-6 col-md-4">
 				<div class="input-group">
-					<input type="text" name="kw" class="form-control" placeholder="Search" value='<?php $_GET['k']; ?>'/>
+					<input type="text" name="kw" class="form-control" placeholder="Search" value='<?php $_GET['kw']; ?>'/>
 						<div class="input-group-btn">
 							<button class="btn btn-primary" type="submit">
 							<span class="glyphicon glyphicon-search"></span>
