@@ -10,7 +10,6 @@
 	
     <title>Deallo User Profile</title>
 	<!-- Custom styles for this template -->
-	<link href="..\styles\profile.css" rel="stylesheet" type="text/css">
 	<link href="..\styles\bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="..\styles\bootstrap\bootstrap.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/> 
@@ -30,7 +29,7 @@
         
 	<body class="container-fluid" data-ng-app="myApp">
 	
-	    <!-- Navigation -->
+	<!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#"></a>
@@ -79,14 +78,20 @@
 	
 	
     <!-- Page Content -->
+        <div class="row well text-center" data-ng-controller="myCtrl">
+            
+            <div class="col-md-6 col-lg-6 col-sm-6">
+            
+                <img src="../images/adminProfile.png"   alt="profilePicture" class="img-circle"/>
+            
+            </div>
 
-        <div class="well text-center col-md-12 col-lg-12" data-ng-controller="myCtrl">
-            <h1>PROFILE</h1>
-
-            <div id="profileDetails" data-ng-model="profileDetails" data-ng-show="!showEdit">
-                <img src="../images/DealloLogo.png" alt="profilePicture" class="img-circle" height="200" width="200"/>
-                <h2>Username</h2>
+            <div id="profileDetails" data-ng-model="profileDetails" data-ng-show="!showEdit" class="col-md-6 col-lg-6 col-sm-6">
+                
+                <h2><?php echo $_SESSION['username'] = $username1; ?></h2>
+                
                 <h3 class="label label-success"><span class="glyphicon glyphicon-envelope"></span> Verified with e-mail</h3>
+                
                 <br/><br/>
                 <p>Kuching, Sarawak</p>
 
@@ -97,9 +102,8 @@
                 <p><button type="button" class="btn btn-primary" data-ng-click="showEdit=!showEdit">Edit Profile <span class="glyphicon glyphicon-pencil"></span></button></p>
             </div>
             
-            <div id="EditProfileDetails" data-ng-model="EditProfileDetails" data-ng-show="showEdit">
+            <div id="EditProfileDetails" data-ng-model="EditProfileDetails" data-ng-show="showEdit" class="col-md-6 col-lg-6 col-sm-6">
                 
-                <img src="../images/DealloLogo.png" alt="profilePicture" class="img-circle" height="200" width="200"/>
                 <h2>EDIT PROFILE</h2>
                 <h3 class="label label-success"><span class="glyphicon glyphicon-envelope"></span> Verified with e-mail</h3>
                 <br/><br/>
@@ -140,17 +144,17 @@
                 </form>
                 <br/>
             </div>
-        
-		
+        </div>
+
 	 <!-- Footer -->
 	<footer class="py-5 bg-dark">
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
-		</div>
+                <p class="m-0 text-center text-white col-md-12 col-sm-12 col-lg-12">Copyright &copy; Deallo's Craft House</p>
+		  </div>
 		<!-- /.container -->
 	</footer>
 	
-	</div>
+
 
 	
     <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
