@@ -19,7 +19,7 @@
 
 
     <!-- custom stylesheet -->
-    <link rel="stylesheet" href="../styles/products_css.css">
+    <link rel="stylesheet" href="../styles/products.css">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
@@ -110,8 +110,31 @@
 
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#"><?php echo $productName ?></a>
+                    <span id="myBtn"><?php echo $productName ?></span>
                   </h4>
+
+                 <!--Modal Box-->
+              <div class="container">
+                <div class="card"> 
+
+                <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <span class="close">&times;</span>
+                      <h2><?php echo $productName ?></h2>
+                    </div>
+                    <div class="modal-body">
+                      <p>Some text in the Modal Body</p>
+                      <p>Some other text...</p>
+                    </div>
+                    <div class="modal-footer">
+                      <h3>Modal Footer</h3>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+          <!--Modal Box end-->
 
                   <h5>
                     <span class="product-price">
@@ -120,7 +143,7 @@
                   </h5>
 
                 <div class="col-sm-4card-text"><?php echo $productDescription; ?></div>
-                
+                <br>
                 <div class="col-xs-3">
                       <div class="cart">
                            <button class="btn btn-info" href="#">Add to cart</button>
@@ -153,8 +176,8 @@
 
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="../js/bootstrap.min.js"></script>
+<script type='text/javascript' src="../js/bootstrap.min.js"></script>
 <script type='text/javascript' src='../js/buttonToggle.js'></script>
-
+<script type='text/javascript' src='../js/modal.js'></script>
 </body>
 </html>
