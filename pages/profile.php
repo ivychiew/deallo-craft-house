@@ -8,15 +8,15 @@ session_start();
     $dbname = "register";
     $sql = null;
 
-$username1= '';
-$password1='';
-$password2='';
-$email='';
-$bio='';
-$country='';
-$address='';
-$phoneNumber='';
-$fullPathName='';
+    $username1= '';
+    $password1='';
+    $password2='';
+    $email='';
+    $bio='';
+    $country='';
+    $address='';
+    $phoneNumber='';
+    $fullPathName='';
 
 
     // Create connection
@@ -37,8 +37,6 @@ $fullPathName='';
         $country = mysqli_real_escape_string($conn, $_POST['country']);
         $address = mysqli_real_escape_string($conn, $_POST['address']);
         $phoneNumber = mysqli_real_escape_string($conn, $_POST['phoneNumber']);
-
-    
 
     //1- If got username
     if(!empty($username1)){
@@ -115,9 +113,6 @@ $fullPathName='';
                 $errMSG = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";        
             }
 
-            //Replace exiting image in database with current Image
-            //????
-
             $insertImage = "UPDATE users SET profile_image = '$imgFile' WHERE username='$username1'";
             
             if ($result = mysqli_query($conn, $insertImage)) {
@@ -125,29 +120,7 @@ $fullPathName='';
                 window.alert('SUCCESS IMAGE')
                 window.location.href='profile.php';
                 </SCRIPT>");
-            
-                //echo '<img src="'$fullPath'" alt="icon" />';   
-   
-                
-                //                window.location.href='profile.php';
-                
-//                $row = mysqli_fetch_object($result)or die(mysqli_error($conn));
-//                
-//                if($row){
-//                    echo ("<SCRIPT LANGUAGE='JavaScript'>
-//                window.alert('ROW IS TRUE')
-//                </SCRIPT>");
-//                }else{
-//                    echo ("<SCRIPT LANGUAGE='JavaScript'>
-//                window.alert('ROW FALSE')
-//                </SCRIPT>");
-//                }
-//                
-//                while($row){
-//                    
-//                    echo '<div><img src="'. $row->images_path . '" border=0></div>';    
-//                }
-                
+                       
             }else{
                 echo ("<SCRIPT LANGUAGE='JavaScript'>
                 window.alert('NOT SUCESS IMAGE')
@@ -155,7 +128,7 @@ $fullPathName='';
                 </SCRIPT>");
             }
         }
-        //3- Profile Picture upload END
+        //5- Profile Picture upload END
     
         
     }else{  //if no username
@@ -166,8 +139,6 @@ $fullPathName='';
     }
         
 }
-
-    //mysqli_close($conn);
 
 ?>
 
@@ -184,8 +155,8 @@ $fullPathName='';
 	
     <title>Deallo User Profile</title>
 	<!-- Custom styles for this template -->
-	<link href="..\styles\bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="..\styles\bootstrap\bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="..\styles\bootstrap\bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="..\styles\bootstrap\bootstrap.css" rel="stylesheet" type="text/css"/>
     <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/> 
 	
 	<!-- Latest compiled and minified CSS -->
@@ -203,52 +174,66 @@ $fullPathName='';
         
 	<body class="container-fluid" data-ng-app="myApp">
 	
-	<!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+     <!-- Navigation -->
+     <div class="navbar navbar-inverse nav-fixed-top" role="navigation">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
         </button>
-
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-         
-            <li class="nav-item active">
-              <a class="nav-link" href="../index.php">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-
-            <!--If user is logged in, display this section of the navbar--> 
-            <?php  if (isset($_SESSION['username'])) : ?>
-            <!-- <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p> -->
-           <!--  <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p> -->
-                <li class="nav-item">
-                  <a class="nav-link" href="index.php?logout='1'">Sign out</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/profile.php">Profile</a>
-                </li>
-             <?php endif ?>
-             
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">Products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Shopping Cart</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
+        <a class="navbar-brand" rel="home" href="#">Deallo's Craft House</a>
       </div>
-    </nav>
+
+      <div class="collapse navbar-collapse">
+
+
+        <ul class="nav navbar-nav"><!--    unordered list start -->
+          <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
+
+          <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+          <li><a href="#">Questions?</a></li>
+          <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Clothing</a></li>
+                     <li class="divider"></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Food</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Furniture</a></li>
+                  </ul>
+                </li>
+
+          <button type="button" class="btn btn-default navbar-btn" style="list-style-type: none;">
+              <?php  if (isset($_SESSION['username'])) : ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/profile.php">
+                    <span>Welcome <?php echo $_SESSION['username'] ?></span>
+                  </a>
+                 </li>
+              <?php endif ?>
+          </button>
+       </ul><!--  unordered list end -->
+
+        <div class="col-sm-3 col-md-3 pull-right">
+          <form class="navbar-form" role="search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- end of navbar -->
 	
 	
     <!-- Page Content -->
@@ -276,7 +261,6 @@ $fullPathName='';
               
               //If profile pic never set, template image used
               if($last == "../images/adminProfile.png"){
-                   echo "INSIDE IF";
                   $fullPath = $last;  
               }else{
                   //If custom picture set
@@ -285,14 +269,16 @@ $fullPathName='';
 
             ?>
                     
-                    <?php  if (isset($_SESSION['username'])) : ?>
-            <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-                    <?php endif ?>
+
+                    
                 <img src="<?php echo $fullPath ?>" alt="SHOULDBEHERE" class="img-circle"/>
                     
-                <div class="container">
-                    <h4>John Doe</h4>
-                    <p>Architect and Engineer</p> 
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                    <?php  if (isset($_SESSION['username'])) : ?>
+                    <h4>Username: <?php echo $_SESSION['username']; ?></h4>
+                    <?php endif ?>
+                    </div>
                 </div>
                 </div>
             </div>
