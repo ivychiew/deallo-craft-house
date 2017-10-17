@@ -1,6 +1,6 @@
 <?php include_once '..\includes\server.php' ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Deallo Craft House - Login</title>
 	<link rel="stylesheet" type="text/css" href="..\styles\login_styles.css"/>
@@ -18,11 +18,11 @@
 
 		<div class="input-group">
 			<label>Username</label>
-			<input type="text" name="username" >
+			<input type="text" name="username" />
 		</div>
 		<div class="input-group">
 			<label>Password</label>
-			<input type="password" name="password">
+			<input type="password" name="password"/>
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="login_user">Login</button>
