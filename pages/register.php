@@ -25,7 +25,7 @@
 		</div>
 		<div class="input-group">
 			<label>Password</label>
-			<input type="password" name="password_1"/>
+			<input type="password" name="password_1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
 		</div>
 		<div class="input-group">
 			<label>Confirm password</label>

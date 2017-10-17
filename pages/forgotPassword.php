@@ -78,7 +78,7 @@
             <input type="text" class="form-control" name="color" placeholder="What is your favourite color?"/>
             
             <br/>
-            <input type="email" class="form-control" name="email" placeholder="Enter email here"/>
+            <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" placeholder="Enter email here"/>
             
             <br/>
             <input type="text" name="honeyPot" class="honeyPot" class="form-control" value="" placeholder="If you see this leave this form field blank and invest in CSS support."/>
