@@ -11,7 +11,8 @@
 	$dbi = mysqli_connect('localhost', 'root', '' , 'register'); 
 	$dbi2 = mysqli_connect('localhost', 'root', '' , 'products');
 	// $mysqli = mysqli_connect('localhost', 'root', '', 'products');
-	//user registration.
+	
+    //User Registration
 	if (isset($_POST['reg_user'])){
 		//receive all input values from the form.
 		$username = mysqli_real_escape_string($dbi, $_POST['username']);
@@ -40,10 +41,13 @@
 	if (count($errors) == 0){
 
 		//encrypt the password before saving in the database
-		$password = md5($password_1); 
+		//$password = md5($password_1); 
+        
+        //Every new user has a default profile image
+        $templateImagePath="../images/adminProfile.png";
 
-		$query = "INSERT INTO users (username, email, password, surname, color)
-				  VALUES('$username', '$email', '$password','$surname','$color')";
+		$query = "INSERT INTO users (username, email, password, surname, color, profile_image)
+				  VALUES('$username', '$email', '$password_1','$surname','$color','$templateImagePath')";
 		mysqli_query($dbi, $query);
 
 		$_SESSION['username'] = $username;
@@ -56,7 +60,7 @@
 //...
 
 
-// Login User + Encryption
+// Login User - Encryption
 
 	if (isset($_POST['login_user'])) {
 		$username = mysqli_real_escape_string($dbi, $_POST['username']);
