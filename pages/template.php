@@ -13,7 +13,6 @@
 	<link href="..\styles\bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="..\styles\bootstrap\bootstrap.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/> 
-    <link href="..\styles\bootstrap\bootstrap.css" rel="stylesheet" type="text/css">
 	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
     elements and media queries --> 
