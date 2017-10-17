@@ -111,19 +111,19 @@
                 <section class="col-md-4 col-sm-4 col-lg-4">
                     <img src="../images/adminProfile.png" class="img-rounded"/>
                     <h2>Viv</h2>
-                    <p>LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM</p>
+                    <p>Vivien is the project leader in the development team for Deallo Craft House. She specializes in backend integration as well as the scripting used in our webpage.</p>
                 </section>
 
                 <section class="col-md-4 col-sm-4 col-lg-4">
                     <img src="../images/adminProfile.png" class="img-rounded"/>
                     <h2>Sel</h2>
-                    <p>LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM</p>
+                    <p>Selena is a scrum member of our team who is responsible for the overall design and user experience of this web application.</p>
                 </section>
 
                 <section class="col-md-4 col-sm-4 col-lg-4">
                     <img src="../images/adminProfile.png" class="img-rounded"/>
                     <h2>Tay</h2>
-                    <p>LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM</p>
+                    <p>Tay is also a scrum member who's main duties lie with promoting the ease of use of our application.</p>
                 </section>
         
             </div>
