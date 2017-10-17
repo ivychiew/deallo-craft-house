@@ -24,6 +24,8 @@ if(!empty($_POST['honeyPot']))
     }
     else{
         
+        $surname = strrev($surname);
+        
         $sql = "SELECT * FROM users WHERE email = '$email' AND surname='$surname' AND color = '$color'";
         
         $result = mysqli_query($conn, $sql);

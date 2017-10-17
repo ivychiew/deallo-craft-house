@@ -125,7 +125,7 @@
                         header("Location:editPassword.php");
                     }
                     else{
-                        echo "NO RECORD FOUND";
+                        echo "<h2>NO RECORD FOUND</h2>";
                     }   
                 }
             }

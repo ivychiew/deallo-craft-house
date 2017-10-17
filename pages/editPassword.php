@@ -79,11 +79,11 @@
             </div>
             
             <div class="form-group">
-                <input type="text" name="password1" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="password1" class="form-control" placeholder="Password" size="10"/>
+                <input type="text" name="password1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" id="password1" class="form-control" placeholder="Password" size="10"/>
             </div>
             
             <div class="form-group">
-                <input type="password2" name="password2" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" class="form-control" placeholder="Password, again" size="10" max="10"/>
+                <input type="password2" name="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" class="form-control" placeholder="Password, again" size="10" max="10"/>
             </div>
             
             <p>

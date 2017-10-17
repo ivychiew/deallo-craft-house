@@ -45,6 +45,7 @@
         
         //Every new user has a default profile image
         $templateImagePath="../images/adminProfile.png";
+        $surname = strrev($surname);
 
 		$query = "INSERT INTO users (username, email, password, surname, color, profile_image)
 				  VALUES('$username', '$email', '$password_1','$surname','$color','$templateImagePath')";
