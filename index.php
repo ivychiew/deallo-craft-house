@@ -1,5 +1,6 @@
-<?php include 'includes/sessions.php' ?>
 <?php include 'includes/product_config.php' ?>
+<?php include 'includes/sessions.php' ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +26,7 @@
 
 <body>
 
-    <!-- Navigation -->
+<!-- Navigation -->
  <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
   
   <div class="navbar-header">
@@ -112,7 +113,7 @@
         <div class="col-lg-3">
 
 
-          <h1 class="my-4">Deallo's Craft House</h1>
+          <span><img src="images/cat.png" class="center-block img-responsive" style="max-width: 200px; max-height: 200px;"/></span>
 
           <!--End-->
           
@@ -120,6 +121,10 @@
             <a href="#" class="list-group-item">Clothing and Accessories</a>
             <a href="#" class="list-group-item">Jewellery</a>
             <a href="#" class="list-group-item">Craft Supplies</a>
+            <a href="#" class="list-group-item">Room Decor</a>
+            <a href="#" class="list-group-item">Toys</a>
+            <a href="#" class="list-group-item">Vintage Art</a>
+            <a href="#" class="list-group-item">Wedding Accessories</a>
           </div>
 
         </div>
