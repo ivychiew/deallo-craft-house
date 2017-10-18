@@ -12,64 +12,82 @@
     <meta name="author" content="">
 
     <title>Shop Homepage</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <!-- Bootstrap core CSS -->
-   <link rel="stylesheet" href="styles/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="styles/bootstrap/bootstrap.css.min">
-    <!-- Custom styles for this template -->
-  <!-- <link href="../styles/style.css" rel="stylesheet">
- -->
-  </head>
+    <!--Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="styles/test.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/products.css"/>
+    
 
-  <body>
+</head>
+
+<body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+ <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
+  
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" rel="home" href="#">Deallo's Craft House</a>
+  </div>
+  
+  <div class="collapse navbar-collapse">
+    
 
-       
+    <ul class="nav navbar-nav"><!--    unordered list start -->
+      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
 
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-         
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
+      <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+      <li><a href="#">Questions?</a></li>
+      <li class="dropdown">
+              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="pages/products.php">All Products</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Clothing</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Accessories</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Food</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Furniter</a></li>
+              </ul>
+            </li>
+   
+      <button type="button" class="btn btn-default navbar-btn" style="list-style-type: none;">
+          <?php  if (isset($_SESSION['username'])) : ?>
+            <li class="nav-item">
+              <a class="nav-link" href="pages/profile.php">
+                <span>Welcome <?php echo $_SESSION['username'] ?></span>
               </a>
-            </li>
+             </li>
+          <?php endif ?>
+      </button>
+   </ul><!--  unordered list end -->
 
-            <?php  if (isset($_SESSION['username'])) : ?>
-            <!-- <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p> -->
-           <!--  <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p> -->
-         
-                <li class="nav-item">
-                  <a class="nav-link" href="index.php?logout='1'" style="color: red;">Sign out</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/profile.php">Edit Profile</a>
-                </li>
-
-             <?php endif ?>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/products.php">Products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Shopping Cart</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
+    <div class="col-sm-3 col-md-3 pull-right">
+      <form class="navbar-form" role="search">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
         </div>
       </div>
-    </nav>
+      </form>
+    </div>
+    
+  </div>
+</div>
+   
+<!-- end of navbar -->
+            
 
     <!-- Page Content -->
     <div class="container">
@@ -96,13 +114,6 @@
 
           <h1 class="my-4">Deallo's Craft House</h1>
 
-          <!--Check user session--> 
-
-          <?php  if (isset($_SESSION['username'])) : ?>
-            <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-            <p> <a href="index.php?logout='1'" style="color: grey;">logout</a> </p>
-          <?php endif ?>
-
           <!--End-->
           
           <div class="list-group">
@@ -115,33 +126,8 @@
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
-
-          <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-              <div class="carousel-item active">
-                 <img class="d-block img-fluid" src="images/cover1.png" alt="First slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block img-fluid" src="images/cover2.png" alt="Second slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block img-fluid" src="cover3.png" alt="Third slide">
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
+          <img class="img-fluid img-responsive" src="images/Cover1.png" alt="Cover"/>
+        
 
 <!--Products Diplay-->
 <div class="row" id="products">
@@ -161,19 +147,18 @@
           extract($row);
   ?>
     <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
+      <br>
+              <div class="well well-lg">
+
                  <img src="images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
 
                 <div class="card-body">
-                  <h4 class="card-title">
+                  <h3 class="card-title">
                     <a href="pages/products.php"><?php echo $productName ?></a>
                   </h4>
-
-                  <h5>
-                    <span class="product-price">
+                  <h4 class="product-price">
                       <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
-                    </span>
-                  </h5>
+                  </h4>
               </div>
             </div>
           </div>
@@ -183,7 +168,6 @@
   else
   {
     ?>
-
     <!--If Empty Data, Show no data found-->
         <div class="col-xs-12">
           <div class="alert alert-warning">
@@ -192,20 +176,16 @@
         </div>
         <?php
   }
-  
+ 
 ?>
 </div>  
           <!-- /.row -->
-
         </div>
         <!-- /.col-lg-9 -->
-
       </div>
       <!-- /.row -->
-
     </div>
     <!-- /.container -->
-
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
@@ -215,7 +195,12 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-  <script src="../js/bootstrap.min.js"></script>
+<!--   <script src="../js/bootstrap.min.js"></script> -->
+  <!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   </body>
 

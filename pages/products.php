@@ -50,7 +50,7 @@
                <a class="nav-link" href="../index.php?logout='1'" style="color: red;">Sign out</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="pages/profile.php">Edit Profile</a>
+               <a class="nav-link" href="profile.php">Edit Profile</a>
              </li>
 
              <?php endif ?>
