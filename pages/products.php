@@ -19,7 +19,7 @@
 
 
     <!-- custom stylesheet -->
-    <link rel="stylesheet" href="../styles/products.css">
+    <link rel="stylesheet" href="../styles/product_modal.css">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
@@ -121,14 +121,30 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <span class="close">&times;</span>
-                      <h2><?php echo $productName ?></h2>
+                      
                     </div>
                     <div class="modal-body">
-                      <p>Some text in the Modal Body</p>
-                      <p>Some other text...</p>
+                      <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+                      <h3><?php echo $productName ?></h3>
+                      <br>
+                      <h4><?php echo "RM $productPrice  &nbsp &nbsp"; ?></h4>
+                      <p><?php echo $productDescription; ?></p>
+                      
                     </div>
                     <div class="modal-footer">
-                      <h3>Modal Footer</h3>
+                      <div class="dropdown">
+                        <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">Select Colour
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">HTML</a></li>
+                          <li><a href="#">CSS</a></li>
+                          <li><a href="#">JavaScript</a></li>
+                        </ul>
+                      </div>
+                      <div class="cart">
+                           <button class="btn btn-info" href="#">Add to cart</button>
+                           
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -176,7 +192,8 @@
 
 
 <!-- Latest compiled and minified JavaScript -->
-<script type='text/javascript' src="../js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type='text/javascript' src='../js/buttonToggle.js'></script>
 <script type='text/javascript' src='../js/modal.js'></script>
 </body>
