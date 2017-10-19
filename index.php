@@ -71,6 +71,17 @@
              </li>
           <?php endif ?>
       </button>
+      <!-- notification message -->
+    <?php if (isset($_SESSION['success'])) : ?>
+      <div class="error success" >
+        <li class="nav-item">
+          <?php  
+            echo $_SESSION['success'];
+            unset($_SESSION['success']);
+          ?>
+        </li>
+      </div>
+    <?php endif ?>
    </ul><!--  unordered list end -->
 
     <div class="col-sm-3 col-md-3 pull-right">
@@ -92,18 +103,6 @@
 
     <!-- Page Content -->
     <div class="container">
-
-    <!-- notification message -->
-    <?php if (isset($_SESSION['success'])) : ?>
-      <div class="error success" >
-        <h3>
-          <?php 
-            echo $_SESSION['success']; 
-            unset($_SESSION['success']);
-          ?>
-        </h3>
-      </div>
-    <?php endif ?>
 
     <!-- logged in user information -->
    
