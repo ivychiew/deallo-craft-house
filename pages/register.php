@@ -3,10 +3,9 @@
 <html>
 <head>
 	<title>Registration system PHP and MySQL</title>
-	<link rel="stylesheet" type="text/css" href="../styles/login_styles.css">
-    <link rel="stylesheet" type="text/css" href="../styles/style.css">
+	<link rel="stylesheet" type="text/css" href="..\styles\login_styles.css"/>
 </head>
-<body>
+<body class="bg">
 	<div class="header">
 		<h2>Register</h2>
 	</div>

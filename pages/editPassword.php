@@ -65,30 +65,38 @@
       </div>
     </nav>
     
-    <div class="container">
-
-        <br/>
-        <h1 id="dangTagline" align="center">EDIT PASSWORD</h1>
-
-        <form method="post" class="form form-vertical" action="editPassword.php">
+    <div class="container-fluid">
+        <br/><br/>
+        
+        <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            
+            
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <img src="../images/editPasswordIcon.png" class="col-lg-6 col-md-6 col-sm-6" alt="editPasswordIcon"/>
+            <h1 id="dangTagline" class="col-lg-6 col-md-6 col-sm-6" align="center">EDIT PASSWORD</h1>
+        </div>
+        
+        
+        <form method="post" class="form form-vertical col-lg-6 col-md-6 col-sm-6" action="editPassword.php">
             
 <!--        <?php include('..\includes\errors.php'); ?>-->
             
-            <div class="form-group">
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
               <input type="text" name="username1" id="username1" class="form-control" placeholder="Username" size="10"/>
             </div>
             
-            <div class="form-group">
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
                 <input type="text" name="password1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" id="password1" class="form-control" placeholder="Password" size="10"/>
             </div>
             
-            <div class="form-group">
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
                 <input type="password2" name="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" class="form-control" placeholder="Password, again" size="10" max="10"/>
             </div>
             
-            <p>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
                 <button type="submit" class="btn btn-success" name="submit">RESET PASSWORD<span class="glyphicon glyphicon-pencil"></span></button>
-            </p>
+            </div>
         </form>
         
         <?php
@@ -149,7 +157,7 @@
         mysqli_close($dbi);
 
         ?>
-        
+        </div>
     </div>
 </body>
 
