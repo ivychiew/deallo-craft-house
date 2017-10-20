@@ -173,7 +173,8 @@ session_start();
     <![endif]--> 
 </head>
         
-<body class="container-fluid" data-ng-app="myApp">
+<!-- <body class="container-fluid" data-ng-app="myApp"> -->
+<body data-ng-app="myApp">
 	
 <!-- Navigation -->
  <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
@@ -189,15 +190,37 @@ session_start();
   </div>
   
   <div class="collapse navbar-collapse">
-    <ul class="nav navbar-nav"><!--    unordered list start -->
-      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
 
-      <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
-      <li><a href="#">Questions?</a></li>
-      <li class="dropdown">
-              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+    
+    <div class="col-sm-3 col-md-3 navbar-right">
+      <form class="navbar-form" role="search">
+      <div class="input-group ">
+        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
+      </div>
+      </form>
+    </div>
+
+    <?php  if (isset($_SESSION['username'])) : ?>
+    <ul class="nav navbar-nav"><!--unordered list start -->
+    <li class="dropdown">
+              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="products.php">All Products</a></li>
+                <li><a href="pages/profile.php">Edit Profile</a></li>
+                <li class="divider"></li>
+                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+                 <li class="divider"></li>
+                <li><a href="customer-supp.php">Questions?</a></li>
+              </ul>
+            </li>
+       <?php endif ?>
+     
+      <li class="dropdown">
+              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="pages/products.php">All Products</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Clothing</a></li>
                 <li class="divider"></li>
@@ -207,34 +230,14 @@ session_start();
                 <li class="divider"></li>
                 <li><a href="#">Furniture</a></li>
               </ul>
-            </li>
-   
-      <button type="button" class="btn btn-default navbar-btn" style="list-style-type: none;">
-          <?php  if (isset($_SESSION['username'])) : ?>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/profile.php">
-                <span>Welcome <?php echo $_SESSION['username'] ?></span>
-              </a>
-             </li>
-          <?php endif ?>
-      </button>
-   </ul><!--  unordered list end -->
-
-    <div class="col-sm-3 col-md-3 pull-right">
-      <form class="navbar-form" role="search">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-        <div class="input-group-btn">
-          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-        </div>
-      </div>
-      </form>
-    </div>
-    
+      </li>
+      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
+    </ul>
   </div>
-</div> 
-<!-- end of Navbar -->
+</div>
+<!--End of Nav Bar-->
 	
+<div class="container">
 <!-- Page Content -->
    <div class="row well text-center" data-ng-controller="myCtrl">
     <div class="col-md-6 col-lg-6 col-sm-6">
@@ -262,7 +265,6 @@ session_start();
                   }
 
             ?>
-                    
 
                     
                 <img src="<?php echo $fullPath ?>" alt="Profile_Picture" height="200" width="200" class="img-circle"/>
@@ -342,15 +344,15 @@ session_start();
                 <br/>
             </div>
         </div>
+</div>
 
 	 <!-- Footer -->
-	<footer class="py-5 bg-dark">
+<footer class="py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
       </div>
       <!-- /.container -->
     </footer>
-
 
 	
     <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 

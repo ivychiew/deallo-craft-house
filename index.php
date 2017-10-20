@@ -2,7 +2,6 @@
 <?php include 'includes/product_config.php' ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 
