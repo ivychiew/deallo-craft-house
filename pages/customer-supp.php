@@ -54,11 +54,11 @@
     <li class="dropdown">
               <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="pages/profile.php">Edit Profile</a></li>
+                <li><a href="profile.php">Edit Profile</a></li>
                 <li class="divider"></li>
-                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+                <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
                  <li class="divider"></li>
-                <li><a href="pages/customer-supp.php">Questions?</a></li>
+                <li><a href="customer-supp.php">Questions?</a></li>
               </ul>
             </li>
        <?php endif ?>
