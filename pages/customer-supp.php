@@ -1,3 +1,5 @@
+<?php include '../includes/sessions.php' ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,8 +20,8 @@
     
 </head>
 
-<body class="container-fluid" data-ng-app="myApp">
-	
+<!-- <body class="container-fluid" data-ng-app="myApp"> -->
+<body class="data-ng-app">
 <!-- Navigation -->
  <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
   
@@ -34,17 +36,37 @@
   </div>
   
   <div class="collapse navbar-collapse">
+
     
+    <div class="col-sm-3 col-md-3 navbar-right">
+      <form class="navbar-form" role="search">
+      <div class="input-group ">
+        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
+      </div>
+      </form>
+    </div>
 
-    <ul class="nav navbar-nav"><!--    unordered list start -->
-      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
-
-      <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
-      <li><a href="#">Questions?</a></li>
-      <li class="dropdown">
-              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+    <?php  if (isset($_SESSION['username'])) : ?>
+    <ul class="nav navbar-nav"><!--unordered list start -->
+    <li class="dropdown">
+              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="products.php">All Products</a></li>
+                <li><a href="pages/profile.php">Edit Profile</a></li>
+                <li class="divider"></li>
+                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+                 <li class="divider"></li>
+                <li><a href="pages/customer-supp.php">Questions?</a></li>
+              </ul>
+            </li>
+       <?php endif ?>
+     
+      <li class="dropdown">
+              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="pages/products.php">All Products</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Clothing</a></li>
                 <li class="divider"></li>
@@ -54,40 +76,25 @@
                 <li class="divider"></li>
                 <li><a href="#">Furniture</a></li>
               </ul>
-            </li>
-   
-      <button type="button" class="btn btn-default navbar-btn" style="list-style-type: none;">
-          <?php  if (isset($_SESSION['username'])) : ?>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/profile.php">
-                <span>Welcome <?php echo $_SESSION['username'] ?></span>
-              </a>
-             </li>
-          <?php endif ?>
-      </button>
-   </ul><!--  unordered list end -->
-
-    <div class="col-sm-3 col-md-3 pull-right">
-      <form class="navbar-form" role="search">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-        <div class="input-group-btn">
-          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-        </div>
-      </div>
-      </form>
-    </div>
-    
+      </li>
+      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
+    </ul>
   </div>
-</div> 
-<!-- end of Navbar -->
- 
-	<div class="header">
+</div>
+<!--End of Nav Bar-->
+<div class="container"> 
+  <div class="row"> 
+    <div class="col-md-12">
+	     <div class="header">
         <h1>Customer Support</h1>
-		<h5> Welcome to the Customer Support Page. Please tell us your problem and we will reply 
-		as soon as possible.</h5>
-         
-	</div>
+		      <h5> Welcome to the Customer Support Page. Please tell us your problem and we will reply 
+		        as soon as possible.</h5> 
+	     </div>
+    </div>
+  </div>
+
+  <div class="row"> 
+    <div class="col-md-12">
 	
 	<form method="GET" class="form form-horizontal" action="./report.php">
 		<div>
@@ -105,10 +112,13 @@
             <button type="submit" name="submit" class="btn btn-success" a href="customer-supp2.php">Submit</button>
 		</div>
 	</form>
-	
+	 </div>
+  </div>
     <br/>
 	
-	<p>
+  <div class="row"> 
+  <div class="col-md-12"> 
+	
 		<h2>Frequent Asked Questions (FAQ)</h2>
         <br/>
 		
@@ -128,11 +138,17 @@
 			
 			<li>Getting Scammed?</li>
 				<p>You may submit a report regarding the scammer or call our 24/7 hotline, 03-8888 9999 for help.</p>
-			
-			<br/>
-			
-		<h2>HAPPY SHOPPING</h2>		
     </ol>
+
+      <br/>
+      
+    <h2>HAPPY SHOPPING</h2>   
+    
+    <br/>
+  </div>
+</div>
+</div>
+
      <!-- Footer -->
 	<footer class="py-5 bg-dark">
       <div class="container">

@@ -28,7 +28,6 @@
 <body>
 
 <!-- Navigation -->
- <!-- Navigation -->
  <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
   
   <div class="navbar-header">
@@ -55,9 +54,10 @@
       </form>
     </div>
 
-    <?php  if (isset($_SESSION['username'])) : ?>
+   
     <ul class="nav navbar-nav"><!--unordered list start -->
     <li class="dropdown">
+     <?php  if (isset($_SESSION['username'])) : ?>
               <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="pages/profile.php">Edit Profile</a></li>
