@@ -84,21 +84,21 @@
         <div class="row" align="center">
           <div class="col-md-4">
             <a href="#">
-              <span><img src="images/vectors/shop.png" alt="my shop" class="img-responsive"/></span>  
+              <span><img src="../images/vectors/shop.png" alt="my shop" class="img-responsive"/></span>  
               <br><br>
               <h4>My Products</h4> 
             </a>
           </div>
           <div class="col-md-4">
             <a href="#">
-              <span><img src="images/vectors/coin.png" alt="my products" class="img-responsive"/></span>    
+              <span><img src="../images/vectors/coin.png" alt="my products" class="img-responsive"/></span>    
               <br><br>
               <h4>My Sales</h4>     
             </a>   
           </div>
           <div class="col-md-4">
             <a href="#">
-              <span><img src="images/vectors/paper.png" alt="shop rating" class="img-responsive"/></span>
+              <span><img src="../images/vectors/paper.png" alt="shop rating" class="img-responsive"/></span>
               <br><br>
               <h4>Shop Rating</h4> 
             </a>

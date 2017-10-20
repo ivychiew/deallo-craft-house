@@ -260,14 +260,14 @@ session_start();
                   $fullPath = $last;  
               }else{
                   //If custom picture set
-                    echo $fullPath = "../images/profile_images" . $last;  
+                    $fullPath = "../images/profile_images" . $last;  
                   }
 
             ?>
                     
 
                     
-                <img src="<?php echo $fullPath ?>" alt="SHOULDBEHERE" class="img-circle"/>
+                <img src="<?php echo $fullPath ?>" alt="Profile_Picture" height="200" width="200" class="img-circle"/>
                     
                 <div class="row">
                     <div class="col-md-12 col-lg-12">
