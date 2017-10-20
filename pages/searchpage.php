@@ -113,7 +113,7 @@
 		else
 		{
 		  //Connect to database
-		  $conn = mysqli_connect("localhost", "root", "", "deallo");
+		  $conn = mysqli_connect("localhost", "root", "", "products");
 		  if(mysqli_connect_errno())
 		  {
               echo "Failed to connect";
@@ -145,25 +145,31 @@
 				$price = $row['productPrice'];
                 
            ?>     
-                <table border="5">
-                    <tr>
-                        <th>Name</th>
-                        <th>Image</th>
-                        <th>Price</th>
-                    </tr>
-                    <tr>
-                        <td><?php  print("$name"); ?></td>
-                        <td><img src = "..\images\product_images\<?php echo $picture; ?>" align="middle" width="200px" height="200px" /></td>
-                        <td><?php  echo "RM $price"; ?></td>
-                    </tr>
-                </table>
-                 
     
+    <div class="container">
+    <div class="col-lg-4 col-md-6 mb-4">
+      <br>
+              <div class="well well-lg">
+                  <!--Print out product picture -->
+                 <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+
+                  <!--Print out product name -->
+                <div class="card-body">
+                  <h3 class="card-title">
+                    <a href="pages/products.php"><?php echo $name ?></a>
+                  </h3>
+                    <!--Print out product price -->
+                  <h4 class="product-price">
+                      <?php echo "RM $price  &nbsp &nbsp"; ?>
+                  </h4>
+              </div>
+            </div>
+          </div>
+        </div>
     <?php
 			}
 		}
             
-		//print("$output");
 		//Disconnect to database
 		
         mysqli_close($conn);
