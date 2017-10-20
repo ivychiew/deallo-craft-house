@@ -26,18 +26,22 @@
 
 /*Fonts for forgotPassword.php*/
 
+/*
 body {
   padding-top: 54px;
 }
+*/
 
 footer { 
 	padding: 54px;
  }
+/*
 @media (min-width: 992px) {
   body {
     padding-top: 56px;
   }
 }
+*/
 
 /*Login*/
 

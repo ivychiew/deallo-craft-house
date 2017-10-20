@@ -189,8 +189,6 @@ session_start();
   </div>
   
   <div class="collapse navbar-collapse">
-    
-
     <ul class="nav navbar-nav"><!--    unordered list start -->
       <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
 
@@ -331,12 +329,10 @@ session_start();
                         <div class="form-group">
                             <textarea class="form-control" name="bio" rows="5" id="bio" placeholder="About Me"></textarea>
                         </div>
-                        
-                        <br/>
+
                         <label class="control-label">Profile Picture </label>
                         <input class="input-group" type="file" name="user_image" accept="image/*" />
                         
-                        <br/><br/>
                         <p>
                             <button type="submit" class="btn btn-primary" data-ng-click="showEdit=!showEdit" name="submitForm">DONE EDITING<span class="glyphicon glyphicon-pencil"></span></button>
                         </p>

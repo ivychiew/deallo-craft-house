@@ -1,14 +1,24 @@
 <!DOCTYPE html> 
 <html lang="en">
 <head>
-    <title>Deallo Forgotten Password</title>
-    
-    <link rel="stylesheet" href="../styles/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="../styles/bootstrap/bootstrap.css.min">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-    <link href="../styles/style.css" rel="stylesheet" type="text/css">
-    <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/> 
 
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+	
+    <title>Deallo User Profile</title>
+	<!-- Custom styles for this template -->
+	<!-- <link href="..\styles\bootstrap\bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="..\styles\bootstrap\bootstrap.css" rel="stylesheet" type="text/css"/> -->
+    <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
+
+	<!--Nav and Footer Stylesheet--> 
+    <link rel="stylesheet" href="../styles/test.css"/>
+	<link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="../styles/style.css" rel="stylesheet" type="text/css"/>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
     elements and media queries --> 
     <!-- WARNING: Respond.js doesn't work if you view the 
@@ -17,53 +27,60 @@
     <script src="js/html5shiv.js"></script> 
     <script src="js/respond.min.js"></script> 
     <![endif]--> 
+
+    
 </head>
     
 <body data-ng-app="">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<!-- Navigation -->
+ <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
+  
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" rel="home" href="../index.php">Deallo's Craft House</a>
+  </div>
+  
+  <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav"><!--    unordered list start -->
+      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
 
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-         
-            <li class="nav-item active">
-              <a class="nav-link" href="../index.php">Home
-                <span class="sr-only">(current)</span>
-              </a>
+      <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
+      <li><a href="#">Questions?</a></li>
+      <li class="dropdown">
+              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="products.php">All Products</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Clothing</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Accessories</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Food</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Furniture</a></li>
+              </ul>
             </li>
 
-            <?php  if (isset($_SESSION['username'])) : ?>
-            <!-- <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p> -->
-           <!--  <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p> -->
-         
-             <li class="nav-item">
-               <a class="nav-link" href="../index.php?logout='1'" style="color: red;">Sign out</a>
-             </li>
-             <li class="nav-item">
-               <a class="nav-link" href="pages/profile.php">Edit Profile</a>
-             </li>
+   </ul><!--  unordered list end -->
 
-             <?php endif ?>
-            <li class="nav-item">
-              <a class="nav-link" href="products.php">Products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Shopping Cart</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
+    <div class="col-sm-3 col-md-3 pull-right">
+      <form class="navbar-form" role="search">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
         </div>
       </div>
-    </nav>
+      </form>
+    </div>
+    
+  </div>
+</div>
     
     <div class="container">
 
@@ -126,6 +143,7 @@
                     }
                     else{
                         echo "<h2>NO RECORD FOUND</h2>";
+                        echo "<p>Maybe you've mispelled something? Try again.</p>";
                     }   
                 }
             }
