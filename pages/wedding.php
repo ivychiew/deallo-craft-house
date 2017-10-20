@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<meta charset="utf-8"/>
 	<meta name="description" content="Deallo Product Category Page" />
 	<meta name="keyword" content="HTML, CSS, Javascript" />
 	<meta name="author" content="Tay Guan Yun" />
-	<title>Search Result Page</title>
-	
-   <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
+	<title>Search Result: Wedding </title>
+    
+    <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!--Custom CSS-->
@@ -16,9 +16,9 @@
     
 </head>
 
-<body class="container-fluid" data-ng-app="myApp">
-	
-<!-- Navigation -->
+<body class="container">
+    
+    <!-- Navigation -->
  <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
   
   <div class="navbar-header">
@@ -28,7 +28,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" rel="home" href="../index.php">Deallo's Craft House</a>
+    <a class="navbar-brand" rel="home" href="#">Deallo's Craft House</a>
   </div>
   
   <div class="collapse navbar-collapse">
@@ -37,12 +37,12 @@
     <ul class="nav navbar-nav"><!--    unordered list start -->
       <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
 
-      <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
-      <li><a href="#">Questions?</a></li>
+      <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+      <li><a href="pages/customer-supp.php">Questions?</a></li>
       <li class="dropdown">
-              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="products.php">All Products</a></li>
+                <li><a href="pages/products.php">All Products</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Clothing</a></li>
                 <li class="divider"></li>
@@ -50,7 +50,7 @@
                 <li class="divider"></li>
                 <li><a href="#">Food</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Furniture</a></li>
+                <li><a href="#">Furniter</a></li>
               </ul>
             </li>
    
@@ -63,6 +63,17 @@
              </li>
           <?php endif ?>
       </button>
+      <!-- notification message -->
+    <?php if (isset($_SESSION['success'])) : ?>
+      <div class="error success" >
+        <li class="nav-item">
+          <?php  
+            echo $_SESSION['success'];
+            unset($_SESSION['success']);
+          ?>
+        </li>
+      </div>
+    <?php endif ?>
    </ul><!--  unordered list end -->
 
     <div class="col-sm-3 col-md-3 pull-right">
@@ -77,12 +88,12 @@
     </div>
     
   </div>
-</div> 
-<!-- end of Navbar -->
+</div>
+   
+<!-- end of navbar -->
 
 	<div class="header">
         <h1>Search Result</h1>
-       
 	</div>
 	
 	</br>
@@ -91,7 +102,7 @@
 		<div class="row">
 			<div class="col-xs-6 col-md-4">
 				<div class="input-group">
-					<input type="text" name="kw" class="form-control" placeholder="Search" value='<?php echo $_GET['kw']; ?>'/>
+					<input type="text" name="kw" class="form-control" placeholder="Search" value='<?php $_GET['k']; ?>'/>
 						<div class="input-group-btn">
 							<button class="btn btn-primary" type="submit">
 							<span class="glyphicon glyphicon-search"></span>
@@ -103,8 +114,8 @@
 	</form>
 	<hr />
     
-    <?php
-	
+	<?php
+
 		//Making sure keyword, kw is not empty.
 		if($_GET['kw'] == NULL)
 		{
@@ -112,46 +123,45 @@
 		}
 		else
 		{
-		  //Connect to database
-		  $conn = mysqli_connect("localhost", "root", "", "products");
-		  if(mysqli_connect_errno())
-		  {
-              echo "Failed to connect";
-		  }
+            //Connect to database
+            $conn = mysqli_connect("localhost", "root", "", "products");
+            if(mysqli_connect_errno())
+            {
+                echo "Failed to connect";
+            }
             else
             {
                 echo "<h2>Here are your search results</h2>";
                 echo "<br>";
             }
             
-        //transfering keyword value from 'kw' to 'k'
-		$k = $_GET['kw'];
-		$output = '';
+            $k = 'wedding';
+            $query = mysqli_query($conn, "SELECT * FROM product_tbl WHERE productCategory LIKE '%$k%'") or die(mysqli_error());
+            $numrows = mysqli_num_rows($query);
 		
-		$query = mysqli_query($conn, "SELECT * FROM product_tbl WHERE productName LIKE '%$k%'") or die(mysqli_error());
-		$numrows = mysqli_num_rows($query);
-		
-		if($numrows == 0)
-		{
-			echo "No such items founded";
-		}
-		else
-		{	
-			while($row = mysqli_fetch_array($query))
-			{
-				$category = $row['productCategory'];
-				$name = $row['productName'];
-				$picture = $row['productPic'];
-				$price = $row['productPrice'];
+            if($numrows == 0)
+            {
+                echo "No such items founded";
+            }
+            else
+            {	
                 
-           ?>     
+                while($row = mysqli_fetch_array($query))
+                {
+                    $category = $row['productCategory'];
+				    $name = $row['productName'];
+				    $picture = $row['productPic'];
+				    $price = $row['productPrice'];
+                
+    ?> 
     
+    <!--Print out product details -->
     <div class="container">
     <div class="col-lg-4 col-md-6 mb-4">
       <br>
-              <div class="well well-lg">
-                  <!--Print out product picture -->
-                 <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+        <div class="well well-lg">
+            <!--Print out product picture -->
+            <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
 
                   <!--Print out product name -->
                 <div class="card-body">
@@ -167,16 +177,14 @@
           </div>
         </div>
     <?php
-			}
-		}
+                }
+            }
             
-		//Disconnect to database
-		
-        mysqli_close($conn);
-		}
-	?>
-	
-      <!-- Footer -->
+            //Disconnect to database
+            mysqli_close($conn);
+        }
+    ?>
+     <!-- Footer -->
 	<footer class="py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
