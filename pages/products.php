@@ -25,6 +25,9 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
    <!--  <script src="jquery-1.11.3-jquery.min.js"></script> -->
     </head>
    
@@ -40,17 +43,25 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" rel="home" href="#">Deallo's Craft House</a>
+    <a class="navbar-brand" rel="home" href="../index.php">Deallo's Craft House</a>
   </div>
   
   <div class="collapse navbar-collapse">
     
-
+    <?php  if (isset($_SESSION['username'])) : ?>
     <ul class="nav navbar-nav"><!--    unordered list start -->
+    <li class="dropdown">
+              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="profile.php">Edit Profile</a></li>
+                <li class="divider"></li>
+                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+              </ul>
+            </li>
+       <?php endif ?>
+     
       <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
-
-      <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
-      <li><a href="#">Questions?</a></li>
+      <li><a href="customer-supp.php">Questions?</a></li>
       <li class="dropdown">
               <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -62,20 +73,12 @@
                 <li class="divider"></li>
                 <li><a href="#">Food</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Furniter</a></li>
+                <li><a href="#">Furniture</a></li>
               </ul>
             </li>
-   
-      <button type="button" class="btn btn-default navbar-btn" style="list-style-type: none;">
-          <?php  if (isset($_SESSION['username'])) : ?>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/profile.php">
-                <span>Welcome <?php echo $_SESSION['username'] ?></span>
-              </a>
-             </li>
-          <?php endif ?>
-      </button>
-   </ul><!--  unordered list end -->
+      
+     
+      
 
     <div class="col-sm-3 col-md-3 pull-right">
       <form class="navbar-form" role="search">
@@ -87,9 +90,10 @@
       </div>
       </form>
     </div>
-    
+    </ul>
   </div>
 </div>
+<!--End of Nav Bar-->
 <div class="container">
 
 	<div class="page-header">
@@ -209,14 +213,15 @@
 </div>
 
 <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
-      </div>
-      <!-- /.container -->
-    </footer>
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
+  </div>
+<!-- /.container -->
+</footer>
+
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type='text/javascript' src='../js/buttonToggle.js'></script>
 <script type='text/javascript' src='../js/modal.js'></script>
 </body>
