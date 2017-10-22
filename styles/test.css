@@ -1,7 +1,15 @@
+@font-face {
+    font-family: queenFont;
+    src: url("fonts/queen_of_clubs.otf");
+}
 
 .navbar{
 border-radius:0 !important;
 padding: 10px;
+}
+
+.navbar-brand{
+    font-family: queenFont;
 }
 
 footer{ 
