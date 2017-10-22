@@ -5,7 +5,7 @@ session_start();
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "register";
+    $dbname = "deallo";
     $sql = null;
 
     $username1= '';

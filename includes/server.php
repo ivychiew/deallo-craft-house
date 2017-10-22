@@ -8,7 +8,7 @@
 	$_SESSION['success'] = "";
 
 	//connect to database.
-	$dbi = mysqli_connect('localhost', 'root', '' , 'register'); 
+	$dbi = mysqli_connect('localhost', 'root', '' , 'deallo'); 
 	// $dbi2 = mysqli_connect('localhost', 'root', '' , 'products');
 	// $mysqli = mysqli_connect('localhost', 'root', '', 'products');
 	

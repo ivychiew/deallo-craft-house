@@ -124,7 +124,7 @@
 		else
 		{
             //Connect to database
-            $conn = mysqli_connect("localhost", "root", "", "products");
+            $conn = mysqli_connect("localhost", "root", "", "deallo");
             if(mysqli_connect_errno())
             {
                 echo "Failed to connect";
@@ -135,7 +135,7 @@
                 echo "<br>";
             }
             
-            $k = 'craft';
+            $k = 'jewelry';
             $query = mysqli_query($conn, "SELECT * FROM product_tbl WHERE productCategory LIKE '%$k%'") or die(mysqli_error());
             $numrows = mysqli_num_rows($query);
 		

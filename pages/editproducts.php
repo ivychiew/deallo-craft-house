@@ -149,11 +149,8 @@
                  </span>
                 <br>
               </div> <!-- End of Well Body-->
-          
-        
           </div>
-      
-              </div>
+        </div>
 
       <?php
     }
