@@ -7,6 +7,17 @@
 .header > h2{
     font-family: sunValleyFont;
     font-size: 50px;
+    position: relative;
+    
+  
+    display: inline;
+}
+
+.header > img{
+    display: inline;
+    height: 50px;
+    width: 50px;
+    
 }
 
 /*Fonts for Login page*/
@@ -14,6 +25,8 @@
 body, html {
     height: 100%;
 }
+
+
 
 .bg { 
     background-image: url("../images/people.jpg");    

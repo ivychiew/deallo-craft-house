@@ -9,6 +9,7 @@
 <body class="bg">
 
 	<div class="header">
+        <img src="../images/DealloLogo-white.png" width="60" height="50" id="login_logo"/>
 		<h2>Login</h2>
 	</div>
 	
@@ -33,6 +34,10 @@
         <p>
 			<a href="forgotPassword.php">Forgot password?</a>
 		</p>
+        <br/>
+        <p>        
+            &copy; Deallo Craft House
+        </p>
 	</form>
 
 
