@@ -47,21 +47,34 @@
   </div>
   
   <div class="collapse navbar-collapse">
+
     
-    <?php  if (isset($_SESSION['username'])) : ?>
-    <ul class="nav navbar-nav"><!--    unordered list start -->
+    <div class="col-sm-3 col-md-3 navbar-right">
+      <form class="navbar-form" role="search">
+      <div class="input-group ">
+        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
+      </div>
+      </form>
+    </div>
+
+   
+    <ul class="nav navbar-nav"><!--unordered list start -->
     <li class="dropdown">
+     <?php  if (isset($_SESSION['username'])) : ?>
               <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="profile.php">Edit Profile</a></li>
+                <li><a href="pages/profile.php">Edit Profile</a></li>
                 <li class="divider"></li>
                 <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+                 <li class="divider"></li>
+                <li><a href="pages/customer-supp.php">Questions?</a></li>
               </ul>
             </li>
        <?php endif ?>
      
-      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
-      <li><a href="customer-supp.php">Questions?</a></li>
       <li class="dropdown">
               <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -75,21 +88,8 @@
                 <li class="divider"></li>
                 <li><a href="#">Furniture</a></li>
               </ul>
-            </li>
-      
-     
-      
-
-    <div class="col-sm-3 col-md-3 pull-right">
-      <form class="navbar-form" role="search">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-        <div class="input-group-btn">
-          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-        </div>
-      </div>
-      </form>
-    </div>
+      </li>
+      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
     </ul>
   </div>
 </div>
@@ -126,24 +126,21 @@
     			//Extract data to a row
     			extract($row);
 ?>
-    <div class="col-lg-4 col-md-6 mb-4">
-  
-              <div class="well h-100">
-                 <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+    <div class="col-md-3">
+      <div class="well" style="background-color: white;">
+        <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
 
-                <div class="well-body">
-                  <h4 class="well-title">
-                    <span id="myBtn"><?php echo $productName ?></span>
-                  </h4>
+          <div class="well-body">
+            <h4 class="well-title">
+              <span id="myBtn"><?php echo $productName ?></span>
+            </h4>
 
                  <!--Modal Box-->
               <div class="container">
-         
                 <div id="myModal" class="modal">
                   <div class="modal-content">
                     <div class="modal-header">
                       <span class="close">&times;</span>
-                      
                     </div>
                     <div class="modal-body">
                       <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
@@ -152,10 +149,7 @@
                       <h4><?php echo "RM $productPrice  &nbsp &nbsp"; ?></h4>
                       <p><?php echo $productDescription; ?></p>
                       
-                    </div>
-                    <div class="modal-footer">
-
-                      <div class="dropdown">
+                       <div class="dropdown">
                         <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">Select Colour
                         <span class="caret"></span></button>
                         <ul class="dropdown-menu">
@@ -164,16 +158,13 @@
                           <li><a href="#">JavaScript</a></li>
                         </ul>
                       </div>
-                      <div class="cart">
-                           <button class="btn btn-info" href="#">Add to cart</button>
+                      
+                        <button class="btn btn-info" href="#">Add to cart</button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-               
-              </div>
           <!--Modal Box end-->
-
                   <h5>
                     <span class="product-price">
                       <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
@@ -181,16 +172,12 @@
                   </h5>
 
                 <div class="col-sm-4card-text"><?php echo $productDescription; ?></div>
+                 <br>
+                 <button class="btn btn-info" href="#">Add to cart</button>
                 <br>
-                <div class="col-xs-3">
-                      <div class="cart">
-                           <button class="btn btn-info" href="#">Add to cart</button>
-                           
-                      </div>
-                </div>
-              </div>
-          </div>
-			</div> 
+              </div> <!-- End of Well Body-->
+          </div><!--End of Well Container-->
+			</div> <!--End of col-md-3-->
 
 			<?php
 		}

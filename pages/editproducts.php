@@ -14,12 +14,13 @@
     <title>Product Page</title>
 
 <!--Bootstrap-->
-    <link rel="stylesheet" href="../styles/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="../styles/bootstrap/bootstrap.css.min">
+   <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-
-    <!-- custom stylesheet -->
-    <link rel="stylesheet" href="../styles/products_css.css">
+    <!--Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/products.css"/>
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
@@ -28,51 +29,67 @@
    
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<!-- Navigation -->
+ <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
+  
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" rel="home" href="../index.php">Deallo's Craft House</a>
+  </div>
+  
+  <div class="collapse navbar-collapse">
 
-       
-
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-         
-            <li class="nav-item active">
-              <a class="nav-link" href="../index.php">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-
-            <?php  if (isset($_SESSION['username'])) : ?>
-         
-             <li class="nav-item">
-               <a class="nav-link" href="../index.php?logout='1'" style="color: red;">Sign out</a>
-             </li>
-             <li class="nav-item">
-               <a class="nav-link" href="pages/profile.php">Edit Profile</a>
-             </li>
-
-             <?php endif ?>
-            <li class="nav-item">
-              <a class="nav-link" href="products.php">Products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Shopping Cart</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
+    
+    <div class="col-sm-3 col-md-3 navbar-right">
+      <form class="navbar-form" role="search">
+      <div class="input-group ">
+        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
         </div>
       </div>
-    </nav>
+      </form>
+    </div>
 
+   
+    <ul class="nav navbar-nav"><!--unordered list start -->
+    <li class="dropdown">
+     <?php  if (isset($_SESSION['username'])) : ?>
+              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="pages/profile.php">Edit Profile</a></li>
+                <li class="divider"></li>
+                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+                 <li class="divider"></li>
+                <li><a href="pages/customer-supp.php">Questions?</a></li>
+              </ul>
+            </li>
+       <?php endif ?>
+     
+      <li class="dropdown">
+              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="pages/products.php">All Products</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Clothing</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Accessories</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Food</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Furniture</a></li>
+              </ul>
+      </li>
+      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
+    </ul>
+  </div>
+</div>
+<!--End of Nav Bar-->
 <div class="container">
 
   <div class="page-header">
@@ -105,38 +122,38 @@
           //Extract data to a row
           extract($row);
 ?>
-    <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                 <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#"><?php echo $productName ?></a>
-                  </h4>
+    <div class="col-md-3">
+      <div class="well" style="background-color: white;">
+        <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+
+          <div class="well-body">
+            <h4 class="well-title">
+              <span id="myBtn"><?php echo $productName ?></span>
+            </h4>
+
                   <h5>
                     <span class="product-price">
                       <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
                     </span>
                   </h5>
-                <div class="col-sm-4card-text"><?php echo $productDescription; ?></p>
-                </div>
-                <div class="col-xs-3">
-                      <div class="editButton">
-                        <span> <!--Edit Product Button-->
-                          <a class="btn btn-info" href="editform.php?edit_id=<?php echo $row['productID']; ?>" title="click for edit" onclick="return confirm('Are you sure?')">
-                            <span class="glyphicon glyphicon-edit"></span> Edit
-                          </a> 
 
-                            <!--Delete Product Button-->
-                          <a class="btn btn-danger" href="?delete_id=<?php echo $row['productID']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')">
-                            <span class="glyphicon glyphicon-remove-circle"></span> Delete
-                          </a>
-                        </span>
-                        </div>
-                </div>
+                <div class="col-sm-4card-text"><?php echo $productDescription; ?></div>
+                 <br>
+                  <span> <!--Edit Product Button-->
+                  <a class="btn btn-info" href="editform.php?edit_id=<?php echo $row['productID']; ?>" title="click for edit" onclick="return confirm('Are you sure?')">
+                      <span class="glyphicon glyphicon-edit"></span> Edit &nbsp;</a>
+                 <!--Delete Product Button-->
+                  <a class="btn btn-danger" href="?delete_id=<?php echo $row['productID']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')">
+                 <span class="glyphicon glyphicon-remove-circle"></span> Delete  </a>
+
+                 </span>
+                <br>
+              </div> <!-- End of Well Body-->
+          
+        
+          </div>
       
               </div>
-            </div>
-      </div> 
 
       <?php
     }

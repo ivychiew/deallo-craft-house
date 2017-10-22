@@ -11,11 +11,13 @@
     <title>Add new product</title>
 
 	<!--Nav and Footer Stylesheet--> 
-    <link rel="stylesheet" href="../styles/test.css"/>
-	<link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-
+    <!--Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/products.css"/>
     <!-- custom stylesheet -->
     <link rel="stylesheet" href="style.css">
 
@@ -23,9 +25,9 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="jquery-1.11.3-jquery.min.js"></script>
     </head>
-<body>
 
-    <!-- Navigation -->
+<body>
+<!-- Navigation -->
  <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
   
   <div class="navbar-header">
@@ -39,15 +41,38 @@
   </div>
   
   <div class="collapse navbar-collapse">
-    <ul class="nav navbar-nav"><!--    unordered list start -->
-      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
 
-      <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
-      <li><a href="#">Questions?</a></li>
-      <li class="dropdown">
-              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+    
+    <div class="col-sm-3 col-md-3 navbar-right">
+      <form class="navbar-form" role="search">
+      <div class="input-group ">
+        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
+      </div>
+      </form>
+    </div>
+
+   
+    <ul class="nav navbar-nav"><!--unordered list start -->
+    <li class="dropdown">
+     <?php  if (isset($_SESSION['username'])) : ?>
+              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="products.php">All Products</a></li>
+                <li><a href="pages/profile.php">Edit Profile</a></li>
+                <li class="divider"></li>
+                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+                 <li class="divider"></li>
+                <li><a href="pages/customer-supp.php">Questions?</a></li>
+              </ul>
+            </li>
+       <?php endif ?>
+     
+      <li class="dropdown">
+              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="pages/products.php">All Products</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Clothing</a></li>
                 <li class="divider"></li>
@@ -57,33 +82,12 @@
                 <li class="divider"></li>
                 <li><a href="#">Furniture</a></li>
               </ul>
-            </li>
-   
-      <button type="button" class="btn btn-default navbar-btn" style="list-style-type: none;">
-          <?php  if (isset($_SESSION['username'])) : ?>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/profile.php">
-                <span>Welcome <?php echo $_SESSION['username'] ?></span>
-              </a>
-             </li>
-          <?php endif ?>
-      </button>
-   </ul><!--  unordered list end -->
-
-    <div class="col-sm-3 col-md-3 pull-right">
-      <form class="navbar-form" role="search">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-        <div class="input-group-btn">
-          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-        </div>
-      </div>
-      </form>
-    </div>
-    
+      </li>
+      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
+    </ul>
   </div>
-</div> 
-<!-- end of Navbar -->
+</div>
+<!--End of Nav Bar-->
     
 <div class="container">
 
@@ -136,9 +140,7 @@
     	<td><label class="control-label">Product Description:</label></td>
         <td><input class="form-control" type="text" name="product_description" placeholder="Enter Product Description" value="<?php echo $productdesc; ?>" /></td>
     </tr>
-    
-    
-    
+  
     <tr> 
     	<td><label class="control-label">Select Category</label></td>
     	<td>
@@ -153,20 +155,17 @@
             </select>
     	</td>
     </tr>
-
     <tr>
         <td colspan="2"><button type="submit" name="btnsave" class="btn btn-default">
         <span class="glyphicon glyphicon-save"></span> &nbsp; Uploaded!
         </button>
         </td>
     </tr>
-
-    
     </table>
     
 </form>
 
-   
+
 </div>
 
 	 <!-- Footer -->
