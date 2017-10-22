@@ -126,7 +126,7 @@
     			//Extract data to a row
     			extract($row);
 ?>
-    <div class="col-md-3">
+   <div class="col-md-3">
       <div class="well" style="background-color: white;">
         <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
 
@@ -135,7 +135,7 @@
               <span id="myBtn"><?php echo $productName ?></span>
             </h4>
 
-                 <!--Modal Box-->
+                <!--Modal Box-->
               <div class="container">
                 <div id="myModal" class="modal">
                   <div class="modal-content">
@@ -173,11 +173,15 @@
 
                 <div class="col-sm-4card-text"><?php echo $productDescription; ?></div>
                  <br>
-                 <button class="btn btn-info" href="#">Add to cart</button>
+                  <span> <!--Edit Product Button-->
+                  <a class="btn btn-info" href="#" title="Add to Cart" onclick="return confirm('Add to Cart?')">
+                      <span class="glyphicon glyphicon-cart"></span> Add to Cart &nbsp;</a>
+                 
+                 </span>
                 <br>
               </div> <!-- End of Well Body-->
-          </div><!--End of Well Container-->
-			</div> <!--End of col-md-3-->
+          </div>
+        </div>
 
 			<?php
 		}
