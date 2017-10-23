@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Product Page</title>
+    <title>My Sales Page</title>
 
     <!-- custom stylesheet -->
     <link rel="stylesheet" href="../styles/products_css.css">
@@ -59,21 +59,21 @@
     <ul class="nav navbar-nav"><!--unordered list start -->
     <li class="dropdown">
      <?php  if (isset($_SESSION['username'])) : ?>
-              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
+              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="pages/profile.php">Edit Profile</a></li>
+                <li><a href="profile.php">Edit Profile</a></li>
                 <li class="divider"></li>
                 <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
                  <li class="divider"></li>
-                <li><a href="pages/customer-supp.php">Questions?</a></li>
+                <li><a href="customer-supp.php">Questions?</a></li>
               </ul>
             </li>
        <?php endif ?>
      
       <li class="dropdown">
-              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="pages/products.php">All Products</a></li>
+                <li><a href="products.php">All Products</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Clothing</a></li>
                 <li class="divider"></li>
