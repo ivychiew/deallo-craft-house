@@ -96,7 +96,7 @@
         <a class="btn btn-default" href="addproducts.php"> 
           <span class="glyphicon glyphicon-plus"></span> &nbsp; Create a new product 
         </a>
-        <a class="btn btn-default" href="editproducts.php"> 
+        <a class="btn btn-default" href="products.php"> 
           <span class="glyphicon glyphicon-chevron-left"></span> &nbsp; Back to products page
         </a>
       </h1> 
