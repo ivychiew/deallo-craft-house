@@ -1,33 +1,33 @@
+<!--Include User Session Script-->
 <?php include '../includes/sessions.php' ?>
-<?php include '../includes/product_config.php' ?>
+<!--Include Delete Products Config-->
+<?php include '../includes/products_delete.php' ?>
 
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-
-  <head>
-
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Homepage</title>
+    <title>Product Page</title>
 
-    <!-- Bootstrap core CSS -->
-     <link rel="stylesheet" href="../styles/sellers_page.css">
+    <!-- custom stylesheet -->
+    <link rel="stylesheet" href="../styles/products_css.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
+
+ 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
     <link rel="stylesheet" type="text/css" href="../styles/products.css"/>
- 
-  </head>
+    </head>
+   
 
-  <body>
-
-
+<body>
   <!-- Navigation -->
  <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
   
@@ -89,66 +89,70 @@
   </div>
 </div>
 
-    <!-- Page Content -->
-    <div class="container">
-        <div class="row ">
-          <div class="col-md-12 col-lg-12 col-xl-12">
+<div class="container">
 
-             <h1 class="heading" align="center"> Welcome to Deallo's Seller Centre </h1>
-          </div>
-        </div>
-        <div class="row" align="center">
-          <div class="col-md-4">
-            <a href="myProducts.php">
-              <span><img src="../images/vectors/shop.png" alt="my shop" class="img-responsive"/></span>  
-              <br><br>
-              <h4>My Products</h4> 
-            </a>
-          </div>
-          <div class="col-md-4">
-            <a href="mySales.php">
-              <span><img src="../images/vectors/coin.png" alt="my products" class="img-responsive"/></span>    
-              <br><br>
-              <h4>My Sales</h4>     
-            </a>   
-          </div>
-          <div class="col-md-4">
-            <a href="#">
-              <span><img src="../images/vectors/paper.png" alt="shop rating" class="img-responsive"/></span>
-              <br><br>
-              <h4>Shop Rating</h4> 
-            </a>
-          </div>
-        </div>
-        <br>
-       <!--  <div class="row" align="center">
-          <div class="col-md-4">
-             
-          </div> -->
-
-        <!-- <div class="col-md-4">
-             <h4>My Sales</h4> 
-          </div>
-          <div class="col-md-4">
-             <h4>Shop Rating</h4> 
-          </div>
-        </div>
- -->
-          
+  <div class="page-header">
+    <br>
+      <h1 class="h2">My Sales</h1> 
     </div>
-    <!-- /.container -->
+    
+  <br/>
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
-      </div>
-      <!-- /.container -->
-    </footer>
+	<div class="row">
+		<canvas id="myChart" width="400" height="100"></canvas>
+       <div class="list-group">
+            <a href="pages/cloth_acce.php" class="list-group-item">Clothing and Accessories</a>
+            <a href="pages/jewelry.php" class="list-group-item">Jewellery</a>
+            <a href="pages/craft.php" class="list-group-item">Craft Supplies</a>
+            <a href="pages/bedding.php" class="list-group-item">Room Decor</a>
+            <a href="pages/soft_toy.php" class="list-group-item">Toys</a>
+            <a href="pages/vintage.php" class="list-group-item">Vintage Art</a>
+            <a href="pages/wedding.php" class="list-group-item">Wedding Accessories</a>
+          </div>
 
-    <!-- Bootstrap core JavaScript -->
-  <script src="../js/bootstrap.min.js"></script>
+	</div>  
+</div>
 
-  </body>
 
+<!-- Latest compiled and minified JavaScript -->
+<script src="../js/bootstrap.min.js"></script>
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(0, 51, 102, 0.8)',
+                'rgba(0, 0, 0, 1)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+                'rgba(0,51,102,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+<script type='text/javascript' src='../js/buttonToggle.js'></script>
+
+</body>
 </html>
