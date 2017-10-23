@@ -1,8 +1,3 @@
-<!--Include User Session Script-->
-<?php include '../includes/sessions.php' ?>
-<!--Include Delete Products Config-->
-<?php include '../includes/products_delete.php' ?>
-
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -11,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Edit Products Page</title>
+    <title>Shop Rating Page</title>
 
 <!--Bootstrap-->
    <!-- Latest compiled and minified CSS -->
@@ -24,8 +19,8 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
-   <!--  <script src="jquery-1.11.3-jquery.min.js"></script> -->
-    </head>
+   <style>.jumbotron{background-image:url("../images/feedback.jpg"); background-repeat:no-repeat; background-size:cover;}</style>
+</head>
    
 
 <body>
@@ -92,90 +87,52 @@
 <!--End of Nav Bar-->
 <div class="container">
 
-  <div class="page-header">
-    <br>
-      <h1 class="h2">All Products
-        <a class="btn btn-default" href="addproducts.php"> 
-          <span class="glyphicon glyphicon-plus"></span> &nbsp; Create a new product 
-        </a>
-        <a class="btn btn-default" href="myProducts.php"> 
-          <span class="glyphicon glyphicon-plus"></span> &nbsp; Edit Products
-        </a>
-      </h1> 
-    </div>
-    
-  <br />
+	<div class="container">
+	  <div class="jumbotron">
+		<h1>Shop Feedback</h1> 
+		<p>As customers of our shop, we provide users the ability to give feedback on their experience on transactions. Users who exceed our threshold
+		value will be stand a chance to be featured for Recommended Sellers! </p> 
+	  </div>
+	</div>
 
-<div class="row" id="products">
-<?php
-  
-      //Fetch the data from the database
-      $stmt = $DB_con->prepare('SELECT productID, productName, productPrice, productPic, productDescription FROM product_tbl ORDER BY productID DESC');
-      $stmt->execute();
-      
-      //If the number of products is more than 0 
-      if($stmt->rowCount() > 0)
-      {
-        //Fetch the products from the database table to a row
-        while($row=$stmt->fetch(PDO::FETCH_ASSOC))
-        { 
-          //Extract data to a row
-          extract($row);
-?>
-    <div class="col-md-3">
-      <div class="well" style="background-color: white;">
-        <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+	<!-- Media top -->
+	<div class="media">
+	  <div class="media-left media-top">
+		<img src="../images/adminProfile.png" class="media-object" style="width:60px">
+	  </div>
+	  <div class="media-body">
+		<h4 class="media-heading">Media Top</h4>
+		<p>Lorem ipsum...</p>
+	  </div>
+	</div>
 
-          <div class="well-body">
-            <h4 class="well-title">
-              <span id="myBtn"><?php echo $productName ?></span>
-            </h4>
+	<!-- Media middle -->
+	<div class="media">
+	  <div class="media-left media-middle">
+		<img src="../images/adminProfile.png" class="media-object" style="width:60px">
+	  </div>
+	  <div class="media-body">
+		<h4 class="media-heading">Media Middle</h4>
+		<p>Lorem ipsum...</p>
+	  </div>
+	</div>
 
-                  <h5>
-                    <span class="product-price">
-                      <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
-                    </span>
-                  </h5>
+	<!-- Media bottom -->
+	<div class="media">
+	  <div class="media-left media-bottom">
+		<img src="../images/adminProfile.png" class="media-object" style="width:60px">
+	  </div>
+	  <div class="media-body">
+		<h4 class="media-heading">Media Bottom</h4>
+		<p>Lorem ipsum...</p>
+	  </div>
+	</div>
 
-                <div class="col-sm-4card-text"><?php echo $productDescription; ?></div>
-                 <br>
-                  <span> <!--Edit Product Button-->
-                  <a class="btn btn-info" href="editform.php?edit_id=<?php echo $row['productID']; ?>" title="click for edit" onclick="return confirm('Are you sure?')">
-                      <span class="glyphicon glyphicon-edit"></span> Edit &nbsp;</a>
-                 <!--Delete Product Button-->
-                  <a class="btn btn-danger" href="?delete_id=<?php echo $row['productID']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')">
-                 <span class="glyphicon glyphicon-remove-circle"></span> Delete  </a>
-
-                 </span>
-                <br>
-              </div> <!-- End of Well Body-->
-          </div>
-        </div>
-
-      <?php
-    }
-  }
-  else
-  {
-    ?>
-
-    <!--If Empty Data, Show no data found-->
-        <div class="col-xs-12">
-          <div class="alert alert-warning">
-              <span class="glyphicon glyphicon-info-sign"></span> &nbsp; No Data Found ...
-            </div>
-        </div>
-        <?php
-  }
-  
-?>
-</div>  
 </div>
 
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="../js/bootstrap.min.js"></script>
-<script type='text/javascript' src='../js/buttonToggle.js'></script>
 
 </body>
 </html>

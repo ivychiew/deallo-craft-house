@@ -104,6 +104,7 @@
 
 
           <span><img src="images/cat.png" class="center-block img-responsive" style="max-width: 200px; max-height: 200px;"/></span>
+		  <p><a href="pages/sellers_page.php">SELLERS PAGE</a></p>
 
           <!--End-->
           

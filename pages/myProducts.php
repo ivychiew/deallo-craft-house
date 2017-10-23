@@ -11,25 +11,23 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Edit Products Page</title>
+    <title>Product Page</title>
 
-<!--Bootstrap-->
-   <!-- Latest compiled and minified CSS -->
+    <!-- custom stylesheet -->
+    <link rel="stylesheet" href="../styles/products_css.css">
+
+ 
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
     <link rel="stylesheet" type="text/css" href="../styles/products.css"/>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
-   <!--  <script src="jquery-1.11.3-jquery.min.js"></script> -->
     </head>
    
 
 <body>
-<!-- Navigation -->
+  <!-- Navigation -->
  <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
   
   <div class="navbar-header">
@@ -89,16 +87,16 @@
     </ul>
   </div>
 </div>
-<!--End of Nav Bar-->
+
 <div class="container">
 
   <div class="page-header">
     <br>
-      <h1 class="h2">All Products
+      <h1 class="h2">My Products
         <a class="btn btn-default" href="addproducts.php"> 
           <span class="glyphicon glyphicon-plus"></span> &nbsp; Create a new product 
         </a>
-        <a class="btn btn-default" href="myProducts.php"> 
+        <a class="btn btn-default" href="editproducts.php"> 
           <span class="glyphicon glyphicon-plus"></span> &nbsp; Edit Products
         </a>
       </h1> 
@@ -108,9 +106,11 @@
 
 <div class="row" id="products">
 <?php
-  
-      //Fetch the data from the database
-      $stmt = $DB_con->prepare('SELECT productID, productName, productPrice, productPic, productDescription FROM product_tbl ORDER BY productID DESC');
+
+	//Fetch the data from the database
+      $stmt = $DB_con->prepare("SELECT productID, productName, productPrice, productPic, productDescription,product_owner FROM product_tbl WHERE product_owner =:owner ORDER BY productID DESC ");
+	  
+	  $stmt->bindParam(":owner", $_SESSION['username']);
       $stmt->execute();
       
       //If the number of products is more than 0 
@@ -122,35 +122,38 @@
           //Extract data to a row
           extract($row);
 ?>
-    <div class="col-md-3">
-      <div class="well" style="background-color: white;">
-        <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
-
-          <div class="well-body">
-            <h4 class="well-title">
-              <span id="myBtn"><?php echo $productName ?></span>
-            </h4>
-
+    <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100">
+                 <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="#"><?php echo $productName ?></a>
+                  </h4>
                   <h5>
                     <span class="product-price">
                       <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
                     </span>
                   </h5>
+                <div class="col-sm-4card-text"><?php echo $productDescription; ?></p>
+                </div>
+                <div class="col-xs-3">
+                      <div class="editButton">
+                        <span> <!--Edit Product Button-->
+                          <a class="btn btn-info" href="editform.php?edit_id=<?php echo $row['productID']; ?>" title="click for edit" onclick="return confirm('Are you sure?')">
+                            <span class="glyphicon glyphicon-edit"></span> Edit
+                          </a> 
 
-                <div class="col-sm-4card-text"><?php echo $productDescription; ?></div>
-                 <br>
-                  <span> <!--Edit Product Button-->
-                  <a class="btn btn-info" href="editform.php?edit_id=<?php echo $row['productID']; ?>" title="click for edit" onclick="return confirm('Are you sure?')">
-                      <span class="glyphicon glyphicon-edit"></span> Edit &nbsp;</a>
-                 <!--Delete Product Button-->
-                  <a class="btn btn-danger" href="?delete_id=<?php echo $row['productID']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')">
-                 <span class="glyphicon glyphicon-remove-circle"></span> Delete  </a>
-
-                 </span>
-                <br>
-              </div> <!-- End of Well Body-->
-          </div>
-        </div>
+                            <!--Delete Product Button-->
+                          <a class="btn btn-danger" href="?delete_id=<?php echo $row['productID']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')">
+                            <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                          </a>
+                        </span>
+                        </div>
+                </div>
+      
+              </div>
+            </div>
+      </div> 
 
       <?php
     }

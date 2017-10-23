@@ -11,25 +11,24 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Edit Products Page</title>
+    <title>My Sales Page</title>
 
-<!--Bootstrap-->
-   <!-- Latest compiled and minified CSS -->
+    <!-- custom stylesheet -->
+    <link rel="stylesheet" href="../styles/products_css.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
+
+ 
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
     <link rel="stylesheet" type="text/css" href="../styles/products.css"/>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
-   <!--  <script src="jquery-1.11.3-jquery.min.js"></script> -->
     </head>
    
 
 <body>
-<!-- Navigation -->
+  <!-- Navigation -->
  <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
   
   <div class="navbar-header">
@@ -89,92 +88,70 @@
     </ul>
   </div>
 </div>
-<!--End of Nav Bar-->
+
 <div class="container">
 
   <div class="page-header">
     <br>
-      <h1 class="h2">All Products
-        <a class="btn btn-default" href="addproducts.php"> 
-          <span class="glyphicon glyphicon-plus"></span> &nbsp; Create a new product 
-        </a>
-        <a class="btn btn-default" href="myProducts.php"> 
-          <span class="glyphicon glyphicon-plus"></span> &nbsp; Edit Products
-        </a>
-      </h1> 
+      <h1 class="h2">My Sales</h1> 
     </div>
     
-  <br />
+  <br/>
 
-<div class="row" id="products">
-<?php
-  
-      //Fetch the data from the database
-      $stmt = $DB_con->prepare('SELECT productID, productName, productPrice, productPic, productDescription FROM product_tbl ORDER BY productID DESC');
-      $stmt->execute();
-      
-      //If the number of products is more than 0 
-      if($stmt->rowCount() > 0)
-      {
-        //Fetch the products from the database table to a row
-        while($row=$stmt->fetch(PDO::FETCH_ASSOC))
-        { 
-          //Extract data to a row
-          extract($row);
-?>
-    <div class="col-md-3">
-      <div class="well" style="background-color: white;">
-        <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
-
-          <div class="well-body">
-            <h4 class="well-title">
-              <span id="myBtn"><?php echo $productName ?></span>
-            </h4>
-
-                  <h5>
-                    <span class="product-price">
-                      <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
-                    </span>
-                  </h5>
-
-                <div class="col-sm-4card-text"><?php echo $productDescription; ?></div>
-                 <br>
-                  <span> <!--Edit Product Button-->
-                  <a class="btn btn-info" href="editform.php?edit_id=<?php echo $row['productID']; ?>" title="click for edit" onclick="return confirm('Are you sure?')">
-                      <span class="glyphicon glyphicon-edit"></span> Edit &nbsp;</a>
-                 <!--Delete Product Button-->
-                  <a class="btn btn-danger" href="?delete_id=<?php echo $row['productID']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')">
-                 <span class="glyphicon glyphicon-remove-circle"></span> Delete  </a>
-
-                 </span>
-                <br>
-              </div> <!-- End of Well Body-->
+	<div class="row">
+		<canvas id="myChart" width="400" height="100"></canvas>
+       <div class="list-group">
+            <a href="pages/cloth_acce.php" class="list-group-item">Clothing and Accessories</a>
+            <a href="pages/jewelry.php" class="list-group-item">Jewellery</a>
+            <a href="pages/craft.php" class="list-group-item">Craft Supplies</a>
+            <a href="pages/bedding.php" class="list-group-item">Room Decor</a>
+            <a href="pages/soft_toy.php" class="list-group-item">Toys</a>
+            <a href="pages/vintage.php" class="list-group-item">Vintage Art</a>
+            <a href="pages/wedding.php" class="list-group-item">Wedding Accessories</a>
           </div>
-        </div>
 
-      <?php
-    }
-  }
-  else
-  {
-    ?>
-
-    <!--If Empty Data, Show no data found-->
-        <div class="col-xs-12">
-          <div class="alert alert-warning">
-              <span class="glyphicon glyphicon-info-sign"></span> &nbsp; No Data Found ...
-            </div>
-        </div>
-        <?php
-  }
-  
-?>
-</div>  
+	</div>  
 </div>
 
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="../js/bootstrap.min.js"></script>
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(0, 51, 102, 0.8)',
+                'rgba(0, 0, 0, 1)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+                'rgba(0,51,102,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+
 <script type='text/javascript' src='../js/buttonToggle.js'></script>
 
 </body>
