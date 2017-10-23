@@ -102,8 +102,8 @@
     		<a class="btn btn-default" href="addproducts.php"> 
     			<span class="glyphicon glyphicon-plus"></span> &nbsp; Create a new product 
     		</a>
-    		<a class="btn btn-default" href="editproducts.php"> 
-    			<span class="glyphicon glyphicon-plus"></span> &nbsp; Edit Products
+    		<a class="btn btn-default" href="myProducts.php"> 
+    			<span class="glyphicon glyphicon-book"></span> &nbsp; My Products
     		</a>
     	</h1> 
     </div>

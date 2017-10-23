@@ -29,7 +29,7 @@
 
     <div class="page-header">
         <br>
-        <h1 class="h2">Update Product. <a class="btn btn-default" href="products.php"> Return to product page</a></h1>
+        <h1 class="h2">Update Product. <a class="btn btn-default" href="myProducts.php"> Return to your product page</a></h1>
     </div>
 
 <div class="clearfix"></div>

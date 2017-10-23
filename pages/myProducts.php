@@ -97,7 +97,7 @@
           <span class="glyphicon glyphicon-plus"></span> &nbsp; Create a new product 
         </a>
         <a class="btn btn-default" href="editproducts.php"> 
-          <span class="glyphicon glyphicon-plus"></span> &nbsp; Edit Products
+          <span class="glyphicon glyphicon-chevron-left"></span> &nbsp; Back to products page
         </a>
       </h1> 
     </div>
@@ -122,38 +122,36 @@
           //Extract data to a row
           extract($row);
 ?>
-    <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                 <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#"><?php echo $productName ?></a>
-                  </h4>
+    <div class="col-md-3">
+      <div class="well" style="background-color: white;">
+        <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+
+          <div class="well-body">
+            <h4 class="well-title">
+              <span id="myBtn"><?php echo $productName ?></span>
+            </h4>
+
                   <h5>
                     <span class="product-price">
                       <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
                     </span>
                   </h5>
-                <div class="col-sm-4card-text"><?php echo $productDescription; ?></p>
-                </div>
-                <div class="col-xs-3">
-                      <div class="editButton">
-                        <span> <!--Edit Product Button-->
-                          <a class="btn btn-info" href="editform.php?edit_id=<?php echo $row['productID']; ?>" title="click for edit" onclick="return confirm('Are you sure?')">
-                            <span class="glyphicon glyphicon-edit"></span> Edit
-                          </a> 
 
-                            <!--Delete Product Button-->
-                          <a class="btn btn-danger" href="?delete_id=<?php echo $row['productID']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')">
-                            <span class="glyphicon glyphicon-remove-circle"></span> Delete
-                          </a>
-                        </span>
-                        </div>
-                </div>
-      
-              </div>
-            </div>
-      </div> 
+                <div class="col-sm-4card-text"><?php echo $productDescription; ?></div>
+                 <br>
+                  <span> <!--Edit Product Button-->
+                  <a class="btn btn-info" href="editform.php?edit_id=<?php echo $row['productID']; ?>" title="click for edit" onclick="return confirm('Are you sure?')">
+                      <span class="glyphicon glyphicon-edit"></span> Edit &nbsp;</a>
+                 <!--Delete Product Button-->
+                  <a class="btn btn-danger" href="?delete_id=<?php echo $row['productID']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')">
+                 <span class="glyphicon glyphicon-remove-circle"></span> Delete  </a>
+
+                 </span>
+                 </span>
+                <br>
+              </div> <!-- End of Well Body-->
+          </div>
+        </div>
 
       <?php
     }
