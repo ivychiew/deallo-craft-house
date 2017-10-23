@@ -104,7 +104,7 @@
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "register";
+        $dbname = "deallo";
         $sql = null;
 
         // Create connection

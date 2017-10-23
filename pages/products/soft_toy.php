@@ -5,7 +5,7 @@
 	<meta name="description" content="Deallo Product Category Page" />
 	<meta name="keyword" content="HTML, CSS, Javascript" />
 	<meta name="author" content="Tay Guan Yun" />
-	<title>Search Result: Clothes and Accessories </title>
+	<title>Search Result: Toys </title>
     
     <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -124,7 +124,7 @@
 		else
 		{
             //Connect to database
-            $conn = mysqli_connect("localhost", "root", "", "products");
+            $conn = mysqli_connect("localhost", "root", "", "deallo");
             if(mysqli_connect_errno())
             {
                 echo "Failed to connect";
@@ -135,7 +135,7 @@
                 echo "<br>";
             }
             
-            $k = 'clothing';
+            $k = 'toy';
             $query = mysqli_query($conn, "SELECT * FROM product_tbl WHERE productCategory LIKE '%$k%'") or die(mysqli_error());
             $numrows = mysqli_num_rows($query);
 		

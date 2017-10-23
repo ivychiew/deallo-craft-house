@@ -38,7 +38,7 @@ if (isset($_POST['product_submit'])){
 
 		//encrypt the password before saving in the database
 
-		$query = "INSERT INTO products (username, email, password)
+		$query = "INSERT INTO deallo (username, email, password)
 				  VALUES('$username', '$email', '$password')";
 		mysqli_query($dbi, $query);
 

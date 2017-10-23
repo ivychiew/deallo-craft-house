@@ -175,7 +175,7 @@
   ?>
     <div class="col-lg-4 col-md-6 mb-4">
       <br>
-              <div class="well well-lg">
+              <div class="well well-lg" style="background-color: white;">
 
                  <img src="images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
 

@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "register";
+$dbname = "deallo";
 
 if (isset($_POST['submit'])){
 
