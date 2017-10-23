@@ -73,13 +73,19 @@
               <ul class="dropdown-menu">
                 <li><a href="pages/products.php">All Products</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Clothing</a></li>
+                <li><a href="#">Clothing and Accessories</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Jewellery</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Food</a></li>
+                <li><a href="#">Craft Supplies</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Furniture</a></li>
+                <li><a href="#">Room Decor</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Toys</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Vintage Art</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Wedding Accessories</a></li>
               </ul>
       </li>
       <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
