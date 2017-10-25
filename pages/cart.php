@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Product Page</title>
+    <title>Shopping Cart</title>
 
 <!--Bootstrap-->
     <!-- Latest compiled and minified CSS -->
@@ -98,120 +98,95 @@
 
 	<div class="page-header">
 		<br>
-    	<h1 class="h2">All Products
-    		<a class="btn btn-default" href="addproducts.php"> 
-    			<span class="glyphicon glyphicon-plus"></span> &nbsp; Create a new product 
-    		</a>
-    		<a class="btn btn-default" href="myProducts.php"> 
-    			<span class="glyphicon glyphicon-book"></span> &nbsp; My Products
-    		</a>
-    	</h1> 
+    	<h1 class="h2">Your Shopping Cart</h1>
     </div>
-    
-	<br />
+	 <br>
 
-<div class="row" id="products">
-<?php
-	
-    	//Fetch the data from the database
-    	$stmt = $DB_con->prepare('SELECT productID, productName, productPrice, productPic, productDescription FROM product_tbl ORDER BY productID DESC');
-    	$stmt->execute();
-    	
-    	//If the number of products is more than 0 
-    	if($stmt->rowCount() > 0)
-    	{
-    		//Fetch the products from the database table to a row
-    		while($row=$stmt->fetch(PDO::FETCH_ASSOC))
-    		{	
-    			//Extract data to a row
-    			extract($row);
-?>
-   <div class="col-md-3">
-      <div class="well" style="background-color: white;">
-        <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
-
-          <div class="well-body">
-            <h4 class="well-title">
-              <span id="myBtn"><?php echo $productName ?></span>
-            </h4>
-
-          <!--Modal Box-->
-          <div class="container">
-                <div id="myModal" class="modal">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <span class="close">&times;</span>
-                    </div>
-                    <div class="modal-body">
-                      <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
-                      <h3><?php echo $productName ?></h3>
-                      <br>
-                      <h4><?php echo "RM $productPrice  &nbsp &nbsp"; ?></h4>
-                      <p><?php echo $productDescription; ?></p>
-                      
-                       <div class="dropdown">
-                        <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">Select Colour
-                        <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">HTML</a></li>
-                          <li><a href="#">CSS</a></li>
-                          <li><a href="#">JavaScript</a></li>
-                        </ul>
-                      </div>
-                      
-                        <button class="btn btn-info" href="#">Add to cart</button>
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Total</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-sm-8 col-md-6">
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <a class="pull-left" href="#"><img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"></a>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a href="#"> &nbsp; Product name</a></h4>
+                                <h5 class="media-heading">  &nbsp;  by <a href="#"> Brand name</a></h5>
+                                <span>  &nbsp; Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                            </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-          <!--Modal Box end-->
-                  <h5>
-                    <span class="product-price">
-                      <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
-                    </span>
-                  </h5>
-
-                <div class="col-sm-4card-text"><?php echo $productDescription; ?></div>
-                 <br>
-                  <span> <!--Edit Product Button-->
-                  <a class="btn btn-info" href="#" title="Add to Cart" onclick="return confirm('Add to Cart?')">
-                      <span class="glyphicon glyphicon-cart"></span> Add to Cart &nbsp;</a>
-                 
-                 </span>
-                <br>
-              </div> <!-- End of Well Body-->
-          </div>
+                        </div>
+                        </td>
+                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                        <input type="email" class="form-control" id="exampleInputEmail1" value="3">
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>$4.87</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>
+                        <td class="col-sm-1 col-md-1">
+                        <span> <!--Edit Product Button-->
+                            <a class="btn btn-danger" href="#" title="Add to Cart" onclick="return confirm('Remove Item?')">
+                            <span class="glyphicon glyphicon-remove"></span> Remove &nbsp;</a>
+                        </span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h5>Subtotal</h5></td>
+                        <td class="text-right"><h5><strong>$24.59</strong></h5></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h5>Estimated shipping</h5></td>
+                        <td class="text-right"><h5><strong>$6.94</strong></h5></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h3>Total </h3></td>
+                        <td class="text-right"><h3><strong>$31.53</strong></h3></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                            <span>
+                                <a class="btn btn-info" href="#" title="Add to Cart" onclick="return confirm('Add to Cart?')">
+                                <span class="glyphicon glyphicon-cart"></span> Continue Shopping &nbsp;</a>
+                            </span>
+                        </td>
+                        <td>
+                            <span> <!--Edit Product Button-->
+                              <a class="btn btn-success" href="#" title="Add to Cart">
+                              <span class="glyphicon glyphicon-play"></span> Checkout &nbsp;</a>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-			<?php
-		}
-	}
-	else
-	{
-		?>
-
-		<!--If Empty Data, Show no data found-->
-        <div class="col-xs-12">
-        	<div class="alert alert-warning">
-            	<span class="glyphicon glyphicon-info-sign"></span> &nbsp; No Data Found ...
-            </div>
-        </div>
-        <?php
-	}
-	
-?>
-</div>	
-
-	<ul class="pagination">
-	  <li class="active"><a href="#">1</a></li>
-	  <li><a href="#">2</a></li>
-	  <li><a href="#">3</a></li>
-	  <li><a href="#">4</a></li>
-	  <li><a href="#">5</a></li>
-	</ul>
+    </div>
 </div>
 
-<footer class="py-5 bg-dark">
+</div>
+
+<footer class="navbar-fixed-bottom py-5 bg-dark">
   <div class="container">
     <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
   </div>

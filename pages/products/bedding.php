@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!--Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
-    <link rel="stylesheet" type="text/css" href="../styles/products.css"/>
+    <link rel="stylesheet" type="text/css" href="../../styles/test.css"/>
+    <link rel="stylesheet" type="text/css" href="../../styles/products.css"/>
     
 </head>
 
-<body class="container">
+<body>
     
     <!-- Navigation -->
  <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
@@ -55,6 +55,7 @@
             </li>
    
       <button type="button" class="btn btn-default navbar-btn" style="list-style-type: none;">
+      <?php include "../../includes/sessions.php" ?>
           <?php  if (isset($_SESSION['username'])) : ?>
             <li class="nav-item">
               <a class="nav-link" href="pages/profile.php">
@@ -91,7 +92,7 @@
 </div>
    
 <!-- end of navbar -->
-
+<div class="container">
 	<div class="header">
         <h1>Search Result</h1>
 	</div>
@@ -113,7 +114,8 @@
 		</div>
 	</form>
 	<hr />
-    
+  
+  <?php include "../../includes/product_config.php" ?>
 	<?php
 
 		//Making sure keyword, kw is not empty.
@@ -176,6 +178,7 @@
             </div>
           </div>
         </div>
+      </div>
     <?php
                 }
             }
@@ -195,15 +198,15 @@
 
 	
     <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
-    <script src="../js/jquery.min.js"></script> 
+    <script src="../../js/jquery.min.js"></script> 
     <!-- All Bootstrap  plug-ins  file --> 
-    <script src="../js/bootstrap.min.js"></script> 
+    <script src="../../js/bootstrap.min.js"></script> 
     <!-- Basic AngularJS --> 
-    <script src="../js/angular.min.js"></script> 
+    <script src="../../js/angular.min.js"></script> 
     <!-- AngularJS - Routing --> 
-    <script src="../js/angular-route.min.js"></script>
+    <script src="../../js/angular-route.min.js"></script>
     <!-- App Script --> 
-    <script src="../js/dealloApp.js"></script>
+    <script src="../../js/dealloApp.js"></script>
 	
 </body>
 

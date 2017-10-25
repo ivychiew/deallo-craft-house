@@ -349,7 +349,7 @@ if(!isset($_SESSION)){
 </div>
 
 	 <!-- Footer -->
-<footer class="py-5 bg-dark">
+<footer class="navbar-fixed-bottom py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
       </div>
