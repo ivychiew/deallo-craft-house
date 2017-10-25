@@ -109,13 +109,13 @@
           <!--End-->
           
           <div class="list-group">
-            <a href="pages/cloth_acce.php" class="list-group-item">Clothing and Accessories</a>
-            <a href="pages/jewelry.php" class="list-group-item">Jewellery</a>
-            <a href="pages/craft.php" class="list-group-item">Craft Supplies</a>
-            <a href="pages/bedding.php" class="list-group-item">Room Decor</a>
-            <a href="pages/soft_toy.php" class="list-group-item">Toys</a>
-            <a href="pages/vintage.php" class="list-group-item">Vintage Art</a>
-            <a href="pages/wedding.php" class="list-group-item">Wedding Accessories</a>
+            <a href="pages/products/cloth_acce.php" class="list-group-item">Clothing and Accessories</a>
+            <a href="pages/products/jewelry.php" class="list-group-item">Jewellery</a>
+            <a href="pages/products/craft.php" class="list-group-item">Craft Supplies</a>
+            <a href="pages/products/" class="list-group-item">Room Decor</a>
+            <a href="pages/products/soft_toy.php" class="list-group-item">Toys</a>
+            <a href="pages/products/vintage.php" class="list-group-item">Vintage Art</a>
+            <a href="pages/products/wedding.php" class="list-group-item">Wedding Accessories</a>
           </div>
 
         </div>

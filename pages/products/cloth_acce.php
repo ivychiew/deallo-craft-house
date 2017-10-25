@@ -7,12 +7,12 @@
 	<meta name="author" content="Tay Guan Yun" />
 	<title>Search Result: Clothes and Accessories </title>
     
-    <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
+    <link rel="stylesheet=" href="../../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!--Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
-    <link rel="stylesheet" type="text/css" href="../styles/products.css"/>
+    <link rel="stylesheet" type="text/css" href="../../styles/test.css"/>
+    <link rel="stylesheet" type="text/css" href="../../styles/products.css"/>
     
 </head>
 
@@ -115,43 +115,37 @@
 	<hr />
     
 	<?php
-
-		//Making sure keyword, kw is not empty.
-		if($_GET['kw'] == NULL)
-		{
-			echo "Search bar is empty. Please key in the keyword.";
-		}
-		else
-		{
-            //Connect to database
-            $conn = mysqli_connect("localhost", "root", "", "deallo");
-            if(mysqli_connect_errno())
-            {
-                echo "Failed to connect";
-            }
-            else
-            {
-                echo "<h2>Here are your search results</h2>";
-                echo "<br>";
-            }
+        //Connect to database
+        $conn = mysqli_connect("localhost", "root", "", "deallo");
+        if(mysqli_connect_errno())
+        {
+            echo "Failed to connect";
+        }
+    
+        else
+        {
+            echo "<h2>Here are your search results</h2>";
+            echo "<br>";
+        }
             
-            $k = 'clothing';
-            $query = mysqli_query($conn, "SELECT * FROM product_tbl WHERE productCategory LIKE '%$k%'") or die(mysqli_error());
-            $numrows = mysqli_num_rows($query);
+        $k = 'clothing';
+        $query = mysqli_query($conn, "SELECT * FROM product_tbl WHERE productCategory LIKE '%$k%'") or die(mysqli_error());
+        $numrows = mysqli_num_rows($query);
 		
-            if($numrows == 0)
+        if($numrows == 0)
+        {
+            echo "No such items founded";
+        }
+        else
+        {	
+            while($row = mysqli_fetch_array($query))
             {
-                echo "No such items founded";
-            }
-            else
-            {	
-                
-                while($row = mysqli_fetch_array($query))
-                {
                     $category = $row['productCategory'];
 				    $name = $row['productName'];
 				    $picture = $row['productPic'];
 				    $price = $row['productPrice'];
+            }
+        }
                 
     ?> 
     
@@ -161,7 +155,7 @@
       <br>
         <div class="well well-lg">
             <!--Print out product picture -->
-            <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+            <img src="../../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
 
                   <!--Print out product name -->
                 <div class="card-body">
@@ -177,12 +171,9 @@
           </div>
         </div>
     <?php
-                }
-            }
             
             //Disconnect to database
             mysqli_close($conn);
-        }
     ?>
      <!-- Footer -->
 	<footer class="py-5 bg-dark">

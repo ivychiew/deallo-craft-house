@@ -115,14 +115,6 @@
 	<hr />
     
 	<?php
-
-		//Making sure keyword, kw is not empty.
-		if($_GET['kw'] == NULL)
-		{
-			echo "Search bar is empty. Please key in the keyword.";
-		}
-		else
-		{
             //Connect to database
             $conn = mysqli_connect("localhost", "root", "", "deallo");
             if(mysqli_connect_errno())
@@ -161,7 +153,7 @@
       <br>
         <div class="well well-lg">
             <!--Print out product picture -->
-            <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+            <img src="../../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
 
                   <!--Print out product name -->
                 <div class="card-body">
@@ -182,7 +174,6 @@
             
             //Disconnect to database
             mysqli_close($conn);
-        }
     ?>
      <!-- Footer -->
 	<footer class="py-5 bg-dark">
