@@ -5,14 +5,13 @@
 	<meta name="description" content="Deallo Product Category Page" />
 	<meta name="keyword" content="HTML, CSS, Javascript" />
 	<meta name="author" content="Tay Guan Yun" />
-	<title>Search Result: Bedding </title>
+	<title>Product - Bedding </title>
     
     <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../styles/test.css"/>
-    <link rel="stylesheet" type="text/css" href="../../styles/products.css"/>
     
 </head>
 
@@ -90,88 +89,97 @@
     
   </div>
 </div>
-   
 <!-- end of navbar -->
+    
 <div class="container">
 	<div class="header">
-        <h1>Search Result</h1>
+        <h1>Bedding & Room Decorations</h1>
 	</div>
 	
-	</br>
-	
-	<form name="productsearch"   action="./searchpage.php" method="GET">
-		<div class="row">
-			<div class="col-xs-6 col-md-4">
-				<div class="input-group">
-					<input type="text" name="kw" class="form-control" placeholder="Search" value='<?php $_GET['k']; ?>'/>
-						<div class="input-group-btn">
-							<button class="btn btn-primary" type="submit">
-							<span class="glyphicon glyphicon-search"></span>
-							</button>
-						</div>
-				</div>
-			</div>
-		</div>
-	</form>
-	<hr />
-  
-  <?php include "../../includes/product_config.php" ?>
-	<?php
-            //Connect to database
-            $conn = mysqli_connect("localhost", "root", "", "deallo");
-            if(mysqli_connect_errno())
-            {
-                echo "Failed to connect";
-            }
-            else
-            {
-                echo "<h2>Here are your search results</h2>";
-                echo "<br>";
-            }
-            
-            $k = 'bedding';
-            $query = mysqli_query($conn, "SELECT * FROM product_tbl WHERE productCategory LIKE '%$k%'") or die(mysqli_error());
-            $numrows = mysqli_num_rows($query);
-		
-            if($numrows == 0)
-            {
-                echo "No such items founded";
-            }
-            else
-            {	
-                
-                while($row = mysqli_fetch_array($query))
-                {
-                    $category = $row['productCategory'];
-				    $name = $row['productName'];
-				    $picture = $row['productPic'];
-				    $price = $row['productPrice'];
-                
-    ?> 
+	<br/>
     
+    <div class="row">
+        
+        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+            <img src="../../images/cover-art/bedroomCover.jpg" alt="bedding cover art" height="100%" class="img-responsive" width="100%"/>
+        </div>
+		
+        <div class="well col-lg-5 col-md-5 col-sm-12 col-xs-12">
+            <img src="../../images/vectors/lightbulb.png" alt="Light bulb icon" width="200px" class="img-responsive center-block"/>
+			<p class="text-center">Always wash bed linings before using them.</p>
+        </div>
+        
+    </div>
+	
+    <!--<div class="row">
+        <form name="productsearch" action="bedding.php" method="GET">
+            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                <div class="input-group">
+                    <input type="text" name="kw" class="form-control" placeholder="Search" value=""/>
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary" type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </div>
+                </div>
+            </div>
+        </form>
+    </div>-->
+	<hr/>
+    
+  
     <!--Print out product details -->
     <div class="container">
-    <div class="col-lg-4 col-md-6 mb-4">
-      <br>
-        <div class="well well-lg">
-            <!--Print out product picture -->
-            <img src="../../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+	<div class="row">
+		<div class="col-lg-4 col-md-6">
+		<br>
+  
+	  <?php 
+		include "../../includes/product_config.php";
 
-                  <!--Print out product name -->
-                <div class="card-body">
-                  <h3 class="card-title">
-                    <a href="pages/products.php"><?php echo $name ?></a>
-                  </h3>
-                    <!--Print out product price -->
-                  <h4 class="product-price">
-                      <?php echo "RM $price  &nbsp &nbsp"; ?>
-                  </h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <?php
+		//Connect to database
+		$conn = mysqli_connect("localhost", "root", "", "deallo");
+		if(mysqli_connect_errno())
+		{
+			echo "Failed to connect";
+		}
+		else
+		{
+			$category = "Jewelry";
+			$query = mysqli_query($conn, "SELECT * FROM product_tbl WHERE productCategory == '$category'") or die(mysqli_error());
+			$numrows = mysqli_num_rows($query);
+		}
+		
+		if($numrows <= 0)
+		{ echo "Item not found"; }
+		else
+		{	
+			while($row = mysqli_fetch_array($query))
+			{
+				//$category = $row['productCategory'];
+				$name = $row['productName'];
+				$picture = $row['productPic'];
+				$price = $row['productPrice'];
+		?> 
+				<div class="well well-lg">
+					<!--Print out product picture -->
+					<img src="../../images/product_images/<?php echo $picture; ?>" class="img-responsive mx-auto d-block" width="200px" height="200px"/>
+						<!--Print out product name -->
+						<div class="card-body">
+						  <h3 class="card-title">
+							<a href="pages/products.php"><?php echo $name; ?></a>
+						  </h3>
+							<!--Print out product price -->
+						  <h4 class="product-price">
+							  <?php echo "RM $price  &nbsp &nbsp"; ?>
+						  </h4>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+
+	<?php
                 }
             }
             
@@ -186,8 +194,6 @@
       <!-- /.container -->
     </footer>
 
-
-	
     <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
     <script src="../../js/jquery.min.js"></script> 
     <!-- All Bootstrap  plug-ins  file --> 

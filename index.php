@@ -73,19 +73,19 @@
               <ul class="dropdown-menu">
                 <li><a href="pages/products.php">All Products</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Clothing and Accessories</a></li>
+                <li><a href="pages/products/clothingAcc.php">Clothing and Accessories</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Jewellery</a></li>
+                <li><a href="pages/products/jewelry">Jewellery</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Craft Supplies</a></li>
+                <li><a href="pages/products/craftSupplies.php">Craft Supplies</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Room Decor</a></li>
+                <li><a href="pages/products/bedding">Bedding and Room Decor</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Toys</a></li>
+                <li><a href="pages/products/softToys">Soft Toys</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Vintage Art</a></li>
+                <li><a href="pages/products/vintage">Vintage Art</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Wedding Accessories</a></li>
+                <li><a href="pages/products/wedding">Wedding Accessories</a></li>
               </ul>
       </li>
       <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
@@ -136,15 +136,15 @@
             <div class="carousel-inner">
 
               <div class="item active">
-                <img src="../deallo-craft-house/images/cover1.png" alt="Los Angeles" style="width:100%;">
+                <img src="../deallo-craft-house/images/cover-art/clothesCover.jpg" alt="Los Angeles" style="width:100%;">
               </div>
 
               <div class="item">
-                <img src="../deallo-craft-house/images/cover2.png" alt="Chicago" style="width:100%;">
+                <img src="../deallo-craft-house/images/cover-art/craftCover.jpg" alt="Chicago" style="width:100%;">
               </div>
 
               <div class="item">
-                <img src="../deallo-craft-house/images/cover3.png" alt="New York" style="width:100%;">
+                <img src="../deallo-craft-house/images/cover-art/toysCover.jpg" alt="New York" style="width:100%;">
               </div>
 
             </div>
