@@ -73,13 +73,13 @@
               <ul class="dropdown-menu">
                 <li><a href="pages/products.php">All Products</a></li>
                 <li class="divider"></li>
-                <li><a href="pages/products/clothingAcc.php">Clothing and Accessories</a></li>
+                <li><a href="pages/products/clothingAcc.php">Clothing &amp; Accessories</a></li>
                 <li class="divider"></li>
-                <li><a href="pages/products/jewelry">Jewellery</a></li>
+                <li><a href="pages/products/jewelry">Jewelery</a></li>
                 <li class="divider"></li>
                 <li><a href="pages/products/craftSupplies.php">Craft Supplies</a></li>
                 <li class="divider"></li>
-                <li><a href="pages/products/bedding">Bedding and Room Decor</a></li>
+                <li><a href="pages/products/bedding">Bedding &amp; Room Decor</a></li>
                 <li class="divider"></li>
                 <li><a href="pages/products/softToys">Soft Toys</a></li>
                 <li class="divider"></li>
@@ -93,6 +93,7 @@
   </div>
 </div>
 <!--End of Nav Bar-->
+
     <!-- Page Content -->
     <div class="container">
 
@@ -102,22 +103,21 @@
 
         <div class="col-lg-3">
 
-
-          <span><img src="images/cat.png" class="center-block img-responsive" style="max-width: 200px; max-height: 200px;"/></span>
-		  <p><a href="pages/sellers_page.php">SELLERS PAGE</a></p>
-
+          <p><img src="images/cat.png" class="center-block img-responsive" style="max-width: 200px; max-height: 200px;"/></p>
+		 
           <!--End-->
           
           <div class="list-group">
-            <a href="pages/products/cloth_acce.php" class="list-group-item">Clothing and Accessories</a>
-            <a href="pages/products/jewelry.php" class="list-group-item">Jewellery</a>
-            <a href="pages/products/craft.php" class="list-group-item">Craft Supplies</a>
-            <a href="pages/products/" class="list-group-item">Room Decor</a>
-            <a href="pages/products/soft_toy.php" class="list-group-item">Toys</a>
+            <a href="pages/products/clothingAcc.php" class="list-group-item">Clothing &amp; Accessories</a>
+            <a href="pages/products/jewelry.php" class="list-group-item">Jewelery</a>
+            <a href="pages/products/craftSupplies.php" class="list-group-item">Craft Supplies</a>
+            <a href="pages/products/bedding.php" class="list-group-item">Bedding &amp; Room Decor</a>
+            <a href="pages/products/softToys.php" class="list-group-item">Soft Toys</a>
             <a href="pages/products/vintage.php" class="list-group-item">Vintage Art</a>
             <a href="pages/products/wedding.php" class="list-group-item">Wedding Accessories</a>
           </div>
-
+		
+		<p><a href="pages/sellers_page.php">SELLERS PAGE</a></p>
         </div>
         <!-- /.col-lg-3 -->
 

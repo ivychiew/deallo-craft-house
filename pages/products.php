@@ -94,6 +94,7 @@
   </div>
 </div>
 <!--End of Nav Bar-->
+
 <div class="container">
 
 	<div class="page-header">
@@ -126,7 +127,7 @@
     			//Extract data to a row
     			extract($row);
 ?>
-   <div class="col-md-3">
+   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
       <div class="well" style="background-color: white;">
         <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
 
@@ -166,9 +167,9 @@
                   </div>
           <!--Modal Box end-->
                   <h5>
-                    <span class="product-price">
-                      <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
-                    </span>
+                    <strong class="product-price">
+                      <?php echo "RM $productPrice"; ?>
+                    </strong>
                   </h5>
 
                 <div class="col-sm-4card-text"><?php echo $productDescription; ?></div>
@@ -191,7 +192,7 @@
 		?>
 
 		<!--If Empty Data, Show no data found-->
-        <div class="col-xs-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         	<div class="alert alert-warning">
             	<span class="glyphicon glyphicon-info-sign"></span> &nbsp; No Data Found ...
             </div>
