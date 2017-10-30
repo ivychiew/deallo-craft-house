@@ -181,7 +181,7 @@
 		 
 		  <div class="list-group">
 			<a href="pages/products/clothingAcc.php" class="list-group-item">Clothing &amp; Accessories</a>
-			<a href="pages/products/jewelry.php" class="list-group-item">Jewelery</a>
+			<a href="pages/products/jewelry.php" class="list-group-item">Jewelry</a>
 			<a href="pages/products/craftSupplies.php" class="list-group-item">Craft Supplies</a>
 			<a href="pages/products/bedding.php" class="list-group-item">Bedding &amp; Room Decor</a>
 			<a href="pages/products/softToys.php" class="list-group-item">Soft Toys</a>
