@@ -1,3 +1,4 @@
+/*NAV and FOOTER styles START*/
 @font-face {
     font-family: queenFont;
     src: url("fonts/queen_of_clubs.otf");
@@ -31,8 +32,12 @@ footer{
 .navbar-brand{
 	color:#FFF; font-size:250%;
 }
+/*NAV and FOOTER styles END*/
 
+/*Index.php styles START*/
 .carousel .item {
   height: 250px;
 }
 
+.coverImage{width:100%;}
+/*Index.php styles END*/

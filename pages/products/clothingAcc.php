@@ -18,7 +18,7 @@
 <body>
     
 <!-- Navigation -->
- <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
+ <div class="navbar navbar-custom nav-fixed-top" role="navigation">
   
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -27,12 +27,11 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" rel="home" href="../index.php">Deallo's Craft House</a>
+    <a class="navbar-brand" rel="home" href="../../index.php">Deallo's Craft House</a>
   </div>
   
   <div class="collapse navbar-collapse">
 
-    
     <div class="col-sm-3 col-md-3 navbar-right">
       <form class="navbar-form" role="search">
       <div class="input-group ">
@@ -60,24 +59,25 @@
        <?php endif ?>
      
       <li class="dropdown">
-              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="pages/products.php">All Products</a></li>
-                <li class="divider"></li>
-                <li><a href="pages/products/clothingAcc.php">Clothing &amp; Accessories</a></li>
-                <li class="divider"></li>
-                <li><a href="pages/products/jewelry">Jewelery</a></li>
-                <li class="divider"></li>
-                <li><a href="pages/products/craftSupplies.php">Craft Supplies</a></li>
-                <li class="divider"></li>
-                <li><a href="pages/products/bedding">Bedding &amp; Room Decor</a></li>
-                <li class="divider"></li>
-                <li><a href="pages/products/softToys">Soft Toys</a></li>
-                <li class="divider"></li>
-                <li><a href="pages/products/vintage">Vintage Art</a></li>
-                <li class="divider"></li>
-                <li><a href="pages/products/wedding">Wedding Accessories</a></li>
-              </ul>
+		  <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <span class="caret"></span></a>
+		  
+		  <ul class="dropdown-menu">
+			<li><a href="../products.php">All Products</a></li>
+			<li class="divider"></li>
+			<li><a href="#">Clothing &amp; Accessories</a></li>
+			<li class="divider"></li>
+			<li><a href="jewelry.php">Jewelry</a></li>
+			<li class="divider"></li>
+			<li><a href="craftSupplies.php">Craft Supplies</a></li>
+			<li class="divider"></li>
+			<li><a href="bedding.php">Bedding &amp; Room Decor</a></li>
+			<li class="divider"></li>
+			<li><a href="softToys.php">Soft Toys</a></li>
+			<li class="divider"></li>
+			<li><a href="vintage.php">Vintage Art</a></li>
+			<li class="divider"></li>
+			<li><a href="wedding.php">Wedding Accessories</a></li>
+		  </ul>
       </li>
       <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
     </ul>
@@ -85,47 +85,35 @@
 </div>
 <!--End of Nav Bar-->
     
-<div class="container">
-	<div class="header">
-        <h1>Clothing and Accessories</h1>
-	</div>
-	
-	<br/>
-    
-    <div class="row">
-        
-        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+<div class="container-fluid">
+
+	<div class="row">
+        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 coverImage">
             <img src="../../images/cover-art/clothesCover.jpg" alt="bedding cover art" height="100%" class="img-responsive" width="100%"/>
         </div>
-		
-        <div class="well col-lg-5 col-md-5 col-sm-12 col-xs-12">
-            <img src="../../images/vectors/lightbulb.png" alt="Light bulb icon" width="200px" class="img-responsive center-block"/>
-			<p class="text-center">Always ask sellers for measurements if you are unsure of the size!</p>
-        </div>
-        
     </div>
-	
-    <!--<div class="row">
-        <form name="productsearch" action="bedding.php" method="GET">
-            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                <div class="input-group">
-                    <input type="text" name="kw" class="form-control" placeholder="Search" value=""/>
-                        <div class="input-group-btn">
-                            <button class="btn btn-primary" type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </div>
-                </div>
-            </div>
-        </form>
-    </div>-->
 	<hr/>
     
-  
-    <!--Print out product details -->
+ </div>
+
+<div class="container">
 	<div class="row">
-		<br>
- 
+	
+	<div class="row">
+	
+		<!--Category List-->
+		<div class="list-group col-lg-3 col-md-3 col-sm-5 col-xs-6">
+			<a href="#" class="list-group-item">Clothing &amp; Accessories</a>
+			<a href="jewelry.php" class="list-group-item">Jewelry</a>
+			<a href="craftSupplies.php" class="list-group-item">Craft Supplies</a>
+			<a href="bedding.php" class="list-group-item">Bedding &amp; Room Decor</a>
+			<a href="softToys.php" class="list-group-item">Soft Toys</a>
+			<a href="vintage.php" class="list-group-item">Vintage Art</a>
+			<a href="wedding.php" class="list-group-item">Wedding Accessories</a>
+			<a href="../sellers_page.php" class="list-group-item">Sellers Center</a>
+		</div>
+		<br/>
+
 	  <?php 
 		include "../../includes/product_config.php";
 
@@ -143,7 +131,7 @@
 		}
 		
 		if($numrows <= 0)
-		{ echo '<div class="alert alert-danger">
+		{ echo '<div class="alert alert-danger col-lg-9 col-md-9 col-sm-7 col-xs-5">
 				  <strong>Error: </strong> No items found.
 				</div>'; }
 		else
@@ -155,10 +143,12 @@
 				$picture = $row['productPic'];
 				$price = $row['productPrice'];
 		?> 
-		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+		
+		<!--Print out product details -->
+		<div class="col-lg-3 col-md-3 col-sm-7 col-xs-6">
 			<div class="well well-lg">
 				<!--Print out product picture -->
-				<img src="../../images/product_images/<?php echo $picture; ?>" class="img-responsive mx-auto d-block" width="200px" height="200px"/>
+				<img src="../../images/product_images/<?php echo $picture; ?>" class="img-responsive mx-auto d-block center-block" width="200" height="200"/>
 					<!--Print out product name -->
 					<div class="card-body">
 					  <h3 class="card-title">
@@ -179,6 +169,8 @@
         mysqli_close($conn);
     ?>
 		
+	</div>
+	
 	</div>
 	
 	</div>

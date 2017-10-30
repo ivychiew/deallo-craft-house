@@ -4,22 +4,21 @@
 	<meta charset="utf-8"/>
 	<meta name="description" content="Deallo Product Category Page" />
 	<meta name="keyword" content="HTML, CSS, Javascript" />
-	<meta name="author" content="Tay Guan Yun" />
-	<title>Search Result: Bedding </title>
+	<meta name="author" content="" />
+	<title>Product - Jewelry </title>
     
-    <link rel="stylesheet=" href="../../styles/bootstrap/bootstrap.css">
+    <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../styles/test.css"/>
-    <link rel="stylesheet" type="text/css" href="../../styles/products.css"/>
     
 </head>
 
-<body class="container">
+<body>
     
-    <!-- Navigation -->
- <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
+<!-- Navigation -->
+ <div class="navbar navbar-custom nav-fixed-top" role="navigation">
   
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -28,57 +27,14 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" rel="home" href="#">Deallo's Craft House</a>
+    <a class="navbar-brand" rel="home" href="../../index.php">Deallo's Craft House</a>
   </div>
   
   <div class="collapse navbar-collapse">
-    
 
-    <ul class="nav navbar-nav"><!--    unordered list start -->
-      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
-
-      <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
-      <li><a href="pages/customer-supp.php">Questions?</a></li>
-      <li class="dropdown">
-              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="pages/products.php">All Products</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Clothing</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Accessories</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Food</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Furniter</a></li>
-              </ul>
-            </li>
-   
-      <button type="button" class="btn btn-default navbar-btn" style="list-style-type: none;">
-          <?php  if (isset($_SESSION['username'])) : ?>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/profile.php">
-                <span>Welcome <?php echo $_SESSION['username'] ?></span>
-              </a>
-             </li>
-          <?php endif ?>
-      </button>
-      <!-- notification message -->
-    <?php if (isset($_SESSION['success'])) : ?>
-      <div class="error success" >
-        <li class="nav-item">
-          <?php  
-            echo $_SESSION['success'];
-            unset($_SESSION['success']);
-          ?>
-        </li>
-      </div>
-    <?php endif ?>
-   </ul><!--  unordered list end -->
-
-    <div class="col-sm-3 col-md-3 pull-right">
+    <div class="col-sm-3 col-md-3 navbar-right">
       <form class="navbar-form" role="search">
-      <div class="input-group">
+      <div class="input-group ">
         <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
         <div class="input-group-btn">
           <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
@@ -86,95 +42,140 @@
       </div>
       </form>
     </div>
-    
+
+   
+    <ul class="nav navbar-nav"><!--unordered list start -->
+    <li class="dropdown">
+     <?php  if (isset($_SESSION['username'])) : ?>
+              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="pages/profile.php">Edit Profile</a></li>
+                <li class="divider"></li>
+                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+                 <li class="divider"></li>
+                <li><a href="pages/customer-supp.php">Questions?</a></li>
+              </ul>
+            </li>
+       <?php endif ?>
+     
+      <li class="dropdown">
+		  <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <span class="caret"></span></a>
+		  
+		  <ul class="dropdown-menu">
+			<li><a href="../products.php">All Products</a></li>
+			<li class="divider"></li>
+			<li><a href="clothingAcc.php">Clothing &amp; Accessories</a></li>
+			<li class="divider"></li>
+			<li><a href="#">Jewelry</a></li>
+			<li class="divider"></li>
+			<li><a href="craftSupplies.php">Craft Supplies</a></li>
+			<li class="divider"></li>
+			<li><a href="bedding.php">Bedding &amp; Room Decor</a></li>
+			<li class="divider"></li>
+			<li><a href="softToys.php">Soft Toys</a></li>
+			<li class="divider"></li>
+			<li><a href="vintage.php">Vintage Art</a></li>
+			<li class="divider"></li>
+			<li><a href="wedding.php">Wedding Accessories</a></li>
+		  </ul>
+      </li>
+      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
+    </ul>
   </div>
 </div>
-   
-<!-- end of navbar -->
+<!--End of Nav Bar-->
+    
+<div class="container-fluid">
 
-	<div class="header">
-        <h1>Search Result</h1>
-	</div>
+	<div class="row">
+        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 coverImage">
+            <img src="../../images/cover-art/jewelryCover.png" alt="jewelry cover art" height="100%" class="img-responsive" width="100%"/>
+        </div>
+    </div>
+	<hr/>
+    
+ </div>
+
+<div class="container">
+	<div class="row">
 	
-	</br>
+    
+	<div class="row">
 	
-	<form name="productsearch"   action="./searchpage.php" method="GET">
-		<div class="row">
-			<div class="col-xs-6 col-md-4">
-				<div class="input-group">
-					<input type="text" name="kw" class="form-control" placeholder="Search" value='<?php $_GET['k']; ?>'/>
-						<div class="input-group-btn">
-							<button class="btn btn-primary" type="submit">
-							<span class="glyphicon glyphicon-search"></span>
-							</button>
-						</div>
-				</div>
+		<!--Category List-->
+		<div class="list-group col-lg-3 col-md-3 col-sm-5 col-xs-6">
+			<a href="clothingAcc.php" class="list-group-item">Clothing &amp; Accessories</a>
+			<a href="#" class="list-group-item">Jewelry</a>
+			<a href="craftSupplies.php" class="list-group-item">Craft Supplies</a>
+			<a href="bedding.php" class="list-group-item">Bedding &amp; Room Decor</a>
+			<a href="softToys.php" class="list-group-item">Soft Toys</a>
+			<a href="vintage.php" class="list-group-item">Vintage Art</a>
+			<a href="wedding.php" class="list-group-item">Wedding Accessories</a>
+			<a href="../sellers_page.php" class="list-group-item">Sellers Center</a>
+		</div>
+		<br/>
+
+	  <?php 
+		include "../../includes/product_config.php";
+
+		//Connect to database
+		$conn = mysqli_connect("localhost", "root", "", "deallo");
+		if(mysqli_connect_errno())
+		{
+			echo "Failed to connect";
+		}
+		else
+		{
+			$category = "jewelry";
+			$query = mysqli_query($conn, "SELECT * FROM product_tbl WHERE productCategory = '$category'") or die(mysqli_error($conn));
+			$numrows = mysqli_num_rows($query);
+		}
+		
+		if($numrows <= 0)
+		{ echo '<div class="alert alert-danger col-lg-9 col-md-9 col-sm-7 col-xs-5">
+				  <strong>Error: </strong> No items found.
+				</div>'; }
+		else
+		{	
+			while($row = mysqli_fetch_array($query))
+			{
+				//$category = $row['productCategory'];
+				$name = $row['productName'];
+				$picture = $row['productPic'];
+				$price = $row['productPrice'];
+		?> 
+		
+		<!--Print out product details -->
+		<div class="col-lg-3 col-md-3 col-sm-7 col-xs-6">
+			<div class="well well-lg">
+				<!--Print out product picture -->
+				<img src="../../images/product_images/<?php echo $picture; ?>" class="img-responsive mx-auto d-block center-block" width="200" height="200"/>
+					<!--Print out product name -->
+					<div class="card-body">
+					  <h3 class="card-title">
+						<a href="pages/products.php"><?php echo $name; ?></a>
+					  </h3>
+						<!--Print out product price -->
+					  <h4 class="product-price">
+						  <?php echo "RM $price &nbsp &nbsp"; ?>
+					  </h4>
+				  </div>
 			</div>
 		</div>
-	</form>
-	<hr />
-    
-	<?php
-            //Connect to database
-            $conn = mysqli_connect("localhost", "root", "", "deallo");
-            if(mysqli_connect_errno())
-            {
-                echo "Failed to connect";
-            }
-            else
-            {
-                echo "<h2>Here are your search results</h2>";
-                echo "<br>";
-            }
-            
-            $k = 'jewelry';
-            $query = mysqli_query($conn, "SELECT * FROM product_tbl WHERE productCategory LIKE '%$k%'") or die(mysqli_error());
-            $numrows = mysqli_num_rows($query);
 		
-            if($numrows == 0)
-            {
-                echo "No such items founded";
-            }
-            else
-            {	
-                
-                while($row = mysqli_fetch_array($query))
-                {
-                    $category = $row['productCategory'];
-				    $name = $row['productName'];
-				    $picture = $row['productPic'];
-				    $price = $row['productPrice'];
-                
-    ?> 
-    
-    <!--Print out product details -->
-    <div class="container">
-    <div class="col-lg-4 col-md-6 mb-4">
-      <br>
-        <div class="well well-lg">
-            <!--Print out product picture -->
-            <img src="../../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
-
-                  <!--Print out product name -->
-                <div class="card-body">
-                  <h3 class="card-title">
-                    <a href="pages/products.php"><?php echo $name ?></a>
-                  </h3>
-                    <!--Print out product price -->
-                  <h4 class="product-price">
-                      <?php echo "RM $price  &nbsp &nbsp"; ?>
-                  </h4>
-              </div>
-            </div>
-          </div>
-        </div>
-    <?php
-                }
-            }
-            
-            //Disconnect to database
-            mysqli_close($conn);
+	<?php
+            } //end of while loop
+        } // end of else
+		//Disconnect to database
+        mysqli_close($conn);
     ?>
+		
+	</div>
+	
+	</div>
+	
+	</div>
+	
      <!-- Footer -->
 	<footer class="py-5 bg-dark">
       <div class="container">
@@ -183,18 +184,16 @@
       <!-- /.container -->
     </footer>
 
-
-	
     <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
-    <script src="../js/jquery.min.js"></script> 
+    <script src="../../js/jquery.min.js"></script> 
     <!-- All Bootstrap  plug-ins  file --> 
-    <script src="../js/bootstrap.min.js"></script> 
+    <script src="../../js/bootstrap.min.js"></script> 
     <!-- Basic AngularJS --> 
-    <script src="../js/angular.min.js"></script> 
+    <script src="../../js/angular.min.js"></script> 
     <!-- AngularJS - Routing --> 
-    <script src="../js/angular-route.min.js"></script>
+    <script src="../../js/angular-route.min.js"></script>
     <!-- App Script --> 
-    <script src="../js/dealloApp.js"></script>
+    <script src="../../js/dealloApp.js"></script>
 	
 </body>
 
