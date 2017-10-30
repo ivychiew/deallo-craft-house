@@ -161,7 +161,7 @@
 						  <?php echo "RM $price &nbsp &nbsp"; ?>
 					  </h4>
 					  <hr class="divider-owner"/>
-					  <p><?php echo "$productOwner"; ?></p>
+					  <p><span class="glyphicon glyphicon-user"></span>&nbsp; &nbsp;<?php echo "$productOwner"; ?></p>
 				  </div>
 			</div>
 		</div>
@@ -187,16 +187,12 @@
       <!-- /.container -->
     </footer>
 
-    <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
-    <script src="../../js/jquery.min.js"></script> 
-    <!-- All Bootstrap  plug-ins  file --> 
-    <script src="../../js/bootstrap.min.js"></script> 
-    <!-- Basic AngularJS --> 
-    <script src="../../js/angular.min.js"></script> 
-    <!-- AngularJS - Routing --> 
-    <script src="../../js/angular-route.min.js"></script>
-    <!-- App Script --> 
-    <script src="../../js/dealloApp.js"></script>
+ 	<!-- Bootstrap core JavaScript -->
+	<!--   <script src="../js/bootstrap.min.js"></script> -->
+	  <!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 </body>
 

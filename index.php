@@ -200,7 +200,7 @@
 			  <?php
 			  
 				  //Fetch the data from the database
-				  $stmt = $DB_con->prepare('SELECT productID, productName, productPrice, productPic, productDescription FROM product_tbl ORDER BY productID DESC LIMIT 6 OFFSET 0');
+				  $stmt = $DB_con->prepare('SELECT * FROM product_tbl ORDER BY productID DESC LIMIT 6 OFFSET 0');
 				  $stmt->execute();
 				  
 				  //If the number of products is more than 0 
@@ -226,6 +226,9 @@
 								  <h4 class="product-price">
 									  <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
 								  </h4>
+								  
+								  <hr class="divider-owner"/>
+								  <p><span class="glyphicon glyphicon-user"></span>&nbsp; &nbsp;<?php echo $row['product_owner']; ?></p>
 							  </div>
 							</div>
 					</div>

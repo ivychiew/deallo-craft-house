@@ -3,38 +3,27 @@
 <!--Include Delete Products Config-->
 <?php include '../includes/products_delete.php' ?>
 
-<!DOCTYPE HTML>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Product Page</title>
-
-<!--Bootstrap-->
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
+	<meta charset="utf-8"/>
+	<meta name="description" content="Deallo Product Category Page" />
+	<meta name="keyword" content="HTML, CSS, Javascript" />
+	<meta name="author" content="" />
+	<title>Deallo All Products</title>
+    
+    <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-
-    <!-- custom stylesheet -->
-    <link rel="stylesheet" href="../styles/product_modal.css">
-    <link rel="stylesheet" href="../styles/test.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-   <!--  <script src="jquery-1.11.3-jquery.min.js"></script> -->
-    </head>
-   
+    <!--Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
+    
+</head>
 
 <body>
+    
 <!-- Navigation -->
- <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
+ <div class="navbar navbar-custom nav-fixed-top" role="navigation">
   
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -48,7 +37,6 @@
   
   <div class="collapse navbar-collapse">
 
-    
     <div class="col-sm-3 col-md-3 navbar-right">
       <form class="navbar-form" role="search">
       <div class="input-group ">
@@ -61,32 +49,38 @@
     </div>
 
    
-    <ul class="nav navbar-nav"><!--unordered list start -->
-    <li class="dropdown">
-     <?php  if (isset($_SESSION['username'])) : ?>
-              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="profile.php">Edit Profile</a></li>
-                <li class="divider"></li>
-                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
-                 <li class="divider"></li>
-                <li><a href="customer-supp.php">Questions?</a></li>
-              </ul>
-            </li>
+     <ul class="nav navbar-nav"><!--unordered list start -->
+		<li class="dropdown">
+		 <?php  if (isset($_SESSION['username'])) : ?>
+				  <a href="" class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['username'] ?> <b class="caret"></b></a>
+				  <ul class="dropdown-menu">
+					<li><a href="pages/profile.php">Edit Profile</a></li>
+					<li class="divider"></li>
+					<li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+					 <li class="divider"></li>
+					<li><a href="pages/customer-supp.php">Questions?</a></li>
+				  </ul>
+        </li>
        <?php endif ?>
      
       <li class="dropdown">
-              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="products.php">All Products</a></li>
+                <li><a href="pages/products.php">All Products</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Clothing</a></li>
+                <li><a href="pages/products/clothingAcc.php">Clothing &amp; Accessories</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Accessories</a></li>
+                <li><a href="pages/products/jewelry">Jewelery</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Food</a></li>
+                <li><a href="pages/products/craftSupplies.php">Craft Supplies</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Furniture</a></li>
+                <li><a href="pages/products/bedding">Bedding &amp; Room Decor</a></li>
+                <li class="divider"></li>
+                <li><a href="pages/products/softToys">Soft Toys</a></li>
+                <li class="divider"></li>
+                <li><a href="pages/products/vintage">Vintage Art</a></li>
+                <li class="divider"></li>
+                <li><a href="pages/products/wedding">Wedding Accessories</a></li>
               </ul>
       </li>
       <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
@@ -115,7 +109,7 @@
 <?php
 	
     	//Fetch the data from the database
-    	$stmt = $DB_con->prepare('SELECT productID, productName, productPrice, productPic, productDescription FROM product_tbl ORDER BY productID DESC');
+    	$stmt = $DB_con->prepare('SELECT productID, productName, productPrice, productPic, productDescription, product_owner FROM product_tbl ORDER BY productID DESC');
     	$stmt->execute();
     	
     	//If the number of products is more than 0 
@@ -173,13 +167,15 @@
                   </h5>
 
                 <div class="col-sm-4card-text"><?php echo $productDescription; ?></div>
-                 <br>
+   
+				 <hr class="divider-owner"/>
+					<p><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $row['product_owner']; ?></p>
+				 
                   <span> <!--Edit Product Button-->
                   <a class="btn btn-info" href="#" title="Add to Cart" onclick="return confirm('Add to Cart?')">
                       <span class="glyphicon glyphicon-cart"></span> Add to Cart &nbsp;</a>
-                 
                  </span>
-                <br>
+                <br/>
               </div> <!-- End of Well Body-->
           </div>
         </div>
@@ -219,10 +215,12 @@
 <!-- /.container -->
 </footer>
 
-<!-- Latest compiled and minified JavaScript -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type='text/javascript' src='../js/buttonToggle.js'></script>
-<script type='text/javascript' src='../js/modal.js'></script>
+	<!-- Bootstrap core JavaScript -->
+	<!--   <script src="../js/bootstrap.min.js"></script> -->
+	  <!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
 </html>
