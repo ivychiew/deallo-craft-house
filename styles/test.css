@@ -17,4 +17,22 @@ footer{
 	background-color: black;
 
  }
+ 
+.navbar-custom, footer{ 
+	background-color:#003366;
+	background-image: none;
+	color:#FFF;
+}
+	
+.navbar-nav > li > a{
+	color:#FFF;
+}
+
+.navbar-brand{
+	color:#FFF; font-size:250%;
+}
+
+.carousel .item {
+  height: 250px;
+}
 

@@ -5,19 +5,52 @@
 	<title>Deallo Craft House - Login</title>
 	<link rel="stylesheet" type="text/css" href="..\styles\login_styles.css"/>
     <link rel="icon" type="image/png" href="images/DealloLogo-favicon.png"/>
-    <script src="../functions/facebookapi.js"></script>
+    
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<meta name="google-signin-client_id" content="629649200313-68ffuflofdj0emikqshht7lgq003jcg5.apps.googleusercontent.com">
-	<script>function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}</script>
    
 </head>
 <body class="bg">
+
+	<!--START Facebook SDK for Javascript-->
+	<script>
+	window.fbAsyncInit = function() {
+		FB.init({
+		  appId      : '187019978535195',
+		  cookie     : true,
+		  xfbml      : true,
+		  version    : 'v2.10'
+		});
+		  
+		FB.getLoginStatus(function(response) {
+			statusChangeCallback(response);
+		});   
+		  
+	  };
+
+	  (function(d, s, id){
+		 var js, fjs = d.getElementsByTagName(s)[0];
+		 if (d.getElementById(id)) {return;}
+		 js = d.createElement(s); js.id = id;
+		 js.src = "https://connect.facebook.net/en_US/sdk.js";
+		 fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+	   
+	   function statusChangeCallback(response){
+		   if(response.status === 'connected'){
+			   console.log('Logged in and authenricated');
+		   }else{
+			   console.log('NOT Logged in and authenricated');
+		   }
+	   }
+	   function checkLoginState() {
+		  FB.getLoginStatus(function(response) {
+			statusChangeCallback(response);
+		  });
+		}
+
+	   
+	</script>
+	<!--END Facebook SDK for Javascript-->
 
 	<div class="header">
         <img src="../images/DealloLogo-white.png" width="60" height="50" id="login_logo"/>
@@ -40,20 +73,15 @@
 			<button type="submit" class="btn" name="login_user">Login</button>
 		</div>
 		
-		<div class="g-signin2" data-onsuccess="onSignIn"></div>
+		<!--<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="true" data-auto-logout-link="false" data-use-continue-as="true"></div>-->
         
-        <div
-    class="fb-login-button"
-    data-max-rows="1"
-    data-size="<medium, large>"
-    data-button-type="continue_with"
-    data-width="<100% or px>"
-    data-scope="<comma separated list of permissions, e.g. public_profile, email>"
-></div>
+		<fb:login-button 
+		  scope="public_profile,email"
+		  onlogin="checkLoginState();">
+		</fb:login-button>
 
-        <div id="status">
-        </div>
-        
+		<br/><br/>
+		
 		<p>
 			Not yet a member? <a href="register.php">Sign up</a>
 		</p>
@@ -65,7 +93,6 @@
             &copy; Deallo Craft House
         </p>
 	</form>
-
 
 </body>
 </html>

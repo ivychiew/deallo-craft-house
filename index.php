@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,15 +19,13 @@
 
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="styles/test.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/products.css"/>
     
-
 </head>
 
 <body>
 
 <!-- Navigation -->
- <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
+ <div class="navbar navbar-custom nav-fixed-top" role="navigation">
   
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -55,17 +53,17 @@
 
    
     <ul class="nav navbar-nav"><!--unordered list start -->
-    <li class="dropdown">
-     <?php  if (isset($_SESSION['username'])) : ?>
-              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="pages/profile.php">Edit Profile</a></li>
-                <li class="divider"></li>
-                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
-                 <li class="divider"></li>
-                <li><a href="pages/customer-supp.php">Questions?</a></li>
-              </ul>
-            </li>
+		<li class="dropdown">
+		 <?php  if (isset($_SESSION['username'])) : ?>
+				  <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['username'] ?> <b class="caret"></b></a>
+				  <ul class="dropdown-menu">
+					<li><a href="pages/profile.php">Edit Profile</a></li>
+					<li class="divider"></li>
+					<li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+					 <li class="divider"></li>
+					<li><a href="pages/customer-supp.php">Questions?</a></li>
+				  </ul>
+        </li>
        <?php endif ?>
      
       <li class="dropdown">
@@ -95,56 +93,59 @@
 <!--End of Nav Bar-->
 
     <!-- Page Content -->
-    <div class="container">
-
-    <!-- logged in user information -->
-      
-      <div class="row">
-
-        <div class="col-lg-3">
-
-          <p><img src="images/cat.png" class="center-block img-responsive" style="max-width: 200px; max-height: 200px;"/></p>
-		 
-          <!--End-->
-          
-          <div class="list-group">
-            <a href="pages/products/clothingAcc.php" class="list-group-item">Clothing &amp; Accessories</a>
-            <a href="pages/products/jewelry.php" class="list-group-item">Jewelery</a>
-            <a href="pages/products/craftSupplies.php" class="list-group-item">Craft Supplies</a>
-            <a href="pages/products/bedding.php" class="list-group-item">Bedding &amp; Room Decor</a>
-            <a href="pages/products/softToys.php" class="list-group-item">Soft Toys</a>
-            <a href="pages/products/vintage.php" class="list-group-item">Vintage Art</a>
-            <a href="pages/products/wedding.php" class="list-group-item">Wedding Accessories</a>
-          </div>
-		
-		<p><a href="pages/sellers_page.php">SELLERS PAGE</a></p>
-        </div>
-        <!-- /.col-lg-3 -->
-
-        <div class="col-lg-9">
-        
-          <!--Carousel Starts Here-->
+    <div class="container-fluid">
+	
+	<div class="row">
+	
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	
+	      <!--Carousel Starts Here-->
           <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
               <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
               <li data-target="#myCarousel" data-slide-to="1"></li>
               <li data-target="#myCarousel" data-slide-to="2"></li>
+			  <li data-target="#myCarousel" data-slide-to="3"></li>
+			  <li data-target="#myCarousel" data-slide-to="4"></li>
+			  <li data-target="#myCarousel" data-slide-to="5"></li>
+			  <li data-target="#myCarousel" data-slide-to="6"></li>
+			  <li data-target="#myCarousel" data-slide-to="7"></li>
             </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
 
               <div class="item active">
-                <img src="../deallo-craft-house/images/cover-art/clothesCover.jpg" alt="Los Angeles" style="width:100%;">
+                <img src="../deallo-craft-house/images/cover-art/clothesCover.jpg" alt="Clothes and Accessories" style="width:100%;">
               </div>
 
               <div class="item">
-                <img src="../deallo-craft-house/images/cover-art/craftCover.jpg" alt="Chicago" style="width:100%;">
+                <img src="../deallo-craft-house/images/cover-art/craftCover.jpg" alt="Craft Supplies" style="width:100%;">
               </div>
 
               <div class="item">
-                <img src="../deallo-craft-house/images/cover-art/toysCover.jpg" alt="New York" style="width:100%;">
+                <img src="../deallo-craft-house/images/cover-art/toysCover.jpg" alt="Soft Toys" style="width:100%;">
+              </div>
+			  
+			  <div class="item">
+                <img src="../deallo-craft-house/images/cover-art/bedroomCover.jpg" alt="Bedroom" style="width:100%;">
+              </div>
+			  
+			  <div class="item">
+                <img src="../deallo-craft-house/images/cover-art/jewelryCover.png" alt="Jewelry" style="width:100%;">
+              </div>
+			  
+			  <div class="item">
+                <img src="../deallo-craft-house/images/cover-art/meetCover.jpg" alt="Meet Community" style="width:100%;">
+              </div>
+			  
+			  <div class="item">
+                <img src="../deallo-craft-house/images/cover-art/weddingCover.png" alt="Wedding" style="width:100%;">
+              </div>
+			  
+			  <div class="item">
+                <img src="../deallo-craft-house/images/cover-art/vintageCover.jpg" alt="Vintage" style="width:100%;">
               </div>
 
             </div>
@@ -160,80 +161,119 @@
             </a>
           </div>
           <!--Carousel ENDS Here-->
-  
+		  
+		</div>
+		<!--end of column-->
+	
+	</div>
+	<!--end of row-->
 
-<!--Products Diplay-->
-<div class="row" id="products">
-  <?php
-  
-      //Fetch the data from the database
-      $stmt = $DB_con->prepare('SELECT productID, productName, productPrice, productPic, productDescription FROM product_tbl ORDER BY productID DESC LIMIT 6 OFFSET 0');
-      $stmt->execute();
+    <!-- logged in user information -->
       
-      //If the number of products is more than 0 
-      if($stmt->rowCount() > 0)
-      {
-        //Fetch the products from the database table to a row
-        while($row=$stmt->fetch(PDO::FETCH_ASSOC))
-        { 
-          //Extract data to a row
-          extract($row);
-  ?>
-    <div class="col-lg-4 col-md-6 mb-4">
-      <br>
-              <div class="well well-lg" style="background-color: white;">
+	<div class="row">
+		<div class="col-lg-3 col-md-3">
+		
+		<br/><br/>
 
-                 <img src="images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+		  <p>
+			<img src="images/cat.png" alt="Cat Icon" class="center-block img-responsive" style="max-width: 200px; max-height: 200px;"/>
+		  </p>
+		 
+		  <div class="list-group">
+			<a href="pages/products/clothingAcc.php" class="list-group-item">Clothing &amp; Accessories</a>
+			<a href="pages/products/jewelry.php" class="list-group-item">Jewelery</a>
+			<a href="pages/products/craftSupplies.php" class="list-group-item">Craft Supplies</a>
+			<a href="pages/products/bedding.php" class="list-group-item">Bedding &amp; Room Decor</a>
+			<a href="pages/products/softToys.php" class="list-group-item">Soft Toys</a>
+			<a href="pages/products/vintage.php" class="list-group-item">Vintage Art</a>
+			<a href="pages/products/wedding.php" class="list-group-item">Wedding Accessories</a>
+			<a href="pages/sellers_page.php" class="list-group-item">Sellers Center</a>
+		  </div>
+		</div>
+	
+    <!-- /.col-lg-3 .col-md-3-->
 
-                <div class="card-body">
-                  <h3 class="card-title">
-                    <a href="pages/products.php"><?php echo $productName ?></a>
-                  </h3>
-                  <h4 class="product-price">
-                      <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
-                  </h4>
-              </div>
-            </div>
-          </div>
-      <?php
-    }
-  }
-  else
-  {
-    ?>
-    <!--If Empty Data, Show no data found-->
-        <div class="col-xs-12">
-          <div class="alert alert-warning">
-              <span class="glyphicon glyphicon-info-sign"></span> &nbsp; No Data Found ...
-            </div>
-        </div>
-        <?php
-  }
- 
-?>
-</div>  
-          <!-- /.row -->
-        </div>
-        <!-- /.col-lg-9 -->
-      </div>
-      <!-- /.row -->
-    </div>
-    <!-- /.container -->
+		<!--Products Diplay-->
+		<div class="col-lg-9 col-md-9" id="products">
+		<div class="row">
+
+			  <?php
+			  
+				  //Fetch the data from the database
+				  $stmt = $DB_con->prepare('SELECT productID, productName, productPrice, productPic, productDescription FROM product_tbl ORDER BY productID DESC LIMIT 6 OFFSET 0');
+				  $stmt->execute();
+				  
+				  //If the number of products is more than 0 
+				  if($stmt->rowCount() > 0)
+				  {
+						//Fetch the products from the database table to a row
+					while($row=$stmt->fetch(PDO::FETCH_ASSOC))
+					{ 
+					  //Extract data to a row
+					  extract($row);
+			  ?>
+					
+					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-4">
+					  <br/>
+							  <div class="well well-lg" style="background-color: white;">
+
+								 <img src="images/product_images/<?php echo $row['productPic']; ?>" alt="Product Image" align="middle" class="img-responsive mx-auto d-block" width="200" height="200" />
+
+								<div class="card-body">
+								  <h3 class="card-title">
+									<a href="pages/products.php"><?php echo $productName ?></a>
+								  </h3>
+								  <h4 class="product-price">
+									  <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
+								  </h4>
+							  </div>
+							</div>
+					</div>
+					
+				
+				<?php
+					} //end of while loop
+				?>
+				</div>
+				
+				<?php	
+				} //end of row count > 0
+			  else
+			  {
+				?>
+				<!--If Empty Data, Show no data found-->
+					<div class="col-xs-12">
+					  <div class="alert alert-warning">
+						  <span class="glyphicon glyphicon-info-sign"></span> &nbsp; No Data Found ...
+						</div>
+					</div>
+				<?php
+				  }
+				 
+				?>
+
+			  
+		</div>
+		<!-- /.col-lg-9 -->
+	</div>
+	<!-- /.row -->
+  </div>
+  <!-- /.container-fluid -->
+
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
+    <footer>
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
+        <p class="m-0 text-center">Copyright &copy; Deallo's Craft House</p>
       </div>
       <!-- /.container -->
     </footer>
 
-    <!-- Bootstrap core JavaScript -->
-<!--   <script src="../js/bootstrap.min.js"></script> -->
-  <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<!--   <script src="../js/bootstrap.min.js"></script> -->
+	  <!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   </body>
 
