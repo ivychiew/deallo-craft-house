@@ -142,6 +142,7 @@
 				$name = $row['productName'];
 				$picture = $row['productPic'];
 				$price = $row['productPrice'];
+				$productOwner = $row['product_owner'];
 		?> 
 		
 		<!--Print out product details -->
@@ -158,6 +159,8 @@
 					  <h4 class="product-price">
 						  <?php echo "RM $price &nbsp &nbsp"; ?>
 					  </h4>
+					  <hr class="divider-owner"/>
+					  <p><?php echo "$productOwner"; ?></p>
 				  </div>
 			</div>
 		</div>
