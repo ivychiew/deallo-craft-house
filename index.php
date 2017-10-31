@@ -2,6 +2,7 @@
 <?php include 'includes/product_config.php' ?>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +20,6 @@
 
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="styles/test.css"/>
-    
 </head>
 
 <body>
@@ -86,7 +86,9 @@
                 <li><a href="pages/products/wedding">Wedding Accessories</a></li>
               </ul>
       </li>
-      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
+     <li>
+        <span class="navbar-text navbar-right"><span class="glyphicon glyphicon-shopping-cart glyphicon-2x my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></></span>
+      </li>
     </ul>
   </div>
 </div>
@@ -277,6 +279,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="../js/cart.js"></script>	
 
   </body>
 

@@ -1,5 +1,4 @@
 <?php
-include "config.php";
 include "../includes/sessions.php";
 include "../includes/product_config.php";
 
@@ -19,6 +18,7 @@ $order = preg_replace("/[^0-9]/", "",$angka);
     <link rel="stylesheet" href="../styles/test.css">
 
     <style>
+        /*Styles for the Red Numbered Cart Image */
         .badge-notify{
             background:red;
             position:relative;
@@ -109,49 +109,59 @@ $order = preg_replace("/[^0-9]/", "",$angka);
     </div>
     
   <br />
+
+  <!--Products Container Start--> 
    <div class="row" id="products">
-        <?php
-        $stmt = $dbh->prepare("SELECT * FROM product_tbl");
+      <?php
+        $stmt = $DB_con->prepare("SELECT * FROM product_tbl");
         if ($stmt->execute()) {
             while ($row = $stmt->fetch()) {
         ?>
           <div class="col-md-3">
-  
               <div class="well h-100" style="background-color: white;">
                  <img src="../images/product_images/<?php echo $row['productPic']; ?>" class="img-responsive mx-auto d-block" width="200px" height="200px" />
-
-               
 
               <div class="caption text-center">
                 <h4><?php echo $row['productName'] ?></h4>
                 <p><strong>Price</strong>: $<?php echo $row['productPrice'] ?><br/></p>
+
+                <!-- Add to Cart Button -->
                 <span>
                     <a class="btn btn-danger my-cart-btn" 
                     data-id="<?php echo $row['productID'] ?>" 
                     data-name="<?php echo $row['productName'] ?>" 
                     data-summary="<?php echo $row['productDescription'] ?>" 
                     data-price="<?php echo $row['productPrice'] ?>" data-quantity="<?php echo $row['productQuantity'] ?>" data-image="../images/product_images/<?php echo $row['productPic'] ?>">Add to Cart</a> 
-
+                <!--End of Add to Cart Button-->
+                <!-- Pop up Details Modal Button -->
                     <a class="btn btn-warning" 
                     data-toggle="modal" 
                     data-target="#myModal-<?php echo $row['productID'] ?>">Details</a>
+                <!--End of Details Modal Button-->
                 </span>
               </div>
             </div>
           </div>
-           <!--Modal-->
-              <div class="modal fade" id="myModal-<?php echo $row['productID'] ?>" tabindex="-<?php echo $row['productID'] ?>" role="dialog" aria-labelledby="myModalLabel-<?php echo $row['productID'] ?>">
+           <!--Pop Up Modal-->
+              <div class="modal fade" 
+              id="myModal-<?php echo $row['productID'] ?>" 
+              tabindex="-<?php echo $row['productID'] ?>" 
+              role="dialog" 
+              aria-labelledby="myModalLabel-<?php echo $row['productID'] ?>">
+
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
                     <h4 class="modal-title" id="myModalLabel-<?php echo $row['productID'] ?>"><?php echo $row['productName'] ?></h4>
                   </div>
                   <div class="modal-body">
                     <img src="../images/product_images/<?php echo $row['productPic']; ?>" style="height:300px; width:300px;"/>
                     <hr>
                     <strong>Price</strong>: $<?php echo $row['productPrice'] ?><br/>
-                    <!-- <?php echo $row['productDescription'] ?> -->
+                    <?php echo $row['productDescription'] ?>
                   </div>
                 </div>
               </div>
@@ -162,24 +172,14 @@ $order = preg_replace("/[^0-9]/", "",$angka);
         }
         ?>
         </div>
+        <!--Products End-->
     </div> <!--Container End--> 
-
-
-    <!--If Empty Data, Show no data found-->
-        <!-- <div class="col-xs-12">
-          <div class="alert alert-warning">
-              <span class="glyphicon glyphicon-info-sign"></span> &nbsp; No Data Found ...
-            </div>
-        </div>
-        <?php
-  
-  
-?> -->
 </div>  
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery.mycart.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.mycart.min.js"></script>
+    <script src="../js/jquery.mycart.js"></script>
     <script src="../js/cart.js"></script>
     <script>
     function shoppingcart(allid,allquantity,allprice)

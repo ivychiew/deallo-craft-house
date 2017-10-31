@@ -87,11 +87,11 @@ if(isset($_POST['shopping'])){
                
             </tfoot>
         </table>
-        <p class="text-right"><a href="products2.php" class="btn btn-default">Back to homepage</a> <a href="?del=1" class="btn btn-danger">Cancel</a></p>
+        <p class="text-right"><a href="products.php" class="btn btn-default">Back to homepage</a> <a href="?del=1" class="btn btn-danger">Cancel</a></p>
     </div>
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>
 <?php

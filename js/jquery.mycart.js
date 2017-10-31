@@ -24,8 +24,8 @@
       clickOnAddToCart: function($addTocart) { },
       afterAddOnCart: function(products, totalPrice, totalQuantity) { },
       clickOnCartIcon: function($cartIcon, products, totalPrice, totalQuantity) { },
-      checkoutCart: function(products, totalPrice, totalQuantity) { },
-      getDiscountPrice: function(products, totalPrice, totalQuantity) { return null; }
+      checkoutCart: function(products, totalPrice, totalQuantity) { }
+      // getDiscountPrice: function(products, totalPrice, totalQuantity) { return null; }
     };
 
 
@@ -184,7 +184,7 @@
     var idCartTable = 'my-cart-table';
     var idGrandTotal = 'my-cart-grand-total';
     var idEmptyCartMessage = 'my-cart-empty-message';
-    var idDiscountPrice = 'my-cart-discount-price';
+    // var idDiscountPrice = 'my-cart-discount-price';
     var classProductTotal = 'my-product-total';
     var classAffixMyCartIcon = 'my-cart-icon-affix';
 
@@ -212,7 +212,7 @@
         '</div>' +
         '<div class="modal-footer">' +
         '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' +
-        '<button type="button" class="btn btn-primary ' + classCheckoutCart + '">Checkout</button>' +
+        '<a href="checkout.php"><button type="button" class="btn btn-primary ' + classCheckoutCart + '">Checkout</button></a>' +
         '</div>' +
         '</div>' +
         '</div>' +
@@ -251,22 +251,22 @@
         : '<div class="alert alert-danger" role="alert" id="' + idEmptyCartMessage + '">Your cart is empty</div>'
       );
 
-      var discountPrice = options.getDiscountPrice(products, ProductManager.getTotalPrice(), ProductManager.getTotalQuantity());
-      if(products.length && discountPrice !== null) {
-        $cartTable.append(
-          '<tr style="color: red">' +
-          '<td></td>' +
-          '<td><strong>Total (including discount)</strong></td>' +
-          '<td></td>' +
-          '<td></td>' +
-          '<td><strong id="' + idDiscountPrice + '"></strong></td>' +
-          '<td></td>' +
-          '</tr>'
-        );
-      }
+      // var discountPrice = options.getDiscountPrice(products, ProductManager.getTotalPrice(), ProductManager.getTotalQuantity());
+      // if(products.length && discountPrice !== null) {
+      //   $cartTable.append(
+      //     '<tr style="color: red">' +
+      //     '<td></td>' +
+      //     '<td><strong>Total (including discount)</strong></td>' +
+      //     '<td></td>' +
+      //     '<td></td>' +
+      //     '<td><strong id="' + idDiscountPrice + '"></strong></td>' +
+      //     '<td></td>' +
+      //     '</tr>'
+      //   );
+      // }
 
       showGrandTotal();
-      showDiscountPrice();
+      // showDiscountPrice();
     }
     var showModal = function(){
       drawTable();
@@ -281,9 +281,9 @@
     var showGrandTotal = function(){
       $("#" + idGrandTotal).text(options.currencySymbol + ProductManager.getTotalPrice());
     }
-    var showDiscountPrice = function(){
-      $("#" + idDiscountPrice).text(options.currencySymbol + MathHelper.getRoundedNumber(options.getDiscountPrice(ProductManager.getAllProducts(), ProductManager.getTotalPrice(), ProductManager.getTotalQuantity())));
-    }
+    // var showDiscountPrice = function(){
+    //   $("#" + idDiscountPrice).text(options.currencySymbol + MathHelper.getRoundedNumber(options.getDiscountPrice(ProductManager.getAllProducts(), ProductManager.getTotalPrice(), ProductManager.getTotalQuantity())));
+    // }
 
     /*
     EVENT
@@ -310,7 +310,7 @@
 
       $cartBadge.text(ProductManager.getTotalQuantity());
       showGrandTotal();
-      showDiscountPrice();
+      // showDiscountPrice();
     });
 
     $(document).on('keypress', "." + classProductQuantity, function(evt){
