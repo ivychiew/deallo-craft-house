@@ -1,29 +1,37 @@
-<!--Include User Session Script-->
-<?php include '../includes/sessions.php' ?>
-<!--Include Delete Products Config-->
-<?php include '../includes/products_delete.php' ?>
+<?php
+include "config.php";
+include "../includes/sessions.php";
+include "../includes/product_config.php";
 
+$angka = substr(uniqid(rand(), true), 7, 7);
+$order = preg_replace("/[^0-9]/", "",$angka);
+?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8"/>
-	<meta name="description" content="Deallo Product Category Page" />
-	<meta name="keyword" content="HTML, CSS, Javascript" />
-	<meta name="author" content="" />
-	<title>Deallo All Products</title>
-    
-    <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shopping Cart</title>
+
+    <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/test.css">
 
-    <!--Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
-    
+    <style>
+        .badge-notify{
+            background:red;
+            position:relative;
+            top: -15px;
+            right: 1px;
+        }
+       
+    </style>
 </head>
-
 <body>
     
-<!-- Navigation -->
- <div class="navbar navbar-custom nav-fixed-top" role="navigation">
+   <!-- Navigation -->
+ <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
   
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -37,6 +45,7 @@
   
   <div class="collapse navbar-collapse">
 
+ 
     <div class="col-sm-3 col-md-3 navbar-right">
       <form class="navbar-form" role="search">
       <div class="input-group ">
@@ -49,178 +58,136 @@
     </div>
 
    
-     <ul class="nav navbar-nav"><!--unordered list start -->
-		<li class="dropdown">
-		 <?php  if (isset($_SESSION['username'])) : ?>
-				  <a href="" class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['username'] ?> <b class="caret"></b></a>
-				  <ul class="dropdown-menu">
-					<li><a href="pages/profile.php">Edit Profile</a></li>
-					<li class="divider"></li>
-					<li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
-					 <li class="divider"></li>
-					<li><a href="pages/customer-supp.php">Questions?</a></li>
-				  </ul>
-        </li>
+    <ul class="nav navbar-nav"><!--unordered list start -->
+    <li class="dropdown">
+     <?php  if (isset($_SESSION['username'])) : ?>
+              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="profile.php">Edit Profile</a></li>
+                <li class="divider"></li>
+                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+                 <li class="divider"></li>
+                <li><a href="customer-supp.php">Questions?</a></li>
+              </ul>
+            </li>
        <?php endif ?>
      
       <li class="dropdown">
-              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="pages/products.php">All Products</a></li>
+                <li><a href="products.php">All Products</a></li>
                 <li class="divider"></li>
-                <li><a href="pages/products/clothingAcc.php">Clothing &amp; Accessories</a></li>
+                <li><a href="#">Clothing</a></li>
                 <li class="divider"></li>
-                <li><a href="pages/products/jewelry">Jewelery</a></li>
+                <li><a href="#">Accessories</a></li>
                 <li class="divider"></li>
-                <li><a href="pages/products/craftSupplies.php">Craft Supplies</a></li>
+                <li><a href="#">Food</a></li>
                 <li class="divider"></li>
-                <li><a href="pages/products/bedding">Bedding &amp; Room Decor</a></li>
-                <li class="divider"></li>
-                <li><a href="pages/products/softToys">Soft Toys</a></li>
-                <li class="divider"></li>
-                <li><a href="pages/products/vintage">Vintage Art</a></li>
-                <li class="divider"></li>
-                <li><a href="pages/products/wedding">Wedding Accessories</a></li>
+                <li><a href="#">Furniture</a></li>
               </ul>
       </li>
-      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
+      <li>
+        <span class="navbar-text navbar-right"><span class="glyphicon glyphicon-shopping-cart glyphicon-2x my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></></span>
+      </li>
     </ul>
   </div>
 </div>
 <!--End of Nav Bar-->
-
+    
 <div class="container">
 
-	<div class="page-header">
-		<br>
-    	<h1 class="h2">All Products
-    		<a class="btn btn-default" href="addproducts.php"> 
-    			<span class="glyphicon glyphicon-plus"></span> &nbsp; Create a new product 
-    		</a>
-    		<a class="btn btn-default" href="myProducts.php"> 
-    			<span class="glyphicon glyphicon-book"></span> &nbsp; My Products
-    		</a>
-    	</h1> 
+  <div class="page-header">
+    <br>
+      <h1 class="h2">All Products
+        <a class="btn btn-default" href="addproducts.php"> 
+          <span class="glyphicon glyphicon-plus"></span> &nbsp; Create a new product 
+        </a>
+        <a class="btn btn-default" href="myProducts.php"> 
+          <span class="glyphicon glyphicon-book"></span> &nbsp; My Products
+        </a>
+      </h1> 
     </div>
     
-	<br />
+  <br />
+   <div class="row" id="products">
+        <?php
+        $stmt = $dbh->prepare("SELECT * FROM product_tbl");
+        if ($stmt->execute()) {
+            while ($row = $stmt->fetch()) {
+        ?>
+          <div class="col-md-3">
+  
+              <div class="well h-100" style="background-color: white;">
+                 <img src="../images/product_images/<?php echo $row['productPic']; ?>" class="img-responsive mx-auto d-block" width="200px" height="200px" />
 
-<div class="row" id="products">
-<?php
-	
-    	//Fetch the data from the database
-    	$stmt = $DB_con->prepare('SELECT productID, productName, productPrice, productPic, productDescription, product_owner FROM product_tbl ORDER BY productID DESC');
-    	$stmt->execute();
-    	
-    	//If the number of products is more than 0 
-    	if($stmt->rowCount() > 0)
-    	{
-    		//Fetch the products from the database table to a row
-    		while($row=$stmt->fetch(PDO::FETCH_ASSOC))
-    		{	
-    			//Extract data to a row
-    			extract($row);
-?>
-   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-      <div class="well" style="background-color: white;">
-        <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+               
 
-          <div class="well-body">
-            <h4 class="well-title">
-              <span id="myBtn"><?php echo $productName ?></span>
-            </h4>
+              <div class="caption text-center">
+                <h4><?php echo $row['productName'] ?></h4>
+                <p><strong>Price</strong>: $<?php echo $row['productPrice'] ?><br/></p>
+                <span>
+                    <a class="btn btn-danger my-cart-btn" 
+                    data-id="<?php echo $row['productID'] ?>" 
+                    data-name="<?php echo $row['productName'] ?>" 
+                    data-summary="<?php echo $row['productDescription'] ?>" 
+                    data-price="<?php echo $row['productPrice'] ?>" data-quantity="<?php echo $row['productQuantity'] ?>" data-image="../images/product_images/<?php echo $row['productPic'] ?>">Add to Cart</a> 
 
-          <!--Modal Box-->
-          <div class="container">
-                <div id="myModal" class="modal">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <span class="close">&times;</span>
-                    </div>
-                    <div class="modal-body">
-                      <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
-                      <h3><?php echo $productName ?></h3>
-                      <br>
-                      <h4><?php echo "RM $productPrice  &nbsp &nbsp"; ?></h4>
-                      <p><?php echo $productDescription; ?></p>
-                      
-                       <div class="dropdown">
-                        <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">Select Colour
-                        <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">HTML</a></li>
-                          <li><a href="#">CSS</a></li>
-                          <li><a href="#">JavaScript</a></li>
-                        </ul>
-                      </div>
-                      
-                        <button class="btn btn-info" href="#">Add to cart</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-          <!--Modal Box end-->
-                  <h5>
-                    <strong class="product-price">
-                      <?php echo "RM $productPrice"; ?>
-                    </strong>
-                  </h5>
-
-                <div class="col-sm-4card-text"><?php echo $productDescription; ?></div>
-   
-				 <hr class="divider-owner"/>
-					<p><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $row['product_owner']; ?></p>
-				 
-                  <span> <!--Edit Product Button-->
-                  <a class="btn btn-info" href="#" title="Add to Cart" onclick="return confirm('Add to Cart?')">
-                      <span class="glyphicon glyphicon-cart"></span> Add to Cart &nbsp;</a>
-                 </span>
-                <br/>
-              </div> <!-- End of Well Body-->
+                    <a class="btn btn-warning" 
+                    data-toggle="modal" 
+                    data-target="#myModal-<?php echo $row['productID'] ?>">Details</a>
+                </span>
+              </div>
+            </div>
           </div>
+           <!--Modal-->
+              <div class="modal fade" id="myModal-<?php echo $row['productID'] ?>" tabindex="-<?php echo $row['productID'] ?>" role="dialog" aria-labelledby="myModalLabel-<?php echo $row['productID'] ?>">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel-<?php echo $row['productID'] ?>"><?php echo $row['productName'] ?></h4>
+                  </div>
+                  <div class="modal-body">
+                    <img src="../images/product_images/<?php echo $row['productPic']; ?>" style="height:300px; width:300px;"/>
+                    <hr>
+                    <strong>Price</strong>: $<?php echo $row['productPrice'] ?><br/>
+                    <!-- <?php echo $row['productDescription'] ?> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--End of Modal-->
+        <?php
+            }
+        }
+        ?>
         </div>
+    </div> <!--Container End--> 
 
-			<?php
-		}
-	}
-	else
-	{
-		?>
 
-		<!--If Empty Data, Show no data found-->
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        	<div class="alert alert-warning">
-            	<span class="glyphicon glyphicon-info-sign"></span> &nbsp; No Data Found ...
+    <!--If Empty Data, Show no data found-->
+        <!-- <div class="col-xs-12">
+          <div class="alert alert-warning">
+              <span class="glyphicon glyphicon-info-sign"></span> &nbsp; No Data Found ...
             </div>
         </div>
         <?php
-	}
-	
-?>
-</div>	
+  
+  
+?> -->
+</div>  
 
-	<ul class="pagination">
-	  <li class="active"><a href="#">1</a></li>
-	  <li><a href="#">2</a></li>
-	  <li><a href="#">3</a></li>
-	  <li><a href="#">4</a></li>
-	  <li><a href="#">5</a></li>
-	</ul>
-</div>
-
-<footer class="py-5 bg-dark">
-  <div class="container">
-    <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
-  </div>
-<!-- /.container -->
-</footer>
-
-	<!-- Bootstrap core JavaScript -->
-	<!--   <script src="../js/bootstrap.min.js"></script> -->
-	  <!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.mycart.min.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+    function shoppingcart(allid,allquantity,allprice)
+    {
+      var myorder = "<?php echo $order ?>";
+       $.post('order.php',{ui:'8', id:allid, aq:allquantity, ap:allprice, shopping:'shopping', order:myorder});
+    }
+    </script>
+    
 </body>
 </html>
