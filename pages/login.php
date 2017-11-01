@@ -1,15 +1,19 @@
-<?php include_once '..\includes\server.php' ?>
+<?php include '..\includes\server.php' ?>
+<?php include '..\includes\errors.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Deallo Craft House - Login</title>
 	<link rel="stylesheet" type="text/css" href="..\styles\login_styles.css"/>
     <link rel="icon" type="image/png" href="images/DealloLogo-favicon.png"/>
+    <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
    
 </head>
 <body class="bg">
 
+<div class="container"> 
 	<!--START Facebook SDK for Javascript-->
 	<script>
 	window.fbAsyncInit = function() {
@@ -87,52 +91,71 @@
 	   
 	</script>
 	<!--END Facebook SDK for Javascript-->
+<div class="row"> 
+	<div class="col-md-12"> 
+		<div class="header">
+	      	<p>  <img src="../images/DealloLogo-white.png" width="50" height="40" id="login_logo"/></p>
+			<h2>Deallo Craft House</h2>
 
-	<div class="header">
-        <img src="../images/DealloLogo-white.png" width="60" height="50" id="login_logo"/>
-		<h2>Login</h2>
+		</div>
 	</div>
-	
-	<!--<div id="status"></div>-->
-	
+</div>
+
+	<div class="form-group text-center">
 	<form method="post" action="login.php">
-
-		<?php include('..\includes\errors.php'); ?>
-
-		<div id="profile">PROFILE</div>
-		
-		<div class="input-group">
-			<label>Username</label>
-			<input type="text" name="username" />
+	<div class="row"> 
+	<div class="col-md-12"> 
+	<input type="text" name="username" placeholder=" &nbsp username"/>
+	</div>
+	</div>
+	<div class="row"> 
+		<div class="col-md-12">
+			<input type="password" name="password" placeholder=" &nbsp password"/>
 		</div>
-		<div class="input-group">
-			<label>Password</label>
-			<input type="password" name="password"/>
-		</div>
-		<div class="input-group">
+	</div>
+	<div class="row"> 
+		<div class="col-md-12 text-center">
 			<button type="submit" class="btn" name="login_user">Login</button>
 		</div>
-		
+	</div>
+	<br>
+	<div class="row"> 
+		<div class="col-md-6 text-center">
+			<p class="registered-text">
+			&nbsp &nbsp Not registered? <a class="sign-up" href="register.php"> Sign up</a>
+			</p>
+		</div>
+		<div class="col-md-6 pull-right">
+		<p><a href="forgotPassword.php"> Forgot password?</a>
+		</p>
+		</div>
+	</div>
+	<div class="row"> 
+		<div class="col-md-12 text-center">
+			<h4> Or </h4>
+		</div>
+	</div>
+	
+	
 		<!--<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="true" data-auto-logout-link="false" data-use-continue-as="true"></div>-->
         
-		<fb:login-button 
+	<div class="row fb"> 
+		<div class="col-md-12 text-center"> 
+			<fb:login-button 
 		  scope="public_profile,email"
 		  onlogin="checkLoginState();">
 		</fb:login-button>
+		</div>
+	</div>
 
 		<br/><br/>
-		
-		<p>
-			Not yet a member? <a href="register.php">Sign up</a>
-		</p>
-        <p>
-			<a href="forgotPassword.php">Forgot password?</a>
-		</p>
-        <br/>
-        <p>        
+	
+        <!-- <p>        
             &copy; Deallo Craft House
-        </p>
+        </p> -->
 	</form>
-
+	</div>
+</div>
+</div>
 </body>
 </html>
