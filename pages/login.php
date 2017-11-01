@@ -5,7 +5,6 @@
 	<title>Deallo Craft House - Login</title>
 	<link rel="stylesheet" type="text/css" href="..\styles\login_styles.css"/>
     <link rel="icon" type="image/png" href="images/DealloLogo-favicon.png"/>
-    
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
    
 </head>
@@ -24,22 +23,24 @@
 		FB.getLoginStatus(function(response) {
 			statusChangeCallback(response);
 		});   
-		  
 	  };
-
+	  
 	  (function(d, s, id){
 		 var js, fjs = d.getElementsByTagName(s)[0];
 		 if (d.getElementById(id)) {return;}
 		 js = d.createElement(s); js.id = id;
 		 js.src = "https://connect.facebook.net/en_US/sdk.js";
 		 fjs.parentNode.insertBefore(js, fjs);
-	   }(document, 'script', 'facebook-jssdk'));
-	   
+		}(document, 'script', 'facebook-jssdk'));
+	  
 	   function statusChangeCallback(response){
 		   if(response.status === 'connected'){
-			   console.log('Logged in and authenricated');
+			   console.log('Logged in and authenticated');
+			   setElements(true);
+			   testAPI();
 		   }else{
 			   console.log('NOT Logged in and authenricated');
+			   setElements(false);
 		   }
 	   }
 	   function checkLoginState() {
@@ -47,6 +48,41 @@
 			statusChangeCallback(response);
 		  });
 		}
+	
+		function testAPI() {
+			console.log('Welcome!  Fetching your information.... ');
+			FB.api('/me?fields=name,email', function(response) {
+			  if(response && !response.error){
+				  console.log(response);
+				console.log('Successful login for: ' + response.name);  
+				buildProfile(response);
+			  }
+			  
+			  //document.getElementById('status').innerHTML =
+				//'Thanks for logging in, ' + response.name + '!';
+				buildProfile(response);
+			});
+		}
+		
+		function setElements(isLoggedIn){
+			if(isLoggedIn){
+				document.getElementById('profile').style.display='block';
+			}else{
+				document.getElementById('profile').style.display='none';
+			}
+		}
+	
+	function buildProfile(user){
+		let profile = `
+			<h3>${user.name}</h3>
+			<ul class="list-group">
+				<li class="list-group-item">User ID: ${user.id}</li>
+				<li class="list-group-item">Email: ${user.email}</li>
+			</ul>
+		`;
+		document.getElementById('profile').innerHTML=profile;
+		console.log('<h1>${user.name}</h1>');
+	}
 
 	   
 	</script>
@@ -57,10 +93,14 @@
 		<h2>Login</h2>
 	</div>
 	
+	<!--<div id="status"></div>-->
+	
 	<form method="post" action="login.php">
 
 		<?php include('..\includes\errors.php'); ?>
 
+		<div id="profile">PROFILE</div>
+		
 		<div class="input-group">
 			<label>Username</label>
 			<input type="text" name="username" />
