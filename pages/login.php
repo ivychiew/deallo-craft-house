@@ -104,6 +104,9 @@
 	<div class="form-group text-center">
 	<form method="post" action="login.php">
 	<div class="row"> 
+	
+	<div id="profile">PROFILE</div>
+	
 	<div class="col-md-12"> 
 	<input type="text" name="username" placeholder=" &nbsp username"/>
 	</div>
