@@ -61,7 +61,7 @@
 //...
 
 
-// Login User - Encryption
+// Login User
 
 	if (isset($_POST['login_user'])) {
 		$username = mysqli_real_escape_string($dbi, $_POST['username']);
@@ -96,15 +96,29 @@
 			//fetch data from db
 			//$password = md5($password);
             
-			$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+			$query = "SELECT * FROM users WHERE username='$username' OR email='$username' AND password='$password'";
 			$results = mysqli_query($dbi, $query);
-
-			if (mysqli_num_rows($results) == 1) {
+			
+			$queryExist = "SELECT * FROM users WHERE username='$username' OR email='$username'";
+			$resultsExist = mysqli_query($dbi, $queryExist);
+			
+			//Checks if username or email exists in database
+			if (mysqli_num_rows($resultsExist) == 1) {
+				
+				//Checks if username and password is correct
+				if (mysqli_num_rows($results) == 1) {
+				$row=mysqli_fetch_row($results);
+				
+				$_SESSION['welcomeName'] = $row[1];
+				
 				$_SESSION['username'] = $username;
 				$_SESSION['success'] = "You are now logged in";
 				header('location: ..\index.php');
-			}else {
-				array_push($errors, "Wrong username/password combination");
+				}else {
+					array_push($errors, "Wrong username/password combination");
+				}
+			}else{
+				array_push($errors, "Username/email not registered. Please sign-up");
 			}
 		}
 	}

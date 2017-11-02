@@ -5,7 +5,7 @@
 <head>
 	<title>Deallo Craft House - Login</title>
 	<link rel="stylesheet" type="text/css" href="..\styles\login_styles.css"/>
-    <link rel="icon" type="image/png" href="images/DealloLogo-favicon.png"/>
+    <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
     <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -14,6 +14,7 @@
 <body class="bg">
 
 <div class="container"> 
+	
 	<!--START Facebook SDK for Javascript-->
 	<script>
 	window.fbAsyncInit = function() {
@@ -43,7 +44,7 @@
 			   setElements(true);
 			   testAPI();
 		   }else{
-			   console.log('NOT Logged in and authenricated');
+			   console.log('NOT Logged in and authenticated');
 			   setElements(false);
 		   }
 	   }
@@ -54,111 +55,107 @@
 		}
 	
 		function testAPI() {
-			console.log('Welcome!  Fetching your information.... ');
+			console.log('Welcome to Deallo! Fetching your information.... ');
 			FB.api('/me?fields=name,email', function(response) {
 			  if(response && !response.error){
-				  console.log(response);
+				console.log(response);
 				console.log('Successful login for: ' + response.name);  
 				buildProfile(response);
+				document.getElementById('username').value = response.email;
 			  }
-			  
-			  //document.getElementById('status').innerHTML =
-				//'Thanks for logging in, ' + response.name + '!';
-				buildProfile(response);
 			});
 		}
 		
 		function setElements(isLoggedIn){
 			if(isLoggedIn){
 				document.getElementById('profile').style.display='block';
+				
 			}else{
 				document.getElementById('profile').style.display='none';
 			}
 		}
 	
-	function buildProfile(user){
-		let profile = `
-			<h3>${user.name}</h3>
-			<ul class="list-group">
-				<li class="list-group-item">User ID: ${user.id}</li>
-				<li class="list-group-item">Email: ${user.email}</li>
-			</ul>
-		`;
+		function buildProfile(user){
+			let profile = `
+				<ul class="list-group">
+					<li class="list-group-item">Username: ${user.name}</li>
+					<li class="list-group-item">Email: ${user.email}</li>
+				</ul>
+			`;
+		
 		document.getElementById('profile').innerHTML=profile;
-		console.log('<h1>${user.name}</h1>');
+		
+		console.log(user.name);
 	}
 
 	   
 	</script>
 	<!--END Facebook SDK for Javascript-->
-<div class="row"> 
-	<div class="col-md-12"> 
-		<div class="header">
-	      	<p>  <img src="../images/DealloLogo-white.png" width="50" height="40" id="login_logo"/></p>
-			<h2>Deallo Craft House</h2>
+	<div class="row"> 
+		<div class="col-md-12"> 
+			<div class="header">
+				<p>  <img src="../images/DealloLogo-white.png" width="50" height="40" alt="login Deallo logo" id="login_logo"/></p>
+				<h2>Deallo Craft House</h2>
 
+			</div>
 		</div>
 	</div>
-</div>
 
 	<div class="form-group text-center">
 	<form method="post" action="login.php">
-	<div class="row"> 
-	
-	<div id="profile">PROFILE</div>
-	
-	<div class="col-md-12"> 
-	<input type="text" name="username" placeholder=" &nbsp username"/>
-	</div>
-	</div>
-	<div class="row"> 
-		<div class="col-md-12">
-			<input type="password" name="password" placeholder=" &nbsp password"/>
+		<div class="row"> 
+		
+			<div class="col-md-12"> 
+			<input type="text" id="username" name="username" placeholder="username"/>
+			</div>
 		</div>
-	</div>
-	<div class="row"> 
-		<div class="col-md-12 text-center">
-			<button type="submit" class="btn" name="login_user">Login</button>
+		
+		<div class="row"> 
+			<div class="col-md-12">
+				<input type="password" name="password" placeholder="password"/>
+			</div>
 		</div>
-	</div>
-	<br>
-	<div class="row"> 
-		<div class="col-md-6 text-center">
-			<p class="registered-text">
-			&nbsp &nbsp Not registered? <a class="sign-up" href="register.php"> Sign up</a>
+		<div class="row"> 
+			<div class="col-md-12 text-center">
+				<button type="submit" class="btn" name="login_user">Login</button>
+			</div>
+		</div>
+		<br>
+		<div class="row"> 
+			<div class="col-md-6 text-center">
+				<p class="registered-text">
+				&nbsp; &nbsp; Not registered? <a class="sign-up" href="register.php"> Sign up</a>
+				</p>
+			</div>
+			<div class="col-md-6 pull-right">
+			<p><a href="forgotPassword.php"> Forgot password?</a>
 			</p>
+			</div>
 		</div>
-		<div class="col-md-6 pull-right">
-		<p><a href="forgotPassword.php"> Forgot password?</a>
-		</p>
+		<div class="row"> 
+			<div class="col-md-12 text-center">
+				<h4> Or </h4>
+			</div>
 		</div>
-	</div>
-	<div class="row"> 
-		<div class="col-md-12 text-center">
-			<h4> Or </h4>
+		
+		<div class="row">
+			<div id="profile">PROFILE</div>
 		</div>
-	</div>
-	
-	
-		<!--<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="true" data-auto-logout-link="false" data-use-continue-as="true"></div>-->
-        
-	<div class="row fb"> 
-		<div class="col-md-12 text-center"> 
-			<fb:login-button 
-		  scope="public_profile,email"
-		  onlogin="checkLoginState();">
-		</fb:login-button>
+
+		<div class="row fb"> 
+			<div class="col-md-12 text-center"> 
+				<fb:login-button 
+			  scope="public_profile,email"
+			  onlogin="checkLoginState();">
+			</fb:login-button>
+			</div>
 		</div>
-	</div>
 
 		<br/><br/>
-	
-        <!-- <p>        
-            &copy; Deallo Craft House
-        </p> -->
+		
 	</form>
 	</div>
 </div>
-</div>
+
 </body>
 </html>
