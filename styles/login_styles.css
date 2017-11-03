@@ -35,6 +35,9 @@ body, html {
 	
 }
 
+*[hidden]{
+	display:none;
+}
 
 * {
 	margin: 0px;

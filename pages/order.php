@@ -35,7 +35,9 @@ if(isset($_POST['shopping'])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Order Cart</title>
 
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/test.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,8 +47,72 @@ if(isset($_POST['shopping'])){
     <![endif]-->
   </head>
   <body>
+   <!-- Navigation -->
+ <div class="navbar navbar-custom nav-fixed-top" role="navigation">
+  
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" rel="home" href="../index.php">Deallo's Craft House</a>
+  </div>
+  
+  <div class="collapse navbar-collapse">
+
+ 
+    <div class="col-sm-3 col-md-3 navbar-right">
+      <form class="navbar-form" role="search">
+      <div class="input-group ">
+        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
+      </div>
+      </form>
+    </div>
+
+   
+    <ul class="nav navbar-nav"><!--unordered list start -->
+    <li class="dropdown">
+     <?php  if (isset($_SESSION['username'])) : ?>
+              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="profile.php">Edit Profile</a></li>
+                <li class="divider"></li>
+                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+                 <li class="divider"></li>
+                <li><a href="customer-supp.php">Questions?</a></li>
+              </ul>
+            </li>
+       <?php endif ?>
+     
+      <li class="dropdown">
+              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="products.php">All Products</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Clothing</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Accessories</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Food</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Furniture</a></li>
+              </ul>
+      </li>
+      <li>
+        <span class="navbar-text navbar-right"><span class="glyphicon glyphicon-shopping-cart glyphicon-2x my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></></span>
+      </li>
+    </ul>
+  </div>
+</div>
+<!--End of Nav Bar-->
     <div class="container">
-        <h1>Your Cart</h1>
+        <h2>Your Cart</h2>
+        <br>
         <table class="table table-bordered">
             <thead>
                 <tr>
