@@ -98,11 +98,6 @@
 	
 	<form method="GET" class="form form-horizontal" action="./report.php">
 		<div>
-			<label class="control-label">Email address</label>
-			<input type="email" id="email" name="email" class="form-control">
-		</div>
-		
-		<div>
 			<label class="control-label">Comment/Inquiry:</label>
 			<textarea name="comment" rows="5" cols="40" class="form-control"></textarea>
 		</div>
