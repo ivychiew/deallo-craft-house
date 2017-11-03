@@ -22,7 +22,7 @@ if(isset($_POST['shopping'])){
         $stmt->bindParam(1, $del);
         if($stmt->execute()){
             ?>
-            <script>location.href="products2.php"</script>
+            <script>location.href="checkout.php"</script>
             <?php
         }
     }
@@ -111,8 +111,14 @@ if(isset($_POST['shopping'])){
 </div>
 <!--End of Nav Bar-->
     <div class="container">
-        <h2>Your Cart</h2>
+
         <br>
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-left"> Your Cart
+        <a href="?del=1" class="btn btn-danger pull-right">Clear Cart</a></h2>
+        </div>
+    </div>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -153,7 +159,8 @@ if(isset($_POST['shopping'])){
                
             </tfoot>
         </table>
-        <p class="text-right"><a href="products.php" class="btn btn-default">Back to homepage</a> <a href="?del=1" class="btn btn-danger">Cancel</a></p>
+        <p class="text-right"><a href="products.php" class="btn btn-default">Back to homepage</a>&nbsp &nbsp<a href="#"" class="btn btn-warning">Checkout</a> </p>
+
     </div>
 
     <script src="../js/jquery.min.js"></script>
