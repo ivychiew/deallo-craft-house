@@ -159,7 +159,7 @@ if(isset($_POST['shopping'])){
                
             </tfoot>
         </table>
-        <p class="text-right"><a href="products.php" class="btn btn-default">Back to homepage</a>&nbsp &nbsp<a href="#"" class="btn btn-warning">Checkout</a> </p>
+        <p class="text-right"><a href="products.php" class="btn btn-default">Back to homepage</a>&nbsp &nbsp<a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YF6K3N6XZZ5XE" class="btn btn-warning">Checkout</a> </p>
 
     </div>
 
