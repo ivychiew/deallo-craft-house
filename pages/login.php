@@ -9,6 +9,15 @@
     <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
+    elements and media queries --> 
+    <!-- WARNING: Respond.js doesn't work if you view the 
+    page via file:// --> 
+    <!--[if lt IE 9]> 
+    <script src="js/html5shiv.js"></script> 
+    <script src="js/respond.min.js"></script> 
+    <![endif]--> 
    
 </head>
 <body class="bg">

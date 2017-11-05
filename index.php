@@ -1,6 +1,5 @@
 <?php include 'includes/sessions.php' ?>
 <?php include 'includes/product_config.php' ?>
-<?php $searchTerm = ''; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +18,15 @@
 
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="styles/test.css"/>
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
+    elements and media queries --> 
+    <!-- WARNING: Respond.js doesn't work if you view the 
+    page via file:// --> 
+    <!--[if lt IE 9]> 
+    <script src="js/html5shiv.js"></script> 
+    <script src="js/respond.min.js"></script> 
+    <![endif]--> 
 </head>
 
 <body>
