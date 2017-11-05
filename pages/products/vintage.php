@@ -112,7 +112,7 @@
 			<a href="softToys.php" class="list-group-item">Soft Toys</a>
 			<a href="#" class="list-group-item">Vintage Art</a>
 			<a href="wedding.php" class="list-group-item">Wedding Accessories</a>
-			<a href="../sellers_page.php" class="list-group-item">Sellers Center</a>
+			<a href="../myProducts.php" class="list-group-item">Sellers Center</a>
 		</div>
 		<br/>
 

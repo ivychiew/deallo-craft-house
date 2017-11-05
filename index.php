@@ -199,7 +199,7 @@
 			<a href="pages/products/softToys.php" class="list-group-item">Soft Toys</a>
 			<a href="pages/products/vintage.php" class="list-group-item">Vintage Art</a>
 			<a href="pages/products/wedding.php" class="list-group-item">Wedding Accessories</a>
-			<a href="pages/sellers_page.php" class="list-group-item">Sellers Center</a>
+			<a href="pages/myProducts.php" class="list-group-item">Sellers Center</a>
 		  </div>
 		</div>
 	

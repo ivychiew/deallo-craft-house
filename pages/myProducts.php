@@ -12,10 +12,6 @@
     <meta name="author" content="">
 
     <title>Product Page</title>
-
-    <!-- custom stylesheet -->
-    <link rel="stylesheet" href="../styles/products_css.css">
-
  
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
@@ -23,12 +19,13 @@
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
     <link rel="stylesheet" type="text/css" href="../styles/products.css"/>
-    </head>
+    
+</head>
    
 
 <body>
-  <!-- Navigation -->
- <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
+<!-- Navigation -->
+ <div class="navbar navbar-custom nav-fixed-top" role="navigation">
   
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -42,13 +39,13 @@
   
   <div class="collapse navbar-collapse">
 
-    
+    <!--Search-->
     <div class="col-sm-3 col-md-3 navbar-right">
-      <form class="navbar-form" role="search">
-      <div class="input-group ">
-        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+      <form class="navbar-form" role="search" method="GET" action="searchpage.php">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="searchTerm" id="searchTerm"/>
         <div class="input-group-btn">
-          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+          <button class="btn btn-default" name="search_submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
         </div>
       </div>
       </form>
@@ -58,35 +55,43 @@
     <ul class="nav navbar-nav"><!--unordered list start -->
     <li class="dropdown">
      <?php  if (isset($_SESSION['username'])) : ?>
-              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
+              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="profile.php">Edit Profile</a></li>
+                <li><a href="pages/profile.php">Edit Profile</a></li>
                 <li class="divider"></li>
-                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+                <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
                  <li class="divider"></li>
-                <li><a href="customer-supp.php">Questions?</a></li>
+                <li><a href="pages/customer-supp.php">Questions?</a></li>
               </ul>
             </li>
        <?php endif ?>
      
       <li class="dropdown">
-              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="products.php">All Products</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Clothing</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Accessories</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Food</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Furniture</a></li>
-              </ul>
+		  <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <span class="caret"></span></a>
+		  
+		  <ul class="dropdown-menu">
+			<li><a href="../products.php">All Products</a></li>
+			<li class="divider"></li>
+			<li><a href="products/clothingAcc.php">Clothing &amp; Accessories</a></li>
+			<li class="divider"></li>
+			<li><a href="products/jewelry.php">Jewelry</a></li>
+			<li class="divider"></li>
+			<li><a href="products/craftSupplies.php">Craft Supplies</a></li>
+			<li class="divider"></li>
+			<li><a href="products/bedding.php">Bedding &amp; Room Decor</a></li>
+			<li class="divider"></li>
+			<li><a href="products/softToys.php">Soft Toys</a></li>
+			<li class="divider"></li>
+			<li><a href="products/vintage.php">Vintage Art</a></li>
+			<li class="divider"></li>
+			<li><a href="products/wedding.php">Wedding Accessories</a></li>
+		  </ul>
       </li>
       <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
     </ul>
   </div>
 </div>
+<!--End of Nav Bar-->
 
 <div class="container">
 
@@ -102,7 +107,7 @@
       </h1> 
     </div>
     
-  <br />
+  <br/>
 
 <div class="row" id="products">
 <?php
@@ -134,7 +139,7 @@
                       <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
                     </span>
                   </h5>
-                <div class="col-sm-4card-text"><?php echo $productDescription; ?></p>
+                <div class="col-sm-4card-text"><p><?php echo $productDescription; ?></p>
                 </div>
                 <div class="col-xs-3">
                       <div class="editButton">

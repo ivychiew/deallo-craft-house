@@ -11,21 +11,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Edit Products Page</title>
-
-<!--Bootstrap-->
-   <!-- Latest compiled and minified CSS -->
+    <title>Edit Product Page</title>
+ 
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
     <link rel="stylesheet" type="text/css" href="../styles/products.css"/>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
-   <!--  <script src="jquery-1.11.3-jquery.min.js"></script> -->
-    </head>
+    
+</head>
    
 
 <body>
@@ -139,14 +134,16 @@
 
                 <div class="col-sm-4card-text"><?php echo $productDescription; ?></div>
                  <br>
-                  <span> <!--Edit Product Button-->
-                  <a class="btn btn-info" href="editform.php?edit_id=<?php echo $row['productID']; ?>" title="click for edit" onclick="return confirm('Are you sure?')">
-                      <span class="glyphicon glyphicon-edit"></span> Edit &nbsp;</a>
-                 <!--Delete Product Button-->
-                  <a class="btn btn-danger" href="?delete_id=<?php echo $row['productID']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')">
-                 <span class="glyphicon glyphicon-remove-circle"></span> Delete  </a>
+                        <span> <!--Edit Product Button-->
+                          <a class="btn btn-info" href="editform.php?edit_id=<?php echo $row['productID']; ?>" title="click for edit" onclick="return confirm('Are you sure?')">
+                            <span class="glyphicon glyphicon-edit"></span> Edit
+                          </a> 
 
-                 </span>
+                            <!--Delete Product Button-->
+                          <a class="btn btn-danger" href="?delete_id=<?php echo $row['productID']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')">
+                            <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                          </a>
+                        </span>
                 <br>
               </div> <!-- End of Well Body-->
           </div>
