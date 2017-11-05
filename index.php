@@ -1,7 +1,6 @@
 <?php include 'includes/sessions.php' ?>
 <?php include 'includes/product_config.php' ?>
-
-
+<?php $searchTerm = ''; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,18 +33,18 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" rel="home" href="../index.php">Deallo's Craft House</a>
+    <a class="navbar-brand" rel="home" href="#">Deallo's Craft House</a>
   </div>
   
   <div class="collapse navbar-collapse">
 
-    
+    <!--Search-->
     <div class="col-sm-3 col-md-3 navbar-right">
-      <form class="navbar-form" role="search">
-      <div class="input-group ">
-        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+      <form class="navbar-form" role="search" method="GET" action="pages/searchpage.php">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="searchTerm" id="searchTerm"/>
         <div class="input-group-btn">
-          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+          <button class="btn btn-default" name="search_submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
         </div>
       </div>
       </form>
@@ -55,39 +54,42 @@
     <ul class="nav navbar-nav"><!--unordered list start -->
 		<li class="dropdown">
 		 <?php  if (isset($_SESSION['username'])) : ?>
-				  <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['welcomeName'] ?> <b class="caret"></b></a>
-				  <ul class="dropdown-menu">
-					<li><a href="pages/profile.php">Edit Profile</a></li>
-					<li class="divider"></li>
-					<li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
-					 <li class="divider"></li>
-					<li><a href="pages/customer-supp.php">Questions?</a></li>
-				  </ul>
+              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['welcomeName'] ?> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="pages/profile.php">Edit Profile</a></li>
+                <li class="divider"></li>
+                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+                 <li class="divider"></li>
+                <li><a href="pages/customer-supp.php">Questions?</a></li>
+              </ul>
         </li>
        <?php endif ?>
      
       <li class="dropdown">
-              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="pages/products.php">All Products</a></li>
-                <li class="divider"></li>
-                <li><a href="pages/products/clothingAcc.php">Clothing &amp; Accessories</a></li>
-                <li class="divider"></li>
-                <li><a href="pages/products/jewelry">Jewelery</a></li>
-                <li class="divider"></li>
-                <li><a href="pages/products/craftSupplies.php">Craft Supplies</a></li>
-                <li class="divider"></li>
-                <li><a href="pages/products/bedding">Bedding &amp; Room Decor</a></li>
-                <li class="divider"></li>
-                <li><a href="pages/products/softToys">Soft Toys</a></li>
-                <li class="divider"></li>
-                <li><a href="pages/products/vintage">Vintage Art</a></li>
-                <li class="divider"></li>
-                <li><a href="pages/products/wedding">Wedding Accessories</a></li>
-              </ul>
+          <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="pages/products.php">All Products</a></li>
+            <li class="divider"></li>
+            <li><a href="pages/products/clothingAcc.php">Clothing &amp; Accessories</a></li>
+            <li class="divider"></li>
+            <li><a href="pages/products/jewelry.php">Jewelery</a></li>
+            <li class="divider"></li>
+            <li><a href="pages/products/craftSupplies.php">Craft Supplies</a></li>
+            <li class="divider"></li>
+            <li><a href="pages/products/bedding.php">Bedding &amp; Room Decor</a></li>
+            <li class="divider"></li>
+            <li><a href="pages/products/softToys.php">Soft Toys</a></li>
+            <li class="divider"></li>
+            <li><a href="pages/products/vintage.php">Vintage Art</a></li>
+            <li class="divider"></li>
+            <li><a href="pages/products/wedding.php">Wedding Accessories</a></li>
+          </ul>
       </li>
      <li>
-        <span class="navbar-text navbar-right"><span class="glyphicon glyphicon-shopping-cart glyphicon-2x my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></></span>
+        <span class="navbar-text navbar-right">
+            <span class="glyphicon glyphicon-shopping-cart glyphicon-2x my-cart-icon">  <span class="badge badge-notify my-cart-badge"></span>
+            </span>
+        </span>
       </li>
     </ul>
   </div>

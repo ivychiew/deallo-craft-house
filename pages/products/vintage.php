@@ -32,12 +32,13 @@
   
   <div class="collapse navbar-collapse">
 
+    <!--Search-->
     <div class="col-sm-3 col-md-3 navbar-right">
-      <form class="navbar-form" role="search">
-      <div class="input-group ">
-        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+      <form class="navbar-form" role="search" method="GET" action="../searchpage.php">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="searchTerm" id="searchTerm"/>
         <div class="input-group-btn">
-          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+          <button class="btn btn-default" name="search_submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
         </div>
       </div>
       </form>
@@ -66,7 +67,7 @@
 			<li class="divider"></li>
 			<li><a href="clothingAcc.php">Clothing &amp; Accessories</a></li>
 			<li class="divider"></li>
-			<li><a href="jewelry">Jewelry</a></li>
+			<li><a href="jewelry.php">Jewelry</a></li>
 			<li class="divider"></li>
 			<li><a href="craftSupplies.php">Craft Supplies</a></li>
 			<li class="divider"></li>

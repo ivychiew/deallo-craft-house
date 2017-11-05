@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+    <?php session_start();?>
+    
 <head>
 	<meta charset="utf-8"/>
 	<meta name="description" content="Deallo Product Category Page" />
@@ -19,7 +21,7 @@
 <body class="container-fluid" data-ng-app="myApp">
 	
 <!-- Navigation -->
- <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
+ <div class="navbar navbar-custom nav-fixed-top" role="navigation">
   
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -32,140 +34,134 @@
   </div>
   
   <div class="collapse navbar-collapse">
-    
 
-    <ul class="nav navbar-nav"><!--    unordered list start -->
-      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
-
-      <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
-      <li><a href="#">Questions?</a></li>
-      <li class="dropdown">
-              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="products.php">All Products</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Clothing</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Accessories</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Food</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Furniture</a></li>
-              </ul>
-            </li>
-   
-      <button type="button" class="btn btn-default navbar-btn" style="list-style-type: none;">
-          <?php  if (isset($_SESSION['username'])) : ?>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/profile.php">
-                <span>Welcome <?php echo $_SESSION['username'] ?></span>
-              </a>
-             </li>
-          <?php endif ?>
-      </button>
-   </ul><!--  unordered list end -->
-
-    <div class="col-sm-3 col-md-3 pull-right">
-      <form class="navbar-form" role="search">
+    <!--Search-->
+    <div class="col-sm-3 col-md-3 navbar-right">
+      <form class="navbar-form" role="search" method="GET" action="#">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+        <input type="text" class="form-control" placeholder="Search" name="searchTerm" id="searchTerm"/>
         <div class="input-group-btn">
-          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+          <button class="btn btn-default" name="search_submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
         </div>
       </div>
       </form>
     </div>
-    
-  </div>
-</div> 
-<!-- end of Navbar -->
 
-	<div class="header">
-        <h1>Search Result</h1>
-       
-	</div>
-	
-	</br>
-	
-	<form name="productsearch"   action="./searchpage.php" method="GET">
-		<div class="row">
-			<div class="col-xs-6 col-md-4">
-				<div class="input-group">
-					<input type="text" name="kw" class="form-control" placeholder="Search" value='<?php echo $_GET['kw']; ?>'/>
-						<div class="input-group-btn">
-							<button class="btn btn-primary" type="submit">
-							<span class="glyphicon glyphicon-search"></span>
-							</button>
-						</div>
-				</div>
-			</div>
-		</div>
-	</form>
-	<hr />
+   
+    <ul class="nav navbar-nav"><!--unordered list start -->
+		<li class="dropdown">
+		 <?php  if(isset($_SESSION['username'])) : ?>
+				  <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['welcomeName'] ?> <b class="caret"></b></a>
+				  <ul class="dropdown-menu">
+					<li><a href="pages/profile.php">Edit Profile</a></li>
+					<li class="divider"></li>
+					<li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+					 <li class="divider"></li>
+					<li><a href="pages/customer-supp.php">Questions?</a></li>
+				  </ul>
+        </li>
+       <?php endif ?>
+     
+      <li class="dropdown">
+              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="pages/products.php">All Products</a></li>
+                <li class="divider"></li>
+                <li><a href="pages/products/clothingAcc.php">Clothing &amp; Accessories</a></li>
+                <li class="divider"></li>
+                <li><a href="pages/products/jewelry">Jewelery</a></li>
+                <li class="divider"></li>
+                <li><a href="pages/products/craftSupplies.php">Craft Supplies</a></li>
+                <li class="divider"></li>
+                <li><a href="pages/products/bedding">Bedding &amp; Room Decor</a></li>
+                <li class="divider"></li>
+                <li><a href="pages/products/softToys">Soft Toys</a></li>
+                <li class="divider"></li>
+                <li><a href="pages/products/vintage">Vintage Art</a></li>
+                <li class="divider"></li>
+                <li><a href="pages/products/wedding">Wedding Accessories</a></li>
+              </ul>
+      </li>
+     <li>
+        <span class="navbar-text navbar-right">
+            <span class="glyphicon glyphicon-shopping-cart glyphicon-2x my-cart-icon">  <span class="badge badge-notify my-cart-badge"></span>
+            </span>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+<!--End of Nav Bar-->
+    
+<div class="container-fluid">
     
     <?php
 	
-		//Making sure keyword, kw is not empty.
-		if($_GET['kw'] == NULL)
-		{
-			echo "Search bar is empty. Please key in the keyword.";
+        $searchTerm = '';
+        $searchTerm = $_GET['searchTerm'];
+
+        //If not set
+		if(empty($searchTerm) || $searchTerm === NULL)
+		{	
+            echo "Search bar is empty. Please key in a keyword."; 
 		}
 		else
 		{
-		  //Connect to database
-		  $conn = mysqli_connect("localhost", "root", "", "products");
-		  if(mysqli_connect_errno())
-		  {
-              echo "Failed to connect";
-		  }
+            //Connect to database
+            $conn = mysqli_connect("localhost", "root", "", "deallo");
+            if(mysqli_connect_errno())
+            {
+                echo "Failed to connect";
+            }
             else
             {
-                echo "<h2>Here are your search results</h2>";
-                echo "<br>";
+
+                $query = mysqli_query($conn, "SELECT * FROM product_tbl WHERE productName LIKE '%$searchTerm%'") or die(mysqli_error());
+                $numrows = mysqli_num_rows($query);
+		
             }
-            
-        //transfering keyword value from 'kw' to 'k'
-		$k = $_GET['kw'];
-		$output = '';
-		
-		$query = mysqli_query($conn, "SELECT * FROM product_tbl WHERE productName LIKE '%$k%'") or die(mysqli_error());
-		$numrows = mysqli_num_rows($query);
-		
 		if($numrows == 0)
 		{
-			echo "No such items founded";
+			echo "<h3 class='text-center'>We were unable to find results for " . $searchTerm . "</h3>";
 		}
 		else
 		{	
-			while($row = mysqli_fetch_array($query))
+            echo "<h2>Search Results for: " . $searchTerm . "</h2>";
+            echo "<hr/>";
+            while($row = mysqli_fetch_array($query))
 			{
 				$category = $row['productCategory'];
 				$name = $row['productName'];
 				$picture = $row['productPic'];
 				$price = $row['productPrice'];
+                $productOwner = $row['productOwner'];
                 
            ?>     
-    
-    <div class="container">
-    <div class="col-lg-4 col-md-6 mb-4">
-      <br>
+
+    <div class="col-lg-4 col-md-6 col-sm-3 col-xs-12 mb-4">
+      <br/>
               <div class="well well-lg">
                   <!--Print out product picture -->
                  <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
 
-                  <!--Print out product name -->
+                <!--Print out product name -->
                 <div class="card-body">
                   <h3 class="card-title">
                     <a href="pages/products.php"><?php echo $name ?></a>
                   </h3>
-                    <!--Print out product price -->
+                  <!--Print out product price -->
                   <h4 class="product-price">
                       <?php echo "RM $price  &nbsp &nbsp"; ?>
+                  </h4>
+                  <hr/>
+                  <!--Print out product owner -->
+                  <h4 class="product-owner">
+                      <?php echo "$productOwner &nbsp"; ?>
                   </h4>
               </div>
             </div>
           </div>
-        </div>
+
     <?php
 			}
 		}
@@ -175,11 +171,12 @@
         mysqli_close($conn);
 		}
 	?>
-	
-      <!-- Footer -->
-	<footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
+</div>
+    
+    <!-- Footer -->
+    <footer>
+      <div class="container-fluid">
+        <p class="m-0 text-center">Copyright &copy; Deallo's Craft House</p>
       </div>
       <!-- /.container -->
     </footer>
