@@ -20,6 +20,7 @@
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
     <link rel="stylesheet" type="text/css" href="../styles/products.css"/>
+	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
 	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 
     elements and media queries --> 

@@ -8,7 +8,7 @@
 	$_SESSION['success'] = "";
 
 	//connect to database
-	$dbi = mysqli_connect('localhost', 'root', '' , 'deallo'); 
+	$dbi = mysqli_connect('localhost', 'root', '' , 'deallo_udb'); 
 	
 //Start of User Registration
 	if (isset($_POST['reg_user'])){
