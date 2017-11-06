@@ -1,7 +1,7 @@
 <?php
 try {
     $host = 'localhost';
-    $dbnm = 'deallo';
+    $dbnm = 'deallo_udb';
     $user = 'root';
     $pass = '';
     $dbh = new PDO('mysql:host='.$host.';dbname='.$dbnm, $user, $pass);

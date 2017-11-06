@@ -18,11 +18,11 @@ if(isset($_POST['shopping'])){
 } else{
     if(isset($_GET['del'])){
         $del = $_GET['del'];
-        $stmt = $dbh->prepare("DELETE FROM shopping WHERE userID=8");
+        $stmt = $dbh->prepare("DELETE FROM shopping WHERE id_user=1");
         $stmt->bindParam(1, $del);
         if($stmt->execute()){
             ?>
-            <script>location.href="products2.php"</script>
+            <script>location.href="order.php"</script>
             <?php
         }
     }
@@ -85,6 +85,8 @@ if(isset($_POST['shopping'])){
                 <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
                  <li class="divider"></li>
                 <li><a href="customer-supp.php">Questions?</a></li>
+                <li class="divider"></li>
+                <li><a href="order.php">Your Cart</a></li>
               </ul>
             </li>
        <?php endif ?>
@@ -111,8 +113,7 @@ if(isset($_POST['shopping'])){
 </div>
 <!--End of Nav Bar-->
     <div class="container">
-        <h2>Your Cart</h2>
-        <br>
+        <h1>Your Cart</h1>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -124,14 +125,13 @@ if(isset($_POST['shopping'])){
             </thead>
             <tbody>
                 <?php
-                $stmt = $dbh->prepare("SELECT * FROM shopping a, product_tbl b where a.id=b.id and a.userID = 8");
+                $stmt = $dbh->prepare("SELECT * FROM shopping a, product b where a.id=b.id and a.id_user = 1");
                 if ($stmt->execute()) {
                   while ($row = $stmt->fetch()) {
                 ?>
                 <tr>
-                    <td width="120"><img src="../images/product_images/<?php echo $row['productPic'] ?>" style="width:100px"/></td>
-                    <td></td>
-                    <td><strong><?php echo $row['productName'] ?></strong></td>
+                    <td width="120"><img src="../images/product_images/<?php echo $row['image'] ?>" style="width:100px"/></td>
+                    <td><strong><?php echo $row['name'] ?></strong></td>
                     <td width="80"><?php echo $row['amount_quantity'] ?></td>
                     <td width="80"><?php echo $row['amount_price'] ?></td>
                 </tr>
@@ -142,7 +142,7 @@ if(isset($_POST['shopping'])){
             </tbody>
             <tfoot>
                 <?php
-                $stmt2 = $dbh->prepare("SELECT sum(amount_price) as ap2 FROM shopping where userID = 8");
+                $stmt2 = $dbh->prepare("SELECT sum(amount_price) as ap2 FROM shopping where id_user = 1");
                 $stmt2->execute();
                 $row2 = $stmt2->fetch();
                 ?>
@@ -150,14 +150,18 @@ if(isset($_POST['shopping'])){
                     <th colspan="2">Total</th>
                     <th colspan="2"><?php echo $row2['ap2'] ?></th>
                 </tr>
-               
+                <tr>
+                    <th colspan="2">Total (including discount)</th>
+                    <th colspan="2"><?php echo $row2['ap2']*0.99 ?></th>
+                </tr>
             </tfoot>
         </table>
-        <p class="text-right"><a href="products.php" class="btn btn-default">Back to homepage</a> <a href="?del=1" class="btn btn-danger">Cancel</a></p>
+        <p class="text-right"><a href="products.php" class="btn btn-default">Back to homepage</a> <a href="?del=1" class="btn btn-danger">Remove All Items</a></p>
     </div>
 
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    
   </body>
 </html>
 <?php
