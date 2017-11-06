@@ -157,6 +157,7 @@ if(isset($_POST['shopping'])){
             </tfoot>
         </table>
         <p class="text-right"><a href="products.php" class="btn btn-default">Back to homepage</a> <a href="?del=1" class="btn btn-danger">Remove All Items</a></p>
+        <p class="text-right"><a href="#" class="btn btn-warning" style="width: 282px;">Checkout</a></p>
     </div>
 
     <script src="assets/js/jquery.min.js"></script>

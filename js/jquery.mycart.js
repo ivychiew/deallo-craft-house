@@ -212,7 +212,7 @@
         '</div>' +
         '<div class="modal-footer">' +
         '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' +
-        '<a href="order.php class="btn btn-primary ' + classCheckoutCart + '">View my orders</a>' +
+        '<a href="order.php class="btn btn-primary ' + classCheckoutCart + '">Checkout</a>' +
         '</div>' +
         '</div>' +
         '</div>' +
