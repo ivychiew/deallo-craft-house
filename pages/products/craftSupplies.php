@@ -2,16 +2,27 @@
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<meta name="description" content="Deallo Product Category Page" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<meta name="description" content="Deallo Product Category Page"/>
 	<meta name="keyword" content="HTML, CSS, Javascript" />
 	<meta name="author" content="" />
+	
 	<title>Product - Craft Supplies</title>
-    
+	<!-- Latest compiled and minified CSS -->
     <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../styles/test.css"/>
+	
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 
+    elements and media queries --> 
+    <!-- WARNING: Respond.js doesn't work if you view the 
+    page via file:// --> 
+    <!--[if lt IE 9]> 
+    <script src="js/html5shiv.js"></script> 
+    <script src="js/respond.min.js"></script> 
+    <![endif]--> 
     
 </head>
 
@@ -188,7 +199,6 @@
     </footer>
 
 	<!-- Bootstrap core JavaScript -->
-	<!--   <script src="../js/bootstrap.min.js"></script> -->
 	  <!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<!-- Latest compiled JavaScript -->
