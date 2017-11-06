@@ -91,6 +91,9 @@
             <li><a href="pages/products/vintage.php">Vintage Art</a></li>
             <li class="divider"></li>
             <li><a href="pages/products/wedding.php">Wedding Accessories</a></li>
+            <li class="divider"></li>
+            <li><a href="pages/products/food.php">Homemade Food</a></li>
+
           </ul>
       </li>
      <li>
@@ -105,12 +108,12 @@
 <!--End of Nav Bar-->
 
     <!-- Page Content -->
-    <div class="container-fluid">
+    <div class="container-fluid" style="margin-left:10%; margin-right: 10%; background-color:#F2F3D9;" >
 	
 	<div class="row">
 	
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-	
+	       <br>
 	      <!--Carousel Starts Here-->
           <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -118,11 +121,11 @@
               <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
               <li data-target="#myCarousel" data-slide-to="1"></li>
               <li data-target="#myCarousel" data-slide-to="2"></li>
-			  <li data-target="#myCarousel" data-slide-to="3"></li>
-			  <li data-target="#myCarousel" data-slide-to="4"></li>
-			  <li data-target="#myCarousel" data-slide-to="5"></li>
-			  <li data-target="#myCarousel" data-slide-to="6"></li>
-			  <li data-target="#myCarousel" data-slide-to="7"></li>
+      			  <li data-target="#myCarousel" data-slide-to="3"></li>
+      			  <li data-target="#myCarousel" data-slide-to="4"></li>
+      			  <li data-target="#myCarousel" data-slide-to="5"></li>
+      			  <li data-target="#myCarousel" data-slide-to="6"></li>
+      			  <li data-target="#myCarousel" data-slide-to="7"></li>
             </ol>
 
             <!-- Wrapper for slides -->
@@ -182,16 +185,19 @@
 
     <!-- logged in user information -->
       
-	<div class="row">
+	<div class="row" style="padding-right: 15px;">
 		<div class="col-lg-3 col-md-3">
-		
-		<br/><br/>
+    <br>
+      <div class="well" style="background-color: white; ">
 
-		  <p>
+		  <h3 align="center">Shop By Category</h3>
+
+		  <!-- <p>
 			<img src="images/cat.png" alt="Cat Icon" class="center-block img-responsive" style="max-width: 200px; max-height: 200px;"/>
-		  </p>
+		  </p> -->
 		 
-		  <div class="list-group">
+		  <div class="list-group categories" style="border-radius: 50px;">
+      <div class="category-list-group">
 			<a href="pages/products/clothingAcc.php" class="list-group-item">Clothing &amp; Accessories</a>
 			<a href="pages/products/jewelry.php" class="list-group-item">Jewelry</a>
 			<a href="pages/products/craftSupplies.php" class="list-group-item">Craft Supplies</a>
@@ -200,19 +206,31 @@
 			<a href="pages/products/vintage.php" class="list-group-item">Vintage Art</a>
 			<a href="pages/products/wedding.php" class="list-group-item">Wedding Accessories</a>
 			<a href="pages/myProducts.php" class="list-group-item">Sellers Center</a>
+      </div>
 		  </div>
 		</div>
-	
+	</div>
     <!-- /.col-lg-3 .col-md-3-->
+    <div class="col-lg-9 col-md-9">
+    <div class="row">
+    <br>
+    <div class="well" style="background-color: white;">
+    <div class="welcome_heading" align="center">
+    <img src="images/watercolor.png" class="img-responsive" style="max-width: 100px; max-height: 100px;"/>
+    <h2> Share your creativity with others: <a href="pages/addproducts.php" class="btn btn-danger my-cart-btn">Add an item for sell</a></h2>
 
+    </div>
+    </div>
+    </div>
+    </div>
 		<!--Products Diplay-->
 		<div class="col-lg-9 col-md-9" id="products">
 		<div class="row">
-
+    <h2> &nbsp; Bedding & Room Decor  </h2>
 			  <?php
 			  
 				  //Fetch the data from the database
-				  $stmt = $dbh->prepare('SELECT * FROM product ORDER BY id DESC LIMIT 6 OFFSET 0');
+				  $stmt = $dbh->prepare('SELECT * FROM product WHERE category= "Bedding & Room Decor" LIMIT 4 OFFSET 0');
 				  $stmt->execute();
 				  
 				  //If the number of products is more than 0 
@@ -225,19 +243,20 @@
 					  extract($row);
 			  ?>
 					
-					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-4">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+
 					  <br/>
 							  <div class="well well-lg" style="background-color: white;">
 
 								 <img src="images/product_images/<?php echo $row['image']; ?>" alt="Product Image" align="middle" class="img-responsive mx-auto d-block" width="200" height="200" />
 
 								<div class="card-body">
-								  <h3 class="card-title">
+								  <h5 class="card-title">
 									<a href="pages/products.php"><?php echo $name ?></a>
-								  </h3>
-								  <h4 class="product-price">
+								  </h5>
+								  <p class="product-price">
 									  <?php echo "RM $price  &nbsp &nbsp"; ?>
-								  </h4>
+								  </p>
 								  
 								  <hr class="divider-owner"/>
 								  <p><span class="glyphicon glyphicon-user"></span>&nbsp; &nbsp;<?php echo $row['product_owner']; ?></p>
@@ -245,14 +264,64 @@
 							</div>
 					</div>
 					
-				
 				<?php
 					} //end of while loop
 				?>
 				</div>
+
 				
 				<?php	
-				} //end of row count > 0
+				}
+        ?>
+            <div class="row">
+    <h2> &nbsp; Homemade Snacks </h2>
+        <?php
+        
+          //Fetch the data from the database
+          $stmt = $dbh->prepare('SELECT * FROM product WHERE category= "Food" LIMIT 4 OFFSET 0');
+          $stmt->execute();
+          
+          //If the number of products is more than 0 
+          if($stmt->rowCount() > 0)
+          {
+            //Fetch the products from the database table to a row
+          while($row=$stmt->fetch(PDO::FETCH_ASSOC))
+          { 
+            //Extract data to a row
+            extract($row);
+        ?>
+          
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+
+            <br/>
+                <div class="well well-lg" style="background-color: white;">
+
+                 <img src="images/product_images/<?php echo $row['image']; ?>" alt="Product Image" align="middle" class="img-responsive mx-auto d-block" width="200" height="200" />
+
+                <div class="card-body">
+                  <h5 class="card-title">
+                  <a href="pages/products.php" ><?php echo $name ?></a>
+                  </h5>
+                  <p class="product-price">
+                    <?php echo "RM $price  &nbsp &nbsp"; ?>
+                  </p>
+                  
+                  <hr class="divider-owner"/>
+                  <p><span class="glyphicon glyphicon-user"></span>&nbsp; &nbsp;<?php echo $row['product_owner']; ?></p>
+                </div>
+              </div>
+          </div>
+          
+        <?php
+          } //end of while loop
+        ?>
+        </div>
+
+        
+        <?php 
+        }
+
+     //end of row count > 0
 			  else
 			  {
 				?>

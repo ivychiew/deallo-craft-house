@@ -16,6 +16,7 @@ $order = preg_replace("/[^0-9]/", "",$angka);
      <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../styles/test.css">
+     <link rel="stylesheet" href="../styles/products_styles.css">
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
     <style>
         .badge-notify{
@@ -56,11 +57,12 @@ $order = preg_replace("/[^0-9]/", "",$angka);
  
     <div class="col-sm-3 col-md-3 navbar-right">
       <form class="navbar-form" role="search">
-      <div class="input-group ">
+      <div class="form-group ">
         <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-        <div class="input-group-btn">
+        
           <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-        </div>
+        
+          <a class="nav-link" href="../index.php?logout='1'"><span class="glyphicon glyphicon-log-out"></a>
       </div>
       </form>
     </div>
@@ -73,7 +75,7 @@ $order = preg_replace("/[^0-9]/", "",$angka);
               <ul class="dropdown-menu">
                 <li><a href="profile.php">Edit Profile</a></li>
                 <li class="divider"></li>
-                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+                <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
                  <li class="divider"></li>
                 <li><a href="customer-supp.php">Questions?</a></li>
                 <li class="divider"></li>

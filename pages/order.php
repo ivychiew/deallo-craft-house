@@ -82,7 +82,7 @@ if(isset($_POST['shopping'])){
               <ul class="dropdown-menu">
                 <li><a href="profile.php">Edit Profile</a></li>
                 <li class="divider"></li>
-                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+                <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
                  <li class="divider"></li>
                 <li><a href="customer-supp.php">Questions?</a></li>
                 <li class="divider"></li>

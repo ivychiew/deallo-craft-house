@@ -63,7 +63,7 @@
         // if no error occured, continue ....
         if(!isset($errMSG))
         {
-            $stmt = $DB_con->prepare('INSERT INTO product_tbl(productName, productPrice,productPic,productDescription,productCategory) VALUES(:pname, :pprice, :ppic, :pdesc, :pcat)');
+            $stmt = $dbh->prepare('INSERT INTO product(name, price,image,summary,category) VALUES(:pname, :pprice, :ppic, :pdesc, :pcat)');
             $stmt->bindParam(':pname',$productname);
             $stmt->bindParam(':pprice',$productprice);
             $stmt->bindParam(':ppic',$productpic);
@@ -73,7 +73,7 @@
             if($stmt->execute())
             {
                 $successMSG = "new record succesfully inserted ...";
-                header("refresh:5;products.php"); // redirects image view page after 5 seconds.
+                header("refresh:2;products.php"); // redirects image view page after 5 seconds.
             }
             else
             {
