@@ -50,5 +50,8 @@
 			Already a member? <a href="login.php">Sign in</a>
 		</p>
 	</form>
+	
+	<br/>
+	
 </body>
 </html>
