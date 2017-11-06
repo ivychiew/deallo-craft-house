@@ -62,7 +62,7 @@
     <ul class="nav navbar-nav"><!--unordered list start -->
 		<li class="dropdown">
 		 <?php  if (isset($_SESSION['username'])) : ?>
-              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['welcomeName'] ?> <b class="caret"></b></a>
+              <a class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['welcomeName'] ?> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="pages/profile.php">Edit Profile</a></li>
                 <li class="divider"></li>
@@ -72,7 +72,7 @@
               </ul>
         </li>
        <?php endif ?>
-     
+     <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
       <li class="dropdown">
           <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -212,7 +212,7 @@
 			  <?php
 			  
 				  //Fetch the data from the database
-				  $stmt = $DB_con->prepare('SELECT * FROM product_tbl ORDER BY productID DESC LIMIT 6 OFFSET 0');
+				  $stmt = $dbh->prepare('SELECT * FROM product ORDER BY id DESC LIMIT 6 OFFSET 0');
 				  $stmt->execute();
 				  
 				  //If the number of products is more than 0 
@@ -229,14 +229,14 @@
 					  <br/>
 							  <div class="well well-lg" style="background-color: white;">
 
-								 <img src="images/product_images/<?php echo $row['productPic']; ?>" alt="Product Image" align="middle" class="img-responsive mx-auto d-block" width="200" height="200" />
+								 <img src="images/product_images/<?php echo $row['image']; ?>" alt="Product Image" align="middle" class="img-responsive mx-auto d-block" width="200" height="200" />
 
 								<div class="card-body">
 								  <h3 class="card-title">
-									<a href="pages/products.php"><?php echo $productName ?></a>
+									<a href="pages/products.php"><?php echo $name ?></a>
 								  </h3>
 								  <h4 class="product-price">
-									  <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
+									  <?php echo "RM $price  &nbsp &nbsp"; ?>
 								  </h4>
 								  
 								  <hr class="divider-owner"/>

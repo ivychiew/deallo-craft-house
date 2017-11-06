@@ -1,15 +1,12 @@
 <?php
-
-	$DB_HOST = 'localhost';
-	$DB_USER = 'root';
-	$DB_PASS = '';
-	$DB_NAME = 'deallo';
-	
-	try{
-		$DB_con = new PDO("mysql:host={$DB_HOST};dbname={$DB_NAME}",$DB_USER,$DB_PASS);
-		$DB_con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	}
-	catch(PDOException $e){
-		echo $e->getMessage();
-	}
-	
+try {
+    $host = 'localhost';
+    $dbnm = 'deallo_udb';
+    $user = 'root';
+    $pass = '';
+    $dbh = new PDO('mysql:host='.$host.';dbname='.$dbnm, $user, $pass);
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+}
+?>
