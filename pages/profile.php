@@ -3,7 +3,6 @@
 if(!isset($_SESSION)){
 	session_start();
 }
-
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -119,27 +118,25 @@ if(!isset($_SESSION)){
             
             if ($result = mysqli_query($conn, $insertImage)) {
                 echo ("<SCRIPT LANGUAGE='JavaScript'>
-                window.alert('SUCCESS IMAGE')
+                window.alert('IMAGE UPLOADED SUCCESSFULLY')
                 window.location.href='profile.php';
                 </SCRIPT>");
                        
             }else{
                 echo ("<SCRIPT LANGUAGE='JavaScript'>
-                window.alert('NOT SUCESS IMAGE')
+                window.alert('IMAGE NOT SUCESSFULLY UPLOADED ')
                 window.location.href='profile.php';
                 </SCRIPT>");
             }
         }
         //5- Profile Picture upload END
-    
-        
+
     }else{  //if no username
         echo ("<SCRIPT LANGUAGE='JavaScript'>
-        window.alert('Enter your username to change details!')
+        window.alert('Enter your username to change details.')
 
         </SCRIPT>");
     }
-        
 }
 
 ?>
@@ -151,18 +148,20 @@ if(!isset($_SESSION)){
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
-    <meta name="author" content=""/>
+    <meta name="author" content="Selena Yap"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
 	
-    <title>Deallo User Profile</title>
+    <title>Deallo Craft House - User Profile</title>
 
-    <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
-
-	<!--Nav and Footer Stylesheet--> 
+	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<!--Custom CSS-->
     <link rel="stylesheet" href="../styles/test.css"/>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
+	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
+   
+   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
     elements and media queries --> 
     <!-- WARNING: Respond.js doesn't work if you view the 
     page via file:// --> 
@@ -170,9 +169,9 @@ if(!isset($_SESSION)){
     <script src="js/html5shiv.js"></script> 
     <script src="js/respond.min.js"></script> 
     <![endif]--> 
+	
 </head>
         
-<!-- <body class="container-fluid" data-ng-app="myApp"> -->
 <body data-ng-app="myApp">
 	
 <!-- Navigation -->
@@ -253,119 +252,113 @@ if(!isset($_SESSION)){
    <div class="row well text-center" data-ng-controller="myCtrl">
     <div class="col-md-6 col-lg-6 col-sm-6">
       <div class="well">
-            <!--HERE-->
-            <?php           
-            if (isset($_SESSION['username'])){ 
-                $sessionUser= $_SESSION['username'];
-            }          
-            $queryImage = "SELECT profile_image FROM users WHERE username='$sessionUser'";
+		<?php           
+		if (isset($_SESSION['username'])){ 
+			$sessionUser= $_SESSION['username'];
+		}          
+		$queryImage = "SELECT profile_image FROM users WHERE username='$sessionUser'";
 
-              $resultImage = mysqli_query($conn,$queryImage);
-              
-                mysqli_num_rows($resultImage) == 1;
-                $row = mysqli_fetch_assoc($resultImage);
-  
-                    $last = $row['profile_image'];
-              
-              //If profile pic never set, template image used
-              if($last == "../images/adminProfile.png"){
-                  $fullPath = $last;  
-              }else{
-                  //If custom picture set
-                    $fullPath = "../images/profile_images" . $last;  
-                  }
+		  $resultImage = mysqli_query($conn,$queryImage);
+		  
+			mysqli_num_rows($resultImage) == 1;
+			$row = mysqli_fetch_assoc($resultImage);
 
-            ?>
+			$last = $row['profile_image'];
+		  
+		  //If profile pic never set, template image used
+		  if($last == "../images/adminProfile.png"){
+			  $fullPath = $last;  
+		  }else{
+			  //If custom picture set
+				$fullPath = "../images/profile_images" . $last;  
+			}
 
-                    
-                <img src="<?php echo $fullPath ?>" alt="Profile_Picture" height="200" width="200" class="img-circle"/>
-                    
-                <div class="row">
-                    <div class="col-md-12 col-lg-12">
-                    <?php  if (isset($_SESSION['username'])) : ?>
-                    <h4>Username: <?php echo $_SESSION['username']; ?></h4>
-                    <?php endif ?>
-                    </div>
-                </div>
-                </div>
-            </div>
+		?>
+      
+			<img src="<?php echo $fullPath ?>" alt="Profile_Picture" height="200" width="200" class="img-circle"/>
+			
+			<div class="row">
+				<div class="col-md-12 col-lg-12">
+				<?php  if (isset($_SESSION['username'])) : ?>
+				<h4>Username: <?php echo $_SESSION['username']; ?></h4>
+				<?php endif ?>
+				<h3 class="label label-success"><span class="glyphicon glyphicon-envelope"></span> Verified with e-mail</h3>
+				</div>
+			</div>
+		</div>
+    </div>
 
-            <div id="profileDetails" data-ng-model="profileDetails" data-ng-show="!showEdit" class="col-md-6">
-                
-                <h2><?php echo $_SESSION['username'] = $username1; ?></h2>
-                
-                <h3 class="label label-success"><span class="glyphicon glyphicon-envelope"></span> Verified with e-mail</h3>
-                
-                <br/><br/>
-                <p>Kuching, Sarawak</p>
+	<div id="profileDetails" data-ng-model="profileDetails" data-ng-show="!showEdit" class="col-md-6">
+		
+		<h2><?php echo $_SESSION['username'] = $username1; ?></h2>
+		
+		<br/><br/>
+		<p>Kuching, Sarawak</p>
 
-                <a href="#">News <span class="badge">5</span></a><br>
-                <a href="#">Comments <span class="badge">10</span></a><br>
-                <a href="#">Updates <span class="badge">2</span></a>
-                <br/><br/>
-                <p><button type="button" class="btn btn-primary" data-ng-click="showEdit=!showEdit">Edit Profile <span class="glyphicon glyphicon-pencil"></span></button></p>
-            </div>
+		<a href="#">News <span class="badge">5</span></a><br>
+		<a href="#">Comments <span class="badge">10</span></a><br>
+		<a href="#">Updates <span class="badge">2</span></a>
+		<br/><br/>
+		<p><button type="button" class="btn btn-primary" data-ng-click="showEdit=!showEdit">Edit Profile <span class="glyphicon glyphicon-pencil"></span></button></p>
+	</div>
             
-            <div id="EditProfileDetails" data-ng-model="EditProfileDetails" data-ng-show="showEdit" class="col-md-6 col-lg-6 col-sm-6">
-                
-                <h2>EDIT PROFILE</h2>
-                <h3 class="label label-success"><span class="glyphicon glyphicon-envelope"></span> Verified with e-mail</h3>
-                <br/><br/>
-                
-                <form action="profile.php" id="profileAction" method="post" class="form-vertical" enctype="multipart/form-data" novalidate>
-                    
-                    <div class="form-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-   
-                        <input type="text" name="username1" id="username1" class="form-control" placeholder="Username" size="10"/>
-                        
-                        <br/>
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input type="text" name="password1" id="password1" class="form-control" placeholder="Password" size="10"/>
-                       
-                        <br/>
-                        <input type="password2" name="password2" class="form-control" placeholder="Password, again" size="10" max="10"/>
-                        
-                        <br/>
-                        <input type="email" name="email" class="form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" size="10"/>
-                        
-                        <br/>
-                        <input type="text" name="country" class="form-control" placeholder="Country" size="10" max="10"/>
-                        
-                        <br/>
-                        <input type="text" name="address" class="form-control" placeholder="Address" size="10">
-                        
-                        <br/>
-                        <input type="text" name="phoneNumber" class="form-control" placeholder="Phone Number (Without dashes)" size="10" max="11"/>
-                        
-                        <br/>
-                        <div class="form-group">
-                            <textarea class="form-control" name="bio" rows="5" id="bio" placeholder="About Me"></textarea>
-                        </div>
+	<div id="EditProfileDetails" data-ng-model="EditProfileDetails" data-ng-show="showEdit" class="col-md-6 col-lg-6 col-sm-6">
+		
+		<h2>EDIT PROFILE</h2>
+		<br/><br/>
+		
+		<form action="profile.php" id="profileAction" method="post" class="form-vertical" enctype="multipart/form-data" novalidate>
+			
+			<div class="form-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 
-                        <label class="control-label">Profile Picture </label>
-                        <input class="input-group" type="file" name="user_image" accept="image/*" />
-                        
-                        <p>
-                            <button type="submit" class="btn btn-primary" data-ng-click="showEdit=!showEdit" name="submitForm">DONE EDITING<span class="glyphicon glyphicon-pencil"></span></button>
-                        </p>
-                    </div>
+				<input type="text" name="username1" id="username1" class="form-control" placeholder="Username" size="10"/>
+				
+				<br/>
+				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+				<input type="text" name="password1" id="password1" class="form-control" placeholder="Password" size="10"/>
+			   
+				<br/>
+				<input type="password2" name="password2" class="form-control" placeholder="Password, again" size="10" max="10"/>
+				
+				<br/>
+				<input type="email" name="email" class="form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" size="10"/>
+				
+				<br/>
+				<input type="text" name="country" class="form-control" placeholder="Country" size="10" max="10"/>
+				
+				<br/>
+				<input type="text" name="address" class="form-control" placeholder="Address" size="10">
+				
+				<br/>
+				<input type="text" name="phoneNumber" class="form-control" placeholder="Phone Number (Without dashes)" size="10" max="11"/>
+				
+				<br/>
+				<div class="form-group">
+					<textarea class="form-control" name="bio" rows="5" id="bio" placeholder="About Me"></textarea>
+				</div>
 
-                </form>
-                <br/>
-            </div>
+				<label class="control-label">Profile Picture </label>
+				<input class="input-group" type="file" name="user_image" accept="image/*" />
+				
+				<p>
+					<button type="submit" class="btn btn-primary" data-ng-click="showEdit=!showEdit" name="submitForm">DONE EDITING<span class="glyphicon glyphicon-pencil"></span></button>
+				</p>
+			</div>
+		</form>
+		<br/>
+	</div>
         </div>
 </div>
 
 	 <!-- Footer -->
-<footer class="navbar-fixed-bottom py-5 bg-dark">
+	<footer class="navbar-fixed-bottom py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
       </div>
       <!-- /.container -->
     </footer>
 
-	
     <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
     <script src="../js/jquery.min.js"></script> 
     <!-- All Bootstrap  plug-ins  file --> 
@@ -377,6 +370,6 @@ if(!isset($_SESSION)){
     <!-- App Script --> 
     <script src="../js/dealloApp.js"></script>
 	
-		</body>
+</body>
 	
 </html>

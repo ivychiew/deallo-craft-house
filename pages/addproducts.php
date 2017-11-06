@@ -4,32 +4,45 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
 
-    <title>Add new product</title>
+    <title>Deallo Craft House - Add new product</title>
 
+<<<<<<< HEAD
   <!--Nav and Footer Stylesheet--> 
   <!-- Latest compiled and minified CSS -->
+=======
+	<!-- Latest compiled and minified CSS -->
+>>>>>>> 790e390686d01f713492d12b00fd42febd769130
     <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!--Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
-    <link rel="stylesheet" type="text/css" href="../styles/products.css"/>
-    <!-- custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../styles/test.css">
+    <link rel="stylesheet" type="text/css" href="../styles/products.css">
     <link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="jquery-1.11.3-jquery.min.js"></script>
-    </head>
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 
+    elements and media queries --> 
+    <!-- WARNING: Respond.js doesn't work if you view the 
+    page via file:// --> 
+    <!--[if lt IE 9]> 
+    <script src="js/html5shiv.js"></script> 
+    <script src="js/respond.min.js"></script> 
+    <![endif]--> 
+</head>
 
 <body>
 <!-- Navigation -->
+<<<<<<< HEAD
  <div class="navbar navbar-custom nav-fixed-top" role="navigation">
+=======
+<div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
+>>>>>>> 790e390686d01f713492d12b00fd42febd769130
   
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -179,9 +192,9 @@
       <!-- /.container -->
     </footer>
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
-
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="jquery-1.11.3-jquery.min.js"></script>
 
 </body>
 </html>

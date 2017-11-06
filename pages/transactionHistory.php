@@ -1,21 +1,26 @@
-<!DOCTYPE html> 
+<?php
+include "config.php";
+include "../includes/sessions.php";
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content=""/>
+	<meta name="description" content=""/>
 	<meta name="keyword" content="HTML, CSS, Javascript" />
-    <meta name="author" content="Selena Yap"/>
+    <meta name="author" content=""/>
 	
-    <title>Deallo Craft House - About Us </title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
+    <title>Deallo Craft House - Transaction History</title>
+	<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <!--Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
-	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/> 	
+	
+	<!--Custom CSS-->
+    <link rel="stylesheet" href="../styles/test.css">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
     elements and media queries --> 
@@ -25,9 +30,10 @@
     <script src="js/html5shiv.js"></script> 
     <script src="js/respond.min.js"></script> 
     <![endif]--> 
+	
 </head>
-    
 <body>
+
 <!-- Navigation -->
  <div class="navbar navbar-custom nav-fixed-top" role="navigation">
   
@@ -55,7 +61,6 @@
       </form>
     </div>
 
-   
     <ul class="nav navbar-nav"><!--unordered list start -->
 		<li class="dropdown">
 		 <?php  if (isset($_SESSION['username'])) : ?>
@@ -99,70 +104,46 @@
     </ul>
   </div>
 </div>
-<!--End of Nav Bar-->
-        
 
-    <br/><br/>
+ <div class="container">
+ <div class="page-header">
+    <h1 class="h2">Transaction History</h1> 
+ </div>
     
-    <div class="container-fluid">
-        <div class="row">
-            <div class=" col-lg-12 col-md-12 col-sm-12 meetTagline text-center">
-                <h1>Meet Our Team</h1>
-                <p>BRINGING THE BEST DEALS TO YOU LO</p>
-            </div>
+  <br/>
+
+   <div class="row">
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	   <table class="table table-striped table-responsive">
+	   <tr>
+		   <td>Item Name</td>
+		   <td>Price</td>
+	   </tr>
+		 <?php
+			$stmt = $dbh->prepare("SELECT * FROM product");
+			if ($stmt->execute()) {
+				while ($row = $stmt->fetch()) {
+			?>
+			  <tr class="success">
+				<td><?php echo $row['name'] ?></td>
+				<td>
+					<strong> $<?php echo $row['price'] ?></strong>
+				</td>
+			  </tr>
+			<?php
+				}
+			}
+			?>
+			
+		</table>
+	</div> 
+	</div>
         </div>
-        <div class="row">
-            <img src="../images/team.jpg" class="coverImg col-lg-12 col-md- col-sm-12 col-xs-12"/>
-        </div>
-        
-        <br/><br/>
-        
     </div>
-    
-    <div class="container">
-        <div class="row">
 
-                <section class="col-lg-4 col-md-4 col-sm-4 col-lg-4">
-                    <img src="../images/adminProfile.png" class="img-rounded"/>
-                    <h2>Viv</h2>
-                    <p>Vivien is the project leader in the development team for Deallo Craft House. She specializes in backend integration as well as the scripting used in our webpage.</p>
-                </section>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.mycart.min.js"></script>
 
-                <section class="col-lg-4 col-md-4 col-sm-4 col-lg-4">
-                    <img src="../images/adminProfile.png" class="img-rounded"/>
-                    <h2>Sel</h2>
-                    <p>Selena is a scrum member of our team who is responsible for the overall design and user experience of this web application.</p>
-                </section>
-
-                <section class="col-lg-4 col-md-4 col-sm-4 col-lg-4">
-                    <img src="../images/adminProfile.png" class="img-rounded"/>
-                    <h2>Tay</h2>
-                    <p>Tay is also a scrum member who's main duties lie with promoting the ease of use of our application.</p>
-                </section>
-        
-            </div>
-        </div>
-		
-		<br/><br/>
-    
-        <!-- Footer -->
-        <footer class="py-5 bg-dark">
-            <div class="container">
-                <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
-            </div>
-        <!-- /.container -->
-        </footer>
-    
 </body>
-
-	<!-- Bootstrap core JavaScript -->
-    <!-- jQuery library -->
-    <script src="../js/jquery.min.js"></script> 
-    <!-- All Bootstrap  plug-ins  file --> 
-    <script src="../js/bootstrap.min.js"></script> 
-    <!-- Basic AngularJS --> 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <!-- AngularJS - Routing --> 
-    <script src="../js/angular-route.min.js"></script>
-    
 </html>

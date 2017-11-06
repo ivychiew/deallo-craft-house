@@ -1,18 +1,16 @@
 <?php
 	session_start();
 
-	//variable declaration.
+	//Variable declaration
 	$username = ""; 
 	$email = ""; 
 	$errors = array(); 
 	$_SESSION['success'] = "";
 
-	//connect to database.
+	//connect to database
 	$dbi = mysqli_connect('localhost', 'root', '' , 'deallo'); 
-	// $dbi2 = mysqli_connect('localhost', 'root', '' , 'products');
-	// $mysqli = mysqli_connect('localhost', 'root', '', 'products');
 	
-    //User Registration
+//Start of User Registration
 	if (isset($_POST['reg_user'])){
 		//receive all input values from the form.
 		$username = mysqli_real_escape_string($dbi, $_POST['username']);
@@ -39,9 +37,6 @@
 
 	//Register users provided the form is error free.
 	if (count($errors) == 0){
-
-		//encrypt the password before saving in the database
-		//$password = md5($password_1); 
         
         //Every new user has a default profile image
         $templateImagePath="../images/adminProfile.png";
@@ -57,32 +52,15 @@
 	}
 
 }
+//End of User Registration
 
-//...
-
-
-// Login User
+//Start of User Login
 
 	if (isset($_POST['login_user'])) {
 		$username = mysqli_real_escape_string($dbi, $_POST['username']);
 		$password = mysqli_real_escape_string($dbi, $_POST['password']);
 
-//		//password encryption
-//		$algorithm = "2a";
-//		$length = "12";
-//
-//		//Start the salt by specifying the algorithm and length
-//		$salt = "$" . $algorithm . "$" . $length . "$";
-//
-//		//Add on random salt and make base64 adjusted for bcrypt's version
-//		$salt .= substr( str_replace( "+", ".", base64_encode( mcrypt_create_iv( 128, MCRYPT_DEV_URANDOM ) ) ), 0, 22 );
-//
-//		//Encrypt with your generated salt
-//		$encrypt = crypt( $password, $salt );
-//
-
-
-		//if field is empty
+		//if username field is empty
 		if (empty($username)) {
 			array_push($errors, "Username is required");
 		}
@@ -90,12 +68,8 @@
 			array_push($errors, "Password is required");
 		}
 
-		//if field is not empty
 		if (count($errors) == 0) {
 
-			//fetch data from db
-			//$password = md5($password);
-            
 			$query = "SELECT * FROM users WHERE username='$username' OR email='$username' AND password='$password'";
 			$results = mysqli_query($dbi, $query);
 			

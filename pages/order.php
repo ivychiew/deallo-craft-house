@@ -32,19 +32,28 @@ if(isset($_POST['shopping'])){
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Order Cart</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<meta name="description" content=""/>
+	<meta name="keyword" content="HTML, CSS, Javascript" />
+    <meta name="author" content=""/>
+	
+    <title>Deallo Craft House - Order Cart</title>
+	<!-- Latest compiled and minified CSS -->
     <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<!--Custom CSS-->
     <link rel="stylesheet" href="../styles/test.css">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
+    elements and media queries --> 
+    <!-- WARNING: Respond.js doesn't work if you view the 
+    page via file:// --> 
+    <!--[if lt IE 9]> 
+    <script src="js/html5shiv.js"></script> 
+    <script src="js/respond.min.js"></script> 
+    <![endif]--> 
+	
   </head>
   <body>
    <!-- Navigation -->

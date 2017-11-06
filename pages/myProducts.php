@@ -6,10 +6,11 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+	<meta name="keyword" content="HTML, CSS, Javascript" />
+    <meta name="author" content=""/>
 
     <title>Product Page</title>
  
@@ -19,6 +20,16 @@
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
     <link rel="stylesheet" type="text/css" href="../styles/products.css"/>
+	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
+	
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 
+    elements and media queries --> 
+    <!-- WARNING: Respond.js doesn't work if you view the 
+    page via file:// --> 
+    <!--[if lt IE 9]> 
+    <script src="js/html5shiv.js"></script> 
+    <script src="js/respond.min.js"></script> 
+    <![endif]--> 
     
 </head>
    
@@ -113,7 +124,7 @@
 <?php
 
 	//Fetch the data from the database
-      $stmt = $DB_con->prepare("SELECT productID, productName, productPrice, productPic, productDescription,product_owner FROM product_tbl WHERE product_owner =:owner ORDER BY productID DESC ");
+      $stmt = $DB_con->prepare("SELECT productID, productName, productPrice, productPic, productDescription,product_owner FROM product WHERE product_owner =:owner ORDER BY productID DESC ");
 	  
 	  $stmt->bindParam(":owner", $_SESSION['username']);
       $stmt->execute();
@@ -181,9 +192,9 @@
 </div>
 
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="../js/bootstrap.min.js"></script>
-<script type='text/javascript' src='../js/buttonToggle.js'></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+	<script type='text/javascript' src='../js/buttonToggle.js'></script>
 
 </body>
 </html>

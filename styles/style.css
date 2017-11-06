@@ -4,44 +4,11 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
  */
 
-/*Fonts for forgotPassword.php*/
-@font-face {
-    font-family: queenFont;
-    src: url("fonts/queen_of_clubs.otf");
-}
 
-#securityQlabel
-{
-    font-family: queenFont;
-}
-
-#dangTagline{
-    font-family: queenFont;
-    font-size: 50px;
-}
-
-.honeyPot{
-    visibility: hidden;
-}
-
-/*Fonts for forgotPassword.php*/
-
-/*
-body {
-  padding-top: 54px;
-}
-*/
 
 footer { 
 	padding: 54px;
  }
-/*
-@media (min-width: 992px) {
-  body {
-    padding-top: 56px;
-  }
-}
-*/
 
 /*Login*/
 
@@ -50,11 +17,6 @@ footer {
 body {
 	background: #eee !important;	
 }
-
-/*.wrapper {	
-	margin-top: 80px;
-	margin-bottom: 80px;
-}*/
 
 .formin{ 
 		padding: 10px;

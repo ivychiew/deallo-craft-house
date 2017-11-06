@@ -1,4 +1,9 @@
-/*Fonts for Login page*/
+﻿/*Fonts for Login page*/
+@font-face {
+    font-family: queenFont;
+    src: url("fonts/queen_of_clubs.otf");
+}
+
 @font-face {
     font-family: sunValleyFont;
     src: url("fonts/sun_valley.ttf");
@@ -11,6 +16,11 @@
     display: inline;
 }
 
+#dangTagline{
+	font-family: queenFont;
+	font-size: 100px;
+}
+
 .header > img{
     display: inline;
     height: 50px;
@@ -20,7 +30,6 @@
 /*Fonts for Login page*/
 
 body, html {
-    height: 100%;
     margin-bottom: 5px;
 }
 
@@ -31,8 +40,11 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover;
     overflow-x:hidden;
+<<<<<<< HEAD
   	overflow-y:hidden;
 	
+=======
+>>>>>>> 790e390686d01f713492d12b00fd42febd769130
 }
 
 *[hidden]{

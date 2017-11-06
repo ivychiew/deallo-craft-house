@@ -1,24 +1,36 @@
+<?php session_start();?>
+
 <!DOCTYPE html>
 <html lang="en">
-    <?php session_start();?>
-    
+
 <head>
 	<meta charset="utf-8"/>
-	<meta name="description" content="Deallo Product Category Page" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Deallo Product Search Page" />
 	<meta name="keyword" content="HTML, CSS, Javascript" />
-	<meta name="author" content="Tay Guan Yun" />
-	<title>Search Result Page</title>
+	<meta name="author" content="Tay Guan Yun,Selena Yap"/>
 	
-   <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
+	<title>Search Result Page</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
-    <link rel="stylesheet" type="text/css" href="../styles/products.css"/>
+	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
+    elements and media queries --> 
+    <!-- WARNING: Respond.js doesn't work if you view the 
+    page via file:// --> 
+    <!--[if lt IE 9]> 
+    <script src="js/html5shiv.js"></script> 
+    <script src="js/respond.min.js"></script> 
+    <![endif]--> 
     
 </head>
 
-<body class="container-fluid" data-ng-app="myApp">
+<body>
 	
 <!-- Navigation -->
  <div class="navbar navbar-custom nav-fixed-top" role="navigation">
@@ -138,7 +150,7 @@
                 
            ?>     
 
-    <div class="col-lg-4 col-md-6 col-sm-3 col-xs-12 mb-4">
+    <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12 mb-4">
       <br/>
               <div class="well well-lg">
                   <!--Print out product picture -->

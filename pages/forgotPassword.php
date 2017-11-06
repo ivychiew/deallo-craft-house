@@ -3,18 +3,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Deallo Craft House - Login</title>
-    <link rel="stylesheet" type="text/css" href="..\styles\login_styles.css"/>
-    <link rel="icon" type="image/png" href="images/DealloLogo-favicon.png"/>
-    <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+	<meta name="keyword" content="HTML, CSS, Javascript" />
+    <meta name="author" content="Selena Yap"/>
+	
+    <title>Deallo Craft House - Forgot Password</title>
+	<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+	
+	<!--Custom CSS-->
+	<link rel="stylesheet" type="text/css" href="../styles/login_styles.css"/>
+	<link rel="stylesheet" type="text/css" href="../styles/test.css"/>
+	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png">
+   
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
+    elements and media queries --> 
+    <!-- WARNING: Respond.js doesn't work if you view the 
+    page via file:// --> 
+    <!--[if lt IE 9]> 
+    <script src="js/html5shiv.js"></script> 
+    <script src="js/respond.min.js"></script> 
+    <![endif]--> 
    
 </head>
     
 <body class="bg">
 
-    
     <div class="container">
 
     <div class="row"> 
@@ -35,11 +54,8 @@
             <br/>
             <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" placeholder="Enter email here"/>
             
-            <br/>
             <input type="text" name="honeyPot" class="honeyPot" class="form-control" value="" placeholder="If you see this leave this form field blank and invest in CSS support."/>
-            
-            
-            <br/>
+
             <p>
                 <button type="submit" name="submit" class="btn btn-success">Reset my password</button>
             </p>

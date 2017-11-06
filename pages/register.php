@@ -2,12 +2,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Registration system PHP and MySQL</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+	<meta name="keyword" content="HTML, CSS, Javascript" />
+    <meta name="author" content="Vivien Chiew,Selena Yap"/>
+	
+	<title>Deallo Craft House - Register</title>
+	
+	<!--Custom CSS-->
 	<link rel="stylesheet" type="text/css" href="..\styles\login_styles.css"/>
+<<<<<<< HEAD
     <link rel="icon" type="image/png" href="..\images/DealloLogo-favicon.png"/>
      <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+=======
+	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
+	
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 
+    elements and media queries --> 
+    <!-- WARNING: Respond.js doesn't work if you view the 
+    page via file:// --> 
+    <!--[if lt IE 9]> 
+    <script src="js/html5shiv.js"></script> 
+    <script src="js/respond.min.js"></script> 
+    <![endif]--> 
+>>>>>>> 790e390686d01f713492d12b00fd42febd769130
 </head>
+
 <body class="bg">
 <div class="container" style="width:100%;"> 
 <div class="row"> 
@@ -64,6 +86,12 @@
 			Already a member? <a href="login.php">Sign in</a>
 		</p>
 	</form>
+<<<<<<< HEAD
 </div>
+=======
+	
+	<br/>
+	
+>>>>>>> 790e390686d01f713492d12b00fd42febd769130
 </body>
 </html>
