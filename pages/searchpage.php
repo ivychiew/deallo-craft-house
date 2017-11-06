@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="Deallo Product Search Page" />
 	<meta name="keyword" content="HTML, CSS, Javascript" />
-	<meta name="author" content=""/>
+	<meta name="author" content="Tay Guan Yun,Selena Yap"/>
 	
 	<title>Search Result Page</title>
 	<!-- Latest compiled and minified CSS -->

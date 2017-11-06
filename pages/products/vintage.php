@@ -5,9 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 	<meta name="description" content="Deallo Product Category Page" />
 	<meta name="keyword" content="HTML, CSS, Javascript" />
-	<meta name="author" content="" />
+	<meta name="author" content="Selena Yap, Tay Guan Yun" />
 	
-	<title>Product - Vintage Arts</title>
+	<title>Deallo Product - Vintage Arts</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

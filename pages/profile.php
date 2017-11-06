@@ -3,7 +3,6 @@
 if(!isset($_SESSION)){
 	session_start();
 }
-
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -151,18 +150,20 @@ if(!isset($_SESSION)){
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
-    <meta name="author" content=""/>
+    <meta name="author" content="Selena Yap"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
 	
-    <title>Deallo User Profile</title>
+    <title>Deallo Craft House - User Profile</title>
 
-    <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
-
-	<!--Nav and Footer Stylesheet--> 
+	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<!--Custom CSS-->
     <link rel="stylesheet" href="../styles/test.css"/>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
+	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
+   
+   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
     elements and media queries --> 
     <!-- WARNING: Respond.js doesn't work if you view the 
     page via file:// --> 
@@ -170,9 +171,9 @@ if(!isset($_SESSION)){
     <script src="js/html5shiv.js"></script> 
     <script src="js/respond.min.js"></script> 
     <![endif]--> 
+	
 </head>
         
-<!-- <body class="container-fluid" data-ng-app="myApp"> -->
 <body data-ng-app="myApp">
 	
 <!-- Navigation -->
@@ -358,14 +359,13 @@ if(!isset($_SESSION)){
 </div>
 
 	 <!-- Footer -->
-<footer class="navbar-fixed-bottom py-5 bg-dark">
+	<footer class="navbar-fixed-bottom py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
       </div>
       <!-- /.container -->
     </footer>
 
-	
     <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
     <script src="../js/jquery.min.js"></script> 
     <!-- All Bootstrap  plug-ins  file --> 
@@ -377,6 +377,6 @@ if(!isset($_SESSION)){
     <!-- App Script --> 
     <script src="../js/dealloApp.js"></script>
 	
-		</body>
+</body>
 	
 </html>

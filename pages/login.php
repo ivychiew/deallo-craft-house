@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
 	<meta name="keyword" content="HTML, CSS, Javascript" />
-    <meta name="author" content=""/>
+    <meta name="author" content="Selena Yap, Vivien Chiew"/>
 	
 	<title>Deallo Craft House - Login</title>
 	<!-- Latest compiled and minified CSS -->
