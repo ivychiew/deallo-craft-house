@@ -6,19 +6,22 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+	<meta name="keyword" content="HTML, CSS, Javascript" />
+    <meta name="author" content=""/>
 
-    <title>Edit Product Page</title>
+    <title>Deallo Craft House -Edit Product Page</title>
  
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
     <link rel="stylesheet" type="text/css" href="../styles/products.css"/>
+	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png">
     
 </head>
    
@@ -85,6 +88,7 @@
   </div>
 </div>
 <!--End of Nav Bar-->
+
 <div class="container">
 
   <div class="page-header">
@@ -102,21 +106,22 @@
   <br />
 
 <div class="row" id="products">
-<?php
-  
-      //Fetch the data from the database
-      $stmt = $DB_con->prepare('SELECT productID, productName, productPrice, productPic, productDescription FROM product_tbl ORDER BY productID DESC');
-      $stmt->execute();
-      
-      //If the number of products is more than 0 
-      if($stmt->rowCount() > 0)
-      {
-        //Fetch the products from the database table to a row
-        while($row=$stmt->fetch(PDO::FETCH_ASSOC))
-        { 
-          //Extract data to a row
-          extract($row);
-?>
+	<?php
+	  
+		  //Fetch the data from the database
+		  $stmt = $DB_con->prepare('SELECT productID, productName, productPrice, productPic, productDescription FROM product_tbl ORDER BY productID DESC');
+		  $stmt->execute();
+		  
+		  //If the number of products is more than 0 
+		  if($stmt->rowCount() > 0)
+		  {
+			//Fetch the products from the database table to a row
+			while($row=$stmt->fetch(PDO::FETCH_ASSOC))
+			{ 
+			  //Extract data to a row
+			  extract($row);
+	?>
+	
     <div class="col-md-3">
       <div class="well" style="background-color: white;">
         <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
@@ -169,10 +174,10 @@
 </div>  
 </div>
 
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="../js/bootstrap.min.js"></script>
-<script type='text/javascript' src='../js/buttonToggle.js'></script>
-
 </body>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+	<script type='text/javascript' src='../js/buttonToggle.js'></script>
+	
 </html>

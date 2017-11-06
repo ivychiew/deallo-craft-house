@@ -35,13 +35,6 @@ body {
 footer { 
 	padding: 54px;
  }
-/*
-@media (min-width: 992px) {
-  body {
-    padding-top: 56px;
-  }
-}
-*/
 
 /*Login*/
 
@@ -50,11 +43,6 @@ footer {
 body {
 	background: #eee !important;	
 }
-
-/*.wrapper {	
-	margin-top: 80px;
-	margin-bottom: 80px;
-}*/
 
 .formin{ 
 		padding: 10px;

@@ -1,12 +1,19 @@
 <!DOCTYPE html> 
 <html lang="en">
 <head>
-    <title>Deallo Forgotten Password</title>
-    
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+	<meta name="keyword" content="HTML, CSS, Javascript" />
+    <meta name="author" content=""/>
+	
+    <title>Deallo Craft House - About Us </title>
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="../styles/bootstrap/bootstrap.css.min">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <!--Custom CSS-->
     <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/> 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
@@ -139,7 +146,8 @@
     
 </body>
 
-    <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
+	<!-- Bootstrap core JavaScript -->
+    <!-- jQuery library -->
     <script src="../js/jquery.min.js"></script> 
     <!-- All Bootstrap  plug-ins  file --> 
     <script src="../js/bootstrap.min.js"></script> 

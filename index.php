@@ -6,19 +6,20 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-	<meta name="keyword" content="HTML, CSS, Javascript" />
-    <meta name="author" content="">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+	<meta name="keyword" content="HTML, CSS, Javascript"/>
+    <meta name="author" content=""/>
 	
-    <title>Shop Homepage</title>
+    <title>Deallo Craft House - Homepage</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="styles/test.css"/>
+	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
     elements and media queries --> 
@@ -285,7 +286,6 @@
     </footer>
 
 	<!-- Bootstrap core JavaScript -->
-	<!--   <script src="../js/bootstrap.min.js"></script> -->
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<!-- Latest compiled JavaScript -->
