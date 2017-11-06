@@ -1,12 +1,36 @@
-/*NAV and FOOTER styles START*/
 @font-face {
     font-family: queenFont;
     src: url("fonts/queen_of_clubs.otf");
 }
 
+@font-face {
+font-family: sunValleyFont;
+src: url("fonts/sun_valley.ttf");
+}
+
+/*Styles for forgotPassword.php*/
+#securityQlabel
+{
+    font-family: queenFont;
+}
+
+#dangTagline
+{
+    font-family: queenFont;
+    font-size: 100px;
+}
+
+.honeyPot
+{
+    visibility: collapse;
+}
+/*Styles for forgotPassword.php*/
+
+
+/*NAV and FOOTER styles START*/
 .navbar{
-border-radius:0 !important;
-padding: 10px;
+	border-radius:0 !important;
+	padding: 10px;
 }
 
 .navbar-brand{
@@ -50,13 +74,29 @@ footer{
     border-bottom: 1px
 }
 
-
-        /*Styles for the Red Numbered Cart Image */
+/*Styles for the Red Numbered Cart Image */
 .badge-notify{
     background:red;
     position:relative;
     top: -15px;
     right: 1px;
 }
-       
+
+/*Styles for aboutUs.php*/
+h2{text-align:center;} 
+img{margin: auto; display: block;}
+
+.coverImg{
+	display: block;
+	width: 100%;
+	position: relative;
+	overflow-x: hidden;
+	height: 50%;
+}
+.meetTagline{
+	font-family: sunValleyFont;
+}
+.meetTagline > h1{font-size: 70px;}
+.meetTagline > p{font-size: 20px;}
+
     

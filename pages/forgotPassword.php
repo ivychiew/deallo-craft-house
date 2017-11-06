@@ -12,12 +12,13 @@
 	
     <title>Deallo Craft House - Forgot Password</title>
 	<!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
+    <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 	
 	<!--Custom CSS-->
-	<link rel="stylesheet" type="text/css" href="..\styles\login_styles.css"/>
+	<link rel="stylesheet" type="text/css" href="../styles/login_styles.css"/>
+	<link rel="stylesheet" type="text/css" href="../styles/test.css"/>
 	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png">
    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
@@ -31,9 +32,8 @@
    
 </head>
     
-<body class="bg">
+<body class="bg forgotbg">
 
-    
     <div class="container">
 
     <div class="row"> 

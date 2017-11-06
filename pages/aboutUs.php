@@ -10,11 +10,12 @@
 	
     <title>Deallo Craft House - About Us </title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="../styles/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="../styles/bootstrap/bootstrap.css.min">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <!--Custom CSS-->
-    <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/> 
+    <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
+	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/> 	
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
     elements and media queries --> 
@@ -27,85 +28,91 @@
 </head>
     
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<!-- Navigation -->
+ <div class="navbar navbar-custom nav-fixed-top" role="navigation">
+  
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" rel="home" href="#">Deallo's Craft House</a>
+  </div>
+  
+  <div class="collapse navbar-collapse">
 
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-         
-            <li class="nav-item active">
-              <a class="nav-link" href="../index.php">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-
-             <li class="nav-item">
-               <a class="nav-link" href="../index.php?logout='1'" style="color: red;">Sign out</a>
-             </li>
-             <li class="nav-item">
-               <a class="nav-link" href="pages/profile.php">Edit Profile</a>
-             </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="products.php">Products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Shopping Cart</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
+    <!--Search-->
+    <div class="col-sm-3 col-md-3 navbar-right">
+      <form class="navbar-form" role="search" method="GET" action="searchpage.php">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="searchTerm" id="searchTerm"/>
+        <div class="input-group-btn">
+          <button class="btn btn-default" name="search_submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
         </div>
       </div>
-    </nav>
+      </form>
+    </div>
+
+   
+    <ul class="nav navbar-nav"><!--unordered list start -->
+		<li class="dropdown">
+		 <?php  if (isset($_SESSION['username'])) : ?>
+              <a class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['welcomeName'] ?> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="profile.php">Edit Profile</a></li>
+                <li class="divider"></li>
+                <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
+                 <li class="divider"></li>
+                <li><a href="customer-supp.php">Questions?</a></li>
+              </ul>
+        </li>
+       <?php endif ?>
+     <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
+      <li class="dropdown">
+          <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="products.php">All Products</a></li>
+            <li class="divider"></li>
+            <li><a href="products/clothingAcc.php">Clothing &amp; Accessories</a></li>
+            <li class="divider"></li>
+            <li><a href="products/jewelry.php">Jewelery</a></li>
+            <li class="divider"></li>
+            <li><a href="products/craftSupplies.php">Craft Supplies</a></li>
+            <li class="divider"></li>
+            <li><a href="products/bedding.php">Bedding &amp; Room Decor</a></li>
+            <li class="divider"></li>
+            <li><a href="products/softToys.php">Soft Toys</a></li>
+            <li class="divider"></li>
+            <li><a href="products/vintage.php">Vintage Art</a></li>
+            <li class="divider"></li>
+            <li><a href="products/wedding.php">Wedding Accessories</a></li>
+          </ul>
+      </li>
+     <li>
+        <span class="navbar-text navbar-right">
+            <span class="glyphicon glyphicon-shopping-cart glyphicon-2x my-cart-icon">  <span class="badge badge-notify my-cart-badge"></span>
+            </span>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+<!--End of Nav Bar-->
         
-    <style>h2{text-align:center;} img{margin: auto; display: block;}
-        .coverImg{
-            display: block;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            height: 50%;
-        }
-        .meetTagline{
-            text-align: center;
-            font-family: sunValleyFont;
-        }
-        .meetTagline > h1{font-size: 70px;}
-        .meetTagline > p{font-size: 20px;}
-        @font-face {
-            font-family: sunValleyFont;
-            src: url("../styles/fonts/sun_valley.ttf");
-        }
-        #companyName{
-            text-align: center;
-        }
-    </style>
+
     <br/><br/>
     
     <div class="container-fluid">
         <div class="row">
-            
-            <h1 id="companyName" class="col-md-12 col-sm-12 col-lg-12"> --- DEALLO CRAFT HOUSE --- </h1>
-        </div>
-        
-        <br/>
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-lg-12 meetTagline">
+            <div class=" col-lg-12 col-md-12 col-sm-12 meetTagline text-center">
                 <h1>Meet Our Team</h1>
                 <p>BRINGING THE BEST DEALS TO YOU LO</p>
             </div>
         </div>
         <div class="row">
-            <img src="../images/team.jpg" class="coverImg"/>
+            <img src="../images/team.jpg" class="coverImg col-lg-12 col-md- col-sm-12 col-xs-12"/>
         </div>
         
         <br/><br/>
@@ -115,19 +122,19 @@
     <div class="container">
         <div class="row">
 
-                <section class="col-md-4 col-sm-4 col-lg-4">
+                <section class="col-lg-4 col-md-4 col-sm-4 col-lg-4">
                     <img src="../images/adminProfile.png" class="img-rounded"/>
                     <h2>Viv</h2>
                     <p>Vivien is the project leader in the development team for Deallo Craft House. She specializes in backend integration as well as the scripting used in our webpage.</p>
                 </section>
 
-                <section class="col-md-4 col-sm-4 col-lg-4">
+                <section class="col-lg-4 col-md-4 col-sm-4 col-lg-4">
                     <img src="../images/adminProfile.png" class="img-rounded"/>
                     <h2>Sel</h2>
                     <p>Selena is a scrum member of our team who is responsible for the overall design and user experience of this web application.</p>
                 </section>
 
-                <section class="col-md-4 col-sm-4 col-lg-4">
+                <section class="col-lg-4 col-md-4 col-sm-4 col-lg-4">
                     <img src="../images/adminProfile.png" class="img-rounded"/>
                     <h2>Tay</h2>
                     <p>Tay is also a scrum member who's main duties lie with promoting the ease of use of our application.</p>
@@ -135,6 +142,8 @@
         
             </div>
         </div>
+		
+		<br/><br/>
     
         <!-- Footer -->
         <footer class="py-5 bg-dark">
