@@ -188,6 +188,19 @@
 	<div class="row" style="padding-right: 15px;">
 		<div class="col-lg-3 col-md-3">
     <br>
+    <div class="well" style="background-color: white; ">
+
+      <h3 align="center">Advertisement</h3>
+
+      <!-- <p>
+      <img src="images/cat.png" alt="Cat Icon" class="center-block img-responsive" style="max-width: 200px; max-height: 200px;"/>
+      </p> -->
+     
+      <div class="ads" style="border-radius: 50px;">
+        <img src="images/ads/ad1.png" class="img-responsive"/>
+      </div>
+      
+    </div>
       <div class="well" style="background-color: white; ">
 
 		  <h3 align="center">Shop By Category</h3>
@@ -197,18 +210,20 @@
 		  </p> -->
 		 
 		  <div class="list-group categories" style="border-radius: 50px;">
-      <div class="category-list-group">
-			<a href="pages/products/clothingAcc.php" class="list-group-item">Clothing &amp; Accessories</a>
-			<a href="pages/products/jewelry.php" class="list-group-item">Jewelry</a>
-			<a href="pages/products/craftSupplies.php" class="list-group-item">Craft Supplies</a>
-			<a href="pages/products/bedding.php" class="list-group-item">Bedding &amp; Room Decor</a>
-			<a href="pages/products/softToys.php" class="list-group-item">Soft Toys</a>
-			<a href="pages/products/vintage.php" class="list-group-item">Vintage Art</a>
-			<a href="pages/products/wedding.php" class="list-group-item">Wedding Accessories</a>
-			<a href="pages/myProducts.php" class="list-group-item">Sellers Center</a>
-      </div>
+        <div class="category-list-group">
+  			<a href="pages/products/clothingAcc.php" class="list-group-item">Clothing &amp; Accessories</a>
+  			<a href="pages/products/jewelry.php" class="list-group-item">Jewelry</a>
+  			<a href="pages/products/craftSupplies.php" class="list-group-item">Craft Supplies</a>
+  			<a href="pages/products/bedding.php" class="list-group-item">Bedding &amp; Room Decor</a>
+  			<a href="pages/products/softToys.php" class="list-group-item">Soft Toys</a>
+  			<a href="pages/products/vintage.php" class="list-group-item">Vintage Art</a>
+  			<a href="pages/products/wedding.php" class="list-group-item">Wedding Accessories</a>
+  			<a href="pages/myProducts.php" class="list-group-item">Sellers Center</a>
+        </div>
 		  </div>
+
 		</div>
+    
 	</div>
     <!-- /.col-lg-3 .col-md-3-->
     <div class="col-lg-9 col-md-9">
@@ -224,9 +239,12 @@
     </div>
     </div>
 		<!--Products Diplay-->
-		<div class="col-lg-9 col-md-9" id="products">
+		<div class="col-lg-9 col-md-9" class="products">
 		<div class="row">
-    <h2> &nbsp; Bedding & Room Decor  </h2>
+    
+      <h3> &nbsp; Bedding & Room Decor </h3>
+    
+      
 			  <?php
 			  
 				  //Fetch the data from the database
@@ -274,7 +292,7 @@
 				}
         ?>
             <div class="row">
-    <h2> &nbsp; Homemade Snacks </h2>
+            <h2> &nbsp; Homemade Snacks </h2>
         <?php
         
           //Fetch the data from the database

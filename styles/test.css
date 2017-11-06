@@ -4,6 +4,9 @@
     src: url("fonts/queen_of_clubs.otf");
 }
 
+.products_link a{
+    color: blue;
+}
 .category-list-group a{
  color: #151E35;
  border-style: none;
