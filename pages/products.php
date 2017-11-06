@@ -1,4 +1,5 @@
 <?php
+include "config.php";
 include "../includes/sessions.php";
 include "../includes/product_config.php";
 $angka = substr(uniqid(rand(), true), 7, 7);

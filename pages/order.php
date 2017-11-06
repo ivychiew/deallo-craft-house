@@ -1,4 +1,5 @@
 <?php
+include "config.php";
 include "../includes/sessions.php";
 include "../includes/product_config.php";
 if(isset($_POST['shopping'])){
