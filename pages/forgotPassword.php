@@ -32,7 +32,7 @@
    
 </head>
     
-<body class="bg forgotbg">
+<body class="bg">
 
     <div class="container">
 
@@ -54,11 +54,8 @@
             <br/>
             <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" placeholder="Enter email here"/>
             
-            <br/>
             <input type="text" name="honeyPot" class="honeyPot" class="form-control" value="" placeholder="If you see this leave this form field blank and invest in CSS support."/>
-            
-            
-            <br/>
+
             <p>
                 <button type="submit" name="submit" class="btn btn-success">Reset my password</button>
             </p>

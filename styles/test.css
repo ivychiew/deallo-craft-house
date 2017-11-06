@@ -22,7 +22,7 @@ src: url("fonts/sun_valley.ttf");
 
 .honeyPot
 {
-    visibility: collapse;
+    visibility: hidden;
 }
 /*Styles for forgotPassword.php*/
 

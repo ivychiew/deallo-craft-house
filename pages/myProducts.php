@@ -124,7 +124,7 @@
 <?php
 
 	//Fetch the data from the database
-      $stmt = $DB_con->prepare("SELECT productID, productName, productPrice, productPic, productDescription,product_owner FROM product_tbl WHERE product_owner =:owner ORDER BY productID DESC ");
+      $stmt = $DB_con->prepare("SELECT productID, productName, productPrice, productPic, productDescription,product_owner FROM product WHERE product_owner =:owner ORDER BY productID DESC ");
 	  
 	  $stmt->bindParam(":owner", $_SESSION['username']);
       $stmt->execute();
