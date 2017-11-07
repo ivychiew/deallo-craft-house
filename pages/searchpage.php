@@ -120,7 +120,7 @@
 		else
 		{
             //Connect to database
-            $conn = mysqli_connect("localhost", "root", "", "deallo");
+            $conn = mysqli_connect("localhost", "root", "", "deallo_udb");
             if(mysqli_connect_errno())
             {
                 echo "Failed to connect";

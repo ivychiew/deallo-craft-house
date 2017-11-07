@@ -12,11 +12,11 @@
 	
 	<!--Custom CSS-->
 	<link rel="stylesheet" type="text/css" href="..\styles\login_styles.css"/>
-<<<<<<< HEAD
+
     <link rel="icon" type="image/png" href="..\images/DealloLogo-favicon.png"/>
      <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-=======
+
 	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
 	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 
@@ -27,7 +27,7 @@
     <script src="js/html5shiv.js"></script> 
     <script src="js/respond.min.js"></script> 
     <![endif]--> 
->>>>>>> 790e390686d01f713492d12b00fd42febd769130
+
 </head>
 
 <body class="bg">

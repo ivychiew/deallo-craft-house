@@ -6,7 +6,7 @@ if(!isset($_SESSION)){
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "deallo";
+    $dbname = "deallo_udb";
     $sql = null;
 
     $username1= '';
@@ -51,7 +51,7 @@ if(!isset($_SESSION)){
             }else{      //If password match
         
                 //Update the password
-                $sql = "UPDATE users SET password='$password1' WHERE username='$username1'";
+                $sql = "UPDATE user SET password='$password1' WHERE username='$username1'";
 
                 if (mysqli_query($conn, $sql)){
                     echo ("<SCRIPT LANGUAGE='JavaScript'>
@@ -65,19 +65,19 @@ if(!isset($_SESSION)){
         
         //3-If got bio
         if(!empty($bio)){
-            $sqlBio = "UPDATE users SET bio='$bio' WHERE username='$username1'";
+            $sqlBio = "UPDATE user SET bio='$bio' WHERE username='$username1'";
             mysqli_query($conn, $sqlBio);
         }
         
         //4-If got country
         if(!empty($country)){
-            $sqlCountry = "UPDATE users SET country='$country' WHERE username='$username1'";
+            $sqlCountry = "UPDATE user SET country='$country' WHERE username='$username1'";
             mysqli_query($conn, $sqlCountry);
         }
         
         //5 - If got Email
         if(!empty($email)){
-            $sqlEmail = "UPDATE users SET email='$email' WHERE username='$username1'";
+            $sqlEmail = "UPDATE user SET email='$email' WHERE username='$username1'";
             mysqli_query($conn, $sqlEmail);
         }
 
@@ -114,7 +114,7 @@ if(!isset($_SESSION)){
                 $errMSG = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";        
             }
 
-            $insertImage = "UPDATE users SET profile_image = '$imgFile' WHERE username='$username1'";
+            $insertImage = "UPDATE user SET profile_image = '$imgFile' WHERE username='$username1'";
             
             if ($result = mysqli_query($conn, $insertImage)) {
                 echo ("<SCRIPT LANGUAGE='JavaScript'>
@@ -205,7 +205,7 @@ if(!isset($_SESSION)){
     <ul class="nav navbar-nav"><!--unordered list start -->
 		<li class="dropdown">
 		 <?php  if (isset($_SESSION['username'])) : ?>
-              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['welcomeName'] ?> <b class="caret"></b></a>
+              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['username'] ?> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Edit Profile</a></li>
                 <li class="divider"></li>
@@ -256,7 +256,7 @@ if(!isset($_SESSION)){
 		if (isset($_SESSION['username'])){ 
 			$sessionUser= $_SESSION['username'];
 		}          
-		$queryImage = "SELECT profile_image FROM users WHERE username='$sessionUser'";
+		$queryImage = "SELECT profile_image FROM user WHERE username='$sessionUser'";
 
 		  $resultImage = mysqli_query($conn,$queryImage);
 		  

@@ -65,7 +65,7 @@
             $servername = "localhost";
             $username = "root";
             $password = "";
-            $dbname = "deallo";
+            $dbname = "deallo_udb";
 
             if (isset($_POST['submit'])){
 
@@ -87,7 +87,7 @@
                 }
                 else{
 
-                    $sql = "SELECT * FROM users WHERE email = '$email' AND surname='$surname' AND color = '$color'";
+                    $sql = "SELECT * FROM user WHERE email = '$email' AND surname='$surname' AND color = '$color'";
 
                     $result = mysqli_query($conn, $sql);
 

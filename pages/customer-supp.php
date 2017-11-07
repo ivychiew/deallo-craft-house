@@ -105,7 +105,7 @@
   <div class="row"> 
     <div class="col-md-12">
 	
-	<form method="GET" class="form form-horizontal" action="./report.php">
+	<form method="GET" class="form form-horizontal" action="customerSupportAction.php">
 		<div>
 			<label class="control-label">Comment/Inquiry:</label>
 			<textarea name="comment" rows="5" cols="40" class="form-control"></textarea>

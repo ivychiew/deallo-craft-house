@@ -64,7 +64,7 @@
     <ul class="nav navbar-nav"><!--unordered list start -->
 		<li class="dropdown">
 		 <?php  if (isset($_SESSION['username'])) : ?>
-              <a class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['welcomeName'] ?> <b class="caret"></b></a>
+              <a class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['username'] ?> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="pages/profile.php">Edit Profile</a></li>
                 <li class="divider"></li>

@@ -141,12 +141,12 @@
             elseif ($password1 != $password2) {  
                 echo "<div class=\"alert alert-danger\">" . "Your passwords do not match!". "</div>"; 
             }else {
-                $queryUsername = "SELECT * FROM users WHERE username = '$username1'";
+                $queryUsername = "SELECT * FROM user WHERE username = '$username1'";
 
                 $resultUsername = mysqli_query($dbi, $queryUsername);
 
                 if (mysqli_num_rows($resultUsername) > 0) {
-                    $sql = "UPDATE users SET password='$password1' WHERE username='$username1'";
+                    $sql = "UPDATE user SET password='$password1' WHERE username='$username1'";
 
                     mysqli_query($dbi, $sql);
 
