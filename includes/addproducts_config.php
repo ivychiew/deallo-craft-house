@@ -1,5 +1,6 @@
 <?php
 
+session_start();
     error_reporting( ~E_NOTICE ); // avoid notice
     
     require_once 'product_config.php';
@@ -9,6 +10,14 @@
         $productname = $_POST['product_name'];// product name
         $productprice = $_POST['product_price'];// product price
         $productdesc = $_POST['product_description']; //product description
+        
+        if(isset($_SESSION['username'])){
+            $productOwner = $_SESSION['username'];
+        }
+        else{
+             $errMSG = "Error registering seller ID";
+        }
+
         $productcategory = $_POST['product_category'];
         
         $imgFile = $_FILES['user_image']['name'];
@@ -63,12 +72,13 @@
         // if no error occured, continue ....
         if(!isset($errMSG))
         {
-            $stmt = $dbh->prepare('INSERT INTO product(name, price,image,summary,category) VALUES(:pname, :pprice, :ppic, :pdesc, :pcat)');
+            $stmt = $dbh->prepare('INSERT INTO product(name, price,image,summary,category,product_owner) VALUES(:pname, :pprice, :ppic, :pdesc, :pcat, :powner)');
             $stmt->bindParam(':pname',$productname);
             $stmt->bindParam(':pprice',$productprice);
             $stmt->bindParam(':ppic',$productpic);
             $stmt->bindParam(':pdesc',$productdesc);
             $stmt->bindParam(':pcat',$productcategory);
+            $stmt->bindParam(':powner',$productOwner);
             
             if($stmt->execute())
             {
