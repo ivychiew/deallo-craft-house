@@ -8,7 +8,7 @@
 	$_SESSION['success'] = "";
 
 	//connect to database
-	$dbi = mysqli_connect('localhost', 'root', '' , 'deallo'); 
+	$dbi = mysqli_connect('localhost', 'root', '' , 'deallo_udb'); 
 	
 //Start of User Registration
 	if (isset($_POST['reg_user'])){
@@ -42,7 +42,7 @@
         $templateImagePath="../images/adminProfile.png";
         $surname = strrev($surname);
 
-		$query = "INSERT INTO users (username, email, password, surname, color, profile_image)
+		$query = "INSERT INTO user (username, email, password, surname, color, profile_image)
 				  VALUES('$username', '$email', '$password_1','$surname','$color','$templateImagePath')";
 		mysqli_query($dbi, $query);
 
@@ -70,10 +70,10 @@
 
 		if (count($errors) == 0) {
 
-			$query = "SELECT * FROM users WHERE username='$username' OR email='$username' AND password='$password'";
+			$query = "SELECT * FROM user WHERE username='$username' OR email='$username' AND password='$password'";
 			$results = mysqli_query($dbi, $query);
 			
-			$queryExist = "SELECT * FROM users WHERE username='$username' OR email='$username'";
+			$queryExist = "SELECT * FROM user WHERE username='$username' OR email='$username'";
 			$resultsExist = mysqli_query($dbi, $queryExist);
 			
 			//Checks if username or email exists in database
