@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2017 at 02:21 AM
+-- Generation Time: Nov 07, 2017 at 05:42 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -67,6 +67,19 @@ CREATE TABLE `shopping` (
   `order_number` int(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `shopping`
+--
+
+INSERT INTO `shopping` (`id_user`, `id`, `amount_quantity`, `amount_price`, `order_number`) VALUES
+(1, 62, '3', 90, 280501),
+(1, 63, '2', 80, 280501),
+(1, 64, '2', 30, 280501),
+(1, 65, '2', 100, 280501),
+(1, 66, '3', 150, 280501),
+(1, 67, '2', 10, 280501),
+(1, 68, '2', 14, 280501);
+
 -- --------------------------------------------------------
 
 --
@@ -109,7 +122,8 @@ ALTER TABLE `product`
 -- Indexes for table `shopping`
 --
 ALTER TABLE `shopping`
-  ADD PRIMARY KEY (`id_user`,`id`);
+  ADD PRIMARY KEY (`id_user`,`id`),
+  ADD KEY `id` (`id`);
 
 --
 -- Indexes for table `user`
@@ -125,7 +139,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `shopping`
+--
+ALTER TABLE `shopping`
+  ADD CONSTRAINT `shopping_ibfk_1` FOREIGN KEY (`id`) REFERENCES `product` (`id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
