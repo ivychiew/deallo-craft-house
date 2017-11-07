@@ -49,9 +49,9 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-12"> 	
-			<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>"/>
-		</div>
+            <div class="col-md-12"> 	
+                <input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>"/>
+            </div>
 		</div>
 		<div class="row"> 
 			<div class="col-md-6"> 
@@ -78,13 +78,14 @@
 			<input type="text" name="color" id="color"/>
 		</div>
         </div>
-		
-			<button type="submit" class="btn" name="reg_user" style="width: 300px;">Register</button>
-		</div>
-        
-		<p id="alreadyMember">
+            <button type="submit" class="btn" name="reg_user" style="width: 100%;">Register</button>
+     
+        <br/><br/>
+        <p id="alreadyMember">
 			Already a member? <a href="login.php">Sign in</a>
 		</p>
+     
+		</div>
 	</form>
 </div>
 	

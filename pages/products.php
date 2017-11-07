@@ -85,17 +85,17 @@ $order = preg_replace("/[^0-9]/", "",$angka);
      <?php  if (isset($_SESSION['username'])) : ?>
               <a class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['welcomeName'] ?> <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="profile.php">Edit Profile</a></li>
+                <li><a href="pages/profile.php">Edit Profile</a></li>
                 <li class="divider"></li>
-                <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
+                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
                  <li class="divider"></li>
-                <li><a href="customer-supp.php">Questions?</a></li>
+                <li><a href="pages/customer-supp.php">Questions?</a></li>
               </ul>
         </li>
        <?php endif ?>
      <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
       <li class="dropdown">
-          <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+          <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#">All Products</a></li>
             <li class="divider"></li>
