@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2017 at 07:53 AM
+-- Generation Time: Nov 07, 2017 at 02:21 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -47,9 +47,11 @@ INSERT INTO `product` (`id`, `name`, `summary`, `price`, `quantity`, `image`, `p
 (62, 'Plain White Shirt', 'Men\'s white shirt in sizes S, M, L and XL', 30, '1', '296420.jpg', 'peanutbutter\r\n', 'Clothes'),
 (63, 'Sleeveless Black Dress', 'Perfect for the beach!', 40, '1', '459547.jpg\r\n', 'peanutbutter', 'Dress'),
 (64, 'Silver Bead Bracelet', 'Handmade bead bracelet', 15, '1', '912317.jpg', 'gaylord', 'Jewellery'),
-(66, 'Chair', 'Wooden Chair', 50, '1', '201477.jpg', '', 'Furniture'),
-(67, 'Hammock', 'Soft', 39, '1', '141204.jpg', '', 'Furniture'),
-(68, 'this', 'dog', 10, '1', '803187.jpg', '', 'Clothes');
+(65, 'Green Hammock', 'Thick cloth mayan hammock', 50, '1', '899606.jpg', 'peanutbutter', 'Bedding & Room Decor'),
+(66, 'Chair', 'Wooden Chair', 50, '1', '201477.jpg', '', 'Bedding & Room Decor'),
+(67, 'Homemade Breakfast Rolls\r\n', 'Freshly packed with 6 muffins in each bag.', 5, '1', '293146.jpg', 'peanutbutter', 'Food\r\n'),
+(68, 'Banana Muffins', 'Sweet Savory Banana Muffinsss', 7, '1', '439692.jpg', 'peanutbutter', 'Food'),
+(69, 'Pasta', 'Pasta', 10, '', '34421.png', '', 'Food');
 
 -- --------------------------------------------------------
 
@@ -123,7 +125,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

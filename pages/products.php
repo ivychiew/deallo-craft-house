@@ -68,58 +68,52 @@ $order = preg_replace("/[^0-9]/", "",$angka);
 
     <!--Search-->
     <div class="col-sm-3 col-md-3 navbar-right">
-<<<<<<< HEAD
-      <form class="navbar-form" role="search">
-      <div class="form-group ">
-        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-        
-          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-        
-          <a class="nav-link" href="../index.php?logout='1'"><span class="glyphicon glyphicon-log-out"></a>
-=======
-      <form class="navbar-form" role="search" method="GET" action="searchpage.php">
+      <form class="navbar-form" role="search" method="GET" action="pages/searchpage.php">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search" name="searchTerm" id="searchTerm"/>
         <div class="input-group-btn">
           <button class="btn btn-default" name="search_submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
         </div>
->>>>>>> 790e390686d01f713492d12b00fd42febd769130
       </div>
       </form>
     </div>
 
+   
     <ul class="nav navbar-nav"><!--unordered list start -->
-		<li class="dropdown">
-		 <?php  if (isset($_SESSION['username'])) : ?>
+    <li class="dropdown">
+     <?php  if (isset($_SESSION['username'])) : ?>
               <a class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['welcomeName'] ?> <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="profile.php">Edit Profile</a></li>
+                <li><a href="pages/profile.php">Edit Profile</a></li>
                 <li class="divider"></li>
-                <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
+                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
                  <li class="divider"></li>
-                <li><a href="customer-supp.php">Questions?</a></li>
+                <li><a href="pages/customer-supp.php">Questions?</a></li>
               </ul>
         </li>
        <?php endif ?>
-     <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
+     <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
       <li class="dropdown">
-          <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+          <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="products.php">All Products</a></li>
+            <li><a href="pages/products.php">All Products</a></li>
             <li class="divider"></li>
-            <li><a href="products/clothingAcc.php">Clothing &amp; Accessories</a></li>
+            <li><a href="pages/products/clothingAcc.php">Clothing &amp; Accessories</a></li>
             <li class="divider"></li>
-            <li><a href="products/jewelry.php">Jewelery</a></li>
+            <li><a href="pages/products/jewelry.php">Jewelery</a></li>
             <li class="divider"></li>
-            <li><a href="products/craftSupplies.php">Craft Supplies</a></li>
+            <li><a href="pages/products/craftSupplies.php">Craft Supplies</a></li>
             <li class="divider"></li>
-            <li><a href="products/bedding.php">Bedding &amp; Room Decor</a></li>
+            <li><a href="pages/products/bedding.php">Bedding &amp; Room Decor</a></li>
             <li class="divider"></li>
-            <li><a href="products/softToys.php">Soft Toys</a></li>
+            <li><a href="pages/products/softToys.php">Soft Toys</a></li>
             <li class="divider"></li>
-            <li><a href="products/vintage.php">Vintage Art</a></li>
+            <li><a href="pages/products/vintage.php">Vintage Art</a></li>
             <li class="divider"></li>
-            <li><a href="products/wedding.php">Wedding Accessories</a></li>
+            <li><a href="pages/products/wedding.php">Wedding Accessories</a></li>
+            <li class="divider"></li>
+            <li><a href="pages/products/food.php">Homemade Food</a></li>
+
           </ul>
       </li>
      <li>
@@ -131,7 +125,7 @@ $order = preg_replace("/[^0-9]/", "",$angka);
     </ul>
   </div>
 </div>
-
+<!--End of Nav Bar-->
  <div class="container">
  <div class="page-header">
   
