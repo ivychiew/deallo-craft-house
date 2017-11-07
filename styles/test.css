@@ -3,7 +3,15 @@
     src: url("fonts/queen_of_clubs.otf");
 }
 
-<<<<<<< HEAD
+body{
+    background-color: #FFFFFF; 
+}
+.container-fluid{
+    /*margin-left:10%; 
+    margin-right: 10%; */
+    background-color:#F2F3D9;
+}
+/*<<<<<<< HEAD*/
 .products_link a{
     color: blue;
 }
@@ -22,7 +30,7 @@ a:hover{
    color: inherit;
    text-decoration: none;
 }
-=======
+/*=======*/
 @font-face {
 font-family: sunValleyFont;
 src: url("fonts/sun_valley.ttf");
@@ -48,12 +56,22 @@ src: url("fonts/sun_valley.ttf");
 
 
 /*NAV and FOOTER styles START*/
->>>>>>> 790e390686d01f713492d12b00fd42febd769130
+/*>>>>>>> 790e390686d01f713492d12b00fd42febd769130*/
 .navbar{
     
-	border-radius:none !important;
-	padding: 10px;
+    border-radius:none !important;
+    padding: 10px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
 }
+
+.nav>li>a:focus, .nav>li>a:hover {
+        text-decoration: none;
+        background-color: white !important;
+        color: #003366 ;
+       display: block;    
+  }
 
 .navbar-brand{
     font-family: queenFont;
@@ -64,25 +82,20 @@ src: url("fonts/sun_valley.ttf");
     background-color: transparent;
   color: #999999;
  }
-footer{ 
-	padding: 30px;
-	background-color: black;
 
- }
- 
-.navbar-custom, footer{ 
-	background-color:#003366;
-	background-image: none;
-	color:#FFF;
+.navbar-custom{
+    background-color:#003366;
+    background-image: none;
+    color:#FFF;
 }
-	
+    
 .navbar-nav > li > a{
-	color:#FFF;
+    color:#FFF;
 
 }
 
 .navbar-brand{
-	color:#FFF;
+    color:#FFF;
     font-size:250%;
 }
 /*NAV and FOOTER styles END*/
@@ -90,15 +103,15 @@ footer{
 /*Index.php styles START*/
 .carousel .item {
   height: 250px;
-  
+  padding-top: -5px;
 }
 
 .coverImage{width:100%;}
 /*Index.php styles END*/
 
 .divider-owner{
-	background:#BDBDBD; 
-	width: 100%;
+    background:#BDBDBD; 
+    width: 100%;
     height: 1px;
     margin: 10px auto;
     border-bottom: 1px
@@ -113,69 +126,26 @@ footer{
 }
 <<<<<<< HEAD
        
-/**side navbar**/
-/*
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #030027;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
 
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 15px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 20px;
-    margin-left: 50px;
-}
-
-#main {
-    transition: margin-left .5s;
-    padding: 16px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}*/
-=======
+/*=======*/
 
 /*Styles for aboutUs.php*/
 h2{text-align:center;} 
 img{margin: auto; display: block;}
 
 .coverImg{
-	display: block;
-	width: 100%;
-	position: relative;
-	overflow-x: hidden;
-	height: 50%;
+    display: block;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    height: 50%;
 }
 .meetTagline{
-	font-family: sunValleyFont;
+    font-family: sunValleyFont;
 }
 .meetTagline > h1{font-size: 70px;}
 .meetTagline > p{font-size: 20px;}
 
     
->>>>>>> 790e390686d01f713492d12b00fd42febd769130
+/*>>>>>>> 790e390686d01f713492d12b00fd42febd769130
+*/

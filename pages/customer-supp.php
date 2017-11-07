@@ -15,6 +15,7 @@
 
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/footer.css"/>
     <link rel="stylesheet" type="text/css" href="../styles/products.css"/>
 	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png">
 	
@@ -32,65 +33,9 @@
 <!-- <body class="container-fluid" data-ng-app="myApp"> -->
 <body class="data-ng-app">
 <!-- Navigation -->
- <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
-  
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" rel="home" href="../index.php">Deallo's Craft House</a>
-  </div>
-  
-  <div class="collapse navbar-collapse">
-
-    
-    <div class="col-sm-3 col-md-3 navbar-right">
-      <form class="navbar-form" role="search">
-      <div class="input-group ">
-        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-        <div class="input-group-btn">
-          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-        </div>
-      </div>
-      </form>
-    </div>
-
-    <?php  if (isset($_SESSION['username'])) : ?>
-    <ul class="nav navbar-nav"><!--unordered list start -->
-    <li class="dropdown">
-              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="profile.php">Edit Profile</a></li>
-                <li class="divider"></li>
-                <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
-                 <li class="divider"></li>
-                <li><a href="customer-supp.php">Questions?</a></li>
-              </ul>
-            </li>
-       <?php endif ?>
-     
-      <li class="dropdown">
-              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="pages/products.php">All Products</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Clothing</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Accessories</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Food</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Furniture</a></li>
-              </ul>
-      </li>
-      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
-    </ul>
-  </div>
-</div>
+<?php include '../templates/navbar.php' ?>
 <!--End of Nav Bar-->
+
 <div class="container"> 
   <div class="row"> 
     <div class="col-md-12">
@@ -105,19 +50,19 @@
   <div class="row"> 
     <div class="col-md-12">
 	
-	<form method="GET" class="form form-horizontal" action="./report.php">
-		<div>
-			<label class="control-label">Comment/Inquiry:</label>
-			<textarea name="comment" rows="5" cols="40" class="form-control"></textarea>
-		</div>
-		<br/>
-		
-		<div>
-            <button type="submit" name="submit" class="btn btn-success" a href="customer-supp2.php">Submit</button>
-		</div>
-	</form>
-	 </div>
-  </div>
+    	<form method="GET" class="form form-horizontal" action="./report.php">
+    		<div>
+    			<label class="control-label">Comment/Inquiry:</label>
+    			<textarea name="comment" rows="5" cols="40" class="form-control"></textarea>
+    		</div>
+    		<br/>
+    		
+    		<div>
+                <button type="submit" name="submit" class="btn btn-success" a href="customer-supp2.php">Submit</button>
+    		</div>
+    	</form>
+    	 </div>
+      </div>
     <br/>
 	
   <div class="row"> 
@@ -153,14 +98,7 @@
 </div>
 </div>
 
-     <!-- Footer -->
-	<footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-
+  
 
 	
     <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
@@ -177,7 +115,7 @@
 </body>
 
 
-
+ <?php include '../templates/footer.php' ?>
 
 
 </html>

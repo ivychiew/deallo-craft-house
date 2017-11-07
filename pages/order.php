@@ -166,13 +166,14 @@ if(isset($_POST['shopping'])){
             </tfoot>
         </table>
         <p class="text-right"><a href="products.php" class="btn btn-default">Back to homepage</a> <a href="?del=1" class="btn btn-danger">Remove All Items</a></p>
+        <div class="paypal_checkout">
         <p class="text-right">
             
             <!--Vivien's checkout code -->
         <!--    <a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8GMC86G5MQXD6" class="btn btn-warning" style="width: 282px;">Checkout</a> -->
             
              <!--Paypal's checkout code -->
-            <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" align="right">
                 <input type="hidden" name="cmd" value="_xclick">
                 <input type="hidden" name="business" value="MKUYB7ST4F7SC">
                 <input type="hidden" name="lc" value="MY">
@@ -194,6 +195,7 @@ if(isset($_POST['shopping'])){
         
         
         </p>
+        </div>
     </div>
 
     <script src="assets/js/jquery.min.js"></script>

@@ -38,11 +38,11 @@
 
 <body>
 <!-- Navigation -->
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD -->
  <div class="navbar navbar-custom nav-fixed-top" role="navigation">
-=======
+<!-- ======= -->
 <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
->>>>>>> 790e390686d01f713492d12b00fd42febd769130
+<!-- >>>>>>> 790e390686d01f713492d12b00fd42febd769130 -->
   
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

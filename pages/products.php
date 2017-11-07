@@ -52,81 +52,7 @@ $order = preg_replace("/[^0-9]/", "",$angka);
 </head>
 <body>
 
-<!-- Navigation -->
- <div class="navbar navbar-custom nav-fixed-top" role="navigation">
-  
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" rel="home" href="#">Deallo's Craft House</a>
-  </div>
-  
-  <div class="collapse navbar-collapse">
-
-    <!--Search-->
-    <div class="col-sm-3 col-md-3 navbar-right">
-      <form class="navbar-form" role="search" method="GET" action="pages/searchpage.php">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search" name="searchTerm" id="searchTerm"/>
-        <div class="input-group-btn">
-          <button class="btn btn-default" name="search_submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-        </div>
-      </div>
-      </form>
-    </div>
-
-   
-    <ul class="nav navbar-nav"><!--unordered list start -->
-    <li class="dropdown">
-     <?php  if (isset($_SESSION['username'])) : ?>
-              <a class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['welcomeName'] ?> <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="pages/profile.php">Edit Profile</a></li>
-                <li class="divider"></li>
-                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
-                 <li class="divider"></li>
-                <li><a href="pages/customer-supp.php">Questions?</a></li>
-              </ul>
-        </li>
-       <?php endif ?>
-     <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
-      <li class="dropdown">
-          <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="pages/products.php">All Products</a></li>
-            <li class="divider"></li>
-            <li><a href="pages/products/clothingAcc.php">Clothing &amp; Accessories</a></li>
-            <li class="divider"></li>
-            <li><a href="pages/products/jewelry.php">Jewelery</a></li>
-            <li class="divider"></li>
-            <li><a href="pages/products/craftSupplies.php">Craft Supplies</a></li>
-            <li class="divider"></li>
-            <li><a href="pages/products/bedding.php">Bedding &amp; Room Decor</a></li>
-            <li class="divider"></li>
-            <li><a href="pages/products/softToys.php">Soft Toys</a></li>
-            <li class="divider"></li>
-            <li><a href="pages/products/vintage.php">Vintage Art</a></li>
-            <li class="divider"></li>
-            <li><a href="pages/products/wedding.php">Wedding Accessories</a></li>
-            <li class="divider"></li>
-            <li><a href="pages/products/food.php">Homemade Food</a></li>
-
-          </ul>
-      </li>
-     <li>
-        <span class="navbar-text navbar-right">
-            <span class="glyphicon glyphicon-shopping-cart glyphicon-2x my-cart-icon">  <span class="badge badge-notify my-cart-badge"></span>
-            </span>
-        </span>
-      </li>
-    </ul>
-  </div>
-</div>
-<!--End of Nav Bar-->
+<?php include "../templates/navbar.php" ?>
  <div class="container">
  <div class="page-header">
   
@@ -148,7 +74,7 @@ $order = preg_replace("/[^0-9]/", "",$angka);
         if ($stmt->execute()) {
             while ($row = $stmt->fetch()) {
         ?>
-          <div class="col-md-3">
+          <div class="col-md-4">
           <div class="well h-100" style="background-color: white;">
             
               <img src="../images/product_images/<?php echo $row['image']; ?>" class="img-responsive mx-auto d-block" width="200px" height="200px" />
