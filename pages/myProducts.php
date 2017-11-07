@@ -1,7 +1,7 @@
-<!--Include User Session Script-->
-<?php include '../includes/sessions.php' ?>
-<!--Include Delete Products Config-->
-<?php include '../includes/products_delete.php' ?>
+<?php
+include "../includes/sessions.php";
+include "../includes/product_config.php";
+?>
 
 <!DOCTYPE HTML>
 <html lang="en">
@@ -66,13 +66,13 @@
     <ul class="nav navbar-nav"><!--unordered list start -->
     <li class="dropdown">
      <?php  if (isset($_SESSION['username'])) : ?>
-              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
+              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="pages/profile.php">Edit Profile</a></li>
+                <li><a href="profile.php">Edit Profile</a></li>
                 <li class="divider"></li>
                 <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
                  <li class="divider"></li>
-                <li><a href="pages/customer-supp.php">Questions?</a></li>
+                <li><a href="customer-supp.php">Questions?</a></li>
               </ul>
             </li>
        <?php endif ?>
@@ -81,7 +81,7 @@
 		  <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <span class="caret"></span></a>
 		  
 		  <ul class="dropdown-menu">
-			<li><a href="../products.php">All Products</a></li>
+			<li><a href="products.php">All Products</a></li>
 			<li class="divider"></li>
 			<li><a href="products/clothingAcc.php">Clothing &amp; Accessories</a></li>
 			<li class="divider"></li>
@@ -124,7 +124,7 @@
 <?php
 
 	//Fetch the data from the database
-      $stmt = $DB_con->prepare("SELECT productID, productName, productPrice, productPic, productDescription,product_owner FROM product WHERE product_owner =:owner ORDER BY productID DESC ");
+      $stmt = $dbh->prepare("SELECT * FROM product");
 	  
 	  $stmt->bindParam(":owner", $_SESSION['username']);
       $stmt->execute();
@@ -138,32 +138,32 @@
           //Extract data to a row
           extract($row);
 ?>
-    <div class="col-lg-4 col-md-6 mb-4">
+    <div class="col-lg-4 col-md-6 col-sm-4 col-xs-3 mb-4">
               <div class="card h-100">
-                 <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+                 <img src="../images/product_images/<?php echo $row['image']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#"><?php echo $productName ?></a>
+                    <a href="#"><?php echo $name ?></a>
                   </h4>
                   <h5>
                     <span class="product-price">
-                      <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
+                      <?php echo "RM $price  &nbsp &nbsp"; ?>
                     </span>
                   </h5>
-                <div class="col-sm-4card-text"><p><?php echo $productDescription; ?></p>
+                <div class="col-sm-4card-text"><p><?php echo $summary; ?></p>
                 </div>
-                <div class="col-xs-3">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                       <div class="editButton">
-                        <span> <!--Edit Product Button-->
-                          <a class="btn btn-info" href="editform.php?edit_id=<?php echo $row['productID']; ?>" title="click for edit" onclick="return confirm('Are you sure?')">
+                        <p> <!--Edit Product Button-->
+                          <button class="btn btn-info" href="editform.php?edit_id=<?php echo $row['id']; ?>" title="click for edit" onclick="return confirm('Are you sure?')">
                             <span class="glyphicon glyphicon-edit"></span> Edit
-                          </a> 
+                          </button> 
 
-                            <!--Delete Product Button-->
-                          <a class="btn btn-danger" href="?delete_id=<?php echo $row['productID']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')">
+                          <!--Delete Product Button-->
+                          <button class="btn btn-danger" href="?delete_id=<?php echo $row['id']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')">
                             <span class="glyphicon glyphicon-remove-circle"></span> Delete
-                          </a>
-                        </span>
+                          </button>
+                        </p>
                         </div>
                 </div>
       
@@ -190,11 +190,21 @@
 ?>
 </div>  
 </div>
+       
+    <!-- Footer -->
+	<footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
+      </div>
+      <!-- /.container -->
+    </footer>
 
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="../js/bootstrap.min.js"></script>
 	<script type='text/javascript' src='../js/buttonToggle.js'></script>
+	<!-- Bootstrap core JavaScript -->
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 </html>

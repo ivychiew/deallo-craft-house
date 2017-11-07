@@ -131,7 +131,7 @@
 		include "../../includes/product_config.php";
 
 		//Connect to database
-		$conn = mysqli_connect("localhost", "root", "", "deallo");
+		$conn = mysqli_connect("localhost", "root", "", "deallo_udb");
 		if(mysqli_connect_errno())
 		{
 			echo "Failed to connect";
@@ -139,7 +139,7 @@
 		else
 		{
 			$category = "vintage";
-			$query = mysqli_query($conn, "SELECT * FROM product_tbl WHERE productCategory = '$category'") or die(mysqli_error($conn));
+			$query = mysqli_query($conn, "SELECT * FROM product WHERE category = '$category'") or die(mysqli_error($conn));
 			$numrows = mysqli_num_rows($query);
 		}
 		
@@ -152,9 +152,9 @@
 			while($row = mysqli_fetch_array($query))
 			{
 				//$category = $row['productCategory'];
-				$name = $row['productName'];
-				$picture = $row['productPic'];
-				$price = $row['productPrice'];
+				$name = $row['name'];
+				$picture = $row['image'];
+				$price = $row['price'];
 				$productOwner = $row['product_owner'];
 		?> 
 		

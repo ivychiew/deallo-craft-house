@@ -86,12 +86,9 @@
 			Already a member? <a href="login.php">Sign in</a>
 		</p>
 	</form>
-<<<<<<< HEAD
 </div>
-=======
 	
-	<br/>
+<br/>
 	
->>>>>>> 790e390686d01f713492d12b00fd42febd769130
 </body>
 </html>

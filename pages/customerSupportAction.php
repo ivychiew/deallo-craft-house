@@ -31,12 +31,10 @@
         </SCRIPT>");
 	}else{
         echo ("<SCRIPT LANGUAGE='JavaScript'>
-        window.alert('ERROR IN SUBMITTING FORM')
+        window.alert('ERROR IN SUBMITTING FORM: Comment field is empty')
         window.location.href='customer-supp.php';
         </SCRIPT>");
     }
 
 }
 ?>
-
-<h1>HI</h1>

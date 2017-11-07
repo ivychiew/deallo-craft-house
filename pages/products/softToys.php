@@ -50,13 +50,13 @@
     <ul class="nav navbar-nav"><!--unordered list start -->
     <li class="dropdown">
      <?php  if (isset($_SESSION['username'])) : ?>
-              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
+              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="pages/profile.php">Edit Profile</a></li>
+                <li><a href="profile.php">Edit Profile</a></li>
                 <li class="divider"></li>
-                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+                <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
                  <li class="divider"></li>
-                <li><a href="pages/customer-supp.php">Questions?</a></li>
+                <li><a href="customer-supp.php">Questions?</a></li>
               </ul>
             </li>
        <?php endif ?>
@@ -122,7 +122,7 @@
 		include "../../includes/product_config.php";
 
 		//Connect to database
-		$conn = mysqli_connect("localhost", "root", "", "deallo");
+		$conn = mysqli_connect("localhost", "root", "", "deallo_udb");
 		if(mysqli_connect_errno())
 		{
 			echo "Failed to connect";
@@ -130,7 +130,7 @@
 		else
 		{
 			$category = "softToys";
-			$query = mysqli_query($conn, "SELECT * FROM product_tbl WHERE productCategory = '$category'") or die(mysqli_error($conn));
+			$query = mysqli_query($conn, "SELECT * FROM product WHERE category = '$category'") or die(mysqli_error($conn));
 			$numrows = mysqli_num_rows($query);
 		}
 		
@@ -143,9 +143,9 @@
 			while($row = mysqli_fetch_array($query))
 			{
 				//$category = $row['productCategory'];
-				$name = $row['productName'];
-				$picture = $row['productPic'];
-				$price = $row['productPrice'];
+				$name = $row['name'];
+				$picture = $row['image'];
+				$price = $row['price'];
 				$productOwner = $row['product_owner'];
 		?> 
 		

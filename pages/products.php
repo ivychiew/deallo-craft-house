@@ -62,7 +62,7 @@ $order = preg_replace("/[^0-9]/", "",$angka);
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" rel="home" href="#">Deallo's Craft House</a>
+    <a class="navbar-brand" rel="home" href="../index.php">Deallo's Craft House</a>
   </div>
   
   <div class="collapse navbar-collapse">
@@ -85,35 +85,35 @@ $order = preg_replace("/[^0-9]/", "",$angka);
      <?php  if (isset($_SESSION['username'])) : ?>
               <a class="dropdown-toggle" data-toggle="dropdown">Welcome <?php echo $_SESSION['welcomeName'] ?> <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="pages/profile.php">Edit Profile</a></li>
+                <li><a href="profile.php">Edit Profile</a></li>
                 <li class="divider"></li>
-                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+                <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
                  <li class="divider"></li>
-                <li><a href="pages/customer-supp.php">Questions?</a></li>
+                <li><a href="customer-supp.php">Questions?</a></li>
               </ul>
         </li>
        <?php endif ?>
-     <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
+     <li><a class="nav-link" href="../index.php?logout='1'">Sign Out</a></li>
       <li class="dropdown">
-          <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+          <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="pages/products.php">All Products</a></li>
+            <li><a href="#">All Products</a></li>
             <li class="divider"></li>
-            <li><a href="pages/products/clothingAcc.php">Clothing &amp; Accessories</a></li>
+            <li><a href="products/clothingAcc.php">Clothing &amp; Accessories</a></li>
             <li class="divider"></li>
-            <li><a href="pages/products/jewelry.php">Jewelery</a></li>
+            <li><a href="products/jewelry.php">Jewelery</a></li>
             <li class="divider"></li>
-            <li><a href="pages/products/craftSupplies.php">Craft Supplies</a></li>
+            <li><a href="products/craftSupplies.php">Craft Supplies</a></li>
             <li class="divider"></li>
-            <li><a href="pages/products/bedding.php">Bedding &amp; Room Decor</a></li>
+            <li><a href="products/bedding.php">Bedding &amp; Room Decor</a></li>
             <li class="divider"></li>
-            <li><a href="pages/products/softToys.php">Soft Toys</a></li>
+            <li><a href="products/softToys.php">Soft Toys</a></li>
             <li class="divider"></li>
-            <li><a href="pages/products/vintage.php">Vintage Art</a></li>
+            <li><a href="products/vintage.php">Vintage Art</a></li>
             <li class="divider"></li>
-            <li><a href="pages/products/wedding.php">Wedding Accessories</a></li>
+            <li><a href="products/wedding.php">Wedding Accessories</a></li>
             <li class="divider"></li>
-            <li><a href="pages/products/food.php">Homemade Food</a></li>
+            <li><a href="products/food.php">Homemade Food</a></li>
 
           </ul>
       </li>

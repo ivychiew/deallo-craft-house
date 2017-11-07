@@ -341,6 +341,7 @@ if(!isset($_SESSION)){
 				<label class="control-label">Profile Picture </label>
 				<input class="input-group" type="file" name="user_image" accept="image/*" />
 				
+                <br/>
 				<p>
 					<button type="submit" class="btn btn-primary" data-ng-click="showEdit=!showEdit" name="submitForm">DONE EDITING<span class="glyphicon glyphicon-pencil"></span></button>
 				</p>
