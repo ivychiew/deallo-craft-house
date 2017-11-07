@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
 	  <meta name="keyword" content="HTML, CSS, Javascript"/>
-    <meta name="author" content=""/>
+    <meta name="author" content="Vivien, Selena"/>
 	
     <title>Deallo Craft House - Homepage</title>
     <!-- Latest compiled and minified CSS -->
@@ -141,13 +141,13 @@
 					} //end of while loop
 				?>
 				</div>
-
-				
-				<?php	
-				}
+        <?php 
+        }
         ?>
-            <div class="row">
-            <h2> &nbsp; Homemade Snacks </h2>
+				
+				
+        <div class="row">
+         <h3> &nbsp; Homemade Snacks </h3>
         <?php
         
           //Fetch the data from the database

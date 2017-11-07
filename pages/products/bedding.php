@@ -14,6 +14,7 @@
 
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../styles/test.css"/>
+    <link rel="stylesheet" type="text/css" href="../../styles/footer.css"/>
 	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 
     elements and media queries --> 
@@ -27,76 +28,8 @@
 </head>
 
 <body>
-    
-<!-- Navigation -->
- <div class="navbar navbar-custom nav-fixed-top" role="navigation">
-  
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" rel="home" href="../../index.php">Deallo's Craft House</a>
-  </div>
-  
-  <div class="collapse navbar-collapse">
-
-    <!--Search-->
-    <div class="col-sm-3 col-md-3 navbar-right">
-      <form class="navbar-form" role="search" method="GET" action="../searchpage.php">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search" name="searchTerm" id="searchTerm"/>
-        <div class="input-group-btn">
-          <button class="btn btn-default" name="search_submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-        </div>
-      </div>
-      </form>
-    </div>
-   
-    <ul class="nav navbar-nav"><!--unordered list start -->
-    <li class="dropdown">
-     <?php  if (isset($_SESSION['username'])) : ?>
-              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="pages/profile.php">Edit Profile</a></li>
-                <li class="divider"></li>
-                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
-                 <li class="divider"></li>
-                <li><a href="pages/customer-supp.php">Questions?</a></li>
-              </ul>
-            </li>
-       <?php endif ?>
-     
-      <li class="dropdown">
-		  <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <span class="caret"></span></a>
-		  
-		  <ul class="dropdown-menu">
-			<li><a href="../products.php">All Products</a></li>
-			<li class="divider"></li>
-			<li><a href="clothingAcc.php">Clothing &amp; Accessories</a></li>
-			<li class="divider"></li>
-			<li><a href="jewelry.php">Jewelry</a></li>
-			<li class="divider"></li>
-			<li><a href="craftSupplies.php">Craft Supplies</a></li>
-			<li class="divider"></li>
-			<li><a href="#">Bedding &amp; Room Decor</a></li>
-			<li class="divider"></li>
-			<li><a href="softToys.php">Soft Toys</a></li>
-			<li class="divider"></li>
-			<li><a href="vintage.php">Vintage Art</a></li>
-			<li class="divider"></li>
-			<li><a href="wedding.php">Wedding Accessories</a></li>
-		  </ul>
-      </li>
-      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
-    </ul>
-  </div>
-</div>
-<!--End of Nav Bar-->
-    
-<div class="container-fluid">
+<?php include "../../templates/navbar_product_pages.php" ?>
+<div class="container">
 
 	<div class="row">
         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 coverImage">
@@ -105,11 +38,8 @@
     </div>
 	<hr/>
     
- </div>
+ 
 
-<div class="container">
-	<div class="row">
-	
     
 	<div class="row">
 	
@@ -189,15 +119,8 @@
 	</div>
 	
 	</div>
-	
-     <!-- Footer -->
-	<footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-
+	</div>
+    
 	<!-- Bootstrap core JavaScript -->
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -205,5 +128,12 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 </body>
+ <!-- Footer -->
+	<footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
+      </div>
+      <!-- /.container -->
+    </footer>
 
 </html>
