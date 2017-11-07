@@ -29,8 +29,16 @@
     <script src="js/respond.min.js"></script> 
     <![endif]--> 
 </head>
+
 <body class="index_bg">
 <?php include "templates/navbar_index.php" ?>
+
+
+<body>
+
+
+
+
     <!-- Page Content -->
     <div class="container-fluid"" >
 	     <div class="row">
@@ -120,7 +128,7 @@
 									<a href="pages/products.php"><?php echo $name ?></a>
 								  </h5>
 								  <p class="product-price">
-									  <?php echo "RM $price  &nbsp &nbsp"; ?>
+									  RM <?php echo $price; ?>
 								  </p>
 								  
 								  <hr class="divider-owner"/>

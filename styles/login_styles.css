@@ -1,4 +1,4 @@
-﻿/*Fonts for Login page*/
+/*Fonts for Login page*/
 @font-face {
     font-family: queenFont;
     src: url("fonts/queen_of_clubs.otf");
@@ -8,6 +8,8 @@
     font-family: sunValleyFont;
     src: url("fonts/sun_valley.ttf");
 }
+
+html{height:100%;}
 
 .header > h2{
     font-family: sunValleyFont;

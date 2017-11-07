@@ -52,7 +52,9 @@ $order = preg_replace("/[^0-9]/", "",$angka);
 </head>
 <body>
 
+
 <?php include "../templates/navbar.php" ?>
+
  <div class="container">
  <div class="page-header">
   

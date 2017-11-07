@@ -1,36 +1,40 @@
 <?php
-    function post_captcha($user_response) {
-        $fields_string = '';
-        $fields = array(
-            'secret' => '6LcMnDYUAAAAAKIWsGmQO7BxGrMsVyYwTS1X7MnQ',
-            'response' => $user_response
-        );
-        foreach($fields as $key=>$value)
-        $fields_string .= $key . '=' . $value . '&';
-        $fields_string = rtrim($fields_string, '&');
+	session_start();
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'https://www.google.com/recaptcha/api/siteverify');
-        curl_setopt($ch, CURLOPT_POST, count($fields));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, True);
+	//Variable declaration
+	$comment = ""; 
+	$username = ""; 
+	$errors = array(); 
+	$_SESSION['success'] = "";
 
-        $result = curl_exec($ch);
-        curl_close($ch);
+	//connect to database
+	$dbi = mysqli_connect('localhost', 'root', '' , 'deallo_udb'); 
+	
+	if (isset($_GET['submit'])){
+		//receive all input values from the form.
+		$username = mysqli_real_escape_string($dbi, $_SESSION['username']);
+		$comment = mysqli_real_escape_string($dbi, $_GET['comment']);
 
-        return json_decode($result, true);
+	if (empty($comment)) { array_push($errors, "Comment is required"); }
+	if (empty($username)) { array_push($errors, "Username is required");}
+
+	if (count($errors) == 0){
+        
+		$query = "INSERT INTO questions (username,comment)
+				  VALUES('$username', '$comment')";
+		mysqli_query($dbi, $query);
+
+		$_SESSION['success'] = "Comment Success";
+        echo ("<SCRIPT LANGUAGE='JavaScript'>
+        window.alert('COMMENT SUCCESSFULLY')
+        window.location.href='customer-supp.php';
+        </SCRIPT>");
+	}else{
+        echo ("<SCRIPT LANGUAGE='JavaScript'>
+        window.alert('ERROR IN SUBMITTING FORM: Comment field is empty')
+        window.location.href='customer-supp.php';
+        </SCRIPT>");
     }
 
-    // Call the function post_captcha
-    $res = post_captcha($_POST['g-recaptcha-response']);
-
-    if (!$res['success']) {
-        // What happens when the CAPTCHA wasn't checked
-        echo '<p>Please go back and make sure you check the security CAPTCHA box.</p><br>';
-    } else {
-        // If CAPTCHA is successfully completed...
-
-        // Paste mail function or whatever else you want to happen here!
-        echo '<br><p>CAPTCHA was completed successfully!</p><br>';
-    }
+}
 ?>

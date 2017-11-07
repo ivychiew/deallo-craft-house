@@ -12,11 +12,11 @@
 	
 	<!--Custom CSS-->
 	<link rel="stylesheet" type="text/css" href="..\styles\login_styles.css"/>
-<<<<<<< HEAD
+
     <link rel="icon" type="image/png" href="..\images/DealloLogo-favicon.png"/>
      <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-=======
+
 	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
 	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 
@@ -27,7 +27,7 @@
     <script src="js/html5shiv.js"></script> 
     <script src="js/respond.min.js"></script> 
     <![endif]--> 
->>>>>>> 790e390686d01f713492d12b00fd42febd769130
+
 </head>
 
 <body class="bg">
@@ -49,9 +49,9 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-12"> 	
-			<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>"/>
-		</div>
+            <div class="col-md-12"> 	
+                <input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>"/>
+            </div>
 		</div>
 		<div class="row"> 
 			<div class="col-md-6"> 
@@ -78,20 +78,18 @@
 			<input type="text" name="color" id="color"/>
 		</div>
         </div>
-		
-			<button type="submit" class="btn" name="reg_user" style="width: 300px;">Register</button>
-		</div>
-        
-		<p id="alreadyMember">
+            <button type="submit" class="btn" name="reg_user" style="width: 100%;">Register</button>
+     
+        <br/><br/>
+        <p id="alreadyMember">
 			Already a member? <a href="login.php">Sign in</a>
 		</p>
+     
+		</div>
 	</form>
-<<<<<<< HEAD
 </div>
-=======
 	
-	<br/>
+<br/>
 	
->>>>>>> 790e390686d01f713492d12b00fd42febd769130
 </body>
 </html>

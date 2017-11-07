@@ -1,7 +1,7 @@
-<!--Include User Session Script-->
-<?php include '../includes/sessions.php' ?>
-<!--Include Delete Products Config-->
-<?php include '../includes/products_delete.php' ?>
+<?php
+include "../includes/sessions.php";
+include "../includes/product_config.php";
+?>
 
 <!DOCTYPE HTML>
 <html lang="en">
@@ -37,8 +37,10 @@
 
 <body>
 <!-- Navigation -->
+
 <?php include '../templates/navbar.php' ?>
-<!--End of Nav Bar-->
+
+ 
 
 <div class="container">
 
@@ -56,80 +58,57 @@
     
   <br/>
 
-<div class="row" id="products">
-<?php
-
-	//Fetch the data from the database
-      $stmt = $dbh->prepare("SELECT id, name, price, image, summary,product_owner FROM product WHERE product_owner =:owner ORDER BY id DESC ");
-	  
-	  $stmt->bindParam(":owner", $_SESSION['username']);
-      $stmt->execute();
-      
-      //If the number of products is more than 0 
-      if($stmt->rowCount() > 0)
-      {
-        //Fetch the products from the database table to a row
-        while($row=$stmt->fetch(PDO::FETCH_ASSOC))
-        { 
-          //Extract data to a row
-          extract($row);
-?>
-    <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                 <img src="../images/product_images/<?php echo $row['image']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#"><?php echo $name ?></a>
-                  </h4>
-                  <h5>
-                    <span class="product-price">
-                      <?php echo "RM $price  &nbsp &nbsp"; ?>
-                    </span>
-                  </h5>
-                <div class="col-sm-4card-text"><p><?php echo $summary; ?></p>
-                </div>
-                <div class="col-xs-3">
-                      <div class="editButton">
-                        <span> <!--Edit Product Button-->
-                          <a class="btn btn-info" href="editform.php?edit_id=<?php echo $row['id']; ?>" title="click for edit" onclick="return confirm('Are you sure?')">
-                            <span class="glyphicon glyphicon-edit"></span> Edit
-                          </a> 
-
-                            <!--Delete Product Button-->
-                          <a class="btn btn-danger" href="?delete_id=<?php echo $row['id']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')">
-                            <span class="glyphicon glyphicon-remove-circle"></span> Delete
-                          </a>
-                        </span>
-                        </div>
-                </div>
-      
+<div class="row">
+     <?php
+        $stmt = $dbh->prepare("SELECT * FROM product");
+        if ($stmt->execute()) {
+            while ($row = $stmt->fetch()) {
+        ?>
+          <div class="col-md-4">
+          <div class="well h-100" style="background-color: white;">
+            
+              <img src="../images/product_images/<?php echo $row['image']; ?>" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+              <div class="text-center">
+                <h4><?php echo $row['name'] ?></h4>
+                <p><strong>Price</strong>: $<?php echo $row['price'] ?><br/></p>
+                <p>
+                    <button type="button" class="btn btn-info my-cart-btn" href="editform.php?edit_id=<?php echo $row['id']; ?>" title="click for edit" onclick="return confirm('Are you sure?')> <span class=" glyphicon glyphicon-edit"></span> Edit</button> 
+                    <button type="button" class="btn btn-danger my-cart-btn" href="?delete_id=<?php echo $row['id']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')"> <span class="glyphicon glyphicon-remove-circle"></span> Delete</button> 
+                </p>
               </div>
-            </div>
-      </div> 
-
-      <?php
-    }
-  }
-  else
-  {
-    ?>
-
-    <!--If Empty Data, Show no data found-->
-        <div class="col-xs-12">
-          <div class="alert alert-warning">
-              <span class="glyphicon glyphicon-info-sign"></span> &nbsp; No Data Found ...
-            </div>
-        </div>
+            
+          </div>
+          </div>
+            
         <?php
-  }
+            }
+        }
+        ?>
+        </div>
   
-?>
+ 
 </div>  
 </div>
+       
+    <!-- Footer -->
+	<footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
+      </div>
+      <!-- /.container -->
+    </footer>
 
 
 	<!-- Latest compiled and minified JavaScript -->
 	
+
+	<script type='text/javascript' src='../js/buttonToggle.js'></script>
+	<!-- Bootstrap core JavaScript -->
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 </body>
 

@@ -1,5 +1,5 @@
 <?php include "..\includes\addproducts_config.php" ?>
-<?php include "../includes/sessions.php" ?>
+<?php include "..\includes\sessions.php" ?>
 
 <!DOCTYPE HTML>
 <html lang="en">
@@ -11,18 +11,16 @@
 
     <title>Deallo Craft House - Add new product</title>
 
-<<<<<<< HEAD
   <!--Nav and Footer Stylesheet--> 
-  <!-- Latest compiled and minified CSS -->
-=======
+
 	<!-- Latest compiled and minified CSS -->
->>>>>>> 790e390686d01f713492d12b00fd42febd769130
     <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../styles/test.css">
     <link rel="stylesheet" type="text/css" href="../styles/products.css">
+    <link rel="stylesheet" type="text/css" href="../styles/footer.css">
     <link rel="stylesheet" href="style.css">
 	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png">
 
@@ -37,72 +35,7 @@
 </head>
 
 <body>
-<!-- Navigation -->
-<!-- <<<<<<< HEAD -->
- <div class="navbar navbar-custom nav-fixed-top" role="navigation">
-<!-- ======= -->
-<div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
-<!-- >>>>>>> 790e390686d01f713492d12b00fd42febd769130 -->
-  
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" rel="home" href="../index.php">Deallo's Craft House</a>
-  </div>
-  
-  <div class="collapse navbar-collapse">
-
-    
-    <div class="col-sm-3 col-md-3 navbar-right">
-      <form class="navbar-form" role="search">
-      <div class="input-group ">
-        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-        <div class="input-group-btn">
-          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-        </div>
-      </div>
-      </form>
-    </div>
-
-   
-    <ul class="nav navbar-nav"><!--unordered list start -->
-    <li class="dropdown">
-     <?php  if (isset($_SESSION['username'])) : ?>
-             <a href="profile.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84"><?php echo $_SESSION['username'] ?><b class="caret"></b></a>  
-              <ul class="dropdown-menu">
-                <li><a href="pages/profile.php">Edit Profile</a></li>
-                <li class="divider"></li>
-                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
-                 <li class="divider"></li>
-                <li><a href="pages/customer-supp.php">Questions?</a></li>
-              </ul>
-            </li>
-       <?php endif ?>
-     
-      <li class="dropdown">
-              <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="pages/products.php">All Products</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Clothing</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Accessories</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Food</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Furniture</a></li>
-              </ul>
-      </li>
-      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
-    </ul>
-  </div>
-</div>
-<!--End of Nav Bar-->
-    
+<?php include '../templates/navbar.php' ?>
 <div class="container" style="padding-bottom: 20px; ">
 
 
@@ -160,10 +93,10 @@
       <td>
             <select name="product_category" value="<?php echo $producategory ?>">
                 <option>...</option>
-                <option>Clothing & Accessories</option>
+                <option>Clothing &amp; Accessories</option>
                 <option>Jewelry</option>
                 <option>Craft Supplies</option>
-                <option>Bedding & Room Decor</option>
+                <option>Bedding &amp; Room Decor</option>
                 <option>Soft Toys</option>
                 <option>Vintage Art</option>
                 <option>Wedding Accessories</option>
@@ -183,18 +116,10 @@
 
 
 </div>
-
-   <!-- Footer -->
-  <footer class="navbar-fixed-bottom py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-
     <!-- Latest compiled and minified JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
     <script src="jquery-1.11.3-jquery.min.js"></script>
 
 </body>
+<?php include '../templates/footer.php' ?>
 </html>

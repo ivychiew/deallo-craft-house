@@ -120,15 +120,14 @@
 		else
 		{
             //Connect to database
-            $conn = mysqli_connect("localhost", "root", "", "deallo");
+            $conn = mysqli_connect("localhost", "root", "", "deallo_udb");
             if(mysqli_connect_errno())
             {
                 echo "Failed to connect";
             }
             else
             {
-
-                $query = mysqli_query($conn, "SELECT * FROM product_tbl WHERE productName LIKE '%$searchTerm%'") or die(mysqli_error());
+                $query = mysqli_query($conn, "SELECT * FROM product WHERE name LIKE '%$searchTerm%'") or die(mysqli_error());
                 $numrows = mysqli_num_rows($query);
 		
             }
@@ -142,11 +141,11 @@
             echo "<hr/>";
             while($row = mysqli_fetch_array($query))
 			{
-				$category = $row['productCategory'];
-				$name = $row['productName'];
-				$picture = $row['productPic'];
-				$price = $row['productPrice'];
-                $productOwner = $row['productOwner'];
+				$category = $row['category'];
+				$name = $row['name'];
+				$picture = $row['image'];
+				$price = $row['price'];
+                $productOwner = $row['product_owner'];
                 
            ?>     
 

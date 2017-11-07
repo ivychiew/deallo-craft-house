@@ -59,8 +59,8 @@
                 <li><a href="pages/profile.php">Edit Profile</a></li>
                 <li class="divider"></li>
                 <li class="dropdown-header">Sell</li>
-                <li><a href="addproduct.php">Add an item for sell</a></li>
-                <li><a href="myProducts.php">My Products</a></li>
+                <li><a href="pages/addproducts.php">Add an item for sell</a></li>
+                <li><a href="pages/myProducts.php">My Products</a></li>
                 <li class="divider"></li>
                 <li class="dropdown-header">Questions?</li>
                 <li><a href="pages/customer-supp.php">Customer Support</a></li>
