@@ -22,9 +22,10 @@ $order = preg_replace("/[^0-9]/", "",$angka);
 	
 	<!--Custom CSS-->
     <link rel="stylesheet" href="../styles/test.css">
-     <link rel="stylesheet" href="../styles/products_styles.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/products_styles.css">
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
+	 <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
 	
     <style>
         .badge-notify{
@@ -246,5 +247,7 @@ $order = preg_replace("/[^0-9]/", "",$angka);
             $.post('order.php',{ui:'1', id:allid, aq:allquantity, ap:allprice, shopping:'shopping', order:myorder});
         }
     </script>
+
+    <?php include "../templates/footer.php" ?>
 </body>
 </html>
