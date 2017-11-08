@@ -24,16 +24,16 @@
 		//re-enter password
 		$password_2 = mysqli_real_escape_string($dbi, $_POST['password_2']);
 
-	//form validation: esure that the form is correctly filled 
-	if (empty($username)) { array_push($errors, "Username is required"); }
-	if (empty($email)) { array_push($errors, "Email is required");}
-	if (empty($password_1)) {array_push($errors, "Password is required"); }
-    if (empty($surname)) {array_push($errors, "Security Question 1 is required"); }
-    if (empty($color)) {array_push($errors, "Security Question 2 is required"); }
-        
-	if ($password_1 != $password_2) {
-		array_push($errors, "The two passwords do not match!");
-	}
+		//form validation: esure that the form is correctly filled 
+		if (empty($username)) { array_push($errors, "Username is required"); }
+		if (empty($email)) { array_push($errors, "Email is required");}
+		if (empty($password_1)) {array_push($errors, "Password is required"); }
+		if (empty($surname)) {array_push($errors, "Security Question 1 is required"); }
+		if (empty($color)) {array_push($errors, "Security Question 2 is required"); }
+			
+		if ($password_1 != $password_2) {
+			array_push($errors, "The two passwords do not match!");
+		}
 
 	//Register users provided the form is error free.
 	if (count($errors) == 0){
@@ -68,27 +68,35 @@
 			array_push($errors, "Password is required");
 		}
 
+		//If no errors encountered, start query
 		if (count($errors) == 0) {
-
-			$query = "SELECT * FROM user WHERE username='$username' OR email='$username' AND password='$password'";
-			$results = mysqli_query($dbi, $query);
 			
+			//Checks if username or email exists in database
 			$queryExist = "SELECT * FROM user WHERE username='$username' OR email='$username'";
 			$resultsExist = mysqli_query($dbi, $queryExist);
 			
-			//Checks if username or email exists in database
 			if (mysqli_num_rows($resultsExist) == 1) {
+				
+				//Check if username and password matches
+				$query = "SELECT * FROM user WHERE username='$username' AND password='$password'";
+				$results = mysqli_query($dbi, $query);
+				
+				//Check if email for facebook login
+				$queryFB = "SELECT * FROM user WHERE email='$username' AND password='$password'";
+				$resultsFB = mysqli_query($dbi, $queryFB);
 				
 				//Checks if username and password is correct
 				if (mysqli_num_rows($results) == 1) {
-				$row=mysqli_fetch_row($results);
-				
-				$_SESSION['welcomeName'] = $row[1];
-				
-				$_SESSION['username'] = $username;
-				$_SESSION['success'] = "You are now logged in";
-				header('location: ..\index.php');
-				}else {
+					$row=mysqli_fetch_row($results);
+					$_SESSION['username'] = $username;
+					$_SESSION['success'] = "You are now logged in";
+					header('location: ..\index.php');
+				}elseif (mysqli_num_rows($resultsFB) == 1){
+					$rowFB=mysqli_fetch_row($resultsFB);
+					$_SESSION['username'] = $rowFB[1];
+					$_SESSION['success'] = "You are now logged in";
+					header('location: ..\index.php');
+				}else{
 					array_push($errors, "Wrong username/password combination");
 				}
 			}else{
