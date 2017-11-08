@@ -159,6 +159,7 @@ if(!isset($_SESSION)){
 	
 	<!--Custom CSS-->
     <link rel="stylesheet" href="../styles/test.css"/>
+    <link rel="stylesheet" href="../styles/footer.css"/> 
 	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
    
    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
@@ -281,14 +282,6 @@ if(!isset($_SESSION)){
         </div>
 </div>
 
-	 <!-- Footer -->
-	<footer class="navbar-fixed-bottom py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-
     <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
     <script src="../js/jquery.min.js"></script> 
     <!-- All Bootstrap  plug-ins  file --> 
@@ -301,5 +294,5 @@ if(!isset($_SESSION)){
     <script src="../js/dealloApp.js"></script>
 	
 </body>
-	
+	<?php include '../templates/footer.php' ?>
 </html>

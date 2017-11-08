@@ -64,7 +64,7 @@
             $stmt = $dbh->prepare('UPDATE product
                                          SET name=:pname, 
                                              price=:pprice, 
-                                             pic=:ppic,
+                                             image=:ppic,
                                              category=:pcat,
                                              summary=:pdesc
                                        WHERE id=:pid');
@@ -74,8 +74,7 @@
             $stmt->bindParam(':pcat',$category);
             $stmt->bindParam(':pdesc',$summary);
             $stmt->bindParam(':pid',$id);
-            // $stmt->bindParam(':pcat',$productcategory);
-            
+          
                 
             if($stmt->execute()){
                 ?>

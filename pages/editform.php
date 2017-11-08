@@ -56,32 +56,33 @@
 		
 			<tr>
 				<td><label class="control-label">Product Name</label></td>
-				<td><input class="form-control" type="text" name="product_name" value="<?php echo $name; ?>" required /></td>
+				<td><input class="form-control" type="text" name="product_name" value="<?php echo $name ?>" required /></td>
 			</tr>
 			
 			<tr>
 				<td><label class="control-label">Price</label></td>
-				<td><input class="form-control" type="text" name="product_price" value="<?php echo $price; ?>" required /></td>
+				<td><input class="form-control" type="text" name="product_price" value="<?php echo $price ?>" required /></td>
 			</tr>
 			
 			<tr>
 				<td><label class="control-label">Product Image</label></td>
 				<td>
-					<p><img src="../images/product_images/<?php echo $image; ?>" height="150" width="150" /></p>
+					<p><img src="../images/product_images/<?php echo $image ?>" height="150" width="150" /></p>
 					<input class="input-group" type="file" name="product_image" accept="image/*" />
 				</td>
 			</tr>
 
 			<tr>
 				<td><label class="control-label">Description</label></td>
-				<td><input class="form-control" type="text" name="product_description" value="<?php echo $summary; ?>" required /></td>
+				<td><input class="form-control" type="text" name="product_description" 
+				value="<?php echo $summary ?>" required /></td>
 			</tr>
 			
 
 			<tr>
 				<td><label class="control-label">Select Category</label></td>
 				<td>
-				<select name="product_category" value="<?php echo $categoryy ?>"/>
+				<select name="product_category" value="<?php echo $category ?>"/>
 				<option>...</option>
 				<option>Clothing & Accessories</option>
 				<option>Jewelry</option>
@@ -94,7 +95,6 @@
 				
 				</td>
 			</tr>
-			
 			<tr>
 				<td colspan="2"><button type="submit" name="btn_save_updates" class="btn btn-default">
 				<span class="glyphicon glyphicon-save"></span> Update

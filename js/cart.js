@@ -2,7 +2,7 @@
 
     var goToCartIcon = function($addTocartBtn){
       var $cartIcon = $(".my-cart-icon");
-      var $image = $('<img width="50px" height="50px" src="' + $addTocartBtn.data("image") + '"/>' + '&nbsp').css({"position": "fixed", "z-index": "999"});
+      var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
       $addTocartBtn.prepend($image);
       var position = $cartIcon.position();
       $image.animate({
@@ -22,7 +22,11 @@
       classCheckoutCart: 'my-cart-checkout',
       affixCartIcon: true,
       showCheckoutModal: true,
-     
+      /*cartItems: [
+        {id: 1, name: 'Juice Blender', summary: 'Bisa blender jus, bumbu masakan', price: 10, quantity: 1, image: 'assets/images/img_1.png'},
+        {id: 2, name: 'TV remote', summary: 'Bisa untuk semua tv', price: 20, quantity: 2, image: 'assets/images/img_2.png'},
+        {id: 3, name: 'Sony camera', summary: 'Kamera murah', price: 30, quantity: 1, image: 'assets/images/img_3.png'}
+      ],*/
       clickOnAddToCart: function($addTocart){
         goToCartIcon($addTocart);
       },
@@ -41,9 +45,13 @@
       },
       getDiscountPrice: function(products, totalPrice, totalQuantity) {
         console.log("calculating discount", products, totalPrice, totalQuantity);
-        return totalPrice;
+        return totalPrice * 0.99;
       }
     });
 
   });
-        
+        function shoppingcart(allid,allquantity,allprice){
+            var myorder = "<?php echo $order ?>";
+            $.post('order.php',{ui:'1', id:allid, aq:allquantity, ap:allprice, shopping:'shopping', order:myorder});
+        }
+    </script>

@@ -21,6 +21,7 @@ $order = preg_replace("/[^0-9]/", "",$angka);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   
   <!--Custom CSS-->
+    <link rel="stylesheet" href="..styles/cart_styles.css">
     <link rel="stylesheet" href="../styles/test.css">
     <link rel="stylesheet" href="../styles/footer.css">
     <link rel="stylesheet" href="../styles/buttons.css">
@@ -65,17 +66,7 @@ $order = preg_replace("/[^0-9]/", "",$angka);
         </div>
         <!--end of column-->
       </div>
- <!-- div class="page-header">
-  
-      <h1 class="h2">All Products
-        <a class="btn btn-default" href="addproducts.php"> 
-          <span class="glyphicon glyphicon-plus"></span> &nbsp; Create a new product 
-        </a>
-        <a class="btn btn-default" href="myProducts.php"> 
-          <span class="glyphicon glyphicon-book"></span> &nbsp; My Products
-        </a>
-      </h1> 
-    </div> -->
+
   <div class="row" style="padding-right: 15px;">
     <div class="col-lg-3 col-md-3">
     <br>
@@ -203,64 +194,8 @@ $order = preg_replace("/[^0-9]/", "",$angka);
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.mycart.min.js"></script>
     <script>
-    $(function () {
-
-    var goToCartIcon = function($addTocartBtn){
-      var $cartIcon = $(".my-cart-icon");
-      var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
-      $addTocartBtn.prepend($image);
-      var position = $cartIcon.position();
-      $image.animate({
-        top: position.top,
-        left: position.left
-      }, 500 , "linear", function() {
-        $image.remove();
-      });
-    }
-
-    $('.my-cart-btn').myCart({
-      currencySymbol: '$',
-      classCartIcon: 'my-cart-icon',
-      classCartBadge: 'my-cart-badge',
-      classProductQuantity: 'my-product-quantity',
-      classProductRemove: 'my-product-remove',
-      classCheckoutCart: 'my-cart-checkout',
-      affixCartIcon: true,
-      showCheckoutModal: true,
-      /*cartItems: [
-        {id: 1, name: 'Juice Blender', summary: 'Bisa blender jus, bumbu masakan', price: 10, quantity: 1, image: 'assets/images/img_1.png'},
-        {id: 2, name: 'TV remote', summary: 'Bisa untuk semua tv', price: 20, quantity: 2, image: 'assets/images/img_2.png'},
-        {id: 3, name: 'Sony camera', summary: 'Kamera murah', price: 30, quantity: 1, image: 'assets/images/img_3.png'}
-      ],*/
-      clickOnAddToCart: function($addTocart){
-        goToCartIcon($addTocart);
-      },
-      afterAddOnCart: function(products, totalPrice, totalQuantity) {
-        console.log("afterAddOnCart", products, totalPrice, totalQuantity);
-      },
-      clickOnCartIcon: function($cartIcon, products, totalPrice, totalQuantity) {
-        console.log("cart icon clicked", $cartIcon, products, totalPrice, totalQuantity);
-      },
-      checkoutCart: function(products, totalPrice, totalQuantity) {
-        var checkoutString = "Total Price: " + totalPrice + "\nTotal Quantity: " + totalQuantity;
-        $.each(products, function(){
-            shoppingcart(this.id, this.quantity, this.price * this.quantity);
-        });
-        console.log("checking out", products, totalPrice, totalQuantity);
-      },
-      getDiscountPrice: function(products, totalPrice, totalQuantity) {
-        console.log("calculating discount", products, totalPrice, totalQuantity);
-        return totalPrice * 0.99;
-      }
-    });
-
-  });
-        function shoppingcart(allid,allquantity,allprice){
-            var myorder = "<?php echo $order ?>";
-            $.post('order.php',{ui:'1', id:allid, aq:allquantity, ap:allprice, shopping:'shopping', order:myorder});
-        }
+      <?php include "../js/cart.js" ?>
     </script>
-
     <?php include "../templates/footer.php" ?>
 </body>
 </html>

@@ -28,7 +28,7 @@
    
     <ul class="nav navbar-nav navbar-right" style="padding-right:10%"><!--unordered list start -->
     <li class="dropdown">
-          <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown">Cateogries <b class="caret"></b></a>
+          <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Cateogries <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="products.php">All Products</a></li>
             <li class="divider"></li>

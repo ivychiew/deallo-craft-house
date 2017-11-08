@@ -8,7 +8,7 @@
 			<br>
 			<li><a href="pages\products\clothingAcc.php">Clothing & Accessories</a></li>
 			<li><a href="pages\products\Jewelry.php">Jewelry</a></li>
-			<li><a href="pages\products\craftSupplies.php">Craft Supplies</a>/li>
+			<li><a href="pages\products\craftSupplies.php">Craft Supplies</a></li>
 			<li><a href="pages\products\bedding.php">Bedding & Room Decor</a></li>
 			<li><a href="pages\products\softToys.php">Soft Toys</a></li>
 			<li><a href="pages\products\vintage.php">Vintage Art</a></li>
