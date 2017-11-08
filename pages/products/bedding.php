@@ -128,12 +128,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 </body>
- <!-- Footer -->
-	<footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Deallo's Craft House</p>
-      </div>
-      <!-- /.container -->
-    </footer>
+ <?php include "../../templates/footer_products.php" ?>
 
 </html>

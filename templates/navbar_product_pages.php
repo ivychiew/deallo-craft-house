@@ -8,7 +8,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" rel="home" href="../index.php">Deallo's Craft House</a>
+    <a class="navbar-brand" rel="home" href="../../index.php">Deallo's Craft House</a>
   </div>
   
   <div class="collapse navbar-collapse">
@@ -54,7 +54,7 @@
 		 <?php  if (isset($_SESSION['username'])) : ?>
               <a class="dropdown-toggle" data-toggle="dropdown">
              <!--  Welcome <?php echo $_SESSION['welcomeName'] ?> <b class="caret"></b></a> -->
-              <?php echo $_SESSION['username'] ?> <b class="caret"></b></a>
+              <span class="glyphicon glyphicon-user"></span><?php echo $_SESSION['username'] ?> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="../profile.php">Edit Profile</a></li>
                 <li class="divider"></li>

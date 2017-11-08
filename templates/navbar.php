@@ -19,7 +19,7 @@
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search here!" name="searchTerm" id="searchTerm" />
         <div class="input-group-btn">
-          <button class="btn btn-default" name="search_submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+         <button class="btn btn-default" name="search_submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
         </div>
       </div>
       </form>
@@ -54,9 +54,9 @@
 		 <?php  if (isset($_SESSION['username'])) : ?>
               <a class="dropdown-toggle" data-toggle="dropdown">
              <!--  Welcome <?php echo $_SESSION['welcomeName'] ?> <b class="caret"></b></a> -->
-              <?php echo $_SESSION['username'] ?> <b class="caret"></b></a>
+              <span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['username'] ?> <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="pages/profile.php">Edit Profile</a></li>
+                <li><a href="profile.php">Edit Profile</a></li>
                 <li class="divider"></li>
                 <li class="dropdown-header">Sell</li>
                 <li><a href="addproducts.php">Add an item for sell</a></li>

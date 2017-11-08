@@ -56,39 +56,40 @@
 		
 			<tr>
 				<td><label class="control-label">Product Name</label></td>
-				<td><input class="form-control" type="text" name="product_name" value="<?php echo $productName; ?>" required /></td>
+				<td><input class="form-control" type="text" name="product_name" value="<?php echo $name; ?>" required /></td>
 			</tr>
 			
 			<tr>
 				<td><label class="control-label">Price</label></td>
-				<td><input class="form-control" type="text" name="product_price" value="<?php echo $productPrice; ?>" required /></td>
+				<td><input class="form-control" type="text" name="product_price" value="<?php echo $price; ?>" required /></td>
 			</tr>
 			
 			<tr>
 				<td><label class="control-label">Product Image</label></td>
 				<td>
-					<p><img src="../images/product_images/<?php echo $productPic; ?>" height="150" width="150" /></p>
+					<p><img src="../images/product_images/<?php echo $image; ?>" height="150" width="150" /></p>
 					<input class="input-group" type="file" name="product_image" accept="image/*" />
 				</td>
 			</tr>
 
 			<tr>
 				<td><label class="control-label">Description</label></td>
-				<td><input class="form-control" type="text" name="product_description" value="<?php echo $productDescription; ?>" required /></td>
+				<td><input class="form-control" type="text" name="product_description" value="<?php echo $summary; ?>" required /></td>
 			</tr>
 			
 
 			<tr>
 				<td><label class="control-label">Select Category</label></td>
 				<td>
-				<select name="product_category" value="<?php echo $productCategory ?>"/>
+				<select name="product_category" value="<?php echo $categoryy ?>"/>
 				<option>...</option>
-				<option>Food</option>
-				<option>Furniture</option>
+				<option>Clothing & Accessories</option>
 				<option>Jewelry</option>
-				<option>Clothes</option>
-				<option>Souvenirs</option>
-				<option>Gifts</option>
+				<option>Craft Supplies</option>
+				<option>Bedding & Room Decor</option>
+				<option>Soft Toys</option>
+				<option>Vintage Art</option>
+				<option>Wedding Accessories</option>
 				</select>
 				
 				</td>

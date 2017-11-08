@@ -20,6 +20,8 @@
 	
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/buttons.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/footer.css"/>
     <link rel="stylesheet" type="text/css" href="../styles/products.css"/>
 	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png">
     
@@ -27,68 +29,7 @@
    
 
 <body>
-<!-- Navigation -->
- <div class="navbar navbar-default navbar-inverse nav-fixed-top" role="navigation">
-  
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" rel="home" href="../index.php">Deallo's Craft House</a>
-  </div>
-  
-  <div class="collapse navbar-collapse">
-
-    
-    <div class="col-sm-3 col-md-3 navbar-right">
-      <form class="navbar-form" role="search">
-      <div class="input-group ">
-        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-        <div class="input-group-btn">
-          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-        </div>
-      </div>
-      </form>
-    </div>
-
-   
-    <ul class="nav navbar-nav"><!--unordered list start -->
-    <li class="dropdown">
-     <?php  if (isset($_SESSION['username'])) : ?>
-              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown" style="color: #577B84">Welcome <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="profile.php">Edit Profile</a></li>
-                <li class="divider"></li>
-                <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
-                 <li class="divider"></li>
-                <li><a href="customer-supp.php">Questions?</a></li>
-              </ul>
-            </li>
-       <?php endif ?>
-     
-      <li class="dropdown">
-              <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="products.php">All Products</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Clothing</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Accessories</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Food</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Furniture</a></li>
-              </ul>
-      </li>
-      <li><a href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Cart</a></li>
-    </ul>
-  </div>
-</div>
-<!--End of Nav Bar-->
-
+<?php include '../templates/navbar.php' ?>
 <div class="container">
 
   <div class="page-header">
@@ -109,7 +50,7 @@
 	<?php
 	  
 		  //Fetch the data from the database
-		  $stmt = $DB_con->prepare('SELECT productID, productName, productPrice, productPic, productDescription FROM product_tbl ORDER BY productID DESC');
+		  $stmt = $dbh->prepare('SELECT id, name, price, image, summary FROM product ORDER BY id DESC');
 		  $stmt->execute();
 		  
 		  //If the number of products is more than 0 
@@ -124,28 +65,28 @@
 	
     <div class="col-md-3">
       <div class="well" style="background-color: white;">
-        <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+        <img src="../images/product_images/<?php echo $row['image']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
 
           <div class="well-body">
             <h4 class="well-title">
-              <span id="myBtn"><?php echo $productName ?></span>
+              <span id="myBtn"><?php echo $name ?></span>
             </h4>
 
                   <h5>
                     <span class="product-price">
-                      <?php echo "RM $productPrice  &nbsp &nbsp"; ?>
+                      <?php echo "RM $price  &nbsp &nbsp"; ?>
                     </span>
                   </h5>
 
-                <div class="col-sm-4card-text"><?php echo $productDescription; ?></div>
+                <div class="col-sm-4card-text"><?php echo $summary; ?></div>
                  <br>
                         <span> <!--Edit Product Button-->
-                          <a class="btn btn-info" href="editform.php?edit_id=<?php echo $row['productID']; ?>" title="click for edit" onclick="return confirm('Are you sure?')">
+                          <a class="btn btn-info" href="editform.php?edit_id=<?php echo $row['id']; ?>" title="click for edit" onclick="return confirm('Are you sure?')">
                             <span class="glyphicon glyphicon-edit"></span> Edit
                           </a> 
 
                             <!--Delete Product Button-->
-                          <a class="btn btn-danger" href="?delete_id=<?php echo $row['productID']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')">
+                          <a class="btn btn-danger" href="?delete_id=<?php echo $row['id']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')">
                             <span class="glyphicon glyphicon-remove-circle"></span> Delete
                           </a>
                         </span>
@@ -176,6 +117,7 @@
 
 </body>
 
+<?php include '../templates/footer.php' ?>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
 	<script type='text/javascript' src='../js/buttonToggle.js'></script>

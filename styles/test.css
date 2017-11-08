@@ -6,11 +6,17 @@
 body{
     background-color: #FFFFFF; 
 }
+
+.search{
+
+    padding-bottom: 50px;
+}
 .container-fluid{
     /*margin-left:10%; 
     margin-right: 10%; */
-    background-color:#F2F3D9;
+    background-color: #FFFFFF;
 }
+
 /*<<<<<<< HEAD*/
 .products_link a{
     color: blue;
@@ -147,3 +153,4 @@ img{margin: auto; display: block;}
     
 /*>>>>>>> 790e390686d01f713492d12b00fd42febd769130
 */
+

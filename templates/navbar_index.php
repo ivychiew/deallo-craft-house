@@ -54,7 +54,7 @@
 		 <?php  if (isset($_SESSION['username'])) : ?>
               <a class="dropdown-toggle" data-toggle="dropdown">
              <!--  Welcome <?php echo $_SESSION['welcomeName'] ?> <b class="caret"></b></a> -->
-              <?php echo $_SESSION['username'] ?> <b class="caret"></b></a>
+              <span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['username'] ?> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="pages/profile.php">Edit Profile</a></li>
                 <li class="divider"></li>
@@ -76,7 +76,7 @@
           <a href="pages/products.php" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart glyphicon-2x my-cart-icon">  <span class="badge badge-notify my-cart-badge"></span>
             </span> <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="order.php">View Cart Summary</a></li>
+            <li><a href="pages/order.php">View Cart Summary</a></li>
           </ul>
       </li>
      <li>

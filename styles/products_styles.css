@@ -1,3 +1,14 @@
-.navbar a:hover{ 
-	color: inherit;
+.category{
+	background-color: white;
+}
+
+.list-group{
+	padding-right: 100px
+}
+
+.modal-dialog{ 
+	max-height: 300px;
+	max-width: 300px;
+
  }
+

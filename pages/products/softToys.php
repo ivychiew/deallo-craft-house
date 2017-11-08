@@ -120,5 +120,5 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 </body>
-<?php include "../../templates/footer.php" ?>
+ <?php include "../../templates/footer_products.php" ?>
 </html>

@@ -16,6 +16,7 @@
 
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="styles/test.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/buttons.css"/>
     <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	  <link rel="icon" type="image/png" href="images/DealloLogo-favicon.png"/>
@@ -35,10 +36,6 @@
 
 
 <body>
-
-
-
-
     <!-- Page Content -->
     <div class="container-fluid"" >
 	     <div class="row">
@@ -87,7 +84,7 @@
     <div class="well" style="background-color: white;">
     <div class="welcome_heading" align="center">
     <img src="images/watercolor.png" class="img-responsive" style="max-width: 100px; max-height: 100px;"/>
-    <h2> Share your creativity with others: <a href="pages/addproducts.php" class="btn btn-danger my-cart-btn">Add an item for sell</a></h2>
+    <h2> Share your creativity with others: <a href="pages/addproducts.php" class="btn btn-lg btn-default my-cart-btn">Add an item for sell</a></h2>
 
     </div>
     </div>
@@ -216,7 +213,7 @@
   <!-- /.container-fluid -->
 
   <!-- footer -->
-  <?php include 'templates/footer.php' ?>
+  <?php include 'templates/footer_index.php' ?>
   <!--   footer -->
 	<!-- Bootstrap core JavaScript -->
 	<!-- jQuery library -->

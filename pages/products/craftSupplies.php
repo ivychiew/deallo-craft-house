@@ -120,7 +120,7 @@
 	
 	</div>
 
-     <?php include "../../templates/footer.php" ?>
+     <?php include "../../templates/footer_products.php" ?>
 
 	<!-- Bootstrap core JavaScript -->
 	  <!-- jQuery library -->

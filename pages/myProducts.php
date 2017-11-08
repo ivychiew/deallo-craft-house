@@ -50,9 +50,9 @@ include "../includes/product_config.php";
         <a class="btn btn-default" href="addproducts.php"> 
           <span class="glyphicon glyphicon-plus"></span> &nbsp; Create a new product 
         </a>
-        <a class="btn btn-default" href="editproducts.php"> 
+       <!--  <a class="btn btn-default" href="editproducts.php"> 
           <span class="glyphicon glyphicon-plus"></span> &nbsp; Edit Products
-        </a>
+        </a> -->
       </h1> 
     </div>
     
@@ -72,7 +72,8 @@ include "../includes/product_config.php";
                 <h4><?php echo $row['name'] ?></h4>
                 <p><strong>Price</strong>: $<?php echo $row['price'] ?><br/></p>
                 <p>
-                    <button type="button" class="btn btn-info my-cart-btn" href="editform.php?edit_id=<?php echo $row['id']; ?>" title="click for edit" onclick="return confirm('Are you sure?')> <span class=" glyphicon glyphicon-edit"></span> Edit</button> 
+                    <button type="button" class="btn btn-info" href="editform.php?edit_id=<?php echo $row['id']; ?>" title="click for edit" onclick="return confirm('Are you sure?')> <span class=" glyphicon glyphicon-edit"></span> Edit</button>
+
                     <button type="button" class="btn btn-danger my-cart-btn" href="?delete_id=<?php echo $row['id']; ?>" title="click for delete" onclick="return confirm('Are you sure ?')"> <span class="glyphicon glyphicon-remove-circle"></span> Delete</button> 
                 </p>
               </div>
