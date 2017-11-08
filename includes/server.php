@@ -82,7 +82,7 @@
 				$results = mysqli_query($dbi, $query);
 				
 				//Check if email for facebook login
-				$queryFB = "SELECT * FROM user WHERE email='$username' AND password='$password'";
+				$queryFB = "SELECT * FROM user WHERE email='$username' AND surname='$password'";
 				$resultsFB = mysqli_query($dbi, $queryFB);
 				
 				//Checks if username and password is correct
@@ -92,6 +92,7 @@
 					$_SESSION['success'] = "You are now logged in";
 					header('location: ..\index.php');
 				}elseif (mysqli_num_rows($resultsFB) == 1){
+                    //FB Auth: Checks if email and lastName are correct
 					$rowFB=mysqli_fetch_row($resultsFB);
 					$_SESSION['username'] = $rowFB[1];
 					$_SESSION['success'] = "You are now logged in";

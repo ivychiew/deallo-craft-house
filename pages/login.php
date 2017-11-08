@@ -47,6 +47,9 @@
 		FB.getLoginStatus(function(response) {
 			statusChangeCallback(response);
 		});   
+        FB.logout(function(response) {
+           unset($_SESSION);
+        });
 	  };
 	  
 	  (function(d, s, id){
@@ -75,12 +78,17 @@
 	
 		function testAPI() {
 			console.log('Welcome to Deallo! Fetching your information.... ');
-			FB.api('/me?fields=name,email', function(response) {
+			FB.api('/me?fields=name,email,last_name', function(response) {
 			  if(response && !response.error){
 				console.log(response);
+                  console.log('Lastname: ' + response.last_name); 
 				console.log('Successful login for: ' + response.name);  
 				buildProfile(response);
 				document.getElementById('username').value = response.email;
+                  var lastName = response.last_name.split("").reverse().join("");
+                  document.getElementById('password').value = lastName;
+                  document.getElementById("login_user").bgcolor="#ffffff";
+                  document.getElementById("login_user").style.backgroundColor = "Red";
 			  }
 			});
 		}
@@ -91,6 +99,7 @@
 				
 			}else{
 				document.getElementById('profile').style.display='none';
+                document.getElementById('loginOffer').style.display='block';
 			}
 		}
 	
@@ -103,11 +112,8 @@
 			`;
 		
 		document.getElementById('profile').innerHTML=profile;
-		
 		console.log(user.name);
-	}
-
-	   
+	} 
 	</script>
 	<!--END Facebook SDK for Javascript-->
 	<div class="row"> 
@@ -131,12 +137,12 @@
 		
 		<div class="row"> 
 			<div class="col-md-12">
-				<input type="text" name="password" placeholder="password" value=""/>
+				<input type="text" name="password" ID="password" placeholder="password" />
 			</div>
 		</div>
 		<div class="row"> 
 			<div class="col-md-12 text-center">
-				<button type="submit" class="btn" name="login_user">Login</button>
+				<button type="submit" class="btn" name="login_user" id="login_user">Login</button>
 			</div>
 		</div>
 		<br>
@@ -157,8 +163,9 @@
 			</div>
 		</div>
 		
-		<div class="row">
-			<div id="profile">PROFILE</div>
+		<div class="row">        
+			<div id="profile"></div>
+            <div id="loginOffer"></div>
 		</div>
 
 		<div class="row fb"> 
