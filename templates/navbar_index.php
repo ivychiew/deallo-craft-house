@@ -55,7 +55,7 @@
               <a class="dropdown-toggle" data-toggle="dropdown">
 
              <!--  Welcome <?php echo $_SESSION['username'] ?> <b class="caret"></b></a> -->
-              <?php echo $_SESSION['username'] ?> <b class="caret"></b></a>
+               <span class="glyphicon glyphicon-user"></span><?php echo $_SESSION['username'] ?> <b class="caret"></b></a>
 
               <ul class="dropdown-menu">
                 <li><a href="pages/profile.php">Edit Profile</a></li>

@@ -144,11 +144,11 @@
 				
 				
         <div class="row">
-         <h3> &nbsp; Homemade Snacks </h3>
+         <h3> &nbsp; Craft Supplies </h3>
         <?php
         
           //Fetch the data from the database
-          $stmt = $dbh->prepare('SELECT * FROM product WHERE category= "Food" LIMIT 4 OFFSET 0');
+          $stmt = $dbh->prepare('SELECT * FROM product WHERE category= "Craft Supplies" LIMIT 4 OFFSET 0');
           $stmt->execute();
           
           //If the number of products is more than 0 
