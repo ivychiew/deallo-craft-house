@@ -127,7 +127,7 @@ include "../includes/sessions.php";
            
 	   </tr>
 		 <?php
-			$stmt = $dbh->prepare("SELECT * FROM product");
+			$stmt = $dbh->prepare("SELECT * FROM payments");
 			if ($stmt->execute()) {
 				while ($row = $stmt->fetch()) {
 			?>
