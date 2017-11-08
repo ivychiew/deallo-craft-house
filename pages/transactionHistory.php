@@ -115,9 +115,16 @@ include "../includes/sessions.php";
    <div class="row">
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	   <table class="table table-striped table-responsive">
-	   <tr>
+	  <tr>
+		   <td>Payment ID</td>
 		   <td>Item Name</td>
-		   <td>Price</td>
+           <td>Transaction ID</td>
+           <td>Amount</td>
+           <td>Currency</td>
+           <td>Payment Status</td>
+           <td>Date</td>
+           <td>Time</td>
+           
 	   </tr>
 		 <?php
 			$stmt = $dbh->prepare("SELECT * FROM product");
@@ -125,10 +132,14 @@ include "../includes/sessions.php";
 				while ($row = $stmt->fetch()) {
 			?>
 			  <tr class="success">
-				<td><?php echo $row['name'] ?></td>
-				<td>
-					<strong> $<?php echo $row['price'] ?></strong>
-				</td>
+				<td><?php echo $row['payment_id'] ?></td>
+				<td><?php echo $row['item_name'] ?></td>
+                  <td><?php echo $row['txn_id'] ?></td>
+                  <td><?php echo $row['payment_gross'] ?></td>
+                  <td><?php echo $row['currency'] ?></td>
+                  <td><?php echo $row['payment_status'] ?></td>
+                  <td><?php echo $row['date'] ?></td>
+                  <td><?php echo $row['time'] ?></td>
 			  </tr>
 			<?php
 				}
