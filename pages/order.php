@@ -130,6 +130,7 @@ if(isset($_POST['shopping'])){
                     <th>Name</th>
                     <th>Quantity</th>
                     <th>Price</th>
+					<th></th>
                 </tr>
             </thead>
             <tbody>
@@ -143,6 +144,10 @@ if(isset($_POST['shopping'])){
                     <td><strong><?php echo $row['name'] ?></strong></td>
                     <td width="80"><?php echo $row['amount_quantity'] ?></td>
                     <td width="80"><?php echo $row['amount_price'] ?></td>
+					<td width="80">
+					<button type="button" class="close" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button></td>
                 </tr>
                 <?php
                   }

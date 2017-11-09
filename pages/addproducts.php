@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="../styles/test.css">
     <link rel="stylesheet" type="text/css" href="../styles/products.css">
     <link rel="stylesheet" type="text/css" href="../styles/footer.css">
+	<link rel="stylesheet" type="text/css" href="../styles/buttons.css"/>
     <link rel="stylesheet" href="style.css">
 	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png">
 

@@ -8,12 +8,15 @@
     <meta name="author" content="Selena Yap"/>
     
 	<title>Deallo Craft House - Edit Password</title>
-	<!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="../styles/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="../styles/bootstrap/bootstrap.css.min">
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet=" href="styles/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	
 	<!--Custom CSS-->
     <link href="../styles/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="../styles/test.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+	<link rel="stylesheet" href="../styles/buttons.css">
     <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/> 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
@@ -27,51 +30,7 @@
 </head>
     
 <body data-ng-app="">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-         
-            <li class="nav-item active">
-              <a class="nav-link" href="../index.php">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-
-            <?php  if (isset($_SESSION['username'])) : ?>
-            <!-- <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p> -->
-           <!--  <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p> -->
-         
-             <li class="nav-item">
-               <a class="nav-link" href="../index.php?logout='1'" style="color: red;">Sign out</a>
-             </li>
-             <li class="nav-item">
-               <a class="nav-link" href="pages/profile.php">Edit Profile</a>
-             </li>
-
-             <?php endif ?>
-            <li class="nav-item">
-              <a class="nav-link" href="products.php">Products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Shopping Cart</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    
+<?php include "../templates/navbar.php" ?>
     <div class="container-fluid">
         <br/><br/>
         
@@ -81,7 +40,7 @@
             
         <div class="col-lg-4 col-md-4 col-sm-4">
             <img src="../images/editPasswordIcon.png" class="col-lg-6 col-md-6 col-sm-6" alt="editPasswordIcon"/>
-            <h1 id="dangTagline" class="col-lg-6 col-md-6 col-sm-6" align="center">EDIT PASSWORD</h1>
+            <h2 id="dangTagline" class="col-lg-6 col-md-6 col-sm-6" align="center">EDIT PASSWORD</h2>
         </div>
         
         
@@ -166,6 +125,7 @@
         ?>
         </div>
     </div>
+	<?php include "../templates/footer.php" ?>
 </body>
 
     <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 

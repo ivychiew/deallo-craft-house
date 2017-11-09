@@ -1,10 +1,10 @@
-<?php include 'includes/sessions.php' ?>
-<?php include 'includes/products_delete.php' ?>
+<?php include '../includes/sessions.php' ?>
+<?php include '../includes/products_delete.php' ?>
 
 <?php
 	
     	//Fetch the data from the database
-    	$stmt = $DB_con->prepare('SELECT productID, productName, productPrice, productPic, productDescription FROM product_tbl ORDER BY productID DESC');
+    	$stmt = $dbnm->prepare('SELECT productID, productName, productPrice, productPic, productDescription FROM product_tbl ORDER BY productID DESC');
     	$stmt->execute();
     	
     	// //If the number of products is more than 0 

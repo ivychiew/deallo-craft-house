@@ -36,7 +36,7 @@
 
 	<div class="row">
         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 coverImage">
-            <img src="../../images/cover-art/weddingCover.png" alt="Bedding decor cover art" height="100%" class="img-responsive" width="100%"/>
+            <img src="../../images/cover-art/jewelryCover.png" alt="Bedding decor cover art" height="100%" class="img-responsive" width="100%"/>
         </div>
     </div>
 	<hr/>
@@ -52,7 +52,7 @@
 			<a href="clothingAcc.php" class="list-group-item">Clothing &amp; Accessories</a>
 			<a href="jewelry.php" class="list-group-item">Jewelry</a>
 			<a href="craftSupplies.php" class="list-group-item">Craft Supplies</a>
-			<a href="#" class="list-group-item">Bedding &amp; Room Decor</a>
+			<a href="bedding.php" class="list-group-item">Bedding &amp; Room Decor</a>
 			<a href="softToys.php" class="list-group-item">Soft Toys</a>
 			<a href="vintage.php" class="list-group-item">Vintage Art</a>
 			<a href="wedding.php" class="list-group-item">Wedding Accessories</a>

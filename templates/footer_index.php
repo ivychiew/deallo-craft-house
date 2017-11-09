@@ -22,7 +22,7 @@
 			<li><strong>Sell</strong></li>
 			<br>
 			<li><a href="pages/addproducts.php">Sell on Deallo</a></li>
-			<li>Team</li>
+			<li><a href="pages/aboutUs.php">Team</a></li>
 			<li><a href="pages/customer-supp.php">Customer Support</a></li>
 		</ul>
 	</div>
