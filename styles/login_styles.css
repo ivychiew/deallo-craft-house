@@ -42,13 +42,10 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover;
     overflow-x:hidden;
-<<<<<<< HEAD
+
   	overflow-y:hidden;
 	
-=======
->>>>>>> 790e390686d01f713492d12b00fd42febd769130
 }
-
 *[hidden]{
 	display:none;
 }
@@ -170,3 +167,8 @@ form, .content {
     from { opacity: 0; }
     to   { opacity: 1; }
 }​
+
+.navbar-form button{
+	padding-bottom: 5px;
+
+}

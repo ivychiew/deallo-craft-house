@@ -38,18 +38,17 @@
 	</div>
 
 <div class="col-md-3"> 
-		<!-- <strong><p>Shop</p></strong> -->
-		<ul> 
-			<li><strong>Questions?</strong></li>
-			<br>
-			<div class="footer-right">
-			<form action="#" method="post">
-				<input type="text" name="email" placeholder="Email" />
-				<textarea name="message" placeholder="Message"></textarea>
-				<button class="btn btn-default"> Submit </button>
-			</form>
-			</div>
-		</ul>
+		<h5><strong>Newsletter</strong></h5>
+                
+                <p>Subscribe to our weekly Newsletter and stay tuned.</p>
+                
+                <form action="" method="post">
+                    <div class="input-prepend"><span class="add-on"><i class="icon-envelope"></i></span>
+                        <input type="text" id="" name="" placeholder="your@email.com" class="form-control" style="width:200px;">
+                    </div>
+                    <br />
+                    <input type="submit" class="btn btn-info" value="Subscribe Now!" />
+              </form>
 	</div>
 
 </div>

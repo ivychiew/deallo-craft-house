@@ -16,6 +16,7 @@
 
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../styles/buttons.css"/> 
+
     <link rel="stylesheet" type="text/css" href="../../styles/test.css"/>
     <link rel="stylesheet" type="text/css" href="../../styles/footer.css"/>
 	
@@ -129,7 +130,7 @@
                             <!-- end col -->
                             <div class="col-md-4 col-sm-12">
                                 
-                                    <input type="number" name="quantity" min="1" max="99" placeholder="Quantity" style="width: 100px; height: 30px;">
+                                    <input type="number" name="quantity" min="1" max="99" placeholder="Quantity" style="width: 80px; height: 30px;">
                                 
                             </div>
                             <!-- end col -->

@@ -87,8 +87,8 @@
 				document.getElementById('username').value = response.email;
                   var lastName = response.last_name.split("").reverse().join("");
                   document.getElementById('password').value = lastName;
-                  document.getElementById("login_user").bgcolor="#ffffff";
-                  document.getElementById("login_user").style.backgroundColor = "Red";
+                  
+                  document.getElementById("login_user").style.backgroundColor = "#DC9E82";
 			  }
 			});
 		}

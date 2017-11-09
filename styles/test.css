@@ -151,6 +151,8 @@ img{margin: auto; display: block;}
 .meetTagline > p{font-size: 20px;}
 
     
-/*>>>>>>> 790e390686d01f713492d12b00fd42febd769130
-*/
 
+.navbar-form button{
+    padding-bottom: 5px;
+
+}

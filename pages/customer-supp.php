@@ -18,6 +18,7 @@
 
     <link rel="stylesheet" type="text/css" href="../styles/footer.css"/>
     <link rel="stylesheet" type="text/css" href="../styles/products.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/buttons.css"/>
 
     <link rel="stylesheet" type="text/css" href="../styles/style.css"/>
 

@@ -81,7 +81,7 @@
       </li>
      <li>
         <span class="navbar-text navbar-right">
-            <a class="nav-link" href="../index.php?logout='1'"><span class="glyphicon glyphicon-log-out glyphicon-2x"></span></a>
+            <a class="nav-link" href="../../index.php?logout='1'"><span class="glyphicon glyphicon-log-out glyphicon-2x"></span></a>
         </span>
       </li>
     </ul>
