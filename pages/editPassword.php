@@ -111,7 +111,7 @@
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "deallo";
+        $dbname = "deallo_udb";
         $sql = null;
 
         // Create connection

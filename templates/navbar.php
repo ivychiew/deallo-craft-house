@@ -15,7 +15,7 @@
   <ul>
     <!--Search-->
     <div class="col-sm-3 col-md-3">
-      <form class="navbar-form" role="search" method="GET" action="pages/searchpage.php">
+      <form class="navbar-form" role="search" method="GET" action="searchpage.php">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search here!" name="searchTerm" id="searchTerm" />
         <div class="input-group-btn">

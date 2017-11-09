@@ -137,7 +137,7 @@
 		
 		<div class="row"> 
 			<div class="col-md-12">
-				<input type="text" name="password" ID="password" placeholder="password" />
+				<input type="password" name="password" ID="password" placeholder="password" />
 			</div>
 		</div>
 		<div class="row"> 

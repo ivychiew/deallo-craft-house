@@ -100,7 +100,7 @@
 			  <?php
 			  
 				  //Fetch the data from the database
-				  $stmt = $dbh->prepare('SELECT * FROM product WHERE category= "Bedding & Room Decor" LIMIT 4 OFFSET 0');
+				  $stmt = $dbh->prepare('SELECT * FROM product WHERE category= "Soft Toys" LIMIT 4 OFFSET 0');
 				  $stmt->execute();
 				  
 				  //If the number of products is more than 0 

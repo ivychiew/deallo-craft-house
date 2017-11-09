@@ -82,12 +82,12 @@
       <br/>
               <div class="well well-lg">
                   <!--Print out product picture -->
-                 <img src="../images/product_images/<?php echo $row['productPic']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+                 <img src="../images/product_images/<?php echo $row['image']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
 
                 <!--Print out product name -->
                 <div class="card-body">
                   <h3 class="card-title">
-                    <a href="pages/products.php"><?php echo $name ?></a>
+                    <a href="products.php"><?php echo $name ?></a>
                   </h3>
                   <!--Print out product price -->
                   <h4 class="product-price">
