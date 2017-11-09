@@ -119,21 +119,22 @@
             
              <!--Paypal's checkout code -->
             <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" align="right">
-                <input type="hidden" name="cmd" value="_xclick"/>
-                <input type="hidden" name="business" value="MKUYB7ST4F7SC/">
-                <input type="hidden" name="lc" value="MY"/>
-                <input type="hidden" name="item_name" value="Your Amount of Payment"/>
-                <input type="hidden" name="button_subtype" value="services"/>
-                <input type="hidden" name="no_note" value="0"/>
-                <input type="hidden" name="cn" value="Add special instructions to the seller:"/>
-                <input type="hidden" name="no_shipping" value="2"/>
-                <input type="hidden" name="cancel_return" value="http://www.localhost/deallo-craft-house/index.php"/>
-                <input type="hidden" name="currency_code" value="MYR"/>
-                <input type="hidden" name="tax_rate" value="4.000"/>
+                <input type="hidden" name="cmd" value="_xclick">
+                <input type="hidden" name="business" value="deallo.seller@domain.com">
+                <input type="hidden" name="lc" value="MY">
+                <input type="hidden" name="item_name" value="Your Amount of Payment">
+                <input type="hidden" name="button_subtype" value="services">
+                <input type="hidden" name="no_note" value="0">
+                <input type="hidden" name="cn" value="Add special instructions to the seller:">
+                <input type="hidden" name="no_shipping" value="2">
+                <input type="hidden" name="rm" value="1">
+                <input type="hidden" name="return" value="http://www.localhost/deallo-craft-house/pages/successpay.php">
+                <input type="hidden" name="currency_code" value="MYR">
+                <input type="hidden" name="tax_rate" value="4.000">
                 <input type="hidden" name="amount" value="<?php echo $row2['ap2']*0.99 ?>"/>
-                <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_SM.gif:NonHosted"/>
-                <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynow_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"/>
-                <img alt="" border="0"  alt="pixel icon" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"/>
+                <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
+                <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
             </form>
         </div>
     </div>
