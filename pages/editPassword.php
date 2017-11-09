@@ -29,7 +29,7 @@
     <![endif]--> 
 </head>
     
-<body data-ng-app="">
+<body>
 <?php include "../templates/navbar.php" ?>
     <div class="container-fluid">
         <br/><br/>
@@ -38,7 +38,7 @@
         <div class="col-lg-2 col-md-2 col-sm-2"></div>
             
             
-        <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
             <img src="../images/editPasswordIcon.png" class="col-lg-6 col-md-6 col-sm-6" alt="editPasswordIcon"/>
             <h2 id="dangTagline" class="col-lg-6 col-md-6 col-sm-6" align="center">EDIT PASSWORD</h2>
         </div>

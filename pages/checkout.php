@@ -104,7 +104,7 @@ if(isset($_POST['shopping'])){
               </ul>
       </li>
       <li>
-        <span class="navbar-text navbar-right"><span class="glyphicon glyphicon-shopping-cart glyphicon-2x my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></></span>
+        <span class="navbar-text navbar-right"><span class="glyphicon glyphicon-shopping-cart glyphicon-2x my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span></span>
       </li>
     </ul>
   </div>
@@ -159,7 +159,7 @@ if(isset($_POST['shopping'])){
                
             </tfoot>
         </table>
-        <p class="text-right"><a href="products.php" class="btn btn-default">Back to homepage</a>&nbsp &nbsp<a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YF6K3N6XZZ5XE" class="btn btn-warning">Checkout</a> </p>
+        <p class="text-right"><a href="products.php" class="btn btn-default">Back to homepage</a>&nbsp; &nbsp;<a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YF6K3N6XZZ5XE" class="btn btn-warning">Checkout</a> </p>
 
     </div>
 

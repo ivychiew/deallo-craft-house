@@ -11,8 +11,6 @@
 
     <title>Deallo Craft House - Add new product</title>
 
-  <!--Nav and Footer Stylesheet--> 
-
 	<!-- Latest compiled and minified CSS -->
     <link rel="stylesheet=" href="../styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -39,13 +37,11 @@
 <?php include '../templates/navbar.php' ?>
 <div class="container" style="padding-bottom: 20px; ">
 
-
   <div class="page-header">
-  <br>
+  <br/>
       <h1 class="h2">Add a New Product. <a class="btn btn-default" href="products.php"> <span class="glyphicon glyphicon-eye-open"></span> &nbsp; View All </a></h1>
       
     </div>
-    
 
   <?php
   if(isset($errMSG)){
@@ -115,11 +111,10 @@
     
 </form>
 
-
 </div>
     <!-- Latest compiled and minified JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="jquery-1.11.3-jquery.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 
 </body>
 <?php include '../templates/footer.php' ?>

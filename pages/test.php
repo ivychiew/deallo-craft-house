@@ -1,10 +1,11 @@
 <?php
-include "config.php";
-include "../includes/sessions.php";
-include "../includes/product_config.php";
-$angka = substr(uniqid(rand(), true), 7, 7);
-$order = preg_replace("/[^0-9]/", "",$angka);
+    include "config.php";
+    include "../includes/sessions.php";
+    include "../includes/product_config.php";
+    $angka = substr(uniqid(rand(), true), 7, 7);
+    $order = preg_replace("/[^0-9]/", "",$angka);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -28,20 +28,7 @@ $order = preg_replace("/[^0-9]/", "",$angka);
     <link rel="stylesheet" href="../styles/product_modal.css">
     <link rel="stylesheet" href="../styles/products_styles.css">
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-   <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
-  
-    <style>
-        .badge-notify{
-            background:red;
-            position:relative;
-            top: -15px;
-            right: 1px;
-        }
-        .my-cart-icon-affix {
-            position: fixed;
-            z-index: 999;
-        }
-    </style>
+    <link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
     elements and media queries --> 
@@ -61,7 +48,7 @@ $order = preg_replace("/[^0-9]/", "",$angka);
  <div class="container-fluid">
  <div class="row">
          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         <br>
+         <br/>
            <img src="../images/cover-art/meetCover.jpg" class="img-responsive"/>
         </div>
         <!--end of column-->
@@ -69,7 +56,7 @@ $order = preg_replace("/[^0-9]/", "",$angka);
 
   <div class="row" style="padding-right: 15px;">
     <div class="col-lg-3 col-md-3">
-    <br>
+    <br/>
     <div class="category">
 
       <h3 align="center">Shop By Category</h3>
@@ -102,7 +89,7 @@ $order = preg_replace("/[^0-9]/", "",$angka);
       
     
   </div>
-  <br>
+  <br/>
    <div class="row" id="products" >
      <?php
         $stmt = $dbh->prepare("SELECT * FROM product");
@@ -143,7 +130,7 @@ $order = preg_replace("/[^0-9]/", "",$angka);
                        <div class="well">
                        <h5><?php echo $row['summary'] ?></h5>
                        </div>
-                       <br>
+                       <br/>
                        
                           
                         <div class="row">

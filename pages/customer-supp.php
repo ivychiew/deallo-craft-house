@@ -35,18 +35,13 @@
     
 </head>
 
-<body class="data-ng-app">
-<!-- Navigation -->
+<body>
 
 <?php include '../templates/navbar.php' ?>
-<!--End of Nav Bar-->
-
-
- 
 
 <div class="container"> 
   <div class="row"> 
-    <div class="col-md-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	     <div class="header">
         <h1>Customer Support</h1>
 		      <h5> Welcome to the Customer Support Page. Please tell us your problem and we will reply 
@@ -56,21 +51,8 @@
   </div>
 
   <div class="row"> 
-    <div class="col-md-12">
-	
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-   <!--  	<form method="GET" class="form form-horizontal" action="./report.php">
-    		<div>
-    			<label class="control-label">Comment/Inquiry:</label>
-    			<textarea name="comment" rows="5" cols="40" class="form-control"></textarea>
-    		</div>
-    		<br/>
-    		
-    		<div>
-                <button type="submit" name="submit" class="btn btn-success" a href="customer-supp2.php">Submit</button>
-    		</div>
-    	</form> -->
-    	
 	<form method="GET" class="form form-horizontal" action="customerSupportAction.php">
 		<div>
 			<label class="control-label">Comment/Inquiry:</label>
@@ -89,34 +71,33 @@
     <br/>
 	
   <div class="row"> 
-  <div class="col-md-12"> 
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
 	
-		<h2>Frequent Asked Questions (FAQ)</h2>
-        <br/>
+    <h2>Frequent Asked Questions (FAQ)</h2>
+    <br/>
 		
     <ol type="1">
-			<li>How to purchase products</li>
-				
-				
-			<li>How to avoid from buying the wrong products which you did not expect</li>
-				<p>Always double check your shopping basket before checking out to payment.</p>
-			
-			<li>How to deal safely on Deallo</li>
-				<p>You can always contact the seller or check on the reviews given by other customers before adding the products
-				into your basket.</p>
-			
-			<li>Which payment should I choose?</li>
-				<p>Paypal is highly recommended as it provides safe and secure transaction process for your payment.</p>
-			
-			<li>Getting Scammed?</li>
-				<p>You may submit a report regarding the scammer or call our 24/7 hotline, 03-8888 9999 for help.</p>
+        <li>How to purchase products</li>
+
+
+        <li>How to avoid from buying the wrong products which you did not expect</li>
+            <p>Always double check your shopping basket before checking out to payment.</p>
+
+        <li>How to deal safely on Deallo</li>
+            <p>You can always contact the seller or check on the reviews given by other customers before adding the products
+            into your basket.</p>
+
+        <li>Which payment should I choose?</li>
+            <p>Paypal is highly recommended as it provides safe and secure transaction process for your payment.</p>
+
+        <li>Getting Scammed?</li>
+            <p>You may submit a report regarding the scammer or call our 24/7 hotline, 03-8888 9999 for help.</p>
     </ol>
 
-      <br/>
-      
-    <h2>HAPPY SHOPPING</h2>   
-    
     <br/>
+    <h2>HAPPY SHOPPING</h2>   
+    <br/>
+      
   </div>
 </div>
 </div>
@@ -134,11 +115,10 @@
     <script src="../js/angular-route.min.js"></script>
     <!-- App Script --> 
     <script src="../js/dealloApp.js"></script>
-	
+	 
+    <?php include '../templates/footer.php' ?>
 </body>
 
-
- <?php include '../templates/footer.php' ?>
 
 
 </html>

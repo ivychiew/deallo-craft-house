@@ -80,15 +80,14 @@
 			console.log('Welcome to Deallo! Fetching your information.... ');
 			FB.api('/me?fields=name,email,last_name', function(response) {
 			  if(response && !response.error){
-				console.log(response);
-                  console.log('Lastname: ' + response.last_name); 
-				console.log('Successful login for: ' + response.name);  
-				buildProfile(response);
-				document.getElementById('username').value = response.email;
-                  var lastName = response.last_name.split("").reverse().join("");
-                  document.getElementById('password').value = lastName;
-                  
-                  document.getElementById("login_user").style.backgroundColor = "#DC9E82";
+                console.log(response);
+                console.log('Lastname: ' + response.last_name); 
+                console.log('Successful login for: ' + response.name);  
+                buildProfile(response);
+                document.getElementById('username').value = response.email;
+                var lastName = response.last_name.split("").reverse().join("");
+                document.getElementById('password').value = lastName;
+                document.getElementById("login_user").style.backgroundColor = "#DC9E82";
 			  }
 			});
 		}
@@ -96,7 +95,6 @@
 		function setElements(isLoggedIn){
 			if(isLoggedIn){
 				document.getElementById('profile').style.display='block';
-				
 			}else{
 				document.getElementById('profile').style.display='none';
                 document.getElementById('loginOffer').style.display='block';
@@ -112,7 +110,6 @@
 			`;
 		
 		document.getElementById('profile').innerHTML=profile;
-		console.log(user.name);
 	} 
 	</script>
 	<!--END Facebook SDK for Javascript-->

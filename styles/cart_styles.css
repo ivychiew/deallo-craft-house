@@ -10,4 +10,15 @@
             position: fixed;
             z-index: 999;
         }
-    </style>
+
+        .badge-notify{
+            background:red;
+            position:relative;
+            top: -15px;
+            right: 1px;
+        }
+        .my-cart-icon-affix {
+            position: fixed;
+            z-index: 999;
+        }
+</style>

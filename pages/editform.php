@@ -82,27 +82,28 @@
 			<tr>
 				<td><label class="control-label">Select Category</label></td>
 				<td>
-				<select name="product_category" value="<?php echo $category ?>"/>
-				<option>...</option>
-				<option>Clothing & Accessories</option>
-				<option>Jewelry</option>
-				<option>Craft Supplies</option>
-				<option>Bedding & Room Decor</option>
-				<option>Soft Toys</option>
-				<option>Vintage Art</option>
-				<option>Wedding Accessories</option>
+				<select name="product_category" value="<?php echo $category ?>">
+                    <option>...</option>
+                    <option>Clothing &amp; Accessories</option>
+                    <option>Jewelry</option>
+                    <option>Craft Supplies</option>
+                    <option>Bedding &amp; Room Decor</option>
+                    <option>Soft Toys</option>
+                    <option>Vintage Art</option>
+                    <option>Wedding Accessories</option>
 				</select>
 				
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2"><button type="submit" name="btn_save_updates" class="btn btn-default">
-				<span class="glyphicon glyphicon-save"></span> Update
-				</button>
-				
-				<a class="btn btn-default" href="products.php"> <span class="glyphicon glyphicon-backward"></span> cancel </a>
-				
-				</td>
+                <td colspan="2">
+                    <button type="submit" name="btn_save_updates" class="btn btn-default">
+                    <span class="glyphicon glyphicon-save"></span> Update
+                    </button>
+
+                    <a class="btn btn-default" href="products.php"> <span class="glyphicon glyphicon-backward"></span> Cancel </a>
+
+                </td>
 			</tr>
 		
 		</table>

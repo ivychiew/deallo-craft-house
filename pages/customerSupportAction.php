@@ -15,8 +15,14 @@
 		$username = mysqli_real_escape_string($dbi, $_SESSION['username']);
 		$comment = mysqli_real_escape_string($dbi, $_GET['comment']);
 
-	if (empty($comment)) { array_push($errors, "Comment is required"); }
-	if (empty($username)) { array_push($errors, "Username is required");}
+    //If comment field is empty, show error
+	if (empty($comment)) { 
+        array_push($errors, "Comment is required"); 
+    }
+    //If username field in session is empty, show error
+	if (empty($username)) { 
+        array_push($errors, "Username is required");
+    }
 
 	if (count($errors) == 0){
         

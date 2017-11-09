@@ -82,7 +82,7 @@
 			</div><!-- /.modal-body --> 
 
 			<div class="modal-footer">
-				button type="button" class="btn btn-default" onclick="closeModal()">Close</button>
+				<button type="button" class="btn btn-default" onclick="closeModal()">Close</button>
 				<button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart</button>
 			</div>
 		</div>

@@ -32,98 +32,91 @@
 
 <body>
 	
-<?php include '../templates/navbar.php' ?>
-    
-<div class="container-fluid">
-    
-    <?php
-	
-        $searchTerm = '';
-        $searchTerm = $_GET['searchTerm'];
+    <?php include '../templates/navbar.php' ?>
 
-        //If not set
-		if(empty($searchTerm) || $searchTerm === NULL)
-		{	
-            echo "Search bar is empty. Please key in a keyword."; 
-		}
-		else
-		{
-            //Connect to database
-            $conn = mysqli_connect("localhost", "root", "", "deallo_udb");
-            if(mysqli_connect_errno())
-            {
-                echo "Failed to connect";
+    <div class="container-fluid">
+
+        <?php
+
+            $searchTerm = '';
+            $searchTerm = $_GET['searchTerm'];
+
+            //If not set
+            if(empty($searchTerm) || $searchTerm === NULL)
+            {	
+                echo "Search bar is empty. Please key in a keyword."; 
             }
             else
             {
-                $query = mysqli_query($conn, "SELECT * FROM product WHERE name LIKE '%$searchTerm%'") or die(mysqli_error());
-                $numrows = mysqli_num_rows($query);
-		
+                //Connect to database
+                $conn = mysqli_connect("localhost", "root", "", "deallo_udb");
+                if(mysqli_connect_errno())
+                {
+                    echo "Failed to connect";
+                }
+                else
+                {
+                    $query = mysqli_query($conn, "SELECT * FROM product WHERE name LIKE '%$searchTerm%'") or die(mysqli_error());
+                    $numrows = mysqli_num_rows($query);
+
+                }
+            if($numrows == 0)
+            {
+                echo "<h3 class='text-center'>We were unable to find results for " . $searchTerm . "</h3>";
             }
-		if($numrows == 0)
-		{
-			echo "<h3 class='text-center'>We were unable to find results for " . $searchTerm . "</h3>";
-		}
-		else
-		{	
-            echo "<h2>Search Results for: " . $searchTerm . "</h2>";
-            echo "<hr/>";
-            while($row = mysqli_fetch_array($query))
-			{
-				$category = $row['category'];
-				$name = $row['name'];
-				$picture = $row['image'];
-				$price = $row['price'];
-                $productOwner = $row['product_owner'];
-                
-           ?>     
+            else
+            {	
+                echo "<h2>Search Results for: " . $searchTerm . "</h2>";
+                echo "<hr/>";
+                while($row = mysqli_fetch_array($query))
+                {
+                    $category = $row['category'];
+                    $name = $row['name'];
+                    $picture = $row['image'];
+                    $price = $row['price'];
+                    $productOwner = $row['product_owner'];
 
-    <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12 mb-4">
-      <br/>
-              <div class="well well-lg">
-                  <!--Print out product picture -->
-                 <img src="../images/product_images/<?php echo $row['image']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+               ?>     
 
-                <!--Print out product name -->
-                <div class="card-body">
-                  <h3 class="card-title">
-                    <a href="products.php"><?php echo $name ?></a>
-                  </h3>
-                  <!--Print out product price -->
-                  <h4 class="product-price">
-                      <?php echo "RM $price  &nbsp &nbsp"; ?>
-                  </h4>
-                  <hr/>
-                  <!--Print out product owner -->
-                  <h4 class="product-owner">
-                      <?php echo "$productOwner &nbsp"; ?>
-                  </h4>
+        <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12 mb-4">
+          <br/>
+                  <div class="well well-lg">
+                      <!--Print out product picture -->
+                     <img src="../images/product_images/<?php echo $row['image']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
+
+                    <!--Print out product name -->
+                    <div class="card-body">
+                      <h3 class="card-title">
+                        <a href="products.php"><?php echo $name ?></a>
+                      </h3>
+                      <!--Print out product price -->
+                      <h4 class="product-price">
+                          <?php echo "RM $price  &nbsp &nbsp"; ?>
+                      </h4>
+                      <hr/>
+                      <!--Print out product owner -->
+                      <h4 class="product-owner">
+                          <?php echo "$productOwner &nbsp"; ?>
+                      </h4>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
-    <?php
-			}
-		}
-            
-		//Disconnect to database
-		
-        mysqli_close($conn);
-		}
-	?>
-</div>
+        <?php
+                }
+            }
+
+            //Disconnect to database
+            mysqli_close($conn);
+            }
+        ?>
+    </div>
     
-    <!-- Footer -->
-    <footer>
-      <div class="container-fluid">
-        <p class="m-0 text-center">Copyright &copy; Deallo's Craft House</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-
-
+    <?php include '../templates/footer.php' ?>	
 	
-    <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
+</body>
+    
+        <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
     <script src="../js/jquery.min.js"></script> 
     <!-- All Bootstrap  plug-ins  file --> 
     <script src="../js/bootstrap.min.js"></script> 
@@ -133,7 +126,5 @@
     <script src="../js/angular-route.min.js"></script>
     <!-- App Script --> 
     <script src="../js/dealloApp.js"></script>
-	
-</body>
 
 </html>
