@@ -7,12 +7,13 @@
 This project was built With: 
 PHP | MySQL 
 
-1.User Login & Registration
-2.Shopping Cart 
-3.Paypal Transaction 
-4.Adding your own items for sell 
-5.Search 
-6.Edit profile and Password 
+       -User Login & Registration
+       -Shopping Cart
+       -Paypal Transaction
+       -Adding your own items for sale as user
+       -Search
+       -Edit profile and password
+
 
 Deallo Craft House is a project created for SWE30010: Development Project 2. This project aims to create a workable e-commerce platform for handcrafters to buy and sell products with the help of online transactions and delivery. The development of this project uses PHP and MySQL. To provide convenience and ease of communication, all updates must be accompanied with a message on the progress done. 
 
