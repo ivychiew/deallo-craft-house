@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2017 at 02:27 AM
+-- Generation Time: Nov 10, 2017 at 07:28 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -21,6 +21,23 @@ SET time_zone = "+00:00";
 --
 -- Database: `deallo_udb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payments`
+--
+
+CREATE TABLE `payments` (
+  `payment_id` int(11) NOT NULL,
+  `item_number` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `txn_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `payment_gross` float(10,2) NOT NULL,
+  `payment_status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `currency` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -59,7 +76,8 @@ INSERT INTO `product` (`id`, `name`, `summary`, `price`, `quantity`, `image`, `p
 (78, 'Yeti\'s Pup', 'Soft Spoken Shy Haunted Doll', 35, '1', '163070.jpg', 'beefybeef', 'Soft Toys'),
 (79, 'Haunted Toy', 'Haunted Shrimp: Not for the faint of heart! This toy places the soul of a dead shrimp that eats people that are smaller than him. CAUTION! PLEASE HELP ME BUY IT', 0.1, '1', '979794.jpg', 'beefybeef', 'Soft Toys'),
 (80, 'Short Flower Crown', 'Simple Short Flower Crown For Weddings', 99, '1', '835522.jpg', 'beefybeef', 'Wedding Accessories'),
-(81, 'Long Flower Crown', 'Long Flower Crown For Long People', 99, '1', '20410.jpg', 'beefybeef', 'Wedding Accessories');
+(81, 'Long Flower Crown', 'Long Flower Crown For Long People', 99, '1', '20410.jpg', 'beefybeef', 'Wedding Accessories'),
+(82, 'Vintage Bedding', 'Vintage Bedding that comes in Queen Sizes with Quilt, Two Pillow Covers and One Bolster Cover', 100, '1', '255395.jpg', 'beefybeef', 'Bedding & Room Decor');
 
 -- --------------------------------------------------------
 
@@ -104,9 +122,7 @@ CREATE TABLE `shopping` (
 --
 
 INSERT INTO `shopping` (`id_user`, `id`, `amount_quantity`, `amount_price`, `order_number`) VALUES
-(1, 62, '1', 30, 750309),
-(1, 63, '1', 40, 769503),
-(1, 64, '3', 45, 750309);
+(1, 77, '1', 29, 645503);
 
 -- --------------------------------------------------------
 
@@ -142,6 +158,12 @@ INSERT INTO `user` (`id_user`, `username`, `email`, `password`, `surname`, `colo
 --
 
 --
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`payment_id`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -171,10 +193,15 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 --
 -- AUTO_INCREMENT for table `questions`
 --
