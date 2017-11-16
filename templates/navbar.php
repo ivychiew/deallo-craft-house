@@ -64,6 +64,7 @@
                 <li class="divider"></li>
                 <li class="dropdown-header">Questions?</li>
                 <li><a href="customer-supp.php">Customer Support</a></li>
+                  <li><a href="transactionHistory.php">Transaction History</a></li>
                  <li class="divider"></li>
                 <li><a class="nav-link" href="index.php?logout='1'">Sign Out</a></li>
                 
