@@ -8,14 +8,19 @@ This project was built With:
 PHP | MySQL 
 
        -User Login & Registration
-       -Shopping Cart
+       -Shopping Basket
+	   -Browse product by categories
        -Paypal Transaction
        -Adding your own items for sale as user
-       -Search
-       -Edit profile and password
+       -Search feature
+       -Edit profile, password and details
+	   -Submit comments/questions to Adminstrators
 
+# Copyright
+This website is created mainly for educational and non-commercial use only. Deallo Craft House is a project created as a partial fulfilment for completion of unit SWE30010: Development Project 2 offered in Swinburne University of Technology, Sarawak Campusfor Semester 2, 2017. The web-master and author(s) do not represent the business entity. The content of the pages of this web application might be out-dated or inaccurate, thus, the author(s) and web-master do not take any responsibility for incorrect information disseminate or cited from this website. If you believe that information of any kind on this website is an infringement of copyright in material in which you either own copyright or are authorized to exercise the rights of a copyright owner, kindly contact the web-master via GitHub for removal.
 
-Deallo Craft House is a project created for SWE30010: Development Project 2. This project aims to create a workable e-commerce platform for handcrafters to buy and sell products with the help of online transactions and delivery. The development of this project uses PHP and MySQL. To provide convenience and ease of communication, all updates must be accompanied with a message on the progress done. 
+# Objective and Details
+This project aims to create a workable e-commerce platform for handcrafters to buy and sell products with the help of online transactions and delivery. The development of this project uses PHP and MySQL. To provide convenience and ease of communication, all updates must be accompanied with a message on the progress done. 
 
 ## To download this respository, please follow the guidelines shown below: 
 
