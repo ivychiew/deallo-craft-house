@@ -41,10 +41,7 @@
         </div>
     </div>
 	<hr/>
-    
  
-
-    
 	<div class="row">
 	
 		<!--Category List-->
