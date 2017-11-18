@@ -89,7 +89,7 @@
         <?php
 
             //Fetch the data from the database
-            $stmt = $dbh->prepare("SELECT id, name, price, image, summary,product_owner FROM product WHERE product_owner =:owner ORDER BY id DESC");
+            $stmt = $dbh->prepare("SELECT * FROM product WHERE product_owner =:owner ORDER BY id DESC");
 
             $stmt->bindParam(":owner", $_SESSION['username']);
             $stmt->execute();
