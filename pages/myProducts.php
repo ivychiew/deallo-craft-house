@@ -41,7 +41,7 @@
       <div class="category">
         <h3 align="center">Shop By Category</h3>
         <div class="list-group categories" style="padding-left: 50px;" align >
-            <div class="category-list-group">
+            <div class="list-group">
             <a href="products/clothingAcc.php" class="list-group-item">Clothing &amp; Accessories</a>
             <a href="products/jewelry.php" class="list-group-item">Jewelry</a>
             <a href="products/craftSupplies.php" class="list-group-item">Craft Supplies</a>
@@ -72,14 +72,14 @@
     <!--end of row-->
 
       <div class="page-header">
-        <br>
+      
           <h1 class="h2">My Products
             <a class="btn btn-default" href="addproducts.php"> 
               <span class="glyphicon glyphicon-plus"></span> &nbsp; Create a new product 
             </a>
-            <a class="btn btn-default" href="editproducts.php"> 
+            <!-- <a class="btn btn-default" href="editproducts.php"> 
               <span class="glyphicon glyphicon-plus"></span> &nbsp; Edit Products
-            </a>
+            </a> -->
           </h1> 
         </div>
 

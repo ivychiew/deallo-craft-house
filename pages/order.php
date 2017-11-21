@@ -44,6 +44,8 @@
 	
 	<!--Custom CSS-->
     <link rel="stylesheet" href="../styles/test.css">
+    <link rel="stylesheet" href="../styles/buttons.css">
+    <link rel="stylesheet" href="../styles/footer.css">
 	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
@@ -112,7 +114,7 @@
                 </tr>
             </tfoot>
         </table>
-        <p class="text-right"><a href="products.php" class="btn btn-default">Back to homepage</a> <a href="?del=1" class="btn btn-danger">Remove All Items</a></p>
+        <p class="text-right"><a href="products.php" class="btn btn-default">Back to homepage</a> <a href="?del=1" class="btn btn-link">Remove All Items</a></p>
         <div class="paypal_checkout">
         <!--Vivien's checkout code -->
         <!--    <a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8GMC86G5MQXD6" class="btn btn-warning" style="width: 282px;">Checkout</a> -->
@@ -143,6 +145,7 @@
     <script src="assets/js/bootstrap.min.js"></script>
     
   </body>
+  <?php include "../templates/footer.php" ?>
 </html>
 <?php
  }   

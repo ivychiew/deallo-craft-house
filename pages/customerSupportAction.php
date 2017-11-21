@@ -1,11 +1,14 @@
 <?php
+
 	session_start();
 
 	//Variable declaration
 	$comment = ""; 
-	$username = ""; 
+	$username = "";
+
 	$errors = array(); 
 	$_SESSION['success'] = "";
+
 
 	//connect to database
 	$dbi = mysqli_connect('localhost', 'root', '' , 'deallo_udb'); 
@@ -13,8 +16,10 @@
 	if (isset($_GET['submit'])){
 		//receive all input values from the form.
 		$username = mysqli_real_escape_string($dbi, $_SESSION['username']);
+	
 		$comment = mysqli_real_escape_string($dbi, $_GET['comment']);
 
+	
     //If comment field is empty, show error
 	if (empty($comment)) { 
         array_push($errors, "Comment is required"); 
@@ -26,7 +31,7 @@
 
 	if (count($errors) == 0){
         
-		$query = "INSERT INTO questions (username,comment)
+		$query = "INSERT INTO questions (username,comment,)
 				  VALUES('$username', '$comment')";
 		mysqli_query($dbi, $query);
 

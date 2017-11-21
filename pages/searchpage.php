@@ -17,6 +17,7 @@
 
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/footer.css"/>
 	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
 	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
@@ -80,7 +81,7 @@
 
         <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12 mb-4">
           <br/>
-                  <div class="well well-lg">
+                  <div class="well">
                       <!--Print out product picture -->
                      <img src="../images/product_images/<?php echo $row['image']; ?>" align="middle" class="img-responsive mx-auto d-block" width="200px" height="200px" />
 
