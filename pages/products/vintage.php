@@ -40,10 +40,7 @@
         </div>
     </div>
 	<hr/>
-    
- 
 
-    
 	<div class="row">
 	
 		<!--Category List-->
@@ -128,14 +125,12 @@
                             </div>
                             <!-- end col -->
                             <div class="col-md-4 col-sm-12">
-                                
-                                    <input type="number" name="quantity" min="1" max="99" placeholder="Quantity" style="width: 100px; height: 30px;">
-                                
+								<input type="number" name="quantity" min="1" max="99" placeholder="Quantity" style="width: 60px; height: 30px;">
                             </div>
                             <!-- end col -->
                           </div>
                        <div class="space-ten"></div>
-                        
+                        <br/>
                     <button type="button" class="btn btn-md btn-default my-cart-btn" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-summary="<?php echo $row['summary'] ?>" data-price="<?php echo $row['price'] ?>" data-quantity="<?php echo $row['quantity'] ?>" data-image="../images/product_images/<?php echo $row['image'] ?>">Add to Cart</button> 
                     </div></div>
                   </div>

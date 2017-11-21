@@ -17,7 +17,11 @@
 
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../styles/test.css"/>
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="../styles/footer.css"/>
+=======
+	<link rel="stylesheet" type="text/css" href="../styles/buttons.css"/>
+>>>>>>> 664c4c42f28a070f400837ab1b3f1a8e127a5e20
 	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
 	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 

@@ -1,6 +1,0 @@
-deallo.buyer@domain.com
-deallo.seller@domain.com
-
-password: abcd123456
-
-redirect URL: http://www.localhost/deallo-craft-house/index.php

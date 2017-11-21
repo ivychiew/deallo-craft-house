@@ -160,6 +160,7 @@ if(!isset($_SESSION)){
 	<!--Custom CSS-->
     <link rel="stylesheet" href="../styles/test.css"/>
     <link rel="stylesheet" href="../styles/footer.css"/> 
+	<link rel="stylesheet" href="../styles/buttons.css"/> 
 	<link rel="icon" type="image/png" href="../images/DealloLogo-favicon.png"/>
    
    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 

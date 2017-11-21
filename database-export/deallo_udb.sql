@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2017 at 07:28 AM
+-- Generation Time: Nov 18, 2017 at 08:43 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -61,8 +61,8 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `summary`, `price`, `quantity`, `image`, `product_owner`, `category`) VALUES
-(62, 'Plain White Shirt', 'Men\'s white shirt in sizes S, M, L and XL', 30, '1', '296420.jpg', 'peanutbutter\r\n', 'Clothes'),
-(63, 'Sleeveless Black Dress', 'Perfect for the beach!', 40, '1', '459547.jpg\r\n', 'peanutbutter', 'Dress'),
+(62, 'Plain White Shirt', 'Men\'s white shirt in sizes S, M, L and XL', 30, '1', '296420.jpg', 'peanutbutter\r\n', 'Clothing & Accessories'),
+(63, 'Sleeveless Black Dress', 'Perfect for the beach!', 40, '1', '459547.jpg\r\n', 'peanutbutter', 'Clothing & Accessories'),
 (64, 'Silver Bead Bracelet', 'Handmade bead bracelet', 15, '1', '912317.jpg', 'gaylord', 'Jewelry'),
 (65, 'Green Hammock', 'Thick cloth mayan hammock', 50, '1', '899606.jpg', 'peanutbutter', 'Bedding & Room Decor'),
 (66, 'Chair', 'Wooden Chair', 50, '1', '201477.jpg', 'beefybeef\r\n', 'Bedding & Room Decor'),
@@ -75,9 +75,10 @@ INSERT INTO `product` (`id`, `name`, `summary`, `price`, `quantity`, `image`, `p
 (77, 'Rice Puff', 'Fluffy Rice Puff Sleepy Rice Puff', 29, '1', '972447.jpg', 'beefybeef', 'Soft Toys'),
 (78, 'Yeti\'s Pup', 'Soft Spoken Shy Haunted Doll', 35, '1', '163070.jpg', 'beefybeef', 'Soft Toys'),
 (79, 'Haunted Toy', 'Haunted Shrimp: Not for the faint of heart! This toy places the soul of a dead shrimp that eats people that are smaller than him. CAUTION! PLEASE HELP ME BUY IT', 0.1, '1', '979794.jpg', 'beefybeef', 'Soft Toys'),
-(80, 'Short Flower Crown', 'Simple Short Flower Crown For Weddings', 99, '1', '835522.jpg', 'beefybeef', 'Wedding Accessories'),
+(80, 'Short Flower Crown', 'Simple Short Flower Crown For Weddings', 99, '1', '835522.jpg', 'beefybeef', 'Vintage'),
 (81, 'Long Flower Crown', 'Long Flower Crown For Long People', 99, '1', '20410.jpg', 'beefybeef', 'Wedding Accessories'),
-(82, 'Vintage Bedding', 'Vintage Bedding that comes in Queen Sizes with Quilt, Two Pillow Covers and One Bolster Cover', 100, '1', '255395.jpg', 'beefybeef', 'Bedding & Room Decor');
+(82, 'Vintage Bedding', 'Vintage Bedding that comes in Queen Sizes with Quilt, Two Pillow Covers and One Bolster Cover', 100, '1', '255395.jpg', 'beefybeef', 'Bedding & Room Decor'),
+(83, 'Vintage Painting', 'Painted in 1970.', 600, '2', '123456.jpg', 'peanutbutter', 'Vintage');
 
 -- --------------------------------------------------------
 
@@ -96,12 +97,7 @@ CREATE TABLE `questions` (
 --
 
 INSERT INTO `questions` (`id`, `username`, `comment`) VALUES
-(1, 'peanutbutter', 'sas'),
-(2, 'peanutbutter', 'sd'),
-(3, 'peanutbutter', 'qw'),
-(4, 'peanutbutter', 'qw'),
-(5, 'peanutbutter', 'sad'),
-(6, 'beefybeef', 'im lost');
+(1, 'peanutbutter', 'I can\'t upload my profile picture. Please check, thanks.');
 
 -- --------------------------------------------------------
 
@@ -132,7 +128,7 @@ INSERT INTO `shopping` (`id_user`, `id`, `amount_quantity`, `amount_price`, `ord
 
 CREATE TABLE `user` (
   `id_user` int(2) NOT NULL,
-  `username` varchar(45) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `surname` varchar(255) NOT NULL,
@@ -149,9 +145,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `email`, `password`, `surname`, `color`, `profile_image`, `bio`, `country`, `address`, `phoneNumber`) VALUES
-(0, 'beefybeef', 'yukafalls@gmail.com', 'Ab123456', 'weihC', 'beef', '../images/adminProfile.png', '', '', '', 0),
-(1, 'peanutbutter', 'peanutbutter@mail.com', 'Ab123456', 'and', 'brown', '../images/adminProfile.png', 'made out of penut and jeluur', 'pbandj', 'acorn road 22', 192837),
-(9, 'gaylord', 'gaylord@mail.com', 'Ab123456', 'gaylord', 'rainbow', '../images/adminProfile.png', 'not gay just queer', 'canada', 'america', 1300882525);
+(0, 'beefybeef', 'yukafalls@gmail.com', 'Ab123456', 'weihC', 'purple', '../images/adminProfile.png', '', 'Malaysia', 'Jalan Lancelot Maju 43', 172231290),
+(2, 'gaylord', 'gaylord@mail.com', 'Ab123456', 'paY', 'black', '../images/adminProfile.png', 'not gay just queer', 'canada', 'america', 1300882525),
+(1, 'peanutbutter', 'peanutbutter@mail.com', 'Ab123456', 'yaT', 'brown', '../images/adminProfile.png', 'made out of penut and jeluur', 'China', 'acorn road 22', 12);
 
 --
 -- Indexes for dumped tables
@@ -173,7 +169,8 @@ ALTER TABLE `product`
 -- Indexes for table `questions`
 --
 ALTER TABLE `questions`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `users constraint` (`username`);
 
 --
 -- Indexes for table `shopping`
@@ -186,7 +183,7 @@ ALTER TABLE `shopping`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -201,7 +198,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 --
 -- AUTO_INCREMENT for table `questions`
 --
@@ -210,6 +207,12 @@ ALTER TABLE `questions`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `questions`
+--
+ALTER TABLE `questions`
+  ADD CONSTRAINT `users constraint` FOREIGN KEY (`username`) REFERENCES `user` (`username`);
 
 --
 -- Constraints for table `shopping`
